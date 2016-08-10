@@ -3,7 +3,10 @@
     <head>
         <title></title>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/angularApp.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
@@ -11,7 +14,9 @@
         <link rel="stylesheet" href="css/bootstrap-dialog.min.css" />
         <link rel="stylesheet" href="css/custom.css" />
     </head>
-    <body>
+    <body ng-app="app">
+	
+        <div id="main" ng-controller="myController" data-ng-init="load()">
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -41,35 +46,17 @@
 
         <div class="container">
             <div align="center">
-                <a href="one.html">
+                <a href="one.html" ng-repeat="folder in folders">
+				
+				<!-- -->
                     <div class="btn btn-sq-lg btn-info">
                         <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                        Company <br />Information
+				{{folder.name}}
+                        
                     </div>
                 </a>
-                <div class="btn btn-sq-lg btn-info">
-                    <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                    Brochures
-                </div>
-                <div class="btn btn-sq-lg btn-info">
-                    <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                    Presentations
-                </div>
-                <br /> <br /> <br />
-                <div class="btn btn-sq-lg btn-info">
-                    <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                    Financial
-                </div>
-                <div class="btn btn-sq-lg btn-info">
-                    <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                    Engineering
-                </div>
-                <div class="btn btn-sq-lg btn-info">
-                    <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-                    Planning
-                </div>
-                <br />
             </div>
         </div>
+		</div>
     </body>
 </html>
