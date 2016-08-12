@@ -1,0 +1,32 @@
+<!-- Modal -->
+<div class="modal fade" id="registerModal" role="dialog" ng-controller="registerFormController">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Register</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="name">Email</label> 
+					<input type="email" name="email" ng-model="email" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="description">Password</label> 
+					<input type="password" name="password" ng-model="password" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="description">Password Again</label> 
+					<input type="password" name="passwordAgain" ng-model="passwordAgain" class="form-control">
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="register()">Register</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
