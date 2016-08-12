@@ -15,10 +15,12 @@
 <link rel="stylesheet" href="css/bootstrap-dialog.min.css" />
 <link rel="stylesheet" href="css/custom.css" />
 </head>
-<body ng-controller="myController">
-	<div ng-include="'menu.html'"></div>
-	<div id="main">
-		<div ng-view></div>
+<body ng-controller="indexController">
+	<div class="container">
+		<div ng-include="'menu.html'"></div>
+		<div id="main">
+			<div ng-view></div>
+		</div>
 	</div>
 </body>
 </html>
