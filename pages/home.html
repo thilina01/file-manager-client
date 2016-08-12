@@ -1,5 +1,5 @@
 
-<div class="container" data-ng-init="load()" ng-controller="myController">
+<div data-ng-init="load()" ng-controller="homeController">
 
 	<!-- Trigger the modal with a button -->
 	<!-- 
@@ -9,11 +9,11 @@
 	<div ng-include="'pages/folder-form.html'"></div>
 
 	<div align="center">
-	{{folders}}
 		<a href="#folder" ng-repeat="folder in folders"> <!-- -->
 
-			<div class="btn btn-sq-lg btn-info">
-				<i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br /> {{folder.name}}
+			<div class="btn btn-sq btn-info">
+				<i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br/>
+				{{folder.name}}
 			</div>
 		</a>
 		
