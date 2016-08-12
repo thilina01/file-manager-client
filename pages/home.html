@@ -1,0 +1,21 @@
+
+<div class="container" data-ng-init="load()" ng-controller="myController">
+
+	<!-- Trigger the modal with a button -->
+	<!-- 
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Folder</button>
+	 -->
+	<a data-toggle="modal" href="" data-target="#myModal">Create Folder</a>
+	<div ng-include="'pages/folder-form.html'"></div>
+
+	<div align="center">
+	{{folders}}
+		<a href="#folder" ng-repeat="folder in folders"> <!-- -->
+
+			<div class="btn btn-sq-lg btn-info">
+				<i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br /> {{folder.name}}
+			</div>
+		</a>
+		
+	</div>
+</div>
