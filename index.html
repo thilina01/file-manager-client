@@ -1,62 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
+<html ng-app="app">
+<head>
+<title></title>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/angularApp.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angularApp.js"></script>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/bootstrap-dialog.min.css" />
-        <link rel="stylesheet" href="css/custom.css" />
-    </head>
-    <body ng-app="app">
-	
-        <div id="main" ng-controller="myController" data-ng-init="load()">
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span> 
-                        <span class="icon-bar"></span> 
-                        <span class="icon-bar"></span> 
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/"> 
-                        <img alt="logo" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" src="img/logo.png" />
-                    </a> 
-                    <a class="navbar-brand" href="/"> Company Name </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Register</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-            <!--/.container-fluid -->
-        </div>
-
-        <div class="container">
-            <div align="center">
-                <a href="one.html" ng-repeat="folder in folders">
-				
-				<!-- -->
-                    <div class="btn btn-sq-lg btn-info">
-                        <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br />
-				{{folder.name}}
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-		</div>
-    </body>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/bootstrap-dialog.min.css" />
+<link rel="stylesheet" href="css/custom.css" />
+</head>
+<body ng-controller="myController">
+	<div ng-include="'menu.html'"></div>
+	<div id="main">
+		<div ng-view></div>
+	</div>
+</body>
 </html>
