@@ -1,28 +1,19 @@
 
 <div data-ng-init="load()" ng-controller="homeController">
-
-    <!-- Trigger the modal with a button -->
-    <!-- 
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Folder</button>
-    -->
-    <a data-toggle="modal" href="" data-target="#myModal">Create Folder</a>
+    <h2>Document Management System</h2>
+    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">New Folder</button>
     <div ng-include="'pages/folder-form.html'"></div>
+    <br/>
 
-    <div align="center">
-        <!--<a href="#folder" ng-repeat="folder in folders"></a>  -->
-
-        <div ng-repeat="folder in folders track by $index">
-            <!--<div class="row" ng-if="$index%5==0">
+    <div class="row">
+        <div class="col-sm-2" ng-repeat="folder in folders track by $index">
+            <br/>
+            <div class="col-sm-2">
+                <div class="btn btn-sq-75 btn-info"  ng-click="setFolderId(folder.id)" >
+                    <i class="fa fa-folder-o fa-4x" aria-hidden="true"></i>
+                </div>     
+                {{folder.name}}
             </div>
-            <div class="col-sm-2"></div>-->
-            <div class="row" ng-if="$index % 5 == 0" ></div>
-            <div class="btn btn-sq btn-info col-sm-2"  ng-click="setFolderId(folder.id)" >
-                <i class="fa fa-folder-o fa-5x" aria-hidden="true"></i> <br/>
-                {{folder.name}}<br/>
-            </div>
-        </div>
-
-
-
+        </div>            
     </div>
 </div>
