@@ -1,13 +1,13 @@
 <div class="container" ng-controller="folderController" data-ng-init="load()">
     <div class="row">
-        <div class="col-sm-1"></div>
+        <!-- <div class="col-sm-1"></div> -->
         <div class="col-sm-2">
             <h4>You are in</h4>           
-            <a href="/file-manager-client">Home > </a><a ng-repeat="x in parents" ng-click="setFolderId(x.id)"><b> {{x.name}} > </b></a>
+            <a href="/file-manager-client"><i class="fa fa-home fa-2x"></i> > </a><a ng-repeat="x in parents" ng-click="setFolderId(x.id)"><b> {{x.name}} > </b></a>
             <br/><br/>
-            <div class="btn btn-sq btn-info">
-                <i class="fa fa-folder-open-o fa-5x" aria-hidden="true"></i> <br />
-                {{folder.name}}
+            <div class="btn btn-sq-75 btn-info">
+                <i class="fa fa-folder-open-o fa-4x" aria-hidden="true"></i> <br />
+                <!-- {{folder.name}} -->
             </div>
             <hr />
             <p align="justify">{{folder.description}}</p>
@@ -33,7 +33,7 @@
                     <!--<div class="col-sm-2"></div>
                     <div class="row" ng-if="$index % 5 == 0" ></div>-->
                     <div class="col-sm-2">
-                        <div class="btn btn-sq btn-info"  ng-click="setFolderId(x.id)" >
+                        <div class="btn btn-sq-75 btn-info"  ng-click="setFolderId(x.id)" >
                             <i class="fa fa-folder-o fa-3x" aria-hidden="true"></i><br/>
                             {{x.name}}
                         </div>
@@ -44,9 +44,10 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h4>Files</h4>
-                </div>
+                </div>                
                 <div class="col-sm-3">
-                    <button type="button" class="btn btn-sm btn-primary">Upload</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#fileFormModal">Upload</button>
+                    <div ng-include="'pages/file-form.html'"></div>
                 </div>
             </div>
 
@@ -62,28 +63,18 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="file in folder.files track by $index">
-                                <td><a href="#">{{file.name}}</a></td>
-                                <td>2016-05-05</td>
+                                <td><a ng-click="getFile(file.id)">{{file.name}}</a></td>
+                                <td>{{file.uploadDate| date:'yyyy-MM-dd'}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-default">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
-
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteFileModal" ng-click="setFileToDelete(file)">Delete</button>
+                                    <div ng-include="'pages/delete-file-model.html'"></div>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td><a href="#">File Two</a></td>
-                                <td>2016-07-25</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-default">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
-
-                                </td>
-                            </tr>-->
                         </tbody>
                     </table>
                 </div>
             </div>
-
+            <!-- <img ng-src="data:image/JPEG;base64,{{bytes}}"> -->
         </div>
     </div>
 </div>
