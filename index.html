@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-controller="appController">
     <head>
-        <title></title>
+        <title>{{title}}</title>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -9,20 +9,34 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
 
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
         <script type="text/javascript" src="js/angularApp.js"></script>
+        <script type="text/javascript" src="js/folderService.js"></script>     
+        <script type="text/javascript" src="js/appController.js"></script>  
+        <script type="text/javascript" src="js/homeController.js"></script>   
+        <script type="text/javascript" src="js/folderController.js"></script>              
+        <script type="text/javascript" src="js/logoutController.js"></script>  
+        <script type="text/javascript" src="js/fileFormController.js"></script> 
+        <script type="text/javascript" src="js/loginFormController.js"></script>  
+        <script type="text/javascript" src="js/deleteFileController.js"></script> 
+        <script type="text/javascript" src="js/folderFormController.js"></script>  
+        <script type="text/javascript" src="js/registerFormController.js"></script>    
 
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/bootstrap-dialog.min.css" />
+
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/custom.css" />
     </head>
-    <body ng-controller="indexController">
+    <body>
         <div class="container">
             <div ng-include="'menu.html'"></div>
+            <div class="alert alert-warning" role="alert" ng-show="errorMessage != ''">{{errorMessage}}</div>
             <div id="main">
                 <div ng-view></div>
-            </div>
+            </div>            
+            <div ng-include="'footer.html'"></div>
         </div>
     </body>
 </html>
