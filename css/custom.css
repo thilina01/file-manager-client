@@ -102,6 +102,10 @@
   width: 100px !important;
   height: 100px !important;
 }
+.btn-sq-75 {
+  width: 75px !important;
+  height: 75px !important;
+}
 
 .btn-sq i{
   font-size: 50px;
