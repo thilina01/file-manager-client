@@ -1,11 +1,11 @@
 
-app.controller('registerFormController', function ($scope, $http) {
+app.controller('registerFormController', function ($scope, $http, $rootScope,$cookies) {
     $scope.email = '';
     $scope.password = '';
     $scope.passwordAgain = '';
 
     $scope.register = function () {
-        $http.post($scope.baseURL+"/accounts/register", {
+        $http.post($scope.baseURL + "/accounts/register", {
             email: $scope.email,
             password: $scope.password,
             passwordAgain: $scope.passwordAgain
@@ -14,11 +14,19 @@ app.controller('registerFormController', function ($scope, $http) {
                 'Content-Type': 'application/json'
             }
         }).then(function (response) {
+
+            if (response.data) {
+                $rootScope.isUser = true;
+                var expireDate = new Date();
+                expireDate.setDate(expireDate.getDate() + 1);
+                // Setting a cookie
+                $cookies.put('isUser', response.data, {
+                    'expires': expireDate
+                });
+            }
             $scope.email = '';
             $scope.password = '';
             $scope.passwordAgain = '';
-            $scope.load(); // this call is important to refresh folder list in
-            // index page
             return response;
         });
     }

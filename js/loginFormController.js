@@ -1,10 +1,10 @@
 
-app.controller('loginFormController', function ($scope, $http, $cookies) {
+app.controller('loginFormController', function ($scope, $http, $rootScope,$cookies) {
     $scope.email = '';
     $scope.password = '';
 
     $scope.login = function () {
-        $http.post($scope.baseURL+"/accounts/login", {
+        $http.post($scope.baseURL + "/accounts/login", {
             email: $scope.email,
             password: $scope.password
         }, {
@@ -14,20 +14,15 @@ app.controller('loginFormController', function ($scope, $http, $cookies) {
         }).then(function (response) {
             $scope.email = '';
             $scope.password = '';
-            // $scope.load(); // this call is important to refresh folder list
-            // in index page
-
-            var expireDate = new Date();
-            expireDate.setDate(expireDate.getDate() + 1);
-            // Setting a cookie
-            $cookies.put('myCookie', response.data, {
-                'expires': expireDate
-            });
-            // Retrieving a cookie
-            $scope.user = $cookies.get('myCookie');
-            //alert(myCookie)
-
-            alert($scope.user);
+            if (response.data) {
+                $rootScope.isUser = true;
+                var expireDate = new Date();
+                expireDate.setDate(expireDate.getDate() + 1);
+                // Setting a cookie
+                $cookies.put('isUser', response.data, {
+                    'expires': expireDate
+                });
+            }
             return response;
         });
     }

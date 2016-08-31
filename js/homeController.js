@@ -9,9 +9,6 @@ app.controller('homeController', function ($scope, $http, $location, folderServi
     }
     $scope.setFolderId = function ($folderId) {
         folderService.setId($folderId);
-        //$scope.folderId = $folderId;
-        // alert();
         $location.path("/folder");
     }
-
 });
