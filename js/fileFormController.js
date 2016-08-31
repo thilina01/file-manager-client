@@ -1,5 +1,5 @@
 
-app.controller('fileFormController', function ($scope, $http, $location,$log, folderService) {
+app.controller('fileFormController', function ($scope, $location, folderService, fileService) {
 
     $scope.fileName = '';
     $scope.name = '';
@@ -32,17 +32,11 @@ app.controller('fileFormController', function ($scope, $http, $location,$log, fo
         formdata.append("data", angular.toJson(data));
         formdata.append("file", $scope.aFile);
 
-        $http.post($scope.baseURL+"/files/upload", formdata, {
-            transformRequest: angular.identity,
-            headers: {
-                'Content-Type': undefined//'multipart/form-data ; boundary=HereGoes; Content-Transfer-Encoding'
-            }
-        }).then(function (response) {
+        fileService.uploadFile(formdata).then(function (response) {
             $scope.name = '';
             $scope.description = '';
             $scope.load();
             $location.path("/folder");
-            alert(response);
             return response;
         });
     };
