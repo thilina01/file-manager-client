@@ -1,5 +1,5 @@
 
-app.controller('folderController', function ($scope, $http, $location, $window, $rootScope, folderService) {
+app.controller('folderController', function ($scope, $location, $window, $rootScope, folderService) {
     if (folderService.getId() == 0) {
         $location.path("/");
     }
@@ -7,17 +7,17 @@ app.controller('folderController', function ($scope, $http, $location, $window, 
     $scope.parents = [];
     $scope.bytes = '';
     $scope.load = function () {
-        $http.get($scope.baseURL + '/folders/' + folderService.getId() + '/with-sub-folders-and-files').then(function (response) {
+        folderService.getFoldersWithSubFoldersAndFiles().then(function (response) {
             $scope.folder = response.data;
         });
     }
 
     $scope.setFolderId = function ($folderId) {
         folderService.setId($folderId);
-        $http.get($scope.baseURL + '/folders/' + folderService.getId() + '/with-sub-folders-and-files').then(function (response) {
+        folderService.getFoldersWithSubFoldersAndFiles().then(function (response) {
             $scope.folder = response.data;
         });
-        $http.get($scope.baseURL + '/folders/' + folderService.getId() + '/with-parent').then(function (response) {
+        folderService.getFoldersWithParent().then(function (response) {
             $scope.parents = [];
             pushParent(response.data);
         });
