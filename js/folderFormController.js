@@ -1,16 +1,15 @@
 
-app.controller('folderFormController', function ($scope, $http, $log, folderService) {
+app.controller('folderFormController', function ($scope, $log, folderService) {
     $scope.name = '';
     $scope.description = '';
 
     $scope.createFolder = function () {
         //alert(folderService.getId());
         if ($scope.name == '' || $scope.description == '') {
-
             $scope.showError('Both Name and Description Required!');
             return;
         }
-        data = {
+        var data = {
             name: $scope.name,
             description: $scope.description
         }
@@ -21,11 +20,7 @@ app.controller('folderFormController', function ($scope, $http, $log, folderServ
                 folder: {id: folderService.getId()}
             }
         }
-        $http.post($scope.baseURL+"/folders", data, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function (response) {
+        folderService.createFolder(data).then(function (response) {
             $scope.name = '';
             $scope.description = '';
             $scope.load(); // this call is important to refresh folder list in
@@ -34,6 +29,7 @@ app.controller('folderFormController', function ($scope, $http, $log, folderServ
         }, function (response) {
             $scope.showError(response.data.message);
             $log.info(response);
-        });/**/
+            return response;
+        });
     }
 });
