@@ -3,7 +3,7 @@ app.controller('homeController', function ($scope, $http, $location, folderServi
     $scope.folders = "";
     $scope.load = function () {
         $scope.errorMessage = '';
-        $http.get($scope.baseURL+'/folders/top').then(function (response) {
+        folderService.getTopLevelFolders().then(function (response) {
             $scope.folders = response.data;
         });
     }
