@@ -1,10 +1,9 @@
 
-app.controller('deleteFileController', function ($scope, $rootScope, $http, $log) {
+app.controller('deleteFileController', function ($scope, $rootScope, $http, fileService) {
     $scope.deleteFile = function () {
-        $http.delete($scope.baseURL+"/files/" + $rootScope.fileToDelete.id).
-                then(function (response) {
-                    $scope.load();
-                });
+        fileService.deleteFile($rootScope.fileToDelete.id).then(function (response) {
+            $scope.load();
+        });
     }
     $scope.cancel = function () {
         $rootScope.fileToDelete = '';
