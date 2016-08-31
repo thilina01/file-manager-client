@@ -1,3 +1,6 @@
 
-app.controller('menuController', function ($scope, $rootScope) {
+app.controller('logoutController', function ($scope, $rootScope) {
+    $scope.logout = function () {
+        $rootScope.isUser = false;
+    }
 });

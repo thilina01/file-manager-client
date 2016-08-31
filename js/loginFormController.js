@@ -1,17 +1,8 @@
 
-app.controller('loginFormController', function ($scope, $http, $rootScope,$cookies) {
-    $scope.email = '';
-    $scope.password = '';
+app.controller('loginFormController', function ($scope, $rootScope, $cookies, accountService) {
 
     $scope.login = function () {
-        $http.post($scope.baseURL + "/accounts/login", {
-            email: $scope.email,
-            password: $scope.password
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function (response) {
+        accountService.login($scope.email, $scope.password).then(function (response) {
             $scope.email = '';
             $scope.password = '';
             if (response.data) {
