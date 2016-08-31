@@ -1,9 +1,10 @@
 
-app.controller('appController', function ($scope, $timeout, $rootScope, $cookies) {
+app.controller('appController', function ($scope, $timeout, $rootScope, $cookies, appService) {
 
-    $scope.baseURL = 'http://localhost:8080';
-    $scope.organization = 'TRW Lanka (Pvt) Ltd.';
-    $scope.appName = 'Document Management System';
+    $scope.baseURL = appService.baseURL;
+    $scope.organization = appService.organization;
+    $scope.appName = appService.appName;
+    
     $scope.title = $scope.appName;
     $rootScope.isUser = $cookies.get('isUser');
     $scope.errorMessage = '';
