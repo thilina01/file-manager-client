@@ -1,5 +1,5 @@
 
-app.controller('registerFormController', function ($scope, $rootScope, $cookies, accountService) {
+app.controller('registerFormController', function ($scope,accountService,appService) {
     $scope.email = '';
     $scope.password = '';
     $scope.passwordAgain = '';
@@ -8,18 +8,14 @@ app.controller('registerFormController', function ($scope, $rootScope, $cookies,
         accountService.register($scope.email, $scope.password, $scope.passwordAgain).then(function (response) {
 
             if (response.data) {
-                $rootScope.isUser = true;
-                var expireDate = new Date();
-                expireDate.setDate(expireDate.getDate() + 1);
-                $cookies.put('isUser', response.data, {
-                    'expires': expireDate
-                });
+                appService.setEmail($scope.email);
+                $scope.email = '';
+                $scope.password = '';
+                $scope.passwordAgain = '';
+                $scope.reloadApp();
+                return response;
             }
-            
-            $scope.email = '';
-            $scope.password = '';
-            $scope.passwordAgain = '';
-            return response;
+
         });
     }
 });

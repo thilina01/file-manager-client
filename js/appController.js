@@ -1,14 +1,15 @@
 
-app.controller('appController', function ($scope, $timeout, $rootScope, $cookies, appService) {
+app.controller('appController', function ($scope, $timeout, $rootScope, appService, menuService) {
 
     $scope.baseURL = appService.baseURL;
     $scope.organization = appService.organization;
     $scope.appName = appService.appName;
-    
+
     $scope.title = $scope.appName;
-    $rootScope.isUser = $cookies.get('isUser');
     $scope.errorMessage = '';
     $scope.folderId = 0;
+
+    $rootScope.menus = [];
 
     $scope.showError = function ($message) {
         $scope.errorMessage = $message;
@@ -16,4 +17,13 @@ app.controller('appController', function ($scope, $timeout, $rootScope, $cookies
             $scope.errorMessage = '';
         }, 10000);
     }
-});
+    $scope.reloadApp = function () {
+        menuService.getMenus().then(function (response) {
+            $scope.menus = response.data;
+        }, function (response) {
+            $scope.menus = [];
+        });
+    }
+
+}
+);

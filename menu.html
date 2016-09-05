@@ -10,13 +10,9 @@
         <div class="navbar-collapse collapse" >
             <ul class="nav navbar-nav">
             </ul>
-
             <ul class="nav navbar-nav navbar-right" >
-                <li ng-hide="isUser"><a data-toggle="modal" href="" data-target="#loginModal" >Login</a></li>
-                <li ng-hide="isUser"><a data-toggle="modal" href="" data-target="#registerModal">Register</a></li>
-                <li ng-show="isUser"><a data-toggle="modal" href="" data-target="#logoutModal">logout</a></li>
-                <li ><a data-toggle="modal" href="" data-target="#logoutModal"></a></li>
-            </ul><!---->
+                <li ng-repeat="menu in menus"><a data-toggle="modal" href="" data-target="{{menu.target}}" >{{menu.name}}</a></li>
+            </ul>
         </div>
         <!--/.nav-collapse -->
     </div>

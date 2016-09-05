@@ -1,3 +1,4 @@
 
-app.controller('menuController', function ($scope, $rootScope) {
+app.controller('menuController', function ($scope, $rootScope, menuService) {
+    
 });

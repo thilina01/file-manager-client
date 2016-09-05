@@ -1,5 +1,5 @@
 
-app.controller('homeController', function ($scope, $http, $location, folderService) {
+app.controller('homeController', function ($scope, $location, folderService) {
     $scope.folders = "";
     $scope.load = function () {
         $scope.errorMessage = '';
