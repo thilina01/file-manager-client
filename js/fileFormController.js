@@ -15,11 +15,11 @@ app.controller('fileFormController', function ($scope, $location, folderService,
     $scope.uploadFile = function () {
 
         if ($scope.name == '' || $scope.description == '') {
-            alert('Form not complete!');
+            $scope.showError('Form not complete!');
             return;
         }
         if ($scope.aFile == '') {
-            alert('No file to upload!');
+            $scope.showError('No file to upload!');
             return;
         }
 
@@ -37,6 +37,9 @@ app.controller('fileFormController', function ($scope, $location, folderService,
             $scope.description = '';
             $scope.load();
             $location.path("/folder");
+            return response;
+        }, function (response) {
+            $scope.showError(response.data.message);
             return response;
         });
     };
