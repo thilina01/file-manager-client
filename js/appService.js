@@ -4,22 +4,26 @@ app.service('appService', function ($cookies) {
     this.organization = 'TRW Lanka (Pvt) Ltd.';
     this.appName = 'Document Management System';
     this.email = $cookies.get("email") != undefined ? $cookies.get("email") : "";
-    
+
     this.getJsonHeaders = function () {
-        return {headers: {
+        return {
+            headers: {
                 'Content-Type': 'application/json',
                 'email': this.email
             }
         }
     };
-    
-    this.undefinedHeaders = {
-        transformRequest: angular.identity,
-        headers: {
-            'Content-Type': undefined
+
+    this.getUndefinedHeaders = function () {
+        return {
+            transformRequest: angular.identity,
+            headers: {
+                'Content-Type': undefined,
+                'email': this.email
+            }
         }
     };
-    
+
     this.setEmail = function (email) {
         this.email = email;
         $cookies.put("email", email);
