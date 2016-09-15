@@ -2,6 +2,7 @@
 app.controller('appController', function ($scope, $timeout, $rootScope, appService, menuService) {
 
     $scope.baseURL = appService.baseURL;
+    $scope.clientBaseURL = appService.clientBaseURL;
     $scope.organization = appService.organization;
     $scope.appName = appService.appName;
 
