@@ -1,6 +1,6 @@
 
 app.service('appService', function ($cookies) {
-    this.baseURL = 'http://192.168.1.171:8080';
+    this.baseURL = 'http://trw.nanosl.com:82/';
     this.organization = 'TRW Lanka (Pvt) Ltd.';
     this.appName = 'Document Management System';
     this.email = $cookies.get("email") != undefined ? $cookies.get("email") : "";
