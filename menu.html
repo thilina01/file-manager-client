@@ -5,8 +5,8 @@
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
             </button>
             <!--href="/file-manager-client"-->
-            <a href="{{clientBaseURL}}"> <img alt="logo" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" src="img/logo.png" />
-            </a> <a class="navbar-brand" href="{{clientBaseURL}}"> {{organization}} </a>
+            <a ng-click="goHome()"> <img alt="logo" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" src="img/logo.png" />
+            </a> <a class="navbar-brand" ng-click="goHome()"> {{organization}} </a>
         </div>
         <div class="navbar-collapse collapse" >
             <ul class="nav navbar-nav">

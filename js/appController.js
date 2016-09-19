@@ -1,5 +1,5 @@
 
-app.controller('appController', function ($scope, $timeout, $rootScope, appService, menuService) {
+app.controller('appController', function ($scope, $timeout, $rootScope, $location, appService, menuService) {
 
     $scope.baseURL = appService.baseURL;
     $scope.clientBaseURL = appService.clientBaseURL;
@@ -17,6 +17,9 @@ app.controller('appController', function ($scope, $timeout, $rootScope, appServi
         $timeout(function () {
             $scope.errorMessage = '';
         }, 10000);
+    }
+    $scope.goHome = function () {
+        $location.path("/");
     }
     $scope.reloadApp = function () {
         menuService.getMenus().then(function (response) {
