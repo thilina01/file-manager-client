@@ -3,7 +3,7 @@
         <!-- <div class="col-sm-1"></div> -->
         <div class="col-sm-2">
             <h4>You are in</h4>           
-            <a href="/file-manager-client"><i class="fa fa-home fa-2x"></i> > </a><a ng-repeat="x in parents" ng-click="setFolderId(x.id)"><b> {{x.name}} > </b></a>
+            <a href="{{clientBaseURL}}"><i class="fa fa-home fa-2x"></i> > </a><a ng-repeat="x in parents" ng-click="setFolderId(x.id)"><b> {{x.name}} > </b></a>
             <br/><br/>
             <div class="btn btn-sq-75 btn-info row">
                 <i class="fa fa-folder-open-o fa-4x" aria-hidden="true"></i> <br />
