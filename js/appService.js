@@ -1,7 +1,7 @@
 
 app.service('appService', function ($cookies) {
-    this.baseURL = 'http://trw.nanosl.com:82/';
-    this.clientBaseURL = 'http://trw.nanosl.com:81/';
+    this.baseURL = 'http://tmsapi.trwlanka.com/';//http://trw.nanosl.com:82/
+    this.clientBaseURL = 'http://tms.trwlanka.com/';//'http://trw.nanosl.com:81/'//http://localhost/file-manager-client
     this.organization = 'TRW Lanka (Pvt) Ltd.';
     this.appName = 'Document Management System';
     this.email = $cookies.get("email") != undefined ? $cookies.get("email") : "";
