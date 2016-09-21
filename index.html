@@ -33,15 +33,16 @@
 
         <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/custom.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <div ng-include="'menu.html'"></div>
         <div class="container">
-            <div ng-include="'menu.html'"></div>
             <div class="alert alert-warning" role="alert" ng-show="errorMessage != ''">{{errorMessage}}</div>
             <div id="main">
                 <div ng-view></div>
-            </div>            
-            <div ng-include="'footer.html'"></div>
-        </div>
+            </div>   
+        </div>         
+        <div ng-include="'footer.html'"></div>
     </body>
 </html>
