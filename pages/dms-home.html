@@ -1,0 +1,19 @@
+
+<div data-ng-init="load()" ng-controller="homeController">
+    <h2>{{appName}}</h2>
+    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">New Folder</button>
+    <div ng-include="'pages/folder-form.html'"></div>
+    <br/>
+
+    <div class="row">
+        <div class="col-sm-2" ng-repeat="folder in folders track by $index">
+            <br/>
+            <div class="col-sm-2">
+                <div class="btn btn-sq-75 btn-info"  ng-click="setFolderId(folder.id)" >
+                    <i class="fa fa-folder-o fa-4x" aria-hidden="true"></i>
+                </div>     
+                {{folder.name}}
+            </div>
+        </div>            
+    </div>
+</div>

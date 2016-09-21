@@ -8,9 +8,9 @@ app.config(function ($httpProvider, $routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl: 'pages/home.html',
         controller: 'homeController'
-    }).when('/#', {
-        templateUrl: 'pages/home.html',
-        controller: 'homeController'
+    }).when('/dms', {
+        templateUrl: 'pages/dms-home.html',
+        controller: 'dmsHomeController'
     }).when('/folder', {
         templateUrl: 'pages/folder.html',
         controller: 'folderController'
