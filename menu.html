@@ -20,6 +20,35 @@
                 <li>
                     <a data-toggle="modal" href="#/dms" >DMS</a>
                 </li>
+                <!-- 
+                <li>
+                    <a data-toggle="modal" href="#/kpi" >KPI</a>
+                </li>
+                -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
+                        KPI
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="modal" data-target="#customerModal">Customer</a></li>
+                        <li><a data-toggle="modal" data-target="#productTypeModal">Product Type</a></li>
+                        <li><a data-toggle="modal" data-target="#productModal">Product</a></li>
+                        <li><a data-toggle="modal" data-target="#jobModal">Job</a></li>
+                        <li><a data-toggle="modal" data-target="#sectionModal">Section</a></li>
+                        <li><a data-toggle="modal" data-target="#workCenterModal">Work Center</a></li>
+                        <li><a data-toggle="modal" data-target="#controlPointModal">Control Point</a></li>
+                        <li><a data-toggle="modal" data-target="#planningModal">Planning</a></li>
+                        <li><a data-toggle="modal" data-target="#productionModal">Production</a></li>
+                        <li><a data-toggle="modal" data-target="#lossModal">Loss</a></li>
+                        <li><a data-toggle="modal" data-target="#scrapModal">Scrap</a></li>
+                        <li><a data-toggle="modal" data-target="#defectModal">Defect</a></li>
+                        <li><a data-toggle="modal" data-target="#qualityModal">Quality</a></li>
+                        <li><a data-toggle="modal" data-target="#machineModal">Machine</a></li>
+                        <li><a data-toggle="modal" data-target="#breakdownModal">Breakdown</a></li>
+                        <li><a data-toggle="modal" data-target="#energyModal">Energy</a></li>
+                    </ul>
+                </li>
                 <li ng-repeat="menu in menus">
                     <a data-toggle="modal" href="" data-target="{{menu.target}}" >{{menu.name}}</a>
                 </li>
@@ -33,3 +62,20 @@
 <div ng-include="'pages/login-form.html'"></div>
 <div ng-include="'pages/register-form.html'"></div>
 <div ng-include="'pages/logout.html'"></div>
+
+<div ng-include="'pages/forms/customer.html'"></div>
+<div ng-include="'pages/forms/product-type.html'"></div>
+<div ng-include="'pages/forms/product.html'"></div>
+<div ng-include="'pages/forms/job.html'"></div>
+<div ng-include="'pages/forms/section.html'"></div>
+<div ng-include="'pages/forms/work-center.html'"></div>
+<div ng-include="'pages/forms/control-point.html'"></div>
+<div ng-include="'pages/forms/planning.html'"></div>
+<div ng-include="'pages/forms/production.html'"></div>
+<div ng-include="'pages/forms/loss.html'"></div>
+<div ng-include="'pages/forms/scrap.html'"></div>
+<div ng-include="'pages/forms/defect.html'"></div>
+<div ng-include="'pages/forms/quality.html'"></div>
+<div ng-include="'pages/forms/machine.html'"></div>
+<div ng-include="'pages/forms/breakdown.html'"></div>
+<div ng-include="'pages/forms/energy.html'"></div>
