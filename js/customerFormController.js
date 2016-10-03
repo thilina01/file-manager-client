@@ -1,5 +1,5 @@
 
-app.controller('breakdownFormController', function ($scope, $cookies, accountService, appService) {
+app.controller('customerFormController', function ($scope, $cookies, accountService, appService) {
     $scope.code = '';
     $scope.name = '';
     $scope.wcc = '';
