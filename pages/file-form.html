@@ -10,19 +10,19 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name">Name</label> 
-                    <input type="text" name="name" id="name" ng-model="name" class="form-control">
+                    <input type="text" name="name" id="name" ng-model="name" class=form-control input-sm>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label> 
-                    <input type="text" name="description" id="description" ng-model="description" class="form-control">
+                    <input type="text" name="description" id="description" ng-model="description" class=form-control input-sm>
                 </div>
                 <div class="form-group">
                     <label class="btn btn-default btn-file" for="file">
                         Browse 
                         <input type="file" name="file" id="file" ng-model="file" onchange="angular.element(this).scope().setFile(this.files[0])" >
                     </label>
-                    
+
                     <!-- <input type="file" name="aFile" id="aFile" onchange="angular.element(this).scope().setFile(this.files[0])" > -->
                 </div>
             </div>

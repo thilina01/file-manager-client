@@ -7,8 +7,4 @@ app.controller('homeController', function ($scope, $location, folderService) {
             $scope.folders = response.data;
         });
     }
-    $scope.setFolderId = function ($folderId) {
-        folderService.setId($folderId);
-        $location.path("/folder");
-    }
 });
