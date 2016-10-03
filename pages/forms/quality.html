@@ -1,0 +1,182 @@
+<div class="modal fade" id="qualityModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Quality </h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form">
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Date:</label>
+                        <div class='col-sm-9'>
+                            <div class='input-group date' id='qualityDatetimepicker'>
+                                <input type='text' class="form-control input-sm"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#qualityDatetimepicker').datetimepicker();
+                                });
+                            </script>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Shift:</label>
+                        <div class='col-sm-9'>
+
+                            <select class="form-control input-sm">	
+                                <option value="volvo">Day</option>
+                                <option value="saab">Night</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Job No:</label>
+
+                        <div class="col-sm-9">
+                            <select class="form-control input-sm">	
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option> 
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-3" for="email">Product Code:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Defect Code:</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">	
+                                <option value="volvo">SBLD1</option>
+                                <option value="saab">SBLD4</option>
+                                <option value="opel">SBLD5</option>
+                                <option value="audi">SBLD#</option> 
+                            </select>
+                        </div>
+
+                        <label class="control-label col-sm-3" for="email">Defect Qty:</label>
+                        <div class="col-sm-3">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-3" for="email">Defect Type:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Scrap Code:</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">	
+                                <option value="volvo">SBLS3</option>
+                                <option value="saab">SBLS2</option>
+                                <option value="opel">SBLS4</option>
+                                <option value="audi">SBLS1</option> 
+                            </select>
+                        </div>
+                        <label class="control-label col-sm-3" for="email">Scrap Qty:</label>
+                        <div class="col-sm-3">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-3" for="email">Scrap Type:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-3" for="email">Loss Code:</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">	
+                                <option value="volvo">LR1</option>
+                                <option value="saab">LR5</option>
+                                <option value="opel">LR3</option>
+                                <option value="audi">LR7</option> 
+                            </select>
+                        </div>
+                        <label class="control-label col-sm-3" for="email">Loss Qty:</label>
+                        <div class="col-sm-3">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-3" for="email">Loss Reason:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+
+                    </div>
+                    <br/>
+                    <br/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

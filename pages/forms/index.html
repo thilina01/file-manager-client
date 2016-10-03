@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+        <script type="text/javascript" src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> 
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css">
+
+    </head>
+    <body>
+        <div class="container">
+
+            <div id="JobDiv">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#jobModal">Open Job</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="jobModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Job</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form">
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Date:</label>
+                                        <div class='col-sm-8'>
+                                            <div class='input-group date' id='jobDatetimepicker'>
+                                                <input type='text' class="form-control input-sm"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#jobDatetimepicker').datetimepicker();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Job No:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Product Code:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Product Type:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Customer:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Customer Code:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Item Description:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Job Qty:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <div id="PlanningDiv">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#planningModal">Open Planning</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="planningModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Planning</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form">
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Date:</label>
+                                        <div class='col-sm-8'>
+                                            <div class='input-group date' id='jobDatetimepickerx'>
+                                                <input type='text' class="form-control input-sm"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#jobDatetimepickerx').datetimepicker();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Shift:</label>
+                                        <div class='col-sm-8'>
+
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Day</option>
+                                                <option value="saab">Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Job No:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="email">Control Point:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">CP-32</option>
+                                                <option value="saab">CP-33</option>
+                                                <option value="opel">CP-34</option>
+
+                                            </select>
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Control Point Name:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">WCC:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Section:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Plan Qty:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <br/>
+
+                                    <h5>  Manpower Allocation</h5>
+
+
+
+                                    <div class="form-group">
+
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Company:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Contract:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Help:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Other:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <div id="ProductionDiv">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#productionModal">Open Production</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="productionModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Production</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form">
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Date:</label>
+                                        <div class='col-sm-8'>
+                                            <div class='input-group date' id='planningDatetimepicker'>
+                                                <input type='text' class="form-control input-sm"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#planningDatetimepicker').datetimepicker();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Shift:</label>
+                                        <div class='col-sm-8'>
+
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Day</option>
+                                                <option value="saab">Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Job No:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="email">Control Point:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">CP-32</option>
+                                                <option value="saab">CP-33</option>
+                                                <option value="opel">CP-34</option>
+
+                                            </select>
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Control Point Name:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">WCC:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Section:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Achive Qty:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <br/>
+
+                                    <h5>  Manpower Allocation</h5>
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Company:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Contract:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Help:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Other:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Machine Running Time:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+            <div id="qualityDiv">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#qualityModal">Open Quality</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="qualityModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Quality </h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form">
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Date:</label>
+                                        <div class='col-sm-9'>
+                                            <div class='input-group date' id='planningDatetimepicker'>
+                                                <input type='text' class="form-control input-sm"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#planningDatetimepicker').datetimepicker();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Shift:</label>
+                                        <div class='col-sm-9'>
+
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Day</option>
+                                                <option value="saab">Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Job No:</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-3" for="email">Product Code:</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Defect Code:</label>
+
+                                        <div class="col-sm-3">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">SBLD1</option>
+                                                <option value="saab">SBLD4</option>
+                                                <option value="opel">SBLD5</option>
+                                                <option value="audi">SBLD#</option> 
+                                            </select>
+                                        </div>
+
+                                        <label class="control-label col-sm-3" for="email">Defect Qty:</label>
+                                        <div class="col-sm-3">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-3" for="email">Defect Type:</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Scrap Code:</label>
+
+                                        <div class="col-sm-3">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">SBLS3</option>
+                                                <option value="saab">SBLS2</option>
+                                                <option value="opel">SBLS4</option>
+                                                <option value="audi">SBLS1</option> 
+                                            </select>
+                                        </div>
+                                        <label class="control-label col-sm-3" for="email">Scrap Qty:</label>
+                                        <div class="col-sm-3">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-3" for="email">Scrap Type:</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-3" for="email">Loss Code:</label>
+
+                                        <div class="col-sm-3">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">LR1</option>
+                                                <option value="saab">LR5</option>
+                                                <option value="opel">LR3</option>
+                                                <option value="audi">LR7</option> 
+                                            </select>
+                                        </div>
+                                        <label class="control-label col-sm-3" for="email">Loss Qty:</label>
+                                        <div class="col-sm-3">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-3" for="email">Loss Reason:</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+
+            <div id="BreakdownDiv">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#breakdownModal">Open Breakdown</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="breakdownModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Breakdown </h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form">
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Date:</label>
+                                        <div class='col-sm-8'>
+                                            <div class='input-group date' id='planningDatetimepicker'>
+                                                <input type='text' class="form-control input-sm"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                    $('#planningDatetimepicker').datetimepicker();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Shift:</label>
+                                        <div class='col-sm-8'>
+
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Day</option>
+                                                <option value="saab">Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="email">Job No:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="email">Control Point:</label>
+
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm">	
+                                                <option value="volvo">CP-32</option>
+                                                <option value="saab">CP-33</option>
+                                                <option value="opel">CP-34</option>
+
+                                            </select>
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="email">Machine No:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="email">Number of Breakdown:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="email">Breakdown time:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+
+
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div id="Enegy_consumptionDiv">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Enegy_consumptionModal">Open Enegy Consumption</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="Enegy_consumptionModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Enegy Consumption</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form">
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">Date:</label>
+                                                    <div class='col-sm-8'>
+                                                        <div class='input-group date' id='planningDatetimepicker'>
+                                                            <input type='text' class="form-control input-sm"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            $(function () {
+                                                                $('#planningDatetimepicker').datetimepicker();
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">Shift:</label>
+                                                    <div class='col-sm-8'>
+
+                                                        <select class="form-control input-sm">	
+                                                            <option value="volvo">Day</option>
+                                                            <option value="saab">Night</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">Job No:</label>
+
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control input-sm">	
+                                                            <option value="volvo">Volvo</option>
+                                                            <option value="saab">Saab</option>
+                                                            <option value="opel">Opel</option>
+                                                            <option value="audi">Audi</option> 
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Machine No:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Consumption Rate:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                                <br/>
+                                                <br/>
+
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+
+
+                        <div id="customerDiv">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#customerModal">Open Customer</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="customerModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Customer</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form">
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">Date:</label>
+                                                    <div class='col-sm-8'>
+                                                        <div class='input-group date' id='planningDatetimepicker'>
+                                                            <input type='text' class="form-control input-sm"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            $(function () {
+                                                                $('#planningDatetimepicker').datetimepicker();
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Customer No:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Customer Name:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Customer Code:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <br/>
+                                                <br/>
+
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+
+                        <div id="Product_typeDiv">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#product_typeModal">Open Product Type</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="product_typeModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Product Type</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form">
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">Date:</label>
+                                                    <div class='col-sm-8'>
+                                                        <div class='input-group date' id='planningDatetimepicker'>
+                                                            <input type='text' class="form-control input-sm"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            $(function () {
+                                                                $('#planningDatetimepicker').datetimepicker();
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Product Code:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+                                                    <label class="control-label col-sm-4" for="email">product Type:</label>
+
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control input-sm">	
+                                                            <option value="volvo">Volvo</option>
+                                                            <option value="saab">Saab</option>
+                                                            <option value="opel">Opel</option>
+                                                            <option value="audi">Audi</option> 
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <br/>
+                                                <br/>
+
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+
+                        <div id="productDiv">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#productModal">Open product</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="productModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">product</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form">
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Product Code:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Product Type:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Description:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+                                                <br/>
+                                                <br/>
+
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+
+
+                        <div id="SectionDiv">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#SectionModal">Section</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="SectionModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Section</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form">
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Section Code:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Name:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div id="WCCDiv">
+
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#workCenterModal">WCC</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="workCenterModal" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"> WCC </h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <form class="form">
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+
+
+                                                        <label class="control-label col-sm-4" for="email">Code:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+
+
+                                                        <label class="control-label col-sm-4" for="email">Name:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+                                                        <label class="control-label col-sm-4" for="email">section:</label>
+
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control input-sm">	
+                                                                <option value="volvo">Volvo</option>
+                                                                <option value="saab">Saab</option>
+                                                                <option value="opel">Opel</option>
+                                                                <option value="audi">Audi</option> 
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <br/>
+                                                    <br/>
+
+
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+
+
+
+                            <div id="control_pointDiv">
+
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#control_pointModal">Control Point</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="control_pointModal" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"> Control Point </h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <form class="form">
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+
+
+                                                        <label class="control-label col-sm-4" for="email">Code:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+
+
+                                                        <label class="control-label col-sm-4" for="email">Name:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+                                                        <label class="control-label col-sm-4" for="email">WCC:</label>
+
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control input-sm">	
+                                                                <option value="volvo">Volvo</option>
+                                                                <option value="saab">Saab</option>
+                                                                <option value="opel">Opel</option>
+                                                                <option value="audi">Audi</option> 
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    <div class="form-group">
+                                                        <br/>
+                                                        <br/>
+                                                        <label class="control-label col-sm-4" for="email">section:</label>
+
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control input-sm">	
+                                                                <option value="volvo">Volvo</option>
+                                                                <option value="saab">Saab</option>
+                                                                <option value="opel">Opel</option>
+                                                                <option value="audi">Audi</option> 
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <br/>
+
+
+                                <div id="lossDiv">
+
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#lossModal">Loss</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="lossModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title"> Loss </h4>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <form class="form">
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Code:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type in Sinhala:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <br/>
+                                <div id="ScrapDiv">
+
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#scrapModal">Scrap</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="scrapModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title"> Scrap </h4>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <form class="form">
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Code:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type in Sinhala:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <br/>
+                                                        <br/>
+
+
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <br/>
+
+
+                                <div id="DefectDiv">
+
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#defectModal">Defect</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="defectModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title"> Defect </h4>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <form class="form">
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Code:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <br/>
+                                                            <br/>
+
+
+                                                            <label class="control-label col-sm-4" for="email">Type in Sinhala:</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                            </div>
+                                                            <br/>
+                                                            <br/>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <br/>
+
+                                <div id="machineDiv">
+
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#machineModal">Machine</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="machineModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Machine</h4>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Machine No:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <br/>
+                                                    <br/>
+
+
+                                                    <label class="control-label col-sm-4" for="email">Machine Name:</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="email" class="form-control input-sm" id="email" placeholder="">
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <br/>
+                                                <br/>
+
+
+                                                </form>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </body>
+                            </html>

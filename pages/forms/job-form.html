@@ -1,0 +1,67 @@
+
+<!-- Modal -->
+<div class="modal fade" id="jobModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Job</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="email">Date:</label>
+                        <div class='col-sm-9'>
+                            <div class='input-group date' id='jobDatetimepicker'>
+                                <input type='text' class="form-control input-sm"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#jobDatetimepicker').datetimepicker();
+                            });
+                        </script>
+                    </div>
+                    <!----->
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="email">Job No:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control input-sm" ng-model="ccc" >	
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option> 
+                            </select>
+                        </div>
+                    </div>
+                    <!----->
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="email">Product Type:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="email">Job Qty:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
