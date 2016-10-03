@@ -1,177 +1,183 @@
-<!-- Modal -->
-<div class="modal fade" id="planningModal" role="dialog">
-    <div class="modal-dialog">
+<div id="PlanningDiv">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Planning</h4>
-            </div>
-            <div class="modal-body">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#planningModal">Open Planning</button>
 
-                <form class="form">
+    <!-- Modal -->
+    <div class="modal fade" id="planningModal" role="dialog">
+        <div class="modal-dialog">
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Date:</label>
-                        <div class='col-sm-8'>
-                            <div class='input-group date' id='jobDatetimepickerx'>
-                                <input type='text' class="form-control input-sm"/>
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                            <script type="text/javascript">
-                                $(function () {
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Planning</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form">
+
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="planningDate">Date:</label>
+                            <div class='col-sm-8'>
+                                <div class='input-group date' id='jobDatetimepickerx' >
+                                    <input type='text' class="form-control"  />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
                                     $('#jobDatetimepickerx').datetimepicker();
-                                });
-                            </script>
+                                    });
+                                </script>
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Shift:</label>
-                        <div class='col-sm-8'>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="shift">Shift:</label>
+                            <div class='col-sm-8'>
 
-                            <select class="form-control input-sm">	
-                                <option value="volvo">Day</option>
-                                <option value="saab">Night</option>
-                            </select>
+                                <select class="form-control"  id='shift' name="shift" ng-model="shift">	
+                                    <option value="volvo">Day</option>
+                                    <option value="saab">Night</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Job No:</label>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="jobNo">Job No:</label>
 
-                        <div class="col-sm-8">
-                            <select class="form-control input-sm">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option> 
-                            </select>
+                            <div class="col-sm-8">
+                                <select class="form-control"id="jobNo" name="jobNo" ng-model="jobNo" >	
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option> 
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
 
 
-                        <label class="control-label col-sm-4" for="email">Control Point:</label>
+                            <label class="control-label col-sm-4" for="controlPoint">Control Point:</label>
 
-                        <div class="col-sm-8">
-                            <select class="form-control input-sm">	
-                                <option value="volvo">CP-32</option>
-                                <option value="saab">CP-33</option>
-                                <option value="opel">CP-34</option>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="controlPoint" name="controlPoint" ng-model="controlPoint">	
+                                    <option value="volvo">CP-32</option>
+                                    <option value="saab">CP-33</option>
+                                    <option value="opel">CP-34</option>
 
-                            </select>
+                                </select>
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+
+                            <label class="control-label col-sm-4" for="controlPointName">Control Point Name:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="controlPointName" placeholder="" name="controlPointName" ng-model="controlPointName">
+                            </div>
                         </div>
-                    </div> 
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
 
-                        <label class="control-label col-sm-4" for="email">Control Point Name:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                            <label class="control-label col-sm-4" for="wcc">WCC:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="wcc" placeholder="" name="wcc" ng-model="wcc">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
 
-                        <label class="control-label col-sm-4" for="email">WCC:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                            <label class="control-label col-sm-4" for="section">Section:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="section" placeholder="" name="section" ng-model="section">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
 
-                        <label class="control-label col-sm-4" for="email">Section:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="planQty">Plan Qty:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="planQty" placeholder="" name="planQty" ng-model="planQty">
+                            </div>
                         </div>
-                    </div>
-
-
-
-                    <div class="form-group">
                         <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Plan Qty:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+
+                        <h5>  Manpower Allocation</h5>
+
+
+
+                        <div class="form-group">
+
+                            <br/>
+                            <label class="control-label col-sm-4" for="company">Company:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="company" placeholder="" name="company" ng-model="company">
+                            </div>
                         </div>
-                    </div>
-                    <br/>
-
-                    <h5>  Manpower Allocation</h5>
 
 
-
-                    <div class="form-group">
-
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Company:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="contract">Contract:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="" placeholder="" name="contract" ng-model="contract">
+                            </div>
                         </div>
-                    </div>
 
-
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Contract:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="help">Help:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="help" placeholder="" name="help" ng-model="help">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="email">Help:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+
+                            <label class="control-label col-sm-4" for="other">Other:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="other" placeholder="" name="" ng-model="other">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
                         <br/>
                         <br/>
 
-                        <label class="control-label col-sm-4" for="email">Other:</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control input-sm" id="email" placeholder="">
-                        </div>
-                    </div>
 
-                    <br/>
-                    <br/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
 
-
-                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-
         </div>
     </div>
 </div>
