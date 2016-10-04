@@ -10,76 +10,187 @@
             </div>
             <div class="modal-body">
 
-                <form class="form">
-
-                    <div class="row">
-                        <label class="control-label col-sm-1" for="productionDate">Date:</label>
-                        <div class='col-sm-2'>
-                            <div class='input-group date' id='productDatetimepicker'>
-                                <input type='text' class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                            <script type="text/javascript">
-                                        $(function () {
-                                            $('#productDatetimepicker').datetimepicker();
-                                        });
-                            </script>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="control-label" for="productionDate">Date:</label>
+                        <div class='input-group date' id='productDatetimepicker'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
                         </div>
-
-                        <label class="control-label col-sm-1" for="productionDate">Shift:</label>
-                        <div class='col-sm-1'>
-
-                            <select class="form-control" id="shift" name="shift" ng-model="shift">	
-                                <option value="volvo">Day</option>
-                                <option value="saab">Night</option>
-                            </select>
+                        <script type="text/javascript">
+                                    $(function () {
+                                        $('#productDatetimepicker').datetimepicker();
+                                    });
+                        </script>
                         
+                        
+                        
+                        
+                        <label class="control-label" for="productionDate">Shift:</label>
+
+                        <select class="form-control" id="shift" name="shift" ng-model="shift">	
+                            <option value="volvo">Day</option>
+                            <option value="saab">Night</option>
+                        </select>
+
+                        
+                        
+                        
+                        
+
+
+                        <label class="control-label" for="productionDate">CP Code:</label>
+
+
+                        <select class="form-control" id="controlPointCode" name="controlPointCode" ng-model="controlPointCode">	
+                            <option value="cp32">CP32</option>
+                            <option value="cp33">CP33</option>
+                        </select>
+
+                        
+                        
+                        
+                        
+                        <label class="control-label" >Steel Band Line</label>
+
                     </div>
-                    
-                   
+                    <div class="row"></div>
 
-                        <label class="control-label col-sm-1" for="productionDate">CP Code:</label>
-                        <div class='col-sm-1'>
-
-                            <select class="form-control" id="controlPointCode" name="controlPointCode" ng-model="controlPointCode">	
-                                <option value="cp32">CP32</option>
-                                <option value="cp33">CP33</option>
-                            </select>
-                        </div>
-
-                        <label class="control-label col-sm-5" for="productionDate">Steel Band Line</label>
-                    </div>
-                    
                     <br/>
+
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#production">Production</a></li>
-                        <li><a data-toggle="tab" href="#quality">Quality</a></li>
-                        <li><a data-toggle="tab" href="#maintenance">Maintenance</a></li>
-                        <li><a data-toggle="tab" href="#hr">HR</a></li>
+                        <li class="active"><a data-toggle="tab" data-target="#production">Production</a></li>
+                        <li><a data-toggle="tab" data-target="#quality">Quality</a></li>
+                        <li><a data-toggle="tab" data-target="#maintenance">Maintenance</a></li>
+                        <li><a data-toggle="tab" data-target="#hr">HR</a></li>
                     </ul>
 
                     <div class="tab-content">
                         <div id="production" class="tab-pane fade in active">
                             <br/>
-                            <div class="row">
-                                <label class="control-label col-sm-2" for="jobNo">job No:</label>
-                                <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label " for="jobNo">job No:</label>
+
+                                <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                
+                                
+                                
+                                
+                                <label class="control-label " for="quantity">Qty:</label>
+
+                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+                                
+                                
+                                
+                                
+                                <label class="control-label " for="reason">Reason:</label>
+
+                                <select class="form-control" id="reason" name="reason" ng-model="reason">	
+                                    <option value="LR1">LR1</option>
+                                    <option value="LR2">LR4</option>
+                                </select>
+                                
+                                
+                                
+                                
+                                <button type="button" class="btn btn-default" >Add</button>
+
+                            </div>
+
+
+
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Job</th>
+                                        <th>Quantity</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="quality" class="tab-pane fade">
+                            <div class="form-group">
+
+                                <label class="control-label " for="jobNo">job No:</label>
+
+                                <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+
+                                <label class="control-label " for="reason">Reason:</label>
+
+                                <select class="form-control" id="reason" name="reason" ng-model="reason">	
+                                    <option value="defect">Defect</option>
+                                    <option value="scrap">Scrap</option>
+                                </select>
+
+                                <label class="control-label " for="code">code:</label>
+
+                                <select class="form-control" id="code" name="code" ng-model="code">	
+                                    <option value="defect">D1</option>
+                                    <option value="scrap">S4</option>
+                                </select>
+
+                                <label class="control-label " for="quantity">Qty:</label>
+
+                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+
+
+
+                                <button type="button" class="btn btn-default" >Add</button>
+
+                            </div>               
+
+
+
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Job No</th>
+                                        <th>Product Code</th>
+                                        <th>Type</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div id="maintenance" class="tab-pane fade">
+                           
+                                <label class="control-label " for="jobNo">job No:</label>
+                               
                                     <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
                                 </div>
-                                <label class="control-label col-sm-2" for="quantity">Qty:</label>
-                                <div class="col-sm-2">
+                                <label class="control-label " for="machineNo">Machine No:</label>
+                               
                                     <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
                                 </div>
-                                <label class="control-label col-sm-2" for="reason">Reason:</label>
-                                <div class="col-sm-2">
-                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
-                                        <option value="LR1">LR1</option>
-                                        <option value="LR2">LR4</option>
-                                    </select>
+                                 <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
+                               
+                                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-modal="noOfBreakdownqu">
+
                                 </div>
-                                <div class="col-sm-2">
+                               
                                     <button type="button" class="btn btn-default" >Add</button>
                                 </div>
                             </div>               
@@ -106,68 +217,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="quality" class="tab-pane fade">
-                             <br/>
-                            <div class="row">
-                                <label class="control-label col-sm-1" for="jobNo">job No:</label>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-                                </div>
-                                <label class="control-label col-sm-2" for="reason">Reason:</label>
-                                <div class="col-sm-1">
-                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
-                                        <option value="defect">Defect</option>
-                                        <option value="scrap">Scrap</option>
-                                    </select>
-                                </div>
-                                <label class="control-label col-sm-1" for="code">code:</label>
-                                <div class="col-sm-1">
-                                    <select class="form-control" id="code" name="code" ng-model="code">	
-                                        <option value="defect">D1</option>
-                                        <option value="scrap">S4</option>
-                                    </select>
-                                </div>
-                                <label class="control-label col-sm-2" for="quantity">Qty:</label>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
-                                </div>
-                                
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default" >Add</button>
-                                </div>
-                            </div>               
-
-
-
-
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Job No</th>
-                                        <th>Product Code</th>
-                                        <th>Type</th>
-                                        <th>Quantity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
- 
-                        </div>
-                        <div id="maintenance" class="tab-pane fade">
-                            <p>maintenance form</p>
-                        </div>
                         <div id="hr" class="tab-pane fade">
                             <p>hr form</p>
                         </div>
                     </div>
-
                 </form>
             </div>
             <br/>
@@ -176,7 +229,6 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-
         </div>
     </div>
 </div>
