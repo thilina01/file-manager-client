@@ -143,3 +143,8 @@
   min-height: 100%;
   border-radius: 0;
 }
+
+/* to increase gap between form controls in inline forms */
+.form-inline > * {
+    margin:10px 10px !important;
+}
