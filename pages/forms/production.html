@@ -107,7 +107,58 @@
                             </table>
                         </div>
                         <div id="quality" class="tab-pane fade">
-                            <p>quality form</p>
+                             <br/>
+                            <div class="row">
+                                <label class="control-label col-sm-1" for="jobNo">job No:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                </div>
+                                <label class="control-label col-sm-2" for="reason">Reason:</label>
+                                <div class="col-sm-1">
+                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                    </select>
+                                </div>
+                                <label class="control-label col-sm-1" for="code">code:</label>
+                                <div class="col-sm-1">
+                                    <select class="form-control" id="code" name="code" ng-model="code">	
+                                        <option value="defect">D1</option>
+                                        <option value="scrap">S4</option>
+                                    </select>
+                                </div>
+                                <label class="control-label col-sm-2" for="quantity">Qty:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+                                </div>
+                                
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default" >Add</button>
+                                </div>
+                            </div>               
+
+
+
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Job No</th>
+                                        <th>Product Code</th>
+                                        <th>Type</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+ 
                         </div>
                         <div id="maintenance" class="tab-pane fade">
                             <p>maintenance form</p>
