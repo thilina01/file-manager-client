@@ -3,6 +3,8 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
     $scope.jobDate = '';
     $scope.jobNo = '';
     $scope.productCode = '';
+    
+    //auto
     $scope.productType = '';
     $scope.customer = '';
     $scope.customerCode = '';
