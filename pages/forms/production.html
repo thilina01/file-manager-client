@@ -24,10 +24,10 @@
                                         $('#productDatetimepicker').datetimepicker();
                                     });
                         </script>
-                        
-                        
-                        
-                        
+
+
+
+
                         <label class="control-label" for="productionDate">Shift:</label>
 
                         <select class="form-control" id="shift" name="shift" ng-model="shift">	
@@ -35,10 +35,10 @@
                             <option value="saab">Night</option>
                         </select>
 
-                        
-                        
-                        
-                        
+
+
+
+
 
 
                         <label class="control-label" for="productionDate">CP Code:</label>
@@ -49,10 +49,10 @@
                             <option value="cp33">CP33</option>
                         </select>
 
-                        
-                        
-                        
-                        
+
+
+
+
                         <label class="control-label" >Steel Band Line</label>
 
                     </div>
@@ -74,27 +74,27 @@
                                 <label class="control-label " for="jobNo">job No:</label>
 
                                 <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-                                
-                                
-                                
-                                
+
+
+
+
                                 <label class="control-label " for="quantity">Qty:</label>
 
                                 <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
-                                
-                                
-                                
-                                
+
+
+
+
                                 <label class="control-label " for="reason">Reason:</label>
 
                                 <select class="form-control" id="reason" name="reason" ng-model="reason">	
                                     <option value="LR1">LR1</option>
                                     <option value="LR2">LR4</option>
                                 </select>
-                                
-                                
-                                
-                                
+
+
+
+
                                 <button type="button" class="btn btn-default" >Add</button>
 
                             </div>
@@ -175,60 +175,68 @@
                             </table>
 
                         </div>
+
                         <div id="maintenance" class="tab-pane fade">
-                           
-                                <label class="control-label " for="jobNo">job No:</label>
-                               
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-                                </div>
-                                <label class="control-label " for="machineNo">Machine No:</label>
-                               
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
-                                </div>
-                                 <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
-                               
-                                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-modal="noOfBreakdownqu">
+                            <div class="form-group">
 
-                                </div>
-                               
-                                    <button type="button" class="btn btn-default" >Add</button>
-                                </div>
-                            </div>               
+                            <label class="control-label " for="jobNo">job No:</label>
 
+                            <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                        
+                        <label class="control-label " for="machineNo">Machine No:</label>
 
+                        <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+                    
+                    <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
 
+                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-modal="noOfBreakdownqu">
 
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th>Job</th>
-                                        <th>Quantity</th>
-                                        <th>Reason</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="hr" class="tab-pane fade">
-                            <p>hr form</p>
-                        </div>
-                    </div>
-                </form>
+                 <label class="control-label " for="machinerunningtime">Machine Running Time:</label>
+
+                    <input type="text" class="form-control input-sm" id="machinerunningtime" placeholder="" name="machinerunningtime" ng-modal="machinerunningtime">
+
+  
+
+                    <button type="button" class="btn btn-default" >Add</button>
             </div>
-            <br/>
-            <br/>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+        
+           
+                 
+
+
+
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Job</th>
+                    <th>Quantity</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <div id="hr" class="tab-pane fade">
+        <p>hr form</p>
+    </div>
+</div>
+</form>
+</div>
+<br/>
+<br/>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
 </div>
