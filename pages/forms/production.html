@@ -200,19 +200,13 @@
                     <button type="button" class="btn btn-default" >Add</button>
             </div>
         
-           
-                 
-
-
-
-
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Item</th>
-                    <th>Job</th>
-                    <th>Quantity</th>
-                    <th>Reason</th>
+                    <th>Machine Name</th>
+                    <th>No Of Breakdown</th>
+                    <th>Machine Running Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -226,7 +220,49 @@
         </table>
     </div>
     <div id="hr" class="tab-pane fade">
-        <p>hr form</p>
+        
+         <div class="form-group">
+
+                            <label class="control-label " for="jobNo">job No:</label>
+
+                            <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                        
+                        <label class="control-label " for="company">Company:</label>
+
+                        <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-modal="company">
+                    
+                    <label class="control-label " for="contract">Contract:</label>
+
+                    <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-modal="contract">
+
+                 <label class="control-label " for="help">Help:</label>
+
+                    <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-modal="help">
+
+  
+
+                    <button type="button" class="btn btn-default" >Add</button>
+            </div>
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Job No</th>
+                    <th>Company</th>
+                    <th>Contract</th>
+                    <th>Help</th>
+                    <th>Other </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </form>
