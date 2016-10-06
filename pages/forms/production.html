@@ -70,209 +70,218 @@
                     <div class="tab-content">
                         <div id="production" class="tab-pane fade in active">
                             <br/>
-                            <div class="form-group">
-                                <label class="control-label " for="jobNo">job No:</label>
+                            <div class="form">
+                                <div class="form-group">
 
-                                <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <label class="control-label " for="jobNo">job No:</label>
 
-
-
-
-                                <label class="control-label " for="quantity">Qty:</label>
-
-                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
 
 
 
 
-                                <label class="control-label " for="reason">Reason:</label>
+                                    <label class="control-label " for="quantity">Qty:</label>
 
-                                <select class="form-control" id="reason" name="reason" ng-model="reason">	
-                                    <option value="LR1">LR1</option>
-                                    <option value="LR2">LR4</option>
-                                </select>
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
 
 
 
 
-                                <button type="button" class="btn btn-default" >Add</button>
+                                    <label class="control-label " for="reason">Reason:</label>
 
+                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
+                                        <option value="LR1">LR1</option>
+                                        <option value="LR2">LR4</option>
+                                    </select>
+
+
+
+
+                                    <button type="button" class="btn btn-default" >Add</button>
+
+
+
+
+
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Job</th>
+                                                <th>Quantity</th>
+                                                <th>Reason</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-
-
-
-
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th>Job</th>
-                                        <th>Quantity</th>
-                                        <th>Reason</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                         <div id="quality" class="tab-pane fade">
                             <div class="form-group">
+                                <div class="form">
 
-                                <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="jobNo">job No:</label>
 
-                                <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
 
-                                <label class="control-label " for="reason">Reason:</label>
+                                    <label class="control-label " for="reason">Reason:</label>
 
-                                <select class="form-control" id="reason" name="reason" ng-model="reason">	
-                                    <option value="defect">Defect</option>
-                                    <option value="scrap">Scrap</option>
-                                </select>
+                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                    </select>
 
-                                <label class="control-label " for="code">code:</label>
+                                    <label class="control-label " for="code">code:</label>
 
-                                <select class="form-control" id="code" name="code" ng-model="code">	
-                                    <option value="defect">D1</option>
-                                    <option value="scrap">S4</option>
-                                </select>
+                                    <select class="form-control" id="code" name="code" ng-model="code">	
+                                        <option value="defect">D1</option>
+                                        <option value="scrap">S4</option>
+                                    </select>
 
-                                <label class="control-label " for="quantity">Qty:</label>
+                                    <label class="control-label " for="quantity">Qty:</label>
 
-                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
-
-
-
-                                <button type="button" class="btn btn-default" >Add</button>
-
-                            </div>               
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
 
 
 
+                                    <button type="button" class="btn btn-default" >Add</button>
 
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Job No</th>
-                                        <th>Product Code</th>
-                                        <th>Type</th>
-                                        <th>Quantity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
 
+
+
+
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Job No</th>
+                                                <th>Product Code</th>
+                                                <th>Type</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
                         </div>
 
                         <div id="maintenance" class="tab-pane fade">
                             <div class="form-group">
+                                <div class="form">
+                                    <label class="control-label " for="jobNo">job No:</label>
 
-                            <label class="control-label " for="jobNo">job No:</label>
+                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
 
-                            <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-                        
-                        <label class="control-label " for="machineNo">Machine No:</label>
+                                    <label class="control-label " for="machineNo">Machine No:</label>
 
-                        <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
-                    
-                    <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
 
-                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-modal="noOfBreakdownqu">
+                                    <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
 
-                 <label class="control-label " for="machinerunningtime">Machine Running Time:</label>
+                                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-modal="noOfBreakdownqu">
 
-                    <input type="text" class="form-control input-sm" id="machinerunningtime" placeholder="" name="machinerunningtime" ng-modal="machinerunningtime">
+                                    <label class="control-label " for="machinerunningtime">Machine Running Time:</label>
 
-  
+                                    <input type="text" class="form-control input-sm" id="machinerunningtime" placeholder="" name="machinerunningtime" ng-modal="machinerunningtime">
 
-                    <button type="button" class="btn btn-default" >Add</button>
+
+
+                                    <button type="button" class="btn btn-default" >Add</button>
+
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Machine Name</th>
+                                                <th>No Of Breakdown</th>
+                                                <th>Machine Running Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="hr" class="tab-pane fade">
+
+                                <div class="form-group">
+                                    <div class="form">
+
+                                        <label class="control-label " for="jobNo">job No:</label>
+
+                                        <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+
+                                        <label class="control-label " for="company">Company:</label>
+
+                                        <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-modal="company">
+
+                                        <label class="control-label " for="contract">Contract:</label>
+
+                                        <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-modal="contract">
+
+                                        <label class="control-label " for="help">Help:</label>
+
+                                        <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-modal="help">
+
+
+
+                                        <button type="button" class="btn btn-default" >Add</button>
+
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Job No</th>
+                                                    <th>Company</th>
+                                                    <th>Contract</th>
+                                                    <th>Help</th>
+                                                    <th>Other </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
             </div>
-        
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Machine Name</th>
-                    <th>No Of Breakdown</th>
-                    <th>Machine Running Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="hr" class="tab-pane fade">
-        
-         <div class="form-group">
-
-                            <label class="control-label " for="jobNo">job No:</label>
-
-                            <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-                        
-                        <label class="control-label " for="company">Company:</label>
-
-                        <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-modal="company">
-                    
-                    <label class="control-label " for="contract">Contract:</label>
-
-                    <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-modal="contract">
-
-                 <label class="control-label " for="help">Help:</label>
-
-                    <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-modal="help">
-
-  
-
-                    <button type="button" class="btn btn-default" >Add</button>
-            </div>
-        
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Job No</th>
-                    <th>Company</th>
-                    <th>Contract</th>
-                    <th>Help</th>
-                    <th>Other </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</form>
-</div>
-<br/>
-<br/>
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
+        </div>
