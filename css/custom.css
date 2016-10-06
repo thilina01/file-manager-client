@@ -162,3 +162,7 @@
     color: red;  
     opacity: 1;
 }
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #66afe9;
+}

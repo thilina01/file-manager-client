@@ -85,18 +85,6 @@
                                     <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
 
 
-
-
-                                    <label class="control-label " for="reason">Reason:</label>
-
-                                    <select class="form-control" id="reason" name="reason" ng-model="reason">	
-                                        <option value="LR1">LR1</option>
-                                        <option value="LR2">LR4</option>
-                                    </select>
-
-
-
-
                                     <button type="button" class="btn btn-default" >Add</button>
 
 
@@ -104,7 +92,7 @@
 
 
 
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Item</th>
@@ -115,10 +103,28 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                            </tr>
+                                            <tr>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                            </tr>
+                                            <tr>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                            </tr>
+                                            <tr>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
+                                                <td>sss</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -138,6 +144,7 @@
                                     <select class="form-control" id="reason" name="reason" ng-model="reason">	
                                         <option value="defect">Defect</option>
                                         <option value="scrap">Scrap</option>
+                                        <option value="defect">Loss Reason</option>
                                     </select>
 
                                     <label class="control-label " for="code">code:</label>
@@ -145,6 +152,7 @@
                                     <select class="form-control" id="code" name="code" ng-model="code">	
                                         <option value="defect">D1</option>
                                         <option value="scrap">S4</option>
+                                        <option value="defect">LR1</option>
                                     </select>
 
                                     <label class="control-label " for="quantity">Qty:</label>
@@ -227,61 +235,63 @@
                                     </table>
                                 </div>
                             </div>
-                            <div id="hr" class="tab-pane fade">
+                        </div>
+                        <div id="hr" class="tab-pane fade">
 
-                                <div class="form-group">
-                                    <div class="form">
+                            <div class="form-group">
+                                <div class="form">
 
-                                        <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="jobNo">job No:</label>
 
-                                        <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
 
-                                        <label class="control-label " for="company">Company:</label>
+                                    <label class="control-label " for="company">Company:</label>
 
-                                        <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-modal="company">
+                                    <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-modal="company">
 
-                                        <label class="control-label " for="contract">Contract:</label>
+                                    <label class="control-label " for="contract">Contract:</label>
 
-                                        <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-modal="contract">
+                                    <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-modal="contract">
 
-                                        <label class="control-label " for="help">Help:</label>
+                                    <label class="control-label " for="help">Help:</label>
 
-                                        <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-modal="help">
+                                    <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-modal="help">
 
 
 
-                                        <button type="button" class="btn btn-default" >Add</button>
+                                    <button type="button" class="btn btn-default" >Add</button>
 
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Job No</th>
-                                                    <th>Company</th>
-                                                    <th>Contract</th>
-                                                    <th>Help</th>
-                                                    <th>Other </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Job No</th>
+                                                <th>Company</th>
+                                                <th>Contract</th>
+                                                <th>Help</th>
+                                                <th>Other </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            </form>
-                        </div>
-                        <br/>
-                        <br/>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                         </div>
                     </div>
+                    <br/>
+                    <br/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
+</div>
