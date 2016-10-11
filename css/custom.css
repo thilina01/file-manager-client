@@ -164,5 +164,5 @@
 }
 
 .table-striped > tbody > tr:nth-of-type(even) {
-  background-color: #66afe9;
+    background-color: #66afe9;
 }

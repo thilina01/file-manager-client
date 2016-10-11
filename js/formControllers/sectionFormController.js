@@ -2,14 +2,14 @@
 app.controller('sectionFormController', function ($scope, $cookies, sectionService, appService) {
     $scope.code = '';
     $scope.name = '';
-    
+
     $scope.clear = function () {
         $scope.code = '';
         $scope.name = '';
     }
-    
+
     $scope.save = function () {
-        
+
         sectionService.save($scope.code, $scope.name).then(function (response) {
             if (response.data) {
                 alert(response.data);
@@ -18,5 +18,5 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
             return response;
         });
     }
-    
+
 });

@@ -1,5 +1,5 @@
 
-app.controller('registerFormController', function ($scope,accountService,appService) {
+app.controller('registerFormController', function ($scope, accountService, appService) {
     $scope.email = '';
     $scope.password = '';
     $scope.passwordAgain = '';

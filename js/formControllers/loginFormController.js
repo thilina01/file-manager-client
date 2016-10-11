@@ -1,5 +1,5 @@
 
-app.controller('loginFormController', function ($scope, $cookies, accountService,appService) {
+app.controller('loginFormController', function ($scope, $cookies, accountService, appService) {
 
     $scope.login = function () {
         accountService.login($scope.email, $scope.password).then(function (response) {

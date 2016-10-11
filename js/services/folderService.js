@@ -10,9 +10,9 @@ app.service('folderService', function ($http, appService) {
     this.getId = function () {
         return id;
     };
-    
+
     this.getTopLevelFolders = function () {
-        return $http.get(apiURL + 'top',appService.getJsonHeaders());
+        return $http.get(apiURL + 'top', appService.getJsonHeaders());
     };
     this.getFoldersWithParent = function () {
         return $http.get(apiURL + id + '/with-parent');

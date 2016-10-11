@@ -5,11 +5,11 @@ app.controller('defectFormController', function ($scope, $cookies, accountServic
     $scope.typeInShinhala = '';
 
 
-$scope.clear = function () {
-    alert($scope.code + ' ' + $scope.name);
-    $scope.code = '';
-    $scope.type = '';
-    $scope.typeInShinhala = '';
-}
+    $scope.clear = function () {
+        // alert($scope.code + ' ' + $scope.name);
+        $scope.code = '';
+        $scope.type = '';
+        $scope.typeInShinhala = '';
+    }
 
 });

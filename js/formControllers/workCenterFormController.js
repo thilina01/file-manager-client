@@ -5,10 +5,10 @@ app.controller('workCenterFormController', function ($scope, $cookies, accountSe
     $scope.section = '';
 
 
-$scope.clear = function () {
-    alert($scope.code + ' ' + $scope.name);
-    $scope.code = '';
-    $scope.name = '';
-    $scope.section = '';
-}
+    $scope.clear = function () {
+        // alert($scope.code + ' ' + $scope.name);
+        $scope.code = '';
+        $scope.name = '';
+        $scope.section = '';
+    }
 });

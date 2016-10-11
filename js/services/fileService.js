@@ -1,7 +1,7 @@
 
 app.service('fileService', function ($http, appService) {
     var apiURL = appService.baseURL + '/files/';
-    
+
     this.deleteFile = function (id) {
         return $http.delete(apiURL + id);
     };

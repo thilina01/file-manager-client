@@ -23,27 +23,27 @@ app.controller('qualityFormController', function ($scope, $cookies, accountServi
 
 
 
-$scope.clear = function () {
-    alert($scope.code + ' ' + $scope.name);
-    $scope.qualityDate = '';
-    $scope.shift = '';
-    $scope.jobNo = '';
-    $scope.productCode = '';
-    $scope.defectCode = '';
-    $scope.defectQty = '';
+    $scope.clear = function () {
+        // alert($scope.code + ' ' + $scope.name);
+        $scope.qualityDate = '';
+        $scope.shift = '';
+        $scope.jobNo = '';
+        $scope.productCode = '';
+        $scope.defectCode = '';
+        $scope.defectQty = '';
 
-    $scope.defectType = '';
+        $scope.defectType = '';
 
-    $scope.scrapCode = '';
-    $scope.scrapQty = '';
+        $scope.scrapCode = '';
+        $scope.scrapQty = '';
 
-    $scope.scraoType = '';
+        $scope.scraoType = '';
 
-    $scope.lossCode = '';
-    $scope.lossQty = '';
+        $scope.lossCode = '';
+        $scope.lossQty = '';
 
-    $scope.lossReason = '';
+        $scope.lossReason = '';
 
 
-}
+    }
 });
