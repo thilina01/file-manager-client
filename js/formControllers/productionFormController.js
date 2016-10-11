@@ -5,7 +5,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
     $scope.description = '';
 
 
-});
+
 
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
@@ -14,3 +14,4 @@ $scope.clear = function () {
     $scope.description = '';
 
 }
+});

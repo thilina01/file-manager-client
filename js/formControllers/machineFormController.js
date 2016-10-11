@@ -4,7 +4,6 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
     $scope.name = '';
     $scope.wcc = '';
 
-});
 
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
@@ -12,3 +11,4 @@ $scope.clear = function () {
     $scope.name = '';
     $scope.wcc = '';
 }
+});

@@ -21,7 +21,7 @@ app.controller('qualityFormController', function ($scope, $cookies, accountServi
     //
 
 
-});
+
 
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
@@ -46,3 +46,4 @@ $scope.clear = function () {
 
 
 }
+});

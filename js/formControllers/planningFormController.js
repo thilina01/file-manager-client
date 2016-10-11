@@ -16,8 +16,6 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
     $scope.help = '';
     $scope.other = '';
 
-});
-
  $scope.clear = function () {
         alert($scope.code+' '+$scope.name);
          $scope.planningDate = '';
@@ -35,3 +33,5 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
     $scope.help = '';
     $scope.other = '';
     }
+
+});

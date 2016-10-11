@@ -7,7 +7,7 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
     $scope.machine = '';
     $scope.numberOfBreakdown = '';
     $scope.breakdownTime = '';
-});
+
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
     $scope.breakdownDate = '';
@@ -18,3 +18,4 @@ $scope.clear = function () {
     $scope.numberOfBreakdown = '';
     $scope.breakdownTime = '';
 }
+});

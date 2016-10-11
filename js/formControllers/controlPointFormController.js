@@ -5,7 +5,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
     $scope.wcc = '';
     $scope.section = '';
 
-});
+
 
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
@@ -14,3 +14,4 @@ $scope.clear = function () {
     $scope.wcc = '';
     $scope.section = '';
 }
+});

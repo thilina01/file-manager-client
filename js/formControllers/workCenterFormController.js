@@ -3,7 +3,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, accountSe
     $scope.code = '';
     $scope.name = '';
     $scope.section = '';
-});
+
 
 $scope.clear = function () {
     alert($scope.code + ' ' + $scope.name);
@@ -11,3 +11,4 @@ $scope.clear = function () {
     $scope.name = '';
     $scope.section = '';
 }
+});
