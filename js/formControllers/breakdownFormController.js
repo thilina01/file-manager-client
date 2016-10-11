@@ -1,5 +1,5 @@
 
-app.controller('breakdownFormController', function ($scope, $cookies, breakdownService, appService) {
+app.controller('breakdownFormController', function ($scope, $cookies, appService) {
     $scope.breakdownDate = '';
     $scope.shift = '';
     $scope.jobNo = '';
