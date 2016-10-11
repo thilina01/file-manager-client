@@ -9,14 +9,22 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
     }
 
     $scope.save = function () {
-
-        sectionService.save($scope.code, $scope.name).then(function (response) {
-            if (response.data) {
-                alert(response.data);
-            }
-            $scope.reloadApp();
-            return response;
-        });
+        sectionService.save($scope.code, $scope.name).then(
+                function (response) {
+                    if (response.data) {
+                        alert(response.data);
+                    }
+                    $scope.reloadApp();
+                    return response;
+                },
+                function (response) {
+                    if (response.data) {
+                        alert(response.data);
+                    }
+                    //$scope.reloadApp();
+                    return response;
+                }
+        );
     }
 
 });

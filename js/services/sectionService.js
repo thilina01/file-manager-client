@@ -1,6 +1,6 @@
 
 app.service('sectionService', function ($http, appService) {
-    var apiURL = appService.baseURL + '/section/';
+    var apiURL = appService.baseURL + 'sections/';
 
     this.save = function (code, name) {
         var data = {
