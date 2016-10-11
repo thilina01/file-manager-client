@@ -4,7 +4,6 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
     $scope.name = '';
     
     $scope.clear = function () {
-        alert($scope.code+' '+$scope.name);
         $scope.code = '';
         $scope.name = '';
     }
