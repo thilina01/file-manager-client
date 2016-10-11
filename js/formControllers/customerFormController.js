@@ -5,3 +5,9 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
    
     
 });
+
+ $scope.clear = function () {
+        alert($scope.code+' '+$scope.name);
+        $scope.code = '';
+        $scope.name = '';
+    }

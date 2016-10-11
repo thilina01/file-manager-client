@@ -6,3 +6,10 @@ app.controller('productTypeFormController', function ($scope, $cookies, accountS
 
 
 });
+
+$scope.clear = function () {
+    alert($scope.code + ' ' + $scope.name);
+    $scope.code = '';
+    $scope.type = '';
+    $scope.description = '';
+}

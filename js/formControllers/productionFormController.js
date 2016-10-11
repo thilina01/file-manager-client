@@ -6,3 +6,11 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
 
 
 });
+
+$scope.clear = function () {
+    alert($scope.code + ' ' + $scope.name);
+    $scope.code = '';
+    $scope.type = '';
+    $scope.description = '';
+
+}

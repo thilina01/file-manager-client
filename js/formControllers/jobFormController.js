@@ -11,3 +11,16 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
     $scope.itemDescription = '';
     $scope.jobQty = '';
 });
+
+ $scope.clear = function () {
+        alert($scope.code+' '+$scope.name);
+         $scope.jobDate = '';
+    $scope.jobNo = '';
+    $scope.productCode = '';
+   
+    $scope.productType = '';
+    $scope.customer = '';
+    $scope.customerCode = '';
+    $scope.itemDescription = '';
+    $scope.jobQty = '';
+    }
