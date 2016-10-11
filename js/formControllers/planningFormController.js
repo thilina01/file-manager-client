@@ -1,5 +1,5 @@
 
-app.controller('planningFormController', function ($scope, $cookies, accountService, appService) {
+app.controller('planningFormController', function ($scope, $cookies, accountService, appService, planningService) {
     $scope.planningDate = '';
     $scope.shift = '';
     $scope.jobNo = '';
@@ -33,5 +33,24 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
         $scope.help = '';
         $scope.other = '';
     }
+    $scope.save = function () {
+        planningService.save($scope.planningDate, $scope.shift, $scope.jobNo, $scope.controlPoint, $scope.controlPointName, $scope.wcc, $scope.section, $scope.planQty, $scope.company, $scope.contract, $scope.help, $scope.other).then(
+                function (response) {
+                    if (response.data) {
+                        alert(response.data);
+                    }
+                    $scope.reloadApp();
+                    return response;
+                },
+                function (response) {
+                    if (response.data) {
+                        alert(response.data);
+                    }
+                    //$scope.reloadApp();
+                    return response;
+                }
+        );
+    }
+
 
 });
