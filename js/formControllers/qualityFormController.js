@@ -1,5 +1,5 @@
 
-app.controller('machineFormController', function ($scope, $cookies, accountService, appService) {
+app.controller('qualityFormController', function ($scope, $cookies, accountService, appService) {
     $scope.qualityDate = '';
     $scope.shift = '';
     $scope.jobNo = '';
