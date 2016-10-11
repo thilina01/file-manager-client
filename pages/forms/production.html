@@ -12,7 +12,7 @@
 
                 <form class="form-inline">
                     <div class="form-group">
-                        <label class="control-label" for="productionDate">Date:</label>
+                        <label class="control-label" for="Date">Date:</label>
                         <div class='input-group date' id='productDatetimepicker'>
                             <input type='text' class="form-control" />
                             <span class="input-group-addon">
@@ -28,7 +28,7 @@
 
 
 
-                        <label class="control-label" for="productionDate">Shift:</label>
+                        <label class="control-label" for="shift">Shift:</label>
 
                         <select class="form-control" id="shift" name="shift" ng-model="shift">	
                             <option value="volvo">Day</option>
@@ -41,7 +41,7 @@
 
 
 
-                        <label class="control-label" for="productionDate">CP Code:</label>
+                        <label class="control-label" for="controlPointCode">CP Code:</label>
 
 
                         <select class="form-control" id="controlPointCode" name="controlPointCode" ng-model="controlPointCode">	
@@ -73,16 +73,16 @@
                             <div class="form">
                                 <div class="form-group">
 
-                                    <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="productionJobNo">job No:</label>
 
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
-
-
+                                    <input type="text" class="form-control input-sm" id="productionJobNo" placeholder="" name="productionJobNo" ng-modal="productionJobNo">
 
 
-                                    <label class="control-label " for="quantity">Qty:</label>
 
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+
+                                    <label class="control-label " for="productionQuantity">Qty:</label>
+
+                                    <input type="text" class="form-control input-sm" id="productionQuantity" placeholder="" name="productionQuantity" ng-modal="productionQuantity">
 
 
                                     <button type="button" class="btn btn-default" >Add</button>
@@ -135,9 +135,9 @@
                             <div class="form-group">
                                 <div class="form">
 
-                                    <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="qualityJobNo">job No:</label>
 
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <input type="text" class="form-control input-sm" id="qualityJobNo" placeholder="" name="qualityJobNo" ng-modal="qualityJobNo">
 
                                     <label class="control-label " for="reason">Reason:</label>
 
@@ -155,9 +155,9 @@
                                         <option value="defect">LR1</option>
                                     </select>
 
-                                    <label class="control-label " for="quantity">Qty:</label>
+                                    <label class="control-label " for="qualityQuantity">Qty:</label>
 
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-modal="quantity">
+                                    <input type="text" class="form-control input-sm" id="qualityQuantity" placeholder="" name="qualityQuantity" ng-modal="qualityQuantity">
 
 
 
@@ -194,9 +194,9 @@
                         <div id="maintenance" class="tab-pane fade">
                             <div class="form-group">
                                 <div class="form">
-                                    <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="maintenanceJobNo">job No:</label>
 
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <input type="text" class="form-control input-sm" id="maintenanceJobNo" placeholder="" name="maintenanceJobNo" ng-modal="maintenanceJobNo">
 
                                     <label class="control-label " for="machineNo">Machine No:</label>
 
@@ -241,9 +241,9 @@
                             <div class="form-group">
                                 <div class="form">
 
-                                    <label class="control-label " for="jobNo">job No:</label>
+                                    <label class="control-label " for="HrJobNo">job No:</label>
 
-                                    <input type="text" class="form-control input-sm" id="jobNo" placeholder="" name="jobNo" ng-modal="jobNo">
+                                    <input type="text" class="form-control input-sm" id="HrJobNo" placeholder="" name="HrJobNo" ng-modal="HrJobNo">
 
                                     <label class="control-label " for="company">Company:</label>
 
