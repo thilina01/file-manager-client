@@ -8,9 +8,7 @@
                 <h4 class="modal-title">Section Grid</h4>
             </div>
             <div class="modal-body">
-
-                
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="sectionTable" class="display table table-hover table-striped" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Code</th>
@@ -25,10 +23,6 @@
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="section in sections track by $index">
-                            <td>{{section.code}}</td>
-                            <td>{{section.name}}</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
