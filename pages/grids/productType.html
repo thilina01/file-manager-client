@@ -1,0 +1,41 @@
+<div class="modal fade" id="sectionGridModal" role="dialog" ng-controller="productTypeGridController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ProductType Grid</h4>
+            </div>
+            <div class="modal-body">
+
+                
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Product Code</th>
+                            <th>Product Type</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                           <th>Product Code</th>
+                            <th>Product Type</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <tr ng-repeat="productType in productTypes track by $index">
+                            <td>{{productType.code}}</td>
+                            <td>{{productType.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+            </div>
+        </div>
+    </div>
+</div>

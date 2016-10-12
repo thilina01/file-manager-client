@@ -1,0 +1,45 @@
+<div class="modal fade" id="sectionGridModal" role="dialog" ng-controller="controlPointGridController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Control Point Grid</h4>
+            </div>
+            <div class="modal-body">
+
+                
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>WCC</th>
+                            <th>Section </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                             <th>WCC</th>
+                            <th>Section </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <tr ng-repeat="controlPoint in controlPoints track by $index">
+                            <td>{{controlPoint.code}}</td>
+                            <td>{{controlPoint.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+            </div>
+        </div>
+    </div>
+</div>
