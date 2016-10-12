@@ -1,6 +1,6 @@
 
 google.charts.load('current', {packages: ['corechart', 'bar']});
-var app = angular.module('app', ['ngRoute', 'ngCookies']);
+var app = angular.module('app', ['ngRoute', 'ngCookies','ngTouch']);
 
 app.config(function ($httpProvider, $routeProvider, $locationProvider) {
     $httpProvider.defaults.withCredentials = true;
