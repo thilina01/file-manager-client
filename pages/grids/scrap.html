@@ -1,0 +1,44 @@
+<div class="modal fade" id="sectionGridModal" role="dialog" ng-controller="scrapGridController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Scrap Grid</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Type</th>
+                            <th>Type in Shinhala</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Code</th>
+                            <th>Type</th>
+                            <th>Type in Shinhala</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <tr ng-repeat="scrap in scraps track by $index">
+                            <td>{{scrap.code}}</td>
+                            <td>{{scrap.type}}</td>
+                             <td>{{scrap.typeInShinhala}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+            </div>
+        </div>
+    </div>
+</div>
