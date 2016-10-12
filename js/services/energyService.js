@@ -1,6 +1,6 @@
 
 app.service('energyService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'energy/';
+    var apiURL = appService.baseURL + 'energies/';
 
     this.save = function (energyDate, shift, jobNo, machineNo, consumptionRate) {
         var data = {

@@ -1,6 +1,6 @@
 
 app.service('jobService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'job/';
+    var apiURL = appService.baseURL + 'jobs/';
 
     this.save = function (jobDate, jobNo, productCode, productType, customer, customerCode, itemDescription,
             jobQty) {

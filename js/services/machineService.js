@@ -1,6 +1,6 @@
 
 app.service('machineService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'machine/';
+    var apiURL = appService.baseURL + 'machines/';
 
     this.save = function (code, name, wcc) {
         var data = {

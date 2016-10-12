@@ -1,6 +1,6 @@
 
 app.service('lossService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'loss/';
+    var apiURL = appService.baseURL + 'losses/';
 
     this.save = function (code,type,typeInShinhala) {
         var data = {

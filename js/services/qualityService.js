@@ -1,6 +1,6 @@
 
 app.service('qualityService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'quality/';
+    var apiURL = appService.baseURL + 'qualities/';
 
     this.save = function (qualityDate, shift, jobNo, productCode, defectCode, defectQty, defectType, scrapCode, scrapQty, scrapType, lossCode, lossQty, lossReason) {
         var data = {

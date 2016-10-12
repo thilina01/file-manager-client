@@ -1,6 +1,6 @@
 
 app.service('productService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'product/';
+    var apiURL = appService.baseURL + 'products/';
 
     this.save = function (code, type, description) {
         var data = {

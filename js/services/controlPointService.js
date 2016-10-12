@@ -1,6 +1,6 @@
 
 app.service('controlPointService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'controlPoint/';
+    var apiURL = appService.baseURL + 'controlPoints/';
 
     this.save = function (code, name, wcc, section) {
         var data = {

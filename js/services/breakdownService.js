@@ -1,6 +1,6 @@
 
 app.service('breakdownService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'breakdown/';
+    var apiURL = appService.baseURL + 'breakdowns/';
 
     this.save = function ( breakdownDate,shift,jobNo,controlPoint,machine,numberOfBreakdown,
             breakdownTime) {

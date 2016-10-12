@@ -1,6 +1,6 @@
 
 app.service('scrapService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'scrap/';
+    var apiURL = appService.baseURL + 'scraps/';
 
     this.save = function (code, type, typeInShinhala) {
         var data = {
