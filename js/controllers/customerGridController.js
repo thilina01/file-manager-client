@@ -2,7 +2,7 @@
 app.controller('customerGridController', function ($http, $scope, $cookies, customerService, appService) {
 
     $scope.customers = '';
-    
+
     $scope.loadcustomers = function () {
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;

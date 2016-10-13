@@ -2,7 +2,7 @@
 app.controller('controlPointGridController', function ($http, $scope, $cookies, controlPointService, appService) {
 
     $scope.controlPoints = '';
-    
+
     $scope.loadSections = function () {
         controlPointService.getAll().then(function (response) {
             $scope.controlPoints = response.data;

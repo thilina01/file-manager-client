@@ -2,7 +2,7 @@
 app.controller('productGridController', function ($http, $scope, $cookies, productService, appService) {
 
     $scope.products = '';
-    
+
     $scope.loadproducts = function () {
         productService.getAll().then(function (response) {
             $scope.products = response.data;

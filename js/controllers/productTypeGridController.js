@@ -2,7 +2,7 @@
 app.controller('productTypeGridController', function ($http, $scope, $cookies, productTypeService, appService) {
 
     $scope.productTypes = '';
-    
+
     $scope.loadproductTypes = function () {
         productTypeService.getAll().then(function (response) {
             $scope.productTypes = response.data;
@@ -12,7 +12,7 @@ app.controller('productTypeGridController', function ($http, $scope, $cookies, p
                 columns: [
                     {data: 'productCode'},
                     {data: 'productName'}
-                    
+
                 ]
             });
         });

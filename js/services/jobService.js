@@ -17,8 +17,8 @@ app.service('jobService', function ($http, appService) {
         };
         return  $http.post(apiURL, data, appService.getJsonHeaders());
     };
-    
-    
+
+
     this.getAll = function () {
         return $http.get(apiURL, appService.getJsonHeaders());
     };

@@ -2,7 +2,7 @@
 app.service('breakdownService', function ($http, appService) {
     var apiURL = appService.baseURL + 'breakdowns/';
 
-    this.save = function ( breakdownDate,shift,jobNo,controlPoint,machine,numberOfBreakdown,
+    this.save = function (breakdownDate, shift, jobNo, controlPoint, machine, numberOfBreakdown,
             breakdownTime) {
         var data = {
             breakdownDate: breakdownDate,
@@ -15,8 +15,8 @@ app.service('breakdownService', function ($http, appService) {
         };
         return  $http.post(apiURL, data, appService.getJsonHeaders());
     };
-    
-    
+
+
     this.getAll = function () {
         return $http.get(apiURL, appService.getJsonHeaders());
     };

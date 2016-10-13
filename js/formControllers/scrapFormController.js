@@ -1,5 +1,5 @@
 
-app.controller('scrapFormController', function ($scope, $cookies, accountService,scrapService, appService) {
+app.controller('scrapFormController', function ($scope, $cookies, accountService, scrapService, appService) {
     $scope.code = '';
     $scope.type = '';
     $scope.typeInShinhala = '';
