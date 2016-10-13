@@ -47,7 +47,25 @@
                         <li><a data-toggle="modal" data-target="#machineModal">Machine</a></li>
                         <li><a data-toggle="modal" data-target="#breakdownModal">Breakdown</a></li>
                         <li><a data-toggle="modal" data-target="#energyModal">Energy</a></li>
-                        <li><a data-toggle="modal" data-target="#sectionGridModal">Section Grid</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" >
+                        Grids
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="modal" data-target="#controlPointGridModal">Control Point</a></li>
+                        <li><a data-toggle="modal" data-target="#customerGridModal">Customer</a></li>
+                        <li><a data-toggle="modal" data-target="#defectGridModal">Defect</a></li>
+                        <li><a data-toggle="modal" data-target="#lossGridModal">Loss</a></li>
+                        <li><a data-toggle="modal" data-target="#machineGridModal">Machine</a></li>
+                        <li><a data-toggle="modal" data-target="#productGridModal">Product</a></li>
+                        <li><a data-toggle="modal" data-target="#productTypeGridModal">Product Type</a></li>
+                        <li><a data-toggle="modal" data-target="#scrapGridModal">Scrap</a></li>
+                        <li><a data-toggle="modal" data-target="#sectionGridModal">Section</a></li>
+                        <li><a data-toggle="modal" data-target="#workCenterGridModal">Work Center</a></li>
                     </ul>
                 </li>
                 <li ng-repeat="menu in menus">
@@ -81,4 +99,13 @@
 <div ng-include="'pages/forms/breakdown.html'"></div>
 <div ng-include="'pages/forms/energy.html'"></div>
 
+<div ng-include="'pages/grids/controlPoint.html'"></div>
+<div ng-include="'pages/grids/customer.html'"></div>
+<div ng-include="'pages/grids/defect.html'"></div>
+<div ng-include="'pages/grids/loss.html'"></div>
+<div ng-include="'pages/grids/machine.html'"></div>
+<div ng-include="'pages/grids/product.html'"></div>
+<div ng-include="'pages/grids/productType.html'"></div>
+<div ng-include="'pages/grids/scrap.html'"></div>
 <div ng-include="'pages/grids/section.html'"></div>
+<div ng-include="'pages/grids/workCenter.html'"></div>
