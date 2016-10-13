@@ -36,25 +36,17 @@
 
                         <div class="col-sm-8">
                             <select class="form-control input-sm" id="wcc" name="wcc" ng-model="wcc">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option> 
+                                <option ng-repeat="workCenter in workCenters" value="workCenter.id">{{workCenter.code}}</option>
                             </select>
                         </div>
 
                         <br/>
                         <br/>
-                        <label class="control-label col-sm-4" for="section">Section:</label>
-
+                       <label class="control-label col-sm-4" for="name">Section:</label>
                         <div class="col-sm-8">
-                            <select class="form-control input-sm" id="section" name="section" ng-model="section">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option> 
-                            </select>
+                            <input type="text" disabled class="form-control input-sm" id="section" placeholder="" name="section" ng-model="section">
                         </div>
+
                     </div>
                     <br/>
                     <br/>
