@@ -14,8 +14,18 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         $scope.wcc = '';
         $scope.section = '';
     }
+    $scope.isValid = function () {
+        if ($scope.code == '' || $scope.name == '' || $scope.wcc == '' || $scope.section == '') {
+            return false;
+        }
+        return true;
+    }
 
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
         controlPointService.save($scope.code, $scope.name, $scope.wcc, $scope.section).then(
                 function (response) {
                     if (response.data) {
