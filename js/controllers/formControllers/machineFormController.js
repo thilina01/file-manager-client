@@ -28,6 +28,7 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

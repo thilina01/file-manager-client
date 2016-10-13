@@ -24,10 +24,30 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
     $scope.company = '';
     $scope.contract = '';
     $scope.help = '';
-
     $scope.other = '';
-
-
+    $scope.productionClear = function () {
+        $scope.productionJobNo = '';
+        $scope.productionQuantity = '';
+    }
+    $scope.qualityClear = function () {
+        $scope.qualityJobNo = '';
+        $scope.reason = '';
+        $scope.code = '';
+        $scope.qualityQuantity = '';
+    }
+    $scope.maintenanceClear = function () {
+        $scope.maintenanceJobNo = '';
+        $scope.machineNo = '';
+        $scope.noOfBreakdown = '';
+        $scope.machinerunningTime = '';
+    }
+    $scope.hrClear = function () {
+        $scope.hrJobNo = '';
+        $scope.company = '';
+        $scope.contract = '';
+        $scope.help = '';
+        $scope.other = '';
+    }
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         //main
@@ -37,25 +57,13 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
         //auto 
         $scope.controlPointName = '';
         //production
-        $scope.productionJobNo = '';
-        $scope.productionQuantity = '';
+         $scope.productionClear();
         //Quality
-        $scope.qualityJobNo = '';
-        $scope.reason = '';
-        $scope.code = '';
-        $scope.qualityQuantity = '';
+        $scope.qualityClear();
         //maintenance
-        $scope.maintenanceJobNo = '';
-        $scope.machineNo = '';
-        $scope.noOfBreakdown = '';
-        $scope.machinerunningTime = '';
+        $scope.maintenanceClear();
         //Hr
-        $scope.hrJobNo = '';
-        $scope.company = '';
-        $scope.contract = '';
-        $scope.help = '';
-
-        $scope.other = '';
+        $scope.hrClear();
     }
 
     $scope.save = function () {
@@ -64,6 +72,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

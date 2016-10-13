@@ -31,6 +31,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

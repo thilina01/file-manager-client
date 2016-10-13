@@ -25,6 +25,7 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
                     if (response.data) {
                         $scope.showSuccess("saved");
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },
