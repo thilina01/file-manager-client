@@ -2,15 +2,10 @@
 app.controller('sectionGridController', function ($http, $scope, $cookies, sectionService, appService) {
 
     $scope.sections = '';
+    
     $scope.loadSections = function () {
         sectionService.getAll().then(function (response) {
             $scope.sections = response.data;
-
-            /*
-             var result = [];
-             for (var i in $scope.sections)
-             result.push([$scope.sections [i].code, $scope.sections [i].name]);
-             alert(result);*/
 
             var x = $('#sectionTable').DataTable({
                 data: $scope.sections,
