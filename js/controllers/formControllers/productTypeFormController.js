@@ -30,6 +30,7 @@ app.controller('productTypeFormController', function ($scope, $cookies, accountS
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

@@ -28,6 +28,7 @@ app.controller('defectFormController', function ($scope, $cookies, accountServic
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

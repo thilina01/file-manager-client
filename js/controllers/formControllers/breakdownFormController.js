@@ -35,6 +35,7 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

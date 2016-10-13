@@ -29,6 +29,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, accountSe
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

@@ -29,6 +29,7 @@ app.controller('scrapFormController', function ($scope, $cookies, accountService
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },

@@ -26,6 +26,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
                     if (response.data) {
                         alert(response.data);
                     }
+                    $scope.clear();
                     $scope.reloadApp();
                     return response;
                 },
