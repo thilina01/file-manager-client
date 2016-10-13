@@ -9,8 +9,18 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.code = '';
         $scope.name = '';
     }
+    $scope.isValid = function () {
+        if ($scope.code == '' || $scope.name == '') {
+            return false;
+        }
+        return true;
+    }
 
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
         customerService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {

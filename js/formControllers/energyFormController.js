@@ -13,7 +13,18 @@ app.controller('energyFormController', function ($scope, $cookies, accountServic
         $scope.machineNo = '';
         $scope.consumptionRate = '';
     }
+    $scope.isValid = function () {
+        if ($scope.energyDate == '' || $scope.shift == '' || $scope.jobNo == '' || $scope.machineNo == '' || $scope.consumptionRate == '') {
+            return false;
+        }
+        return true;
+    }
+
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
         energyService.save($scope.energyDate, $scope.shift, $scope.jobNo, $scope.machineNo, $scope.consumptionRate).then(
                 function (response) {
                     if (response.data) {

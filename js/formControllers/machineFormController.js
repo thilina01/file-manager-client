@@ -11,8 +11,18 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         $scope.name = '';
         $scope.wcc = '';
     }
+    $scope.isValid = function () {
+        if ($scope.code == '' || $scope.name == '' || $scope.name == '') {
+            return false;
+        }
+        return true;
+    }
 
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
         machineService.save($scope.code, $scope.name, $scope.wcc).then(
                 function (response) {
                     if (response.data) {

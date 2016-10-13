@@ -18,8 +18,18 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
         $scope.numberOfBreakdown = '';
         $scope.breakdownTime = '';
     }
+    $scope.isValid = function () {
+        if ($scope.breakdownDate == '' || $scope.shift == '' || $scope.jobNo == '' || $scope.controlPoint == '' || $scope.machine == '' || $scope.numberOfBreakdown == '' || $scope.breakdownTime == '') {
+            return false;
+        }
+        return true;
+    }
 
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
         breakdownService.save($scope.breakdownDate, $scope.shift, $scope.jobNo, $scope.controlPoint, $scope.machine, $scope.numberOfBreakdown, $scope.breakdownTime).then(
                 function (response) {
                     if (response.data) {

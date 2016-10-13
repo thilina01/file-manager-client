@@ -11,8 +11,19 @@ app.controller('workCenterFormController', function ($scope, $cookies, accountSe
         $scope.name = '';
         $scope.section = '';
     }
+    $scope.isValid = function () {
+        if ($scope.code == '' || $scope.name == '' || $scope.section == '') {
+            return false;
+        }
+        return true;
+    }
 
     $scope.save = function () {
+        if (!$scope.isValid()) {
+            $scope.showError("form not complete");
+            return;
+        }
+
         workCenterService.save($scope.code, $scope.name, $scope.section).then(
                 function (response) {
                     if (response.data) {
