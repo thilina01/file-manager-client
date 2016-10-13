@@ -1,9 +1,15 @@
 
-app.controller('workCenterFormController', function ($scope, $cookies, accountService, appService, workCenterService) {
+app.controller('workCenterFormController', function ($scope, $cookies, sectionService, appService, workCenterService) {
     $scope.code = '';
     $scope.name = '';
     $scope.section = '';
+    $scope.sections = '';
 
+    $scope.loadSections = function () {
+        sectionService.getAll().then(function (response) {
+            $scope.sections = response.data;
+        });
+    }
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
@@ -41,5 +47,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, accountSe
                 }
         );
     }
-
+    $('#workCenterModal').on('shown.bs.modal', function () {
+        $scope.loadSections();
+    })
 });
