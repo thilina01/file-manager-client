@@ -8,6 +8,7 @@ app.controller('appController', function ($scope, $timeout, $rootScope, $locatio
 
     $scope.title = $scope.appName;
     $scope.errorMessage = '';
+    $scope.successMessage = '';
     $scope.folderId = 0;
 
     $rootScope.menus = [];
@@ -16,6 +17,12 @@ app.controller('appController', function ($scope, $timeout, $rootScope, $locatio
         $scope.errorMessage = $message;
         $timeout(function () {
             $scope.errorMessage = '';
+        }, 10000);
+    }
+    $scope.showSuccess = function ($message) {
+        $scope.successMessage = $message;
+        $timeout(function () {
+            $scope.successMessage = '';
         }, 10000);
     }
     $scope.goHome = function () {

@@ -76,7 +76,8 @@
     <body>
         <div ng-include="'menu.html'"></div>
         <div class="container">
-            <div class="alert alert-warning" role="alert" ng-show="errorMessage != ''">{{errorMessage}}</div>
+            <div class="alert alert-warning alert-dismissable" role="alert" ng-show="errorMessage != ''">{{errorMessage}}</div>
+            <div class="alert alert-success alert-dismissable" role="alert" ng-show="successMessage != ''">{{successMessage}}</div>
             <div id="main">
                 <div ng-view></div>
             </div>   
