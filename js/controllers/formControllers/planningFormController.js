@@ -1,5 +1,5 @@
 
-app.controller('planningFormController', function ($scope, $cookies, accountService, appService, planningService) {
+app.controller('planningFormController', function ($scope, $cookies, accountService, controlPointService, jobService, appService, planningService) {
     $scope.planningDate = '';
     $scope.shift = '';
     $scope.jobNo = '';
@@ -15,6 +15,20 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
     $scope.contract = '';
     $scope.help = '';
     $scope.other = '';
+
+    $scope.controlPoints = '';
+    $scope.jobs = '';
+
+    $scope.loadControlPoints = function () {
+        controlPointService.getAll().then(function (response) {
+            $scope.controlPoints = response.data;
+        });
+    }
+    $scope.loadJobs = function () {
+        jobService.getAll().then(function (response) {
+            $scope.jobs = response.data;
+        });
+    }
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
@@ -33,6 +47,8 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
         $scope.help = '';
         $scope.other = '';
     }
+
+
     $scope.save = function () {
         planningService.save($scope.planningDate, $scope.shift, $scope.jobNo, $scope.controlPoint, $scope.controlPointName, $scope.wcc, $scope.section, $scope.planQty, $scope.company, $scope.contract, $scope.help, $scope.other).then(
                 function (response) {
@@ -53,5 +69,9 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
         );
     }
 
+    $('#planningModal').on('shown.bs.modal', function () {
+        $scope.loadControlPoints();
+        $scope.loadJobs();        
+    })
 
 });

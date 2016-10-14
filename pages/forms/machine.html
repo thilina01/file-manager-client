@@ -33,10 +33,14 @@
 
                     <br/>
                     <br/>
-                    <label class="control-label col-sm-4" for="wcc">wcc:</label>
+                    <label class="control-label col-sm-4" for="wcc">WCC:</label>
+
                     <div class="col-sm-8">
-                        <input type="text" class="form-control input-sm" id="wcc" placeholder="" name="wcc" ng-model="wcc">
+                        <select class="form-control input-sm" id="wcc" name="wcc" ng-model="wcc">	
+                            <option ng-repeat="workCenter in workCenters" value="workCenter.id">{{workCenter.code}}</option>
+                        </select>
                     </div>
+
 
                     <br/>
                     <br/>

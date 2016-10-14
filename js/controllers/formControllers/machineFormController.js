@@ -3,6 +3,14 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
     $scope.code = '';
     $scope.name = '';
     $scope.wcc = '';
+     $scope.workCenters = '';
+
+    $scope.loadWorkcenters = function () {
+        workCenterService.getAll().then(function (response) {
+            $scope.workCenters = response.data;
+        });
+    }
+
 
 
     $scope.clear = function () {
@@ -40,6 +48,10 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                     return response;
                 }
         );
+ $('#machineModal').on('shown.bs.modal', function () {
+        $scope.loadWorkcenters();
+    })
+
     }
 
 });

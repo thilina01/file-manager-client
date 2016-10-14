@@ -52,10 +52,7 @@
 
                         <div class="col-sm-8">
                             <select class="form-control" id="jobNo" name="jobNo" ng-model="jobNo" >	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option> 
+                                <option ng-repeat="job in jobs" value="jobNo.id">{{job.jobNo}}</option> 
                             </select>
                         </div>
                     </div>
@@ -69,10 +66,7 @@
 
                         <div class="col-sm-8">
                             <select class="form-control" id="controlPoint" name="controlPoint" ng-model="controlPoint">	
-                                <option value="volvo">CP-32</option>
-                                <option value="saab">CP-33</option>
-                                <option value="opel">CP-34</option>
-
+                                <option ng-repeat="controlPoint in controlPoints" value="controlPoint.id">{{controlPoint.code}}</option>
                             </select>
                         </div>
                     </div> 
