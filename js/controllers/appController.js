@@ -5,11 +5,12 @@ app.controller('appController', function ($scope, $timeout, $rootScope, $locatio
     $scope.clientBaseURL = appService.clientBaseURL;
     $scope.organization = appService.organization;
     $scope.appName = appService.appName;
-
     $scope.title = $scope.appName;
     $scope.errorMessage = '';
     $scope.successMessage = '';
     $scope.folderId = 0;
+
+    document.title = $scope.appName;
 
     $rootScope.menus = [];
 
