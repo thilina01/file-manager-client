@@ -28,7 +28,7 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
         itemTypeService.save($scope.code, $scope.type).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -36,7 +36,7 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

@@ -33,7 +33,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, sectionSe
         workCenterService.save($scope.code, $scope.name, $scope.section).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -41,7 +41,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, sectionSe
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

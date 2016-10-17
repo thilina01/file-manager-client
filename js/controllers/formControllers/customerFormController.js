@@ -58,7 +58,8 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
                 , $scope.finalDestination, $scope.continent, $scope.note).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        $scope.showSuccess("Save Success");
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -66,7 +67,8 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        $scope.showError(response.data.message);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

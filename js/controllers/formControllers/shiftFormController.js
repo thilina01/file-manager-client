@@ -24,7 +24,7 @@ app.controller('shiftFormController', function ($scope, $cookies, accountService
         shiftService.save($scope.shift).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -32,7 +32,7 @@ app.controller('shiftFormController', function ($scope, $cookies, accountService
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;
