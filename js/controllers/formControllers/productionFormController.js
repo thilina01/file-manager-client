@@ -70,7 +70,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
         workCenterService.save($scope.date, $scope.shift, $scope.controlPointCode).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -78,7 +78,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

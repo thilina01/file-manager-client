@@ -28,7 +28,7 @@ app.controller('productFormController', function ($scope, $cookies, accountServi
         productService.save($scope.code, $scope.productType, $scope.description).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -36,7 +36,7 @@ app.controller('productFormController', function ($scope, $cookies, accountServi
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

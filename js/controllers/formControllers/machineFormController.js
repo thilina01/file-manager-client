@@ -34,7 +34,7 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         machineService.save($scope.code, $scope.name, $scope.wcc).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -42,7 +42,7 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;

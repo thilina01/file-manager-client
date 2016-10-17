@@ -33,7 +33,7 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
         breakdownService.save($scope.breakdownDate, $scope.shift, $scope.jobNo, $scope.controlPoint, $scope.machine, $scope.numberOfBreakdown, $scope.breakdownTime).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -41,7 +41,7 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
                     //$scope.reloadApp();
                     return response;
