@@ -32,8 +32,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a data-toggle="modal" data-target="#customerModal">Customer</a></li>
-                        <li><a data-toggle="modal" data-target="#productTypeModal">Product Type</a></li>
-                        <li><a data-toggle="modal" data-target="#productModal">Product</a></li>
+                        <li><a data-toggle="modal" data-target="#itemTypeModal">Item Type</a></li>
+                        <li><a data-toggle="modal" data-target="#itemModal">Item</a></li>
                         <li><a data-toggle="modal" data-target="#jobModal">Job</a></li>
                         <li><a data-toggle="modal" data-target="#sectionModal">Section</a></li>
                         <li><a data-toggle="modal" data-target="#workCenterModal">Work Center</a></li>
@@ -48,6 +48,10 @@
                         <li><a data-toggle="modal" data-target="#breakdownModal">Breakdown</a></li>
                         <li><a data-toggle="modal" data-target="#energyModal">Energy</a></li>
                         <li><a data-toggle="modal" data-target="#shiftModal">Shift</a></li>
+                        <li><a data-toggle="modal" data-target="#currencyModal">Currency</a></li>
+                        <li><a data-toggle="modal" data-target="#incotermModal">Incoterm</a></li>
+                        <li><a data-toggle="modal" data-target="#countryModal">country</a></li>
+                        <li><a data-toggle="modal" data-target="#costModal">cost</a></li>
                     </ul>
                 </li>
 
@@ -62,8 +66,8 @@
                         <li><a data-toggle="modal" data-target="#defectGridModal">Defect</a></li>
                         <li><a data-toggle="modal" data-target="#lossGridModal">Loss</a></li>
                         <li><a data-toggle="modal" data-target="#machineGridModal">Machine</a></li>
-                        <li><a data-toggle="modal" data-target="#productGridModal">Product</a></li>
-                        <li><a data-toggle="modal" data-target="#productTypeGridModal">Product Type</a></li>
+                        <li><a data-toggle="modal" data-target="#itemGridModal">Item</a></li>
+                        <li><a data-toggle="modal" data-target="#itemTypeGridModal">Item Type</a></li>
                         <li><a data-toggle="modal" data-target="#scrapGridModal">Scrap</a></li>
                         <li><a data-toggle="modal" data-target="#sectionGridModal">Section</a></li>
                         <li><a data-toggle="modal" data-target="#workCenterGridModal">Work Center</a></li>
@@ -84,8 +88,8 @@
 <div ng-include="'pages/logout.html'"></div>
 
 <div ng-include="'pages/forms/customer.html'"></div>
-<div ng-include="'pages/forms/product-type.html'"></div>
-<div ng-include="'pages/forms/product.html'"></div>
+<div ng-include="'pages/forms/item-type.html'"></div>
+<div ng-include="'pages/forms/item.html'"></div>
 <div ng-include="'pages/forms/job.html'"></div>
 <div ng-include="'pages/forms/section.html'"></div>
 <div ng-include="'pages/forms/work-center.html'"></div>
@@ -100,14 +104,18 @@
 <div ng-include="'pages/forms/breakdown.html'"></div>
 <div ng-include="'pages/forms/energy.html'"></div>
 <div ng-include="'pages/forms/shift.html'"></div>
+<div ng-include="'pages/forms/currency.html'"></div>
+<div ng-include="'pages/forms/incoterm.html'"></div>
+<div ng-include="'pages/forms/country.html'"></div>
+<div ng-include="'pages/forms/cost.html'"></div>
 
 <div ng-include="'pages/grids/controlPoint.html'"></div>
 <div ng-include="'pages/grids/customer.html'"></div>
 <div ng-include="'pages/grids/defect.html'"></div>
 <div ng-include="'pages/grids/loss.html'"></div>
 <div ng-include="'pages/grids/machine.html'"></div>
-<div ng-include="'pages/grids/product.html'"></div>
-<div ng-include="'pages/grids/productType.html'"></div>
+<div ng-include="'pages/grids/item.html'"></div>
+<div ng-include="'pages/grids/itemType.html'"></div>
 <div ng-include="'pages/grids/scrap.html'"></div>
 <div ng-include="'pages/grids/section.html'"></div>
 <div ng-include="'pages/grids/workCenter.html'"></div>
