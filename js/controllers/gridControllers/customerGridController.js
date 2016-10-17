@@ -11,7 +11,23 @@ app.controller('customerGridController', function ($http, $scope, $cookies, cust
                 data: $scope.customers,
                 columns: [
                     {data: 'code'},
-                    {data: 'name'}
+                    {data: 'name'},
+                    {data: 'officeAddress'},
+                    {data: 'consignee'},
+                    {data: 'notifyParty'},
+                    {data: 'contact'},
+                    {data: 'phoneNo'},
+                    {data: 'fax'},
+                    {data: 'paymentTerm'},
+                    {data: 'incoterm'},
+                    {data: 'custtype'},
+                    {data: 'vatNo'},
+                    {data: 'sVatNo'},
+                    {data: 'currency'},
+                    {data: 'country'},
+                    {data: 'finalDestination'},
+                    {data: 'continent'},
+                    {data: 'note'}
                 ]
             });
         });

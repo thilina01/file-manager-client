@@ -14,12 +14,44 @@
                         <tr>
                             <th>Code</th>
                             <th>Name</th>
+                            <th>Office Address</th>
+                            <th>Consignee</th>
+                            <th>Notify Party</th>
+                            <th>Contact</th>
+                            <th>Phone No</th>
+                            <th>Fax</th>
+                            <th>Payment Term</th>
+                            <th>Incoterm</th>
+                            <th>Cust Type</th>
+                            <th>Vat No</th>
+                            <th>S Vat No</th>
+                            <th>Currency</th>
+                            <th>Country</th>
+                            <th>Final Destination</th>
+                            <th>Continent</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Code</th>
                             <th>Name</th>
+                            <th>Office Address</th>
+                            <th>Consignee</th>
+                            <th>Notify Party</th>
+                            <th>Contact</th>
+                            <th>Phone No</th>
+                            <th>Fax</th>
+                            <th>Payment Term</th>
+                            <th>Incoterm</th>
+                            <th>Cust Type</th>
+                            <th>Vat No</th>
+                            <th>S Vat No</th>
+                            <th>Currency</th>
+                            <th>Country</th>
+                            <th>Final Destination</th>
+                            <th>Continent</th>
+                            <th>Note</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -27,6 +59,22 @@
                         <tr ng-repeat="customer in customers track by $index">
                             <td>{{customer.code}}</td>
                             <td>{{customer.name}}</td>
+                            <td>{{customer.officeAddress}}</td>
+                            <td>{{customer.consignee}}</td>
+                            <td>{{customer.notifyParty}}</td>
+                            <td>{{customer.contact}}</td>
+                            <td>{{customer.phoneNo}}</td>
+                            <td>{{customer.fax}}</td>
+                            <td>{{customer.paymentTerm}}</td>
+                            <td>{{customer.incoterm}}</td>
+                            <td>{{customer.custType}}</td>
+                            <td>{{customer.vatNo}}</td>
+                            <td>{{customer.sVatNo}}</td>
+                            <td>{{customer.currency}}</td>
+                            <td>{{customer.country}}</td>
+                            <td>{{customer.finalDestination}}</td>
+                            <td>{{customer.continent}}</td>
+                            <td>{{customer.note}}</td>
                         </tr>
                     </tbody>
                 </table>

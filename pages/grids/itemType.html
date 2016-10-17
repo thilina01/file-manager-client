@@ -1,35 +1,32 @@
-<div class="modal fade" id="productGridModal" role="dialog" ng-controller="productGridController">
+<div class="modal fade" id="itemTypeGridModal" role="dialog" ng-controller="itemTypeGridController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Product Grid</h4>
+                <h4 class="modal-title">ItemType Grid</h4>
             </div>
             <div class="modal-body">
 
-                <table id="productTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <table id="itemTypeTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Product Code</th>
-                            <th>Product Type</th>
-                            <th>Description</th>
+                            <th>Code</th>
+                            <th>Type</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Product Code</th>
-                            <th>Product Type</th>
-                            <th>Description</th>
+                            <th>Code</th>
+                            <th>Type</th>
                         </tr>
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="product in products track by $index">
-                            <td>{{product.code}}</td>
-                            <td>{{product.type}}</td>
-                            <td>{{product.description}}</td>
+                        <tr ng-repeat="itemType in itemTypes track by $index">
+                            <td>{{itemType.code}}</td>
+                            <td>{{itemType.name}}</td>
                         </tr>
                     </tbody>
                 </table>
