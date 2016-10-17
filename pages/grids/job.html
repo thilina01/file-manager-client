@@ -1,38 +1,47 @@
-<div class="modal fade" id="controlPointGridModal" role="dialog" ng-controller="controlPointGridController">
+<div class="modal fade" id="jobGridModal" role="dialog" ng-controller="jobGridController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Control Point Grid</h4>
+                <h4 class="modal-title">Job Grid</h4>
             </div>
             <div class="modal-body">
 
-                <table id="controlPointTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <table id="jobTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>WCC</th>
-                            <th>Section </th>
+                            <th>Job No</th>
+                            <th>Product Code</th>
+                            <th>Product Type</th>
+                            <th>Customer </th>
+                            <th>Customer Code</th>
+                            <th>Item Description </th>
+                            <th>Job Qty </th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>WCC</th>
-                            <th>Section </th>
+                            <th>Job No</th>
+                            <th>Product Code</th>
+                            <th>Product Type</th>
+                            <th>Customer </th>
+                            <th>Customer Code</th>
+                            <th>Item Description </th>
+                            <th>Job Qty </th>
                         </tr>
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="controlPoint in controlPoints track by $index">
-                            <td>{{controlPoint.code}}</td>
-                            <td>{{controlPoint.name}}</td>
-                            <td>{{controlPoint.wcc}}</td>
-                            <td>{{controlPoint.section}}</td>
+                        <tr ng-repeat="job in jobs track by $index">
+                            <td>{{job.jobNo}}</td>
+                            <td>{{job.productCode}}</td>
+                           <td>{{job.producttype}}</td>
+                           <td>{{job.customer}}</td>
+                           <td>{{job.customerCode}}</td>
+                           <td>{{job.itemDescription}}</td>
+                           <td>{{job.jobQty}}</td>
                         </tr>
                     </tbody>
                 </table>
