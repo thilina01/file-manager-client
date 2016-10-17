@@ -24,7 +24,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         customerService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
-                        $scope.showSuccess("Save Success")
+                        $scope.showSuccess("Save Success");
                         //alert(response.data);
                     }
                     $scope.clear();
