@@ -8,38 +8,22 @@
                 <h4 class="modal-title"> WCC </h4>
             </div>
             <div class="modal-body">
-
-                <form class="form">
-
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-
-
-                        <label class="control-label col-sm-4" for="code">Code:</label>
-                        <div class="col-sm-8">
+                <div class="form">
+                    <div class="form-group row">
+                        <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Code:</label>
+                        <div class="col-xs-10">
                             <input type="text" class="form-control" id="code" placeholder="" name="code" ng-model="code">
                         </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-
-
-                        <label class="control-label col-sm-4" for="name">Name:</label>
-                        <div class="col-sm-8">
+                    </div> 
+                    <div class="form-group row">
+                        <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Name:</label>
+                        <div class="col-xs-10">
                             <input type="text" class="form-control" id="name" placeholder="" name="name" ng-model="name">
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="section">Section:</label>
-
-                        <div class="col-sm-8">
+                    <div class="form-group row">
+                        <label for="section" class="col-xs-2 col-form-label col-form-label-sm">Section:</label>
+                        <div class="col-xs-10">
                             <select class="form-control" id="section" name="section" ng-model="section">
 
                                 <option ng-repeat="section in sections" value="section.id">{{section.name}}</option>
@@ -47,14 +31,7 @@
                             </select>
                         </div>
                     </div>
-
-
-
-                    <br/>
-                    <br/>
-
-
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="save()"><i class="icon-save"></i> Save</button>
