@@ -18,6 +18,7 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
 
     $scope.controlPoints = '';
     $scope.jobs = '';
+    $scope.shifts = '';
 
     $scope.loadControlPoints = function () {
         controlPointService.getAll().then(function (response) {
@@ -27,6 +28,11 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
     $scope.loadJobs = function () {
         jobService.getAll().then(function (response) {
             $scope.jobs = response.data;
+        });
+    }
+    $scope.loadShifts = function () {
+        shiftService.getAll().then(function (response) {
+            $scope.shifts = response.data;
         });
     }
 
@@ -71,7 +77,8 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
 
     $('#planningModal').on('shown.bs.modal', function () {
         $scope.loadControlPoints();
-        $scope.loadJobs();        
+        $scope.loadJobs();
+        $scope.loadShifts();
     })
 
 });

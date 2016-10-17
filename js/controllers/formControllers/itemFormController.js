@@ -1,8 +1,8 @@
 
-app.controller('productTypeFormController', function ($scope, $cookies, accountService, appService, productTypeService) {
+app.controller('itemFormController', function ($scope, $cookies, accountService, appService, itemService) {
     $scope.code = '';
-    $scope.type = '';
-    ;
+    $scope.Type = '';
+    $scope.description = '';
 
 
 
@@ -10,11 +10,11 @@ app.controller('productTypeFormController', function ($scope, $cookies, accountS
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.code = '';
-        $scope.type = '';
-
+        $scope.Type = '';
+        $scope.description = '';
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.type == '') {
+        if ($scope.code == '' || $scope.Type == '' || $scope.description == '') {
             return false;
         }
         return true;
@@ -25,7 +25,7 @@ app.controller('productTypeFormController', function ($scope, $cookies, accountS
             $scope.showError("form not complete");
             return;
         }
-        productTypeService.save($scope.code, $scope.type).then(
+        itemService.save($scope.code, $scope.Type, $scope.description).then(
                 function (response) {
                     if (response.data) {
                         alert(response.data);
