@@ -1,5 +1,5 @@
 
-app.controller('productionFormController', function ($scope, $cookies, accountService, appService) {
+app.controller('productionFormController', function ($scope, $cookies, accountService, productionService, appService) {
     //main
     $scope.date = '';
     $scope.shift = '';
@@ -25,6 +25,21 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
     $scope.contract = '';
     $scope.help = '';
     $scope.other = '';
+
+    $scope.productionRows = [];
+    $scope.qualityRows = [];
+    $scope.maintenanceRows = [];
+    $scope.hrRows = [];
+
+    $scope.addProductionRow = function () {
+        $scope.productionRows.push({'item': '', 'job': $scope.productionJobNo, 'quantity': $scope.productionQuantity, 'reason': ''});
+        $scope.productionClear();
+    };
+    $scope.addQualityRow = function () {
+        $scope.qualityRows.push({'item': '', 'job': $scope.qualityJobNo, 'quantity': $scope.qualityQuantity, 'type': '', category: ''});
+        $scope.qualityClear()();
+    };
+
     $scope.productionClear = function () {
         $scope.productionJobNo = '';
         $scope.productionQuantity = '';
@@ -57,7 +72,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
         //auto 
         $scope.controlPointName = '';
         //production
-         $scope.productionClear();
+        $scope.productionClear();
         //Quality
         $scope.qualityClear();
         //maintenance
@@ -67,7 +82,7 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
     }
 
     $scope.save = function () {
-        workCenterService.save($scope.date, $scope.shift, $scope.controlPointCode).then(
+        productionService.save($scope.date, $scope.shift, $scope.controlPointCode).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
