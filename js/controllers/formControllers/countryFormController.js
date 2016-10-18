@@ -1,5 +1,5 @@
 
-app.controller('countryFormController', function ($scope, $cookies, accountService, appService, currencyService) {
+app.controller('countryFormController', function ($scope, $cookies, accountService, appService, countryService) {
     $scope.code = '';
     $scope.name = '';
 
@@ -21,7 +21,7 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
             $scope.showError("form not complete");
             return;
         }
-        currencyService.save($scope.code, $scope.name).then(
+        countryService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
                         alert(response.data);

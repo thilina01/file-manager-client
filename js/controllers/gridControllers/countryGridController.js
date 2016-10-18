@@ -3,7 +3,7 @@ app.controller('countryGridController', function ($http, $scope, $cookies, count
 
     $scope.countries = '';
 
-    $scope.loadcountries = function () {
+    $scope.loadCountries = function () {
         countryService.getAll().then(function (response) {
             $scope.countries = response.data;
 
@@ -18,7 +18,7 @@ app.controller('countryGridController', function ($http, $scope, $cookies, count
     }
 
     $('#countryGridModal').on('shown.bs.modal', function () {
-        $scope.loadcountries();
+        $scope.loadCountries();
     })
     $('#countryGridModal').on('hidden.bs.modal', function () {
         $('#countryTable').DataTable().destroy();
