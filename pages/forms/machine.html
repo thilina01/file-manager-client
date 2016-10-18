@@ -9,51 +9,32 @@
             </div>
             <div class="modal-body">
                 <div class="form">
-                    <div class="form-group">
-                        <br/>
-                        <br/>
-
-
-                        <label class="control-label col-sm-4" for="code">Machine No:</label>
-                        <div class="col-sm-8">
+                    <div class="form-group row">
+                        <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Machine No:</label>
+                        <div class="col-xs-10">
                             <input type="text" class="form-control input-sm" id="code" placeholder="" name="code" ng-model="code">
                         </div>
-
-                        <br/>
-                        <br/>
-
-
-
-
-                        <label class="control-label col-sm-4" for="name">Machine Name:</label>
-                        <div class="col-sm-8">
+                    </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Machine name:</label>
+                        <div class="col-xs-10">
                             <input type="text" class="form-control input-sm" id="name" placeholder="" name="name" ng-model="name">
                         </div>
                     </div>
-
-                    <br/>
-                    <br/>
-                    <label class="control-label col-sm-4" for="wcc">WCC:</label>
-
-                    <div class="col-sm-8">
-                        <select class="form-control input-sm" id="wcc" name="wcc" ng-model="wcc">	
-                            <option ng-repeat="workCenter in workCenters" value="workCenter.id">{{workCenter.code}}</option>
-                        </select>
+                    <div class="form-group row">
+                        <label for="wcc" class="col-xs-2 col-form-label col-form-label-sm">WCC:</label>
+                        <div class="col-xs-10">
+                            <select class="form-control input-sm" id="wcc" name="wcc" ng-model="wcc">	
+                                <option ng-repeat="workCenter in workCenters" value="workCenter.id">{{workCenter.code}}</option>
+                            </select>
+                        </div>
                     </div>
-
-
-                    <br/>
-                    <br/>
-
-
                 </div>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                    <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
-                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
             </div>
-
         </div>
     </div>
-</div>
