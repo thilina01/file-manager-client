@@ -1,14 +1,13 @@
 
-app.controller('countryFormController', function ($scope, $cookies, accountService, appService, currencyService) {
+app.controller('custTypeFormController', function ($scope, $cookies, custTypeService, appService) {
     $scope.code = '';
     $scope.name = '';
 
-
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
         $scope.code = '';
         $scope.name = '';
     }
+
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.name == '') {
             return false;
@@ -21,10 +20,10 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
             $scope.showError("form not complete");
             return;
         }
-        currencyService.save($scope.code, $scope.name).then(
+        custTypeService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -32,11 +31,12 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
                     }
+                    $scope.showError("Save faild");
                     //$scope.reloadApp();
                     return response;
                 }
         );
     }
+
 });
