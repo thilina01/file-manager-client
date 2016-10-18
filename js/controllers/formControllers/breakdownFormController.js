@@ -33,7 +33,7 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
         breakdownService.save($scope.breakdownDate, $scope.shift, $scope.jobNo, $scope.controlPoint, $scope.machine, $scope.numberOfBreakdown, $scope.breakdownTime).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                       $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -43,7 +43,8 @@ app.controller('breakdownFormController', function ($scope, $cookies, appService
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                   
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

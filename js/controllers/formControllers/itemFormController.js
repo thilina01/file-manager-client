@@ -28,7 +28,8 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
         itemService.save($scope.code, $scope.Type, $scope.description).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -38,7 +39,8 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                    
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

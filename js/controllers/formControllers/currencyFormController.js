@@ -24,7 +24,7 @@ app.controller('currencyFormController', function ($scope, $cookies, accountServ
         currencyService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                       $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -34,7 +34,8 @@ app.controller('currencyFormController', function ($scope, $cookies, accountServ
                     if (response.data) {
                         alert(response.data);
                     }
-                    //$scope.reloadApp();
+                    
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

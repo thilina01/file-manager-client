@@ -27,7 +27,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
 
 
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
+       $scope.showSuccess("saved");
         $scope.code = '';
         $scope.name = '';
         $scope.officeAddress = '';
@@ -79,7 +79,8 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
                         $scope.showError(response.data.message);
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                   
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

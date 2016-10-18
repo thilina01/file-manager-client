@@ -33,7 +33,8 @@ app.controller('custTypeFormController', function ($scope, $cookies, custTypeSer
                     if (response.data) {
                     }
                     $scope.showError("Save faild");
-                    //$scope.reloadApp();
+                    
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

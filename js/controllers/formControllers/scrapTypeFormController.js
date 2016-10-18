@@ -27,7 +27,8 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
        scrapTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                      
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -37,7 +38,8 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                   
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

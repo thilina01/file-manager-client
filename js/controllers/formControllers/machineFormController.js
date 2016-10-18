@@ -34,7 +34,8 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         machineService.save($scope.code, $scope.name, $scope.wcc).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                       
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -44,7 +45,8 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                    
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

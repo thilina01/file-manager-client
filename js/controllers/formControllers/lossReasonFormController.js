@@ -23,9 +23,11 @@ app.controller('lossReasonFormController', function ($scope, $cookies, accountSe
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                       
+                        $scope.showSuccess("saved");
                     }
-                    //$scope.reloadApp();
+                  
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

@@ -33,7 +33,8 @@ app.controller('workCenterFormController', function ($scope, $cookies, costCente
         workCenterService.save($scope.code, $scope.name, $scope.section).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                       
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -43,7 +44,8 @@ app.controller('workCenterFormController', function ($scope, $cookies, costCente
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                   
+                    $scope.showError("Save faild");
                     return response;
                 }
         );

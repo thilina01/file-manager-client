@@ -35,7 +35,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         controlPointService.save($scope.code, $scope.name, $scope.wcc, $scope.section).then(
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                       $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -45,7 +45,8 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
                     if (response.data) {
                         //alert(response.data);
                     }
-                    //$scope.reloadApp();
+                   
+                    $scope.showError("Save faild");
                     return response;
                 }
         );
