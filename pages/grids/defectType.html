@@ -1,15 +1,15 @@
-<div class="modal fade" id="defectGridModal" role="dialog" ng-controller="defectGridController">
+<div class="modal fade" id="defectTypeGridModal" role="dialog" ng-controller="defectTypeGridController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Defect Grid</h4>
+                <h4 class="modal-title">Defect Type Grid</h4>
             </div>
             <div class="modal-body">
 
-                <table id="defectTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <table id="defectTypeTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Code</th>
@@ -26,7 +26,7 @@
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="defect in defects track by $index">
+                        <tr ng-repeat="defectType in defectTypes track by $index">
                             <td>{{defect.code}}</td>
                             <td>{{defect.type}}</td>
                             <td>{{defect.typeInShinhala}}</td>

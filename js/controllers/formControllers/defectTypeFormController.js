@@ -1,5 +1,5 @@
 
-app.controller('defectFormController', function ($scope, $cookies, accountService, appService, defectService) {
+app.controller('defectTypeFormController', function ($scope, $cookies, accountService, appService, defectTypeService) {
     $scope.code = '';
     $scope.type = '';
     $scope.typeInShinhala = '';

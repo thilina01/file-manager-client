@@ -1,6 +1,6 @@
 
-app.service('defectService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'defects/';
+app.service('defectTypeService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'defectTypes/';
 
     this.save = function (code, type, typeInShinhala) {
         var data = {
