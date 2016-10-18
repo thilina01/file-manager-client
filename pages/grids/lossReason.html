@@ -1,15 +1,15 @@
-<div class="modal fade" id="lossGridModal" role="dialog" ng-controller="lossGridController">
+<div class="modal fade" id="lossReasonGridModal" role="dialog" ng-controller="lossReasonGridController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">loss Grid</h4>
+                <h4 class="modal-title">loss Reason Grid</h4>
             </div>
             <div class="modal-body">
 
-                <table id="lossTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <table id="lossReasonTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Code</th>
@@ -26,10 +26,10 @@
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="loss in losses track by $index">
-                            <td>{{loss.code}}</td>
-                            <td>{{loss.type}}</td>
-                            <td>{{loss.typeInShinhala}}</td>
+                        <tr ng-repeat="lossReason in lossReasons track by $index">
+                            <td>{{lossReason.code}}</td>
+                            <td>{{lossReason.type}}</td>
+                            <td>{{lossReason.typeInShinhala}}</td>
                         </tr>
                     </tbody>
                 </table>

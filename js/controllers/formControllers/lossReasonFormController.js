@@ -1,5 +1,5 @@
 
-app.controller('lossFormController', function ($scope, $cookies, accountService, appService, lossService) {
+app.controller('lossReasonFormController', function ($scope, $cookies, accountService, appService, lossReasonService) {
     $scope.code = '';
     $scope.type = '';
     $scope.typeInShinhala = '';
@@ -12,7 +12,7 @@ app.controller('lossFormController', function ($scope, $cookies, accountService,
     }
 
     $scope.save = function () {
-        lossService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
+       lossReasonService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
