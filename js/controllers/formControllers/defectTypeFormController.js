@@ -23,7 +23,7 @@ app.controller('defectTypeFormController', function ($scope, $cookies, accountSe
             $scope.showError("form not complete");
             return;
         }
-        defectService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
+        defectTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
