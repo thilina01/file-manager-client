@@ -1,11 +1,11 @@
 
-app.service('costService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'costs/';
+app.service('costCenterService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'costCenters/';
 
     this.save = function (code, name) {
         var data = {
             code: code,
-            price: price
+            name: name
         };
         return  $http.post(apiURL, data, appService.getJsonHeaders());
     };

@@ -1,17 +1,17 @@
 
-app.controller('costGridController', function ($http, $scope, $cookies, costService, appService) {
+app.controller('costCenterGridController', function ($http, $scope, $cookies, costCenterService, appService) {
 
-    $scope.costs = '';
+    $scope.costCenters = '';
 
     $scope.loadcosts = function () {
-        costService.getAll().then(function (response) {
-            $scope.costs = response.data;
+        costCenterService.getAll().then(function (response) {
+            $scope.costCenters = response.data;
 
             var x = $('#costTable').DataTable({
-                data: $scope.costs,
+                data: $scope.costCenters,
                 columns: [
                     {data: 'code'},
-                    {price: 'price'}
+                    {data: 'name'}
                 ]
             });
         });

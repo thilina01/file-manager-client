@@ -1,16 +1,16 @@
 
-app.controller('costFormController', function ($scope, $cookies, accountService, appService, costService) {
+app.controller('costCenterFormController', function ($scope, $cookies, accountService, appService, costCenterService) {
     $scope.code = '';
-    $scope.price = '';
+    $scope.name = '';
 
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.code = '';
-        $scope.price = '';
+        $scope.name = '';
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.price == '') {
+        if ($scope.code == '' || $scope.name == '') {
             return false;
         }
         return true;
@@ -21,7 +21,7 @@ app.controller('costFormController', function ($scope, $cookies, accountService,
             $scope.showError("form not complete");
             return;
         }
-        costService.save($scope.code, $scope.price).then(
+        costCenterService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
                         alert(response.data);

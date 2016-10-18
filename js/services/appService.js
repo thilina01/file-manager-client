@@ -1,6 +1,6 @@
 
 app.service('appService', function ($cookies) {
-    this.baseURL = 'http://tmsapi.trwlanka.com/';//http://trw.nanosl.com:82/
+    this.baseURL = 'http://192.168.1.98:8080/';//http://trw.nanosl.com:82///tmsapi.trwlanka.com
     this.clientBaseURL = 'http://tms.trwlanka.com/';//'http://trw.nanosl.com:81/'//http://localhost/file-manager-client
     this.organization = 'TRW Lanka (Pvt) Ltd.';
     this.appName = 'TRW Management System';

@@ -9,8 +9,8 @@ app.controller('itemTypeGridController', function ($http, $scope, $cookies, item
             var x = $('#itemTypeTable').DataTable({
                 data: $scope.itemTypes,
                 columns: [
-                    {data: 'Code'},
-                    {data: 'Name'}
+                    {data: 'code'},
+                    {data: 'type'}
 
                 ]
             });
