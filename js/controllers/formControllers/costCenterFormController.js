@@ -1,10 +1,9 @@
 
 app.controller('costCenterFormController', function ($scope, $cookies, accountService, appService, costCenterService, sectionService) {
-    $scope.code = '';
-    $scope.name = '';
-    $scope.section = '';
 
-    $scope.sections = '';
+    $scope.costCenter = {};
+    $scope.section = {};
+    $scope.sections = [];
 
     $scope.loadSections = function () {
         sectionService.getAll().then(function (response) {
@@ -12,15 +11,12 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
         })
     }
 
-
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
+        $scope.costCenter = {};
+        $scope.section = {};
     }
     $scope.isValid = function () {
-
-        if ($scope.code == '' || $scope.name == '' || $scope.section == '') {
+        if ($scope.costCenter.code == '' || $scope.costCenter.name == '' || angular.equals($scope.section, {})) {
             return false;
         }
         return true;
@@ -31,10 +27,11 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
             $scope.showError("form not complete");
             return;
         }
-        costCenterService.save($scope.code, $scope.name, $scope.section).then(
+        $scope.costCenter.section = JSON.parse($scope.section);
+        costCenterService.save($scope.costCenter).then(
                 function (response) {
                     if (response.data) {
-                       $scope.showSuccess("saved");
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -42,9 +39,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
                     }
-                   
                     $scope.showError("Save faild");
                     return response;
                 }
