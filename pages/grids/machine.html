@@ -17,22 +17,7 @@
                             <th>Wcc</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Machine No</th>
-                            <th>Machine Name</th>
-                            <th>Wcc</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-
-                        <tr ng-repeat="machine in machines track by $index">
-                            <td>{{machine.machineNo}}</td>
-                            <td>{{machine.machineName}}</td>
-                            <td>{{wcc}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                   </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>

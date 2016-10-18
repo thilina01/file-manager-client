@@ -17,22 +17,7 @@
                             <th>Section </th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>Section </th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-
-                        <tr ng-repeat="workCenter in workCenters track by $index">
-                            <td>{{workCenter.code}}</td>
-                            <td>{{workCenter.name}}</td>
-                            <td>{{workCenter.section}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                  </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>

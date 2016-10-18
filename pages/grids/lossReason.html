@@ -17,22 +17,7 @@
                             <th>Type in Shinhala</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Code</th>
-                            <th>Type</th>
-                            <th>Type in Shinhala</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-
-                        <tr ng-repeat="lossReason in lossReasons track by $index">
-                            <td>{{lossReason.code}}</td>
-                            <td>{{lossReason.type}}</td>
-                            <td>{{lossReason.typeInShinhala}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                   </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>
