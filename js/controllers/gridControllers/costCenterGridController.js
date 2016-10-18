@@ -11,7 +11,8 @@ app.controller('costCenterGridController', function ($http, $scope, $cookies, co
                 data: $scope.costCenters,
                 columns: [
                     {data: 'code'},
-                    {data: 'name'}
+                    {data: 'name'},
+                    {data: 'section.name'}
                 ]
             });
         });
