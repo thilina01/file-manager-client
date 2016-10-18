@@ -1,7 +1,16 @@
 
-app.controller('costCenterFormController', function ($scope, $cookies, accountService, appService, costCenterService) {
+app.controller('costCenterFormController', function ($scope, $cookies, accountService, appService, costCenterService, sectionService) {
     $scope.code = '';
     $scope.name = '';
+    $scope.section = '';
+
+    $scope.sections = '';
+
+    $scope.loadSections = function () {
+        sectionService.getAll().then(function (response) {
+            $scope.sections = response.data;
+        })
+    }
 
 
     $scope.clear = function () {
@@ -10,7 +19,8 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
         $scope.name = '';
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '') {
+
+        if ($scope.code == '' || $scope.name == '' || $scope.section == '') {
             return false;
         }
         return true;
@@ -21,7 +31,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
             $scope.showError("form not complete");
             return;
         }
-        costCenterService.save($scope.code, $scope.name).then(
+        costCenterService.save($scope.code, $scope.name, $scope.section).then(
                 function (response) {
                     if (response.data) {
                         alert(response.data);
@@ -39,4 +49,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
                 }
         );
     }
+    $('#costCenterModal').on('shown.bs.modal', function () {
+        $scope.loadSections();
+    })
 });
