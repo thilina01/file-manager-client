@@ -1,5 +1,5 @@
 
-app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService) {
+app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService,countryService) {
     $scope.code = '';
     $scope.name = '';
     $scope.officeAddress = '';
@@ -21,6 +21,8 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
 
     $scope.incoterms = '';
     $scope.custTypes = '';
+    $scope.currencies = '';
+     $scope.countries = '';
 
 
 
@@ -95,9 +97,22 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
             $scope.custTypes = response.data;
         });
     }
+    $scope.loadCurrencies = function () {
+        currencyService.getAll().then(function (response) {
+            $scope.currencies = response.data;
+        });
+    }
+    $scope.loadCountries = function () {
+        countryService.getAll().then(function (response) {
+            $scope.countries = response.data;
+        });
+    }
+
 
     $('#customerModal').on('shown.bs.modal', function () {
         $scope.loadIncoterms();
         $scope.loadCustTypes();
+        $scope.loadCurrencies();
+         $scope.loadCountries();
     })
 });

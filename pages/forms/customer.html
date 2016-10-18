@@ -95,8 +95,7 @@
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Currency:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="currency" name="currency" ng-model="currency">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
+                                <option ng-repeat="currency in currencies" value="currency.id">{{currency.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -104,8 +103,7 @@
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Country:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="country" name="country" ng-model="country">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
+                                  <option ng-repeat="country in countries" value="country.id">{{country.name}}</option>
                             </select>
                         </div>
                     </div>
