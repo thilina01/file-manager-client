@@ -1,33 +1,26 @@
-<div class="modal fade" id="incotermGridModal" role="dialog" ng-controller="incotermGridController">
+<div class="modal fade" id="shiftGridModal" role="dialog" ng-controller="shiftGridController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Incoterm Grid</h4>
+                <h4 class="modal-title">Shift Grid</h4>
             </div>
             <div class="modal-body">
-
-                <table id="incotermTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <table id="sectionTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Code</th>
-                            <th>Name</th>
+                            <th>Shift</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Code</th>
-                            <th>Name</th>
+                            <th>Shift</th>
                         </tr>
                     </tfoot>
                     <tbody>
 
-                        <tr ng-repeat="incoterm in incoterms track by $index">
-                            <td>{{incoterm.code}}</td>
-                            <td>{{incoterm.name}}</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
