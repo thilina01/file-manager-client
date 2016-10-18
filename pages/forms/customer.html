@@ -75,8 +75,7 @@
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Cust Type:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="custType" name="custType" ng-model="custType">	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
+                                <option ng-repeat="custType in custTypes" value="custType.id">{{custType.name}}</option>
                             </select>
                         </div>
                     </div>

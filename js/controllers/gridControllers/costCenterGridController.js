@@ -3,11 +3,11 @@ app.controller('costCenterGridController', function ($http, $scope, $cookies, co
 
     $scope.costCenters = '';
 
-    $scope.loadcosts = function () {
+    $scope.loadcostCenters = function () {
         costCenterService.getAll().then(function (response) {
             $scope.costCenters = response.data;
 
-            var x = $('#costTable').DataTable({
+            var x = $('#costCenterTable').DataTable({
                 data: $scope.costCenters,
                 columns: [
                     {data: 'code'},
@@ -17,10 +17,10 @@ app.controller('costCenterGridController', function ($http, $scope, $cookies, co
         });
     }
 
-    $('#costGridModal').on('shown.bs.modal', function () {
-        $scope.loadcosts();
+    $('#costCenterGridModal').on('shown.bs.modal', function () {
+        $scope.loadcostCenters();
     })
-    $('#costGridModal').on('hidden.bs.modal', function () {
-        $('#costTable').DataTable().destroy();
+    $('#costCenterGridModal').on('hidden.bs.modal', function () {
+        $('#costCenterTable').DataTable().destroy();
     })
 });

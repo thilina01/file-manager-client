@@ -1,5 +1,5 @@
 
-app.controller('customerFormController', function ($scope, $cookies, accountService, appService, customerService,incotermService) {
+app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService) {
     $scope.code = '';
     $scope.name = '';
     $scope.officeAddress = '';
@@ -20,6 +20,9 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
     $scope.note = '';
 
     $scope.incoterms = '';
+    $scope.custTypes = '';
+
+
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
@@ -42,7 +45,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.continent = '';
         $scope.note = '';
     }
-    
+
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.name == '' || $scope.officeAddress == '' || $scope.consignee == '' || $scope.notifyParty == '' || $scope.contact == '' ||
                 $scope.phoneNo == '' || $scope.fax == '' || $scope.paymentTerm == '' || $scope.incoterm == '' || $scope.custType == '' || $scope.vatNo == '' ||
@@ -80,14 +83,21 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         );
 
     }
-    
+
     $scope.loadIncoterms = function () {
         incotermService.getAll().then(function (response) {
             $scope.incoterms = response.data;
+
         });
     }
-    
+    $scope.loadCustTypes = function () {
+        custTypeService.getAll().then(function (response) {
+            $scope.custTypes = response.data;
+        });
+    }
+
     $('#customerModal').on('shown.bs.modal', function () {
         $scope.loadIncoterms();
+        $scope.loadCustTypes();
     })
 });
