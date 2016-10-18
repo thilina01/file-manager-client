@@ -18,7 +18,7 @@
                         <label class="control-label col-sm-4" for="planningDate">Date:</label>
                         <div class='col-sm-8'>
                             <div class='input-group date' id='jobDatetimepickerx' >
-                                <input type='text' class="form-control"  />
+                                <input type='text' class="form-control form-control-sm"  />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -38,7 +38,7 @@
                         <label class="control-label col-sm-4" for="shift">Shift:</label>
                         <div class='col-sm-8'>
 
-                            <select class="form-control"  id='shift' name="shift" ng-model="shift">	
+                            <select class="form-control form-control-sm"  id='shift' name="shift" ng-model="shift">	
                                 <option value="volvo">Day</option>
                                 <option value="saab">Night</option>
                             </select>
@@ -51,7 +51,7 @@
                         <label class="control-label col-sm-4" for="jobNo">Job No:</label>
 
                         <div class="col-sm-8">
-                            <select class="form-control" id="jobNo" name="jobNo" ng-model="jobNo" >	
+                            <select class="form-control form-control-sm" id="jobNo" name="jobNo" ng-model="jobNo" >	
                                 <option ng-repeat="job in jobs" value="jobNo.id">{{job.jobNo}}</option> 
                             </select>
                         </div>
@@ -65,7 +65,7 @@
                         <label class="control-label col-sm-4" for="controlPoint">Control Point:</label>
 
                         <div class="col-sm-8">
-                            <select class="form-control" id="controlPoint" name="controlPoint" ng-model="controlPoint">	
+                            <select class="form-control form-control-sm" id="controlPoint" name="controlPoint" ng-model="controlPoint">	
                                 <option ng-repeat="controlPoint in controlPoints" value="controlPoint.id">{{controlPoint.code}}</option>
                             </select>
                         </div>
@@ -77,7 +77,7 @@
 
                         <label class="control-label disabled   col-sm-4" for="controlPointName">Control Point Name:</label>
                         <div class="col-sm-8">
-                            <input type="text"  disabled class="form-control" id="controlPointName" placeholder="" name="controlPointName" ng-model="controlPointName">
+                            <input type="text"  disabled class="form-control form-control-sm" id="controlPointName" placeholder="" name="controlPointName" ng-model="controlPointName">
                         </div>
                     </div>
 
@@ -87,7 +87,7 @@
 
                         <label class="control-label col-sm-4" for="wcc">WCC:</label>
                         <div class="col-sm-8">
-                            <input type="text" disabled  class="form-control" id="wcc" placeholder="" name="wcc" ng-model="wcc">
+                            <input type="text" disabled  class="form-control form-control-sm" id="wcc" placeholder="" name="wcc" ng-model="wcc">
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
 
                         <label class="control-label col-sm-4" for="section">Section:</label>
                         <div class="col-sm-8">
-                            <input type="text" disabled  class="form-control" id="section" placeholder="" name="section" ng-model="section">
+                            <input type="text" disabled  class="form-control form-control-sm" id="section" placeholder="" name="section" ng-model="section">
                         </div>
                     </div>
 
@@ -108,7 +108,7 @@
                         <br/>
                         <label class="control-label col-sm-4" for="planQty">Plan Qty:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="planQty" placeholder="" name="planQty" ng-model="planQty">
+                            <input type="text" class="form-control form-control-sm" id="planQty" placeholder="" name="planQty" ng-model="planQty">
                         </div>
                     </div>
                     <br/>
@@ -122,7 +122,7 @@
                         <br/>
                         <label class="control-label col-sm-4" for="company">Company:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="company" placeholder="" name="company" ng-model="company">
+                            <input type="text" class="form-control form-control-sm" id="company" placeholder="" name="company" ng-model="company">
                         </div>
                     </div>
 
@@ -132,7 +132,7 @@
                         <br/>
                         <label class="control-label col-sm-4" for="contract">Contract:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="" placeholder="" name="contract" ng-model="contract">
+                            <input type="text" class="form-control form-control-sm" id="" placeholder="" name="contract" ng-model="contract">
                         </div>
                     </div>
 
@@ -141,7 +141,7 @@
                         <br/>
                         <label class="control-label col-sm-4" for="help">Help:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="help" placeholder="" name="help" ng-model="help">
+                            <input type="text" class="form-control form-control-sm" id="help" placeholder="" name="help" ng-model="help">
                         </div>
                     </div>
 
@@ -151,7 +151,7 @@
 
                         <label class="control-label col-sm-4" for="other">Other:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="other" placeholder="" name="" ng-model="other">
+                            <input type="text" class="form-control form-control-sm" id="other" placeholder="" name="" ng-model="other">
                         </div>
                     </div>
 
