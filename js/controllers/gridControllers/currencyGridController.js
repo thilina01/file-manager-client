@@ -3,7 +3,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
 
     $scope.currencies = '';
 
-    $scope.loadcurrencies = function () {
+    $scope.loadCurrencies = function () {
         currencyService.getAll().then(function (response) {
             $scope.currencies = response.data;
 
@@ -18,7 +18,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
     }
 
     $('#currencyGridModal').on('shown.bs.modal', function () {
-        $scope.loadcurrencies();
+        $scope.loadCurrencies();
     })
     $('#currencyGridModal').on('hidden.bs.modal', function () {
         $('#currencyTable').DataTable().destroy();
