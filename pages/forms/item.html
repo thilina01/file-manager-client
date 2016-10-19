@@ -12,7 +12,7 @@
                     <div class="form-group row">
                         <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Code:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="code">
+                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="item.code">
                         </div>
                     </div> 
 
@@ -20,19 +20,54 @@
                         <label for="type" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
                         <div class="col-xs-10">
                             <select class="form-control form-control-sm" id="type" name="type" ng-model="type" >	
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option> 
+                                 <option ng-repeat="item in itemTypes" value="{{item}}">{{item.name}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="description" class="col-xs-2 col-form-label col-form-label-sm">Description:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="description" placeholder="" name="description" ng-model="description">
+                            <input type="text" class="form-control form-control-sm" id="description" placeholder="" name="description" ng-model="item.description">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="drawingVersion" class="col-xs-2 col-form-label col-form-label-sm">Drawing Version:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="drawingVersion" placeholder="" name="drawingVersion" ng-model="item.drawingVersion">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="productionToolAvalability" class="col-xs-2 col-form-label col-form-label-sm">Production Tool Availability:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="productionToolAvalability" placeholder="" name="productionToolAvalability" ng-model="item.productionToolAvalability">
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <label for="size" class="col-xs-2 col-form-label col-form-label-sm">Size:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="size" placeholder="" name="size" ng-model="item.size">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="volum" class="col-xs-2 col-form-label col-form-label-sm">Volume:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="volum" placeholder="" name="volum" ng-model="item.volum">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="weight" class="col-xs-2 col-form-label col-form-label-sm">Weight:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="weight" placeholder="" name="weight" ng-model="item.weight">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="paint" class="col-xs-2 col-form-label col-form-label-sm">Paint:</label>
+                        <div class="col-xs-10">
+                            <select class="form-control form-control-sm" id="paint" name="paint" ng-model="paint" >	
+                                 <option ng-repeat="item in itemTypes" value="{{item}}">{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div> 
                 </div>
             </div>
             <div class="modal-footer">
