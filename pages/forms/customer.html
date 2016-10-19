@@ -12,62 +12,62 @@
                     <div class="form-group row">
                         <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Code:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="code">
+                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="customer.code">
                         </div>
                     </div>                
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Name:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="name">
+                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="customer.name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Office Address:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="officeAddress" placeholder="" name="officeAddress" ng-model="officeAddress">
+                            <input type="text" class="form-control form-control-sm" id="officeAddress" placeholder="" name="officeAddress" ng-model="customer.officeAddress">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Consignee:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="consignee" placeholder="" name="consignee" ng-model="consignee">
+                            <input type="text" class="form-control form-control-sm" id="consignee" placeholder="" name="consignee" ng-model="customer.consignee">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Notify Party:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="notifyParty" placeholder="" name="notifyParty" ng-model="notifyParty">
+                            <input type="text" class="form-control form-control-sm" id="notifyParty" placeholder="" name="notifyParty" ng-model="customer.notifyParty">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Contact:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="contact" placeholder="" name="contact" ng-model="contact">
+                            <input type="text" class="form-control form-control-sm" id="contact" placeholder="" name="contact" ng-model="customer.contact">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Phone No:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="phoneNo" placeholder="" name="phoneNo" ng-model="phoneNo">
+                            <input type="text" class="form-control form-control-sm" id="phoneNo" placeholder="" name="phoneNo" ng-model="customer.phoneNo">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Fax:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="fax" placeholder="" name="fax" ng-model="fax">
+                            <input type="text" class="form-control form-control-sm" id="fax" placeholder="" name="fax" ng-model="customer.fax">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Payment Term:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="paymentTerm" placeholder="" name="paymentTerm" ng-model="paymentTerm">
+                            <input type="text" class="form-control form-control-sm" id="paymentTerm" placeholder="" name="paymentTerm" ng-model="customer.paymentTerm">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Incoterm:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="incoterm" name="incoterm" ng-model="incoterm">	
-                                <option ng-repeat="incoterm in incoterms" value="incoterm.id">{{incoterm.name}}</option>
+                                <option ng-repeat="incoterm in incoterms" value="{{incoterm}}">{{incoterm.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -75,27 +75,27 @@
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Cust Type:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="custType" name="custType" ng-model="custType">	
-                                <option ng-repeat="custType in custTypes" value="custType.id">{{custType.name}}</option>
+                                <option ng-repeat="custType in custTypes" value="{{custType}}">{{custType.name}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Vat No:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="vatNo" placeholder="" name="vatNo" ng-model="vatNo">
+                            <input type="text" class="form-control form-control-sm" id="vatNo" placeholder="" name="vatNo" ng-model="customer.vatNo">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">S Vat No:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="sVatNo" placeholder="" name="sVatNo" ng-model="sVatNo">
+                            <input type="text" class="form-control form-control-sm" id="sVatNo" placeholder="" name="sVatNo" ng-model="customer.sVatNo">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Currency:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="currency" name="currency" ng-model="currency">	
-                                <option ng-repeat="currency in currencies" value="currency.id">{{currency.name}}</option>
+                                <option ng-repeat="currency in currencies" value="{{currency}}">{{currency.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -103,26 +103,26 @@
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Country:</label>
                         <div class="col-xs-10">
                             <select class="form-control input-sm" id="country" name="country" ng-model="country">	
-                                  <option ng-repeat="country in countries" value="country.id">{{country.name}}</option>
+                                  <option ng-repeat="country in countries" value="{{country}}">{{country.name}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Final Destination:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="finalDestination" placeholder="" name="finalDestination" ng-model="finalDestination">
+                            <input type="text" class="form-control form-control-sm" id="finalDestination" placeholder="" name="finalDestination" ng-model="customer.finalDestination">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Continent:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="continent" placeholder="" name="continent" ng-model="continent">
+                            <input type="text" class="form-control form-control-sm" id="continent" placeholder="" name="continent" ng-model="customer.continent">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Note:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="note" placeholder="" name="note" ng-model="note">
+                            <input type="text" class="form-control form-control-sm" id="note" placeholder="" name="note" ng-model="customer.note">
                         </div>
                     </div>
                 </div>

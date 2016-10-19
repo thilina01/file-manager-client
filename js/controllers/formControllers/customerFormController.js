@@ -1,57 +1,30 @@
 
-app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService,countryService) {
-    $scope.code = '';
-    $scope.name = '';
-    $scope.officeAddress = '';
-    $scope.consignee = '';
-    $scope.notifyParty = '';
-    $scope.contact = '';
-    $scope.phoneNo = '';
-    $scope.fax = '';
-    $scope.paymentTerm = '';
-    $scope.incoterm = '';
-    $scope.custType = '';
-    $scope.vatNo = '';
-    $scope.sVatNo = '';
-    $scope.currency = '';
-    $scope.country = '';
-    $scope.finalDestination = '';
-    $scope.continent = '';
-    $scope.note = '';
-
-    $scope.incoterms = '';
-    $scope.custTypes = '';
-    $scope.currencies = '';
-     $scope.countries = '';
+app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService, countryService) {
+    $scope.customer = {};
+    $scope.incoterm = {};
+    $scope.custType = {};
+    $scope.currency = {};
+    $scope.country = {};
+    $scope.incoterms = [];
+    $scope.custTypes = [];
+    $scope.currencies = [];
+    $scope.countries = [];
 
 
 
     $scope.clear = function () {
-       $scope.showSuccess("saved");
-        $scope.code = '';
-        $scope.name = '';
-        $scope.officeAddress = '';
-        $scope.consignee = '';
-        $scope.notifyParty = '';
-        $scope.contact = '';
-        $scope.phoneNo = '';
-        $scope.fax = '';
-        $scope.paymentTerm = '';
-        $scope.incoterm = '';
-        $scope.custType = '';
-        $scope.vatNo = '';
-        $scope.sVatNo = '';
-        $scope.currency = '';
-        $scope.country = '';
-        $scope.finalDestination = '';
-        $scope.continent = '';
-        $scope.note = '';
+        $scope.showSuccess("saved");
+        $scope.customer = {};
+        $scope.incoterm = {};
+        $scope.custType = {};
+        $scope.currency = {};
+        $scope.country = {};
     }
 
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '' || $scope.officeAddress == '' || $scope.consignee == '' || $scope.notifyParty == '' || $scope.contact == '' ||
-                $scope.phoneNo == '' || $scope.fax == '' || $scope.paymentTerm == '' || $scope.incoterm == '' || $scope.custType == '' || $scope.vatNo == '' ||
-                $scope.sVatNo == '' || $scope.currency == '' || $scope.country == '' || $scope.finalDestination == '' || $scope.continent == '' || $scope.note == '') {
+        if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == '' || $scope.customer.notifyParty == '' || $scope.customer.contact == '' ||
+                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.incoterm, {})  || angular.equals($scope.custType, {}) || $scope.customer.vatNo == '' ||
+                $scope.customer.sVatNo == ''  || angular.equals($scope.currency, {}) || angular.equals($scope.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' || $scope.customer.note == '') {
             return false;
         }
         return true;
@@ -62,9 +35,11 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        customerService.save($scope.code, $scope.name, $scope.consignee, $scope.notifyParty, $scope.contact, $scope.phoneNo
-                , $scope.fax, $scope.paymentTerm, $scope.incoterm, $scope.custTyps, $scope.vatNo, $scope.sVatNo, $scope.currency, $scope.country
-                , $scope.finalDestination, $scope.continent, $scope.note).then(
+        $scope.coustomer.incoterm = JSON.parse($scope.incoterm);
+         $scope.coustomer.custType = JSON.parse($scope.custType);
+          $scope.coustomer.currency = JSON.parse($scope.currency);
+           $scope.coustomer.country = JSON.parse($scope.country);
+        customerService.save($scope.customer).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("Save Success");
@@ -79,7 +54,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
                         $scope.showError(response.data.message);
                         //alert(response.data);
                     }
-                   
+
                     $scope.showError("Save faild");
                     return response;
                 }
@@ -114,6 +89,6 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.loadIncoterms();
         $scope.loadCustTypes();
         $scope.loadCurrencies();
-         $scope.loadCountries();
+        $scope.loadCountries();
     })
 });
