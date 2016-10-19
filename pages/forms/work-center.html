@@ -12,13 +12,13 @@
                     <div class="form-group row">
                         <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Code:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="code">
+                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="workCenter.code">
                         </div>
                     </div> 
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Name:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="name">
+                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="workCenter.name">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -26,7 +26,7 @@
                         <div class="col-xs-10">
                             <select class="form-control form-control-sm" id="costCenter" name="costCenter" ng-model="costCenter">
 
-                                <option ng-repeat="costCenter in costCenters" value="costCenter.id">{{costCenter.name}}</option>
+                                <option ng-repeat="costCenter in costCenters" value="{{costCenter}}">{{costCenter.name}}</option>
 
                             </select>
                         </div>
