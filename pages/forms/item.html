@@ -19,8 +19,8 @@
                     <div class="form-group row">
                         <label for="type" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
                         <div class="col-xs-10">
-                            <select class="form-control form-control-sm" id="type" name="type" ng-model="type" >	
-                                 <option ng-repeat="item in itemTypes" value="{{item}}">{{item.name}}</option>
+                            <select class="form-control form-control-sm" id="type" name="type" ng-model="itemType" >	
+                                <option ng-repeat="itemType in itemTypes" value="{{itemType}}">{{itemType.type}}</option>
                             </select>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control form-control-sm" id="productionToolAvalability" placeholder="" name="productionToolAvalability" ng-model="item.productionToolAvalability">
                         </div>
                     </div>
-                     <div class="form-group row">
+                    <div class="form-group row">
                         <label for="size" class="col-xs-2 col-form-label col-form-label-sm">Size:</label>
                         <div class="col-xs-10">
                             <input type="text" class="form-control form-control-sm" id="size" placeholder="" name="size" ng-model="item.size">
@@ -64,7 +64,7 @@
                         <label for="paint" class="col-xs-2 col-form-label col-form-label-sm">Paint:</label>
                         <div class="col-xs-10">
                             <select class="form-control form-control-sm" id="paint" name="paint" ng-model="paint" >	
-                                 <option ng-repeat="item in itemTypes" value="{{item}}">{{item.name}}</option>
+                                <option ng-repeat="paint in paints" value="{{paint}}">{{paint.name}}</option>
                             </select>
                         </div>
                     </div> 
