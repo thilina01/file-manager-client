@@ -38,7 +38,7 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
         jobService.save($scope.jobDate, $scope.jobNo, $scope.productCode, $scope.productType, $scope.customer, $scope.customerCode, $scope.itemDescription, $scope.jobQty).then(
                 function (response) {
                     if (response.data) {
-                       
+
                         $scope.showSuccess("saved");
                     }
                     $scope.clear();
@@ -47,10 +47,11 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                 
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

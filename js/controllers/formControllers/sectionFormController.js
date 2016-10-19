@@ -31,9 +31,10 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
                 },
                 function (response) {
                     if (response.data) {
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                    $scope.showError("Save faild");
-                    //$scope.reloadApp();
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

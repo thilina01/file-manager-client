@@ -32,9 +32,9 @@ app.controller('custTypeFormController', function ($scope, $cookies, custTypeSer
                 function (response) {
                     if (response.data) {
                     }
-                    $scope.showError("Save faild");
-                    
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

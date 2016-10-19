@@ -41,10 +41,11 @@ app.controller('workCenterFormController', function ($scope, $cookies, costCente
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
 
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

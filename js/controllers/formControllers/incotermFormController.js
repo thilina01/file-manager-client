@@ -32,11 +32,11 @@ app.controller('incotermFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-                       
+
                         $scope.showSuccess("saved");
                     }
-                   
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

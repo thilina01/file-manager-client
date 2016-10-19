@@ -26,7 +26,7 @@ app.controller('defectTypeFormController', function ($scope, $cookies, accountSe
         defectTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
                 function (response) {
                     if (response.data) {
-                       $scope.showSuccess("saved");
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -34,10 +34,11 @@ app.controller('defectTypeFormController', function ($scope, $cookies, accountSe
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                   
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

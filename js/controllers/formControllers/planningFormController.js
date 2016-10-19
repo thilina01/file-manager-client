@@ -67,7 +67,8 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
                     //$scope.reloadApp();
                     return response;

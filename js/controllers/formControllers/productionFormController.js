@@ -93,7 +93,8 @@ app.controller('productionFormController', function ($scope, $cookies, accountSe
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
                     //$scope.reloadApp();
                     return response;

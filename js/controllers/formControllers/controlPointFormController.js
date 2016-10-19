@@ -18,7 +18,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         $scope.workCenter = {};
     }
     $scope.isValid = function () {
-        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == ''  || $scope.controlPoint.section == ''|| angular.equals($scope.wcc, {})) {
+        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.wcc, {})) {
             return false;
         }
         return true;
@@ -42,10 +42,11 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
 
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

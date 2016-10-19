@@ -49,9 +49,10 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

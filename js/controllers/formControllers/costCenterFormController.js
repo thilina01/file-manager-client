@@ -40,7 +40,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
                 function (response) {
                     if (response.data) {
                     }
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

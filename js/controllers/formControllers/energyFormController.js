@@ -28,7 +28,7 @@ app.controller('energyFormController', function ($scope, $cookies, accountServic
         energyService.save($scope.energyDate, $scope.shift, $scope.jobNo, $scope.machineNo, $scope.consumptionRate).then(
                 function (response) {
                     if (response.data) {
-                       $scope.showSuccess("saved");
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -36,10 +36,11 @@ app.controller('energyFormController', function ($scope, $cookies, accountServic
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                  
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

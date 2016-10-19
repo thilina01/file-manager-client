@@ -1,16 +1,16 @@
 
 app.controller('shiftFormController', function ($scope, $cookies, accountService, appService, shiftService) {
     $scope.shift = '';
-   
+
 
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.shift = '';
-       
+
     }
     $scope.isValid = function () {
-        if ($scope.shift == '' ) {
+        if ($scope.shift == '') {
             return false;
         }
         return true;
@@ -32,10 +32,11 @@ app.controller('shiftFormController', function ($scope, $cookies, accountService
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                    
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

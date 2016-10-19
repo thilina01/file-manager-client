@@ -3,7 +3,7 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
     $scope.code = '';
     $scope.name = '';
     $scope.wcc = '';
-     $scope.workCenters = '';
+    $scope.workCenters = '';
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -34,7 +34,7 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         machineService.save($scope.code, $scope.name, $scope.wcc).then(
                 function (response) {
                     if (response.data) {
-                       
+
                         $scope.showSuccess("saved");
                     }
                     $scope.clear();
@@ -43,16 +43,17 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                    
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );
- $('#machineModal').on('shown.bs.modal', function () {
-        $scope.loadWorkcenters();
-    })
+        $('#machineModal').on('shown.bs.modal', function () {
+            $scope.loadWorkcenters();
+        })
 
     }
 

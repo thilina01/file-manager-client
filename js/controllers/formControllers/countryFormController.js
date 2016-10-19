@@ -24,7 +24,7 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
         countryService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
-                       $scope.showSuccess("saved");
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -34,8 +34,8 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
                     if (response.data) {
                         alert(response.data);
                     }
-                   
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

@@ -28,7 +28,7 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
         itemTypeService.save($scope.code, $scope.type).then(
                 function (response) {
                     if (response.data) {
-                       
+
                         $scope.showSuccess("saved");
                     }
                     $scope.clear();
@@ -37,9 +37,10 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                    $scope.showError("Save faild");
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );

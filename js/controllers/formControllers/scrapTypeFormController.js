@@ -24,10 +24,10 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
             $scope.showError("form not complete");
             return;
         }
-       scrapTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
+        scrapTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
                 function (response) {
                     if (response.data) {
-                      
+
                         $scope.showSuccess("saved");
                     }
                     $scope.clear();
@@ -36,10 +36,11 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
                 },
                 function (response) {
                     if (response.data) {
-                        //alert(response.data);
+                        $scope.showError(response.data.message);
+                        return response;
                     }
-                   
-                    $scope.showError("Save faild");
+
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );
