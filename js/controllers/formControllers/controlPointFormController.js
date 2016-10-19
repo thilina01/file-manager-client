@@ -1,10 +1,9 @@
 
 app.controller('controlPointFormController', function ($scope, $cookies, accountService, appService, controlPointService, workCenterService) {
-    $scope.code = '';
-    $scope.name = '';
-    $scope.wcc = '';
-    $scope.section = '';
-    $scope.workCenters = '';
+
+    $scope.controlPoint = {};
+    $scope.workCenter = {};
+    $scope.workCenters = [];
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -15,13 +14,11 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
-        $scope.wcc = '';
-        $scope.section = '';
+        $scope.controlPoint = {};
+        $scope.workCenter = {};
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '' || $scope.wcc == '' || $scope.section == '') {
+        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == ''  || $scope.controlPoint.section == ''|| angular.equals($scope.wcc, {})) {
             return false;
         }
         return true;
@@ -32,10 +29,12 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
             $scope.showError("form not complete");
             return;
         }
-        controlPointService.save($scope.code, $scope.name, $scope.wcc, $scope.section).then(
+        $scope.controlPoint.workCenter = JSON.parse($scope.workCenter);
+
+        controlPointService.save($scope.controlPoint).then(
                 function (response) {
                     if (response.data) {
-                       $scope.showSuccess("saved");
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -45,7 +44,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
                     if (response.data) {
                         //alert(response.data);
                     }
-                   
+
                     $scope.showError("Save faild");
                     return response;
                 }
