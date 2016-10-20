@@ -1,17 +1,17 @@
 
-app.controller('jobFormController', function ($scope, $cookies, accountService, appService,jobService,itemService,customerService) {
+app.controller('jobFormController', function ($scope, $cookies, accountService, appService, jobService, itemService, customerService) {
     $scope.job = {};
-     $scope.item = {};
-      $scope.customer = {};
-      
-      $scope.items = [];
-      $scope.customers = [];
-       $scope.loadItem = function () {
+    $scope.item = {};
+    $scope.customer = {};
+
+    $scope.items = [];
+    $scope.customers = [];
+    $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
             $scope.items = response.data;
         });
     }
-     $scope.loadCustomer = function () {
+    $scope.loadCustomers = function () {
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;
         });
@@ -20,10 +20,11 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
         // alert($scope.code + ' ' + $scope.name);
         $scope.job = {};
         $scope.item = {};
-      $scope.customer = {};
+        $scope.customer = {};
     }
     $scope.isValid = function () {
-        if ($scope.job.jobDate == '' || $scope.job.jobNo == '' || angular.equals($scope.item, {}) == '' || $scope.job.itemType == '' || $scope.job.customer == '' || angular.equals($scope.customer, {}) || $scope.job.itemDescription == '' || $scope.job.jobQty == '') {
+
+        if ($scope.job.jobDate == '' || $scope.job.jobNo == '' || angular.equals($scope.item, {}) || angular.equals($scope.customer, {}) || $scope.job.jobQty == '') {
             return false;
         }
         return true;
@@ -34,8 +35,8 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
             $scope.showError("form not complete");
             return;
         }
-         $scope.job.item = JSON.parse($scope.item);
-          $scope.workCenter.customer = JSON.parse($scope.customer);
+        $scope.job.item = JSON.parse($scope.item);
+        $scope.job.customer = JSON.parse($scope.customer);
         jobService.save($scope.job).then(
                 function (response) {
                     if (response.data) {
@@ -59,10 +60,10 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
 
 
     }
-     $('#jobModal').on('shown.bs.modal', function () {
+    $('#jobModal').on('shown.bs.modal', function () {
         $scope.loadItems();
     })
-     $('#jobModal').on('shown.bs.modal', function () {
+    $('#jobModal').on('shown.bs.modal', function () {
         $scope.loadCustomers();
     })
 });
