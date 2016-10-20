@@ -35,10 +35,10 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        $scope.coustomer.incoterm = JSON.parse($scope.incoterm);
-        $scope.coustomer.custType = JSON.parse($scope.custType);
-        $scope.coustomer.currency = JSON.parse($scope.currency);
-        $scope.coustomer.country = JSON.parse($scope.country);
+        $scope.customer.incoterm = JSON.parse($scope.incoterm);
+        $scope.customer.custType = JSON.parse($scope.custType);
+        $scope.customer.currency = JSON.parse($scope.currency);
+        $scope.customer.country = JSON.parse($scope.country);
         customerService.save($scope.customer).then(
                 function (response) {
                     if (response.data) {
