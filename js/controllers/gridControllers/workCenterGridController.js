@@ -12,7 +12,7 @@ app.controller('workCenterGridController', function ($http, $scope, $cookies, wo
                 columns: [
                     {data: 'code'},
                     {data: 'name'},
-                    {data: 'section'}
+                    {data: 'costCenter.name'}
                 ]
             });
         });
