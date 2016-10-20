@@ -1,0 +1,40 @@
+<div class="modal fade" id="customerItemModal" role="dialog" ng-controller="customerItemFormController">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Customer Item</h4>
+            </div> 
+            <div class="modal-body">
+                <div class="form">
+                    <div class="form-group row">
+                        <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Customer Part No:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="customerItem.code">
+                        </div>
+                    </div>                
+                    <div class="form-group row">
+                        <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Price:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="customerItem.name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="customer" class="col-xs-2 col-form-label col-form-label-sm">Customer:</label>
+                            <div class="col-xs-10">
+                               <select class="form-control input-sm" id="customer" name="customer" ng-model="customer">	
+                                    <option ng-repeat="customer in customers" value="{{customer}}">{{customer.code}}</option>
+                                </select>                          
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
