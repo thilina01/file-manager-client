@@ -1,0 +1,32 @@
+<div class="modal fade" id="purchaseOrderTypeModal" role="dialog" ng-controller="purchaseOrderTypeFormController">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Purchase Order Type</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form">
+                    <div class="form-group row">
+                        <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Code:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="code" placeholder="" name="code" ng-model="code">
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <label for="type" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="type" placeholder="" name="type" ng-model="type">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                    <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
