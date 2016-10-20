@@ -3,7 +3,7 @@ app.controller('shiftGridController', function ($http, $scope, $cookies, shiftSe
 
     $scope.shifts = '';
 
-    $scope.loadshifts = function () {
+    $scope.loadShifts = function () {
         shiftService.getAll().then(function (response) {
             $scope.shifts = response.data;
 
@@ -17,7 +17,7 @@ app.controller('shiftGridController', function ($http, $scope, $cookies, shiftSe
     }
 
     $('#shiftGridModal').on('shown.bs.modal', function () {
-        $scope.loadshifts();
+        $scope.loadShifts();
     })
     $('#shiftGridModal').on('hidden.bs.modal', function () {
         $('#shiftTable').DataTable().destroy();
