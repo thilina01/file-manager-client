@@ -4,15 +4,15 @@ app.controller('purchaseOrderGridController', function ($http, $scope, $cookies,
     $scope.purchaseOrders = '';
 
     $scope.loadPurchaseOrders = function () {
-       purchaseOrderService.getAll().then(function (response) {
+        purchaseOrderService.getAll().then(function (response) {
             $scope.purchaseOrders = response.data;
 
-           
+
         });
     }
 
     $('#purchaseOrderGridModal').on('shown.bs.modal', function () {
-        $scope.loadpurchaseOrders();
+        $scope.loadPurchaseOrders();
     })
     $('#purchaseOrderGridModal').on('hidden.bs.modal', function () {
         $('#purchaseOrderTable').DataTable().destroy();
