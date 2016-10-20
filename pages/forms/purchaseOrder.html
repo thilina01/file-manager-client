@@ -1,0 +1,185 @@
+<!-- Modal -->
+<div class="modal fade" id="purchaseOrderModal" role="dialog" ng-controller="purchaseOrderController">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Purchase Order</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form">
+
+                    <div class="form-group">
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-4" for="purchaseOrderDate">Date:</label>
+                        <div class='col-sm-8'>
+                            <div class='input-group date' id='purchaseOrdertimepicker'>
+                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="purchaseOrder.jobDate" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            <script type="text/javascript">
+                                        $(function () {
+                                            $('#purchaseOrdertimepicker').datetimepicker();
+                                        });
+                            </script>
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="actualDespatchDate">Actual Despatch Date:</label>
+                            <div class='col-sm-8'>
+                                <div class='input-group date' id='actualDespatchDatetimepicker'>
+                                    <input type='text' class="form-control form-control-sm" id="actualDespatchDate" name="actualDespatchDate" ng-model="purchaseOrder.actualDespatchDate" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <script type="text/javascript">
+                                            $(function () {
+                                                $('#actualDespatchDatetimepicker').datetimepicker();
+                                            });
+                                </script>
+                            </div>
+
+                            <br/>
+                            <br/>
+                            <label class="control-label col-sm-4" for="comments">Comments:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="comments" placeholder="" name="comments" ng-model="purchaseOrder.comments">
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="form-group">
+                                <br/>
+                                <br/>
+                                <label class="control-label col-sm-4" for="purchaseOrderDate">Purchase OrderDate:</label>
+                                <div class='col-sm-8'>
+                                    <div class='input-group date' id='purchaseOrdertimepicker'>
+                                        <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="purchaseOrder.jobDate" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                    <script type="text/javascript">
+                                                $(function () {
+                                                    $('#purchaseOrdertimepicker').datetimepicker();
+                                                });
+                                    </script>
+                                </div>
+
+                                <br/>
+                                <br/>
+                                <div class="form-group">
+                                    <br/>
+                                    <br/>
+                                    <label class="control-label col-sm-4" for="customerRequestedDate">Customer Requested Date:</label>
+                                    <div class='col-sm-8'>
+                                        <div class='input-group date' id='customerRequestedDateDatetimepicker'>
+                                            <input type='text' class="form-control form-control-sm" id="customerRequestedDate" name="customerRequestedDate" ng-model="purchaseOrder.customerRequestedDate" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        <script type="text/javascript">
+                                                    $(function () {
+                                                        $('#customerRequestedDatetimepicker').datetimepicker();
+                                                    });
+                                        </script>
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+
+                                    <label class="control-label col-sm-4" for="orderQty">Order Quantity:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text"  class="form-control form-control-sm" id="orderQty" placeholder="" name="orderQty" ng-model="purchaseOrder.orderQty">
+
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+                                    <div class="form-group">
+                                        <br/>
+                                        <br/>
+                                        <label class="control-label col-sm-4" for="orderRecivedDate">Order Recived Date:</label>
+                                        <div class='col-sm-8'>
+                                            <div class='input-group date' id='customerRequestedDateDatetimepicker'>
+                                                <input type='text' class="form-control form-control-sm" id="orderRecivedDate" name="orderRecivedDate" ng-model="purchaseOrder.orderRecivedDate" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <script type="text/javascript">
+                                                        $(function () {
+                                                            $('#orderRecivedDatetimepicker').datetimepicker();
+                                                        });
+                                            </script>
+                                        </div>
+
+                                        <br/>
+                                        <br/>
+
+
+                                        <label class="control-label col-sm-4" for="orderType">Order Type:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text"  class="form-control form-control-sm" id="orderType" placeholder="" name="orderType" ng-model="purchaseOrder.orderType">
+                                        </div>
+                                        <br/>
+                                        <br/>
+
+                                        <label class="control-label col-sm-4" for="poNumber">PO Number:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control form-control-sm" id="poNumber" placeholder="" name="poNumber" ng-model="purchaseOrder.poNumber">
+                                        </div>
+
+                                        <br/>
+                                        <br/>
+                                        <div class="form-group">
+                                            <br/>
+                                            <br/>
+                                            <label class="control-label col-sm-4" for="trwConfirmedDate">Trw Confirmed Date:</label>
+                                            <div class='col-sm-8'>
+                                                <div class='input-group date' id='trwConfirmedDateDatetimepicker'>
+                                                    <input type='text' class="form-control form-control-sm" id="trwConfirmedDate" name="trwConfirmedDate" ng-model="purchaseOrder.trwConfirmedDate" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                                <script type="text/javascript">
+                                                            $(function () {
+                                                                $('#trwConfirmedDatetimepicker').datetimepicker();
+                                                            });
+                                                </script>
+                                            </div>
+
+                                            <br/>
+                                            <br/>
+
+                                            <label class="control-label col-sm-4" for="customer">Customer:</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control input-sm" id="customer" name="customer" ng-model="customer">	
+                                                    <option ng-repeat="customer in customers"  value="{{customer}}">{{customer.code}}</option>
+                                                </select>      
+                                            </div>
+
+                                            <br/>
+                                            <br/>
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                                            <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
