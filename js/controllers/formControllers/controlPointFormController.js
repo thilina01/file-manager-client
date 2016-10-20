@@ -4,6 +4,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
     $scope.controlPoint = {};
     $scope.workCenter = {};
     $scope.workCenters = [];
+    $scope.costCenter = '';
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -18,12 +19,16 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         $scope.workCenter = {};
     }
     $scope.isValid = function () {
-        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.wcc, {})) {
+        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.workCenter, {})) {
             return false;
         }
         return true;
     }
 
+    $scope.test = function () {        
+        $scope.costCenter = JSON.parse($scope.workCenter).costCenter;
+        
+    }
     $scope.save = function () {
         if (!$scope.isValid()) {
             $scope.showError("form not complete");

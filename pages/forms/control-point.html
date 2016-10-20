@@ -24,15 +24,15 @@
                         <div class="form-group row">
                             <label for="code" class="col-xs-2 col-form-label col-form-label-sm">WCC:</label>
                             <div class="col-xs-10">
-                                <select class="form-control input-sm" id="wcc" name="wcc" ng-model="wcc">	
+                                <select class="form-control input-sm" id="wcc" name="wcc" ng-model="workCenter" ng-change="test()">	
                                     <option ng-repeat="workCenter in workCenters" value="{{workCenter}}">{{workCenter.code}}</option>
                                 </select>
                             </div>
                         </div> 
                         <div class="form-group row">
-                            <label for="section" class="col-xs-2 col-form-label col-form-label-sm">Section:</label>
+                            <label for="section" class="col-xs-2 col-form-label col-form-label-sm">Cost Center</label>
                             <div class="col-xs-10">
-                                <input type="text" disabled class="form-control input-sm" id="section" placeholder="" name="section" ng-model="controlPoint.section">
+                                <input type="text" class="form-control input-sm" id="costCenter" placeholder="" name="costCenter" value="{{costCenter.code}}">
                             </div>
                         </div>
                     </div>
