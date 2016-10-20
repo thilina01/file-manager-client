@@ -18,7 +18,7 @@
                         <label class="control-label col-sm-4" for="jobDate">Date:</label>
                         <div class='col-sm-8'>
                             <div class='input-group date' id='planningDatetimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="date" />
+                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="job.date" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -34,22 +34,40 @@
                         <br/>
                         <label class="control-label col-sm-4" for="jobNo">Job No:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="jobNo" placeholder="" name="jobNo" ng-model="jobNo">
+                            <input type="text" class="form-control form-control-sm" id="jobNo" placeholder="" name="jobNo" ng-model="job.jobNo">
                         </div>
                         <br/>
                         <br/>
 
-                        <label class="control-label col-sm-4" for="productCode">Product Code:</label>
+                        <label class="control-label col-sm-4" for="itemCode">Item Code:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="productCode" placeholder="" name="productCode" ng-model="productCode">
+                             <select class="form-control input-sm" id="wcc" name="wcc" ng-model="item" ng-change="test()">	
+                                    <option ng-repeat="item in items"  value="{{item}}">{{item.code}}</option>
+                                </select>                   
                         </div>
 
                         <br/>
                         <br/>
 
-                        <label class="control-label col-sm-4" for="productType">Product Type:</label>
+                        <label class="control-label col-sm-4" for="itemType">Item Type:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="productType" placeholder="" name="productTypec" ng-model="productType">
+                            <input type="text" disabled class="form-control form-control-sm" id="itemType" placeholder="" name="itemType" ng-model="job.itemType">
+                        </div>
+                         <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-4" for="itemDescription">Item Description:</label>
+                        <div class="col-sm-8">
+                            <input type="text" disabled class="form-control form-control-sm" id="itemDescription" placeholder="" name="itemDescription" ng-model="job.itemDescription">
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <label class="control-label col-sm-4" for="customerCode">Customer Code:</label>
+                        <div class="col-sm-8">
+                         <select class="form-control input-sm" id="wcc" name="wcc" ng-model="item" ng-change="test()">	
+                                    <option ng-repeat="customer in customers"  value="{{customer}}">{{customer.code}}</option>
+                                </select>      
                         </div>
 
                         <br/>
@@ -57,29 +75,15 @@
 
                         <label class="control-label col-sm-4" for="customer">Customer:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="customer" placeholder="" name="customer" ng-model="customer">
+                            <input type="text" disabled class="form-control form-control-sm" id="customer" placeholder="" name="customer" ng-model="job.customer">
                         </div>
 
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="customerCode">Customer Code:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="customerCode" placeholder="" name="customerCode" ng-model="customerCode">
-                        </div>
-
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="itemDescription">Item Description:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="itemDescription" placeholder="" name="itemDescription" ng-model="itemDescription">
-                        </div>
+                       
                         <br/>
                         <br/>
                         <label class="control-label col-sm-4" for="jobQty">Job Qty:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="jobQty" placeholder="" name="jobQty" ng-model="jobQty">
+                            <input type="text" class="form-control form-control-sm" id="jobQty" placeholder="" name="jobQty" ng-model="job.jobQty">
                         </div>
                     </div>
                     <br/>
