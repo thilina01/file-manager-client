@@ -1,9 +1,8 @@
 
-app.controller('machineFormController', function ($scope, $cookies, accountService, appService, machineService) {
-    $scope.code = '';
-    $scope.name = '';
-    $scope.wcc = '';
-    $scope.workCenters = '';
+app.controller('machineFormController', function ($scope, $cookies, accountService, appService, workCenterService, machineService) {
+    $scope.machine = {};
+    $scope.workCenter = {};
+    $scope.workCenters = [];
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -11,16 +10,13 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         });
     }
 
-
-
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
-        $scope.wcc = '';
+        $scope.machine = {};
+        $scope.workCenter = {};
+        $scope.workCenters = [];
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '' || $scope.name == '') {
+        if ($scope.machine.code == '' || $scope.machine.name == '' ||angular.equals($scope.workCenter, {})) {
             return false;
         }
         return true;
@@ -30,8 +26,9 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         if (!$scope.isValid()) {
             $scope.showError("form not complete");
             return;
-        }
-        machineService.save($scope.code, $scope.name, $scope.wcc).then(
+        }        
+        $scope.machine.workCenter = JSON.parse($scope.workCenter);
+        machineService.save($scope.machine).then(
                 function (response) {
                     if (response.data) {
 
@@ -51,10 +48,9 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
                     return response;
                 }
         );
-        $('#machineModal').on('shown.bs.modal', function () {
-            $scope.loadWorkcenters();
-        })
-
     }
 
+    $('#machineModal').on('shown.bs.modal', function () {
+        $scope.loadWorkcenters();
+    })
 });
