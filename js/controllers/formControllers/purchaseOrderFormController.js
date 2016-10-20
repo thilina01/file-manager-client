@@ -5,9 +5,9 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
 
    
     $scope.customers = [];
-    $scope.loadItems = function () {
-        itemService.getAll().then(function (response) {
-            $scope.items = response.data;
+    $scope.loadCustomers= function () {
+       customersService.getAll().then(function (response) {
+            $scope.customers = response.data;
         });
     }
    
