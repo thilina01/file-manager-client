@@ -2,17 +2,17 @@
 app.controller('lossReasonFormController', function ($scope, $cookies, accountService, appService, lossReasonService) {
     $scope.code = '';
     $scope.type = '';
-    $scope.typeInShinhala = '';
+    $scope.typeInSinhala = '';
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.code = '';
         $scope.type = '';
-        $scope.typeInShinhala = '';
+        $scope.typeInSinhala = '';
     }
 
     $scope.save = function () {
-        lossReasonService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
+        lossReasonService.save($scope.code, $scope.type, $scope.typeInSinhala).then(
                 function (response) {
                     if (response.data) {
                     }

@@ -2,11 +2,11 @@
 app.service('lossReasonService', function ($http, appService) {
     var apiURL = appService.baseURL + 'lossReasons/';
 
-    this.save = function (code, type, typeInShinhala) {
+    this.save = function (code, type, typeInSinhala) {
         var data = {
             code: code,
             type: type,
-            typeInShinhala: typeInShinhala
+            typeInSinhala: typeInSinhala
         };
         return  $http.post(apiURL, data, appService.getJsonHeaders());
     };

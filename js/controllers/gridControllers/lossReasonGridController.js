@@ -12,7 +12,7 @@ app.controller('lossReasonGridController', function ($http, $scope, $cookies, lo
                 columns: [
                     {data: 'code'},
                     {data: 'type'},
-                    {data: 'typeInShinhala'}
+                    {data: 'typeInSinhala'}
                 ]
             });
         });
