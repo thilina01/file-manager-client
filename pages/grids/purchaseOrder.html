@@ -1,0 +1,38 @@
+<div class="modal fade" id="purchaseOrderGridModal" role="dialog" ng-controller="purchaseOrderGridController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Purchase Order Grid</h4>
+            </div>
+            <div class="modal-body">
+
+                <table id="purchaseOrderTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Actual Despatch Date</th>
+                            <th>Comments</th>
+                            <th>Customer Requested date </th>
+                            <th>Order Quantity</th>
+                            <th>Order Recieved Date </th>
+                            <th>Order Type </th>
+                            <th>PO Number </th>
+                            <th>Trw Confirmed Date </th>
+                            <th>customer</th>
+                        </tr>
+                    </thead>
+                    
+
+                       
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="loadSections()">load</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+            </div>
+        </div>
+    </div>
+</div>
