@@ -11,7 +11,8 @@ app.controller('scrapTypeGridController', function ($http, $scope, $cookies, scr
                 data: $scope.scrapTypes,
                 columns: [
                     {data: 'code'},
-                    {data: 'name'}
+                    {data: 'type'},
+                    {data: 'typeInSinhala'}
                 ]
             });
         });

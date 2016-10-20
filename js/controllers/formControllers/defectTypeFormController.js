@@ -2,17 +2,17 @@
 app.controller('defectTypeFormController', function ($scope, $cookies, accountService, appService, defectTypeService) {
     $scope.code = '';
     $scope.type = '';
-    $scope.typeInShinhala = '';
+    $scope.typeInSinhala = '';
 
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.code = '';
         $scope.type = '';
-        $scope.typeInShinhala = '';
+        $scope.typeInSinhala = '';
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.type == '' || $scope.typeInShinhala == '') {
+        if ($scope.code == '' || $scope.type == '' || $scope.typeInSinhala == '') {
             return false;
         }
         return true;
@@ -23,7 +23,7 @@ app.controller('defectTypeFormController', function ($scope, $cookies, accountSe
             $scope.showError("form not complete");
             return;
         }
-        defectTypeService.save($scope.code, $scope.type, $scope.typeInShinhala).then(
+        defectTypeService.save($scope.code, $scope.type, $scope.typeInSinhala).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");

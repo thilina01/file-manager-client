@@ -12,7 +12,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
                 columns: [
                     {data: 'code'},
                     {data: 'type'},
-                    {data: 'typeInShinhala'}
+                    {data: 'typeInSinhala'}
                 ]
             });
         });

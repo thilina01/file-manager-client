@@ -12,7 +12,7 @@ app.controller('scrapGridController', function ($http, $scope, $cookies, scrapSe
                 columns: [
                     {data: 'code'},
                     {data: 'type'},
-                    {data: 'typeInShinhala'}
+                    {data: 'typeInSinhala'}
                 ]
             });
         });
