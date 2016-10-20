@@ -3,7 +3,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
 
     $scope.defectTypes = '';
 
-    $scope.loaddefects = function () {
+    $scope.loadDefectTypes = function () {
        defectTypeService.getAll().then(function (response) {
             $scope.defectTypes = response.data;
 
@@ -19,7 +19,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
     }
 
     $('#defectTypeGridModal').on('shown.bs.modal', function () {
-        $scope.loaddefectTypes();
+        $scope.loadDefectTypes();
     })
     $('#defectTypeGridModal').on('hidden.bs.modal', function () {
         $('#defectTypeTable').DataTable().destroy();
