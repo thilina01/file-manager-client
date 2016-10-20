@@ -1,6 +1,6 @@
 
 app.service('purchaseOrderService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'jobs/';
+    var apiURL = appService.baseURL + 'purchaseOrders/';
 
     this.save = function (purchaseOrder) {       
         return  $http.post(apiURL, purchaseOrder, appService.getJsonHeaders());
