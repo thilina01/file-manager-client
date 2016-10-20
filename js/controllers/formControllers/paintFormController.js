@@ -8,7 +8,7 @@ app.controller('paintFormController', function ($scope, $cookies, accountService
         $scope.paint = {};
     }
     $scope.isValid = function () {
-        if ($scope. $scope.paint.code == '' || $scope.paint.description == '' ) {
+        if ( $scope.paint.code == '' || $scope.paint.description == '' ) {
             return false;
         }
         return true;
