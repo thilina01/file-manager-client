@@ -1,16 +1,16 @@
 
-app.controller('purchaseOrderFormController', function ($scope, $cookies, accountService, appService, purchaseOrderService,customerService) {
+app.controller('purchaseOrderFormController', function ($scope, $cookies, accountService, appService, purchaseOrderService, customerService) {
     $scope.purchaseOrder = {};
     $scope.customer = {};
 
-   
+
     $scope.customers = [];
-    $scope.loadCustomers= function () {
-       customersService.getAll().then(function (response) {
+    $scope.loadCustomers = function () {
+        customerService.getAll().then(function (response) {
             $scope.customers = response.data;
         });
     }
-   
+
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.purchaseOrder = {};
@@ -18,7 +18,7 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
     }
     $scope.isValid = function () {
 
-        if ($scope.purchaseOrder.actualDespatchDate == '' || $scope.purchaseOrder.comments == ''  || angular.equals($scope.customer, {}) || $scope.purchaseOrder.customerRequestedDate == '' || $scope.purchaseOrder.orderQty == ''|| $scope.purchaseOrder.orderRecivedDate == '' || $scope.purchaseOrder.orderType == '' ||$scope.purchaseOrder.poNumber == '' ||$scope.purchaseOrder.trwConfirmedDate == '') {
+        if ($scope.purchaseOrder.actualDespatchDate == '' || $scope.purchaseOrder.comments == '' || angular.equals($scope.customer, {}) || $scope.purchaseOrder.customerRequestedDate == '' || $scope.purchaseOrder.orderQty == '' || $scope.purchaseOrder.orderRecivedDate == '' || $scope.purchaseOrder.orderType == '' || $scope.purchaseOrder.poNumber == '' || $scope.purchaseOrder.trwConfirmedDate == '') {
             return false;
         }
         return true;
@@ -29,9 +29,9 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
             $scope.showError("form not complete");
             return;
         }
-       
+
         $scope.purchaseOrder.customer = JSON.parse($scope.customer);
-       purchaseOrderService.save($scope.job).then(
+        purchaseOrderService.save($scope.job).then(
                 function (response) {
                     if (response.data) {
 
@@ -54,7 +54,7 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
 
 
     }
-    
+
     $('#purchaseOrderModal').on('shown.bs.modal', function () {
         $scope.loadCustomers();
     })

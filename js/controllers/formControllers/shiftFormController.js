@@ -1,16 +1,14 @@
 
 app.controller('shiftFormController', function ($scope, $cookies, accountService, appService, shiftService) {
-    $scope.shift = '';
-
-
+    $scope.shift = {};
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
-        $scope.shift = '';
+        $scope.shift = {};
 
     }
     $scope.isValid = function () {
-        if ($scope.shift == '') {
+        if ($scope.shift.code == ''||$scope.shift.name == '') {
             return false;
         }
         return true;

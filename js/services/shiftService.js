@@ -3,11 +3,7 @@ app.service('shiftService', function ($http, appService) {
     var apiURL = appService.baseURL + 'shifts/';
 
     this.save = function (shift) {
-        var data = {
-            shift: shift
-           
-        };
-        return  $http.post(apiURL, data, appService.getJsonHeaders());
+        return  $http.post(apiURL, shift, appService.getJsonHeaders());
     };
 
     this.getAll = function () {

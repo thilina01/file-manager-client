@@ -10,7 +10,8 @@ app.controller('shiftGridController', function ($http, $scope, $cookies, shiftSe
             var x = $('#shiftTable').DataTable({
                 data: $scope.shifts,
                 columns: [
-                    {data: 'shift'},
+                    {data: 'code'},
+                    {data: 'name'}
                 ]
             });
         });
