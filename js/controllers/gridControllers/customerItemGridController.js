@@ -10,7 +10,7 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
             var x = $('#customerItemTable').DataTable({
                 data: $scope.customerItems,
                 columns: [
-                    {data: 'customer_part-no'},
+                    {data: 'customer_part_no'},
                     {data: 'price'},
                     {data: 'customer.name'}
                 ]
