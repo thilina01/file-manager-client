@@ -1,13 +1,21 @@
 
-app.controller('purchaseOrderFormController', function ($scope, $cookies, accountService, appService, purchaseOrderService, customerService) {
+app.controller('purchaseOrderFormController', function ($scope, $cookies, accountService, appService, purchaseOrderService, customerService, purchaseOrderTypeService) {
     $scope.purchaseOrder = {};
     $scope.customer = {};
-
+    $scope.purchaseOrderType = {};
 
     $scope.customers = [];
+    $scope.purchaseOrderTypes = [];
+
     $scope.loadCustomers = function () {
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;
+        });
+    }
+
+    $scope.loadPurchaseOrderTypes = function () {
+        purchaseOrderTypeService.getAll().then(function (response) {
+            $scope.purchaseOrderTypes = response.data;
         });
     }
 
@@ -15,10 +23,21 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         // alert($scope.code + ' ' + $scope.name);
         $scope.purchaseOrder = {};
         $scope.customer = {};
+        $scope.purchaseOrderType = {};
     }
     $scope.isValid = function () {
 
-        if ($scope.purchaseOrder.actualDespatchDate == '' || $scope.purchaseOrder.comments == '' || angular.equals($scope.customer, {}) || $scope.purchaseOrder.customerRequestedDate == '' || $scope.purchaseOrder.orderQty == '' || $scope.purchaseOrder.orderRecivedDate == '' || $scope.purchaseOrder.orderType == '' || $scope.purchaseOrder.poNumber == '' || $scope.purchaseOrder.trwConfirmedDate == '') {
+        if (
+                $scope.purchaseOrder.orderRecivedDate == '' ||
+                $scope.purchaseOrder.trwConfirmedDate == '' ||
+                $scope.purchaseOrder.customerRequestedDate == '' ||
+                $scope.purchaseOrder.actualDispatchedDate == '' ||
+                $scope.purchaseOrder.poNumber == '' ||
+                $scope.purchaseOrder.comments == '' ||
+                angular.equals($scope.customer, {}) ||
+                angular.equals($scope.purchaseOrderType, {})
+                )
+        {
             return false;
         }
         return true;
@@ -31,10 +50,10 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         }
 
         $scope.purchaseOrder.customer = JSON.parse($scope.customer);
-        purchaseOrderService.save($scope.job).then(
+        $scope.purchaseOrder.purchaseOrderType = JSON.parse($scope.purchaseOrderType);
+        purchaseOrderService.save($scope.purchaseOrder).then(
                 function (response) {
                     if (response.data) {
-
                         $scope.showSuccess("saved");
                     }
                     $scope.clear();
@@ -46,16 +65,14 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
                         $scope.showError(response.data.message);
                         return response;
                     }
-
                     $scope.showError("Unable to save");
                     return response;
                 }
         );
-
-
     }
 
     $('#purchaseOrderModal').on('shown.bs.modal', function () {
         $scope.loadCustomers();
+        $scope.loadPurchaseOrderTypes();
     })
 });
