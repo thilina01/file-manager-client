@@ -12,6 +12,7 @@ app.controller('costCenterGridController', function ($http, $scope, $cookies, co
                 columns: [
                     {data: 'code'},
                     {data: 'name'},
+                    {data: 'item'},
                     {data: 'section.name'}
                 ]
             });

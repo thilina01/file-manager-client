@@ -1,22 +1,22 @@
 
-app.controller('customerItemFormController', function ($scope, $cookies, accountService, appService, customerItemService, sectionService) {
+app.controller('customerItemFormController', function ($scope, $cookies, accountService, appService, customerItemService, customerService) {
 
     $scope.customerItem = {};
-    $scope.section = {};
-    $scope.sections = [];
+    $scope.customer = {};
+    $scope.customers = [];
 
     $scope.loadSections = function () {
-        sectionService.getAll().then(function (response) {
-            $scope.sections = response.data;
+        customerService.getAll().then(function (response) {
+            $scope.customers = response.data;
         })
     }
 
     $scope.clear = function () {
         $scope.customerItem = {};
-        $scope.section = {};
+        $scope.customer = {};
     }
     $scope.isValid = function () {
-        if ($scope.customerItem.code == '' || $scope.customerItem.name == '' || angular.equals($scope.section, {})) {
+        if ($scope.customerItem.customer_part_no == '' || $scope.customerItem.price == '' || angular.equals($scope.customer, {})) {
             return false;
         }
         return true;
@@ -27,7 +27,7 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
             $scope.showError("form not complete");
             return;
         }
-        $scope.customerItem.section = JSON.parse($scope.section);
+        $scope.customerItem.customer = JSON.parse($scope.customer);
         customerItemService.save($scope.customerItem).then(
                 function (response) {
                     if (response.data) {
