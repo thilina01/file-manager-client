@@ -1,13 +1,20 @@
 
-app.controller('customerItemFormController', function ($scope, $cookies, accountService, appService, customerItemService, customerService) {
+app.controller('customerItemFormController', function ($scope, $cookies, accountService, appService, customerItemService, customerService, itemService) {
 
     $scope.customerItem = {};
     $scope.customer = {};
     $scope.customers = [];
+    $scope.item = {};
+    $scope.items = [];
 
-    $scope.loadSections = function () {
+    $scope.loadCustomers = function () {
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;
+        })
+    }
+    $scope.loadItems = function () {
+        itemService.getAll().then(function (response) {
+            $scope.items = response.data;
         })
     }
 
@@ -46,6 +53,7 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
         );
     }
     $('#customerItemModal').on('shown.bs.modal', function () {
-        $scope.loadSections();
+        $scope.loadCustomers();
+        $scope.loadItems();
     })
 });
