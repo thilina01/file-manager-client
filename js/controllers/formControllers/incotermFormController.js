@@ -24,7 +24,7 @@ app.controller('incotermFormController', function ($scope, $cookies, accountServ
         incotermService.save($scope.code, $scope.name).then(
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        $scope.showSuccess("saved");
                     }
                     $scope.clear();
                     $scope.reloadApp();
@@ -32,8 +32,8 @@ app.controller('incotermFormController', function ($scope, $cookies, accountServ
                 },
                 function (response) {
                     if (response.data) {
-
-                        $scope.showSuccess("saved");
+                        $scope.showError(response.data.message);
+                        return response;
                     }
 
                     $scope.showError("Unable to save");
