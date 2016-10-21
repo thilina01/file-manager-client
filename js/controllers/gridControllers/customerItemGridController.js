@@ -1,7 +1,7 @@
 
 app.controller('customerItemGridController', function ($http, $scope, $cookies, customerItemService, appService) {
 
-    $scope.customerItems = '';
+    $scope.customerItems = [];
 
     $scope.loadcustomerItems = function () {
         customerItemService.getAll().then(function (response) {
@@ -10,9 +10,10 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
             var x = $('#customerItemTable').DataTable({
                 data: $scope.customerItems,
                 columns: [
-                    {data: 'customer_part_no'},
+                    {data: 'customerPartNo'},
                     {data: 'price'},
-                    {data: 'customer.name'}
+                    {data: 'customer.name'},
+                    {data: 'item.description'}
                 ]
             });
         });
