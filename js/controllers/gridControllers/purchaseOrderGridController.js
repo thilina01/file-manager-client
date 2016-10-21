@@ -6,7 +6,16 @@ app.controller('purchaseOrderGridController', function ($http, $scope, $cookies,
     $scope.loadPurchaseOrders = function () {
         purchaseOrderService.getAll().then(function (response) {
             $scope.purchaseOrders = response.data;
-
+            var x = $('#purchaseOrderTable').DataTable({
+                data: $scope.purchaseOrders,
+                columns: [
+                    {data: 'poNumber'},
+                    {data: 'orderReceivedDate'},
+                    {data: 'actualDispatchedDate'},
+                    {data: 'purchaseOrderType.type'},
+                    {data: 'customer.name'}
+                ]
+            });
 
         });
     }

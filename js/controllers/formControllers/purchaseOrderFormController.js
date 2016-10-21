@@ -3,7 +3,7 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
     $scope.purchaseOrder = {};
     $scope.customer = {};
     $scope.purchaseOrderType = {};
-    $scope.orderRecivedDate='';
+    $scope.orderReceivedDate='';
 
     $scope.customers = [];
     $scope.purchaseOrderTypes = [];
@@ -26,13 +26,13 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         $scope.purchaseOrderType = {};
     }
     $scope.isValid = function () {
-    	$scope.purchaseOrder.orderRecivedDate = $('#orderReceivedDate').val();
+    	$scope.purchaseOrder.orderReceivedDate = $('#orderReceivedDate').val();
     	$scope.purchaseOrder.trwConfirmedDate = $('#trwConfirmedDate').val();
     	$scope.purchaseOrder.customerRequestedDate = $('#customerRequestedDate').val();
     	$scope.purchaseOrder.actualDispatchedDate = $('#actualDispatchedDate').val();
 
         if (
-                $scope.purchaseOrder.orderRecivedDate == '' ||
+                $scope.purchaseOrder.orderReceivedDate == '' ||
                 $scope.purchaseOrder.trwConfirmedDate == '' ||
                 $scope.purchaseOrder.customerRequestedDate == '' ||
                 $scope.purchaseOrder.actualDispatchedDate == '' ||
