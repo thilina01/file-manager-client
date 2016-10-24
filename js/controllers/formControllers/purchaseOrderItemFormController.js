@@ -1,88 +1,49 @@
 
-app.controller('purchaseOrderItemFormController', function ($scope, $cookies, accountService, purchaseOrderItemService, appService) {
+app.controller('purchaseOrderItemFormController', function ($scope, $cookies, accountService, purchaseOrderItemService, appService,itemService,purchaseOrderService) {
     //main
-    $scope.date = '';
-    $scope.shift = '';
-    $scope.controlPointCode = '';
-    //auto 
-    $scope.controlPointName = '';
-    //production
-    $scope.productionJobNo = '';
-    $scope.productionQuantity = '';
-    //Quality
-    $scope.qualityJobNo = '';
-    $scope.reason = '';
-    $scope.code = '';
-    $scope.qualityQuantity = '';
-    //maintenance
-    $scope.maintenanceJobNo = '';
-    $scope.machineNo = '';
-    $scope.noOfBreakdown = '';
-    $scope.machinerunningTime = '';
-    //Hr
-    $scope.hrJobNo = '';
-    $scope.company = '';
-    $scope.contract = '';
-    $scope.help = '';
-    $scope.other = '';
-
-    $scope.productionRows = [];
-    $scope.qualityRows = [];
-    $scope.maintenanceRows = [];
-    $scope.hrRows = [];
-
-    $scope.addProductionRow = function () {
-        $scope.productionRows.push({'item': '', 'job': $scope.productionJobNo, 'quantity': $scope.productionQuantity, 'reason': ''});
-        $scope.productionClear();
-    };
-    $scope.addQualityRow = function () {
-        $scope.qualityRows.push({'item': '', 'job': $scope.qualityJobNo, 'quantity': $scope.qualityQuantity, 'type': '', category: ''});
-        $scope.qualityClear()();
+    $scope.purchaseOrderItem = {};
+    $scope.purchaseOrder = {};
+    $scope.item = {};
+   
+    $scope.purchaseOrders = [];
+    $scope.items = [];
+$scope.loadItems = function () {
+        itemService.getAll().then(function (response) {
+            $scope.items = response.data;
+        });
+    }
+    $scope.loadPurchaseOrder = function () {
+        purchaseOrderService.getAll().then(function (response) {
+            $scope.purchaseOrders = response.data;
+        });
+    }
+    $scope.addPurchaseOrderItemRow = function () {
+        $scope.purchaseOrderItemRows.push({'item': '', 'customerItem': '', 'quantity': '', 'price': ''});
+        $scope.purchaseOrderItemClear();
     };
 
-    $scope.productionClear = function () {
-        $scope.productionJobNo = '';
-        $scope.productionQuantity = '';
-    }
-    $scope.qualityClear = function () {
-        $scope.qualityJobNo = '';
-        $scope.reason = '';
-        $scope.code = '';
-        $scope.qualityQuantity = '';
-    }
-    $scope.maintenanceClear = function () {
-        $scope.maintenanceJobNo = '';
-        $scope.machineNo = '';
-        $scope.noOfBreakdown = '';
-        $scope.machinerunningTime = '';
-    }
-    $scope.hrClear = function () {
-        $scope.hrJobNo = '';
-        $scope.company = '';
-        $scope.contract = '';
-        $scope.help = '';
-        $scope.other = '';
-    }
+
+
+
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
+         $scope.showSuccess("saved");
         //main
-        $scope.date = '';
-        $scope.shift = '';
-        $scope.controlPointCode = '';
+        $scope.purchaseOrderItem = {};
+        $scope.purchaseOrder = {};
+        $scope.item = {};
         //auto 
-        $scope.controlPointName = '';
-        //production
-        $scope.productionClear();
-        //Quality
-        $scope.qualityClear();
-        //maintenance
-        $scope.maintenanceClear();
-        //Hr
-        $scope.hrClear();
+       
     }
-
+$scope.isValid = function () {
+        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == ''|| angular.equals($scope.item, {}) || angular.equals($scope.purchaseOrder, {}) ) {
+            return false;
+        }
+        return true;
+    }
+     $scope.job.item = JSON.parse($scope.item);
+        $scope.job.purchaseOrder = JSON.parse($scope.customer);
     $scope.save = function () {
-        productionService.save($scope.date, $scope.shift, $scope.controlPointCode).then(
+       purchaseOrderItemService.save($scope.date, $scope.shift, $scope.itemCode ,$scope.purchaseOrderpoNumber).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
@@ -101,4 +62,10 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
                 }
         );
     }
+    $('#purchaseOrderItemModal').on('shown.bs.modal', function () {
+        $scope.loadItems();
+    })
+    $('#purchaseOrderItemModal').on('shown.bs.modal', function () {
+        $scope.loadPurchaseOrder();
+    })
 });
