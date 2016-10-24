@@ -10,38 +10,27 @@
             </div>
             <div class="modal-body">
                 <form class="form-inline">
-                    
-                    <br/>
-<label class="control-label " for="purchaseOrder">Purchase Order:</label>
 
-                                    
-                                    <select class="form-control form-control-sm" id="purchaseOrder" name="purchaseOrder" ng-model="purchaseOrder">	
-                                        <option value="defect">D1</option>
-                                        <option value="scrap">S4</option>
-                                        <option value="defect">LR1</option>
-                                    </select>
+                    <label class="control-label " for="purchaseOrder">Purchase Order:</label>
+                    <select class="form-control input-sm" id="custType" name="purchaseOrder" ng-model="purchaseOrder">	
+                        <option ng-repeat="purchaseOrder in purchaseOrders" value="{{purchaseOrder}}">{{purchaseOrder.poNumber}}</option>
+                    </select>
 
                     <div class="tab-content">
                         <div id="production" class="tab-pane fade in active">
                             <br/>
                             <div class="form">
                                 <div class="form-group">
-
-                                    
                                     <label class="control-label " for="item">Item:</label>
-
-                                    
-                                    <select class="form-control form-control-sm" id="item" name="item" ng-model="item">	
-                                        <option value="defect">D1</option>
-                                        <option value="scrap">S4</option>
-                                        <option value="defect">LR1</option>
+                                    <select class="form-control input-sm" id="item" name="item" ng-model="item">	
+                                        <option ng-repeat="item in items" value="{{item}}">{{item.name}}</option>
                                     </select>
                                     <label class="control-label " for="quantity">Qty:</label>
 
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="purchaseOrderItem.quantity">
                                     <label class="control-label " for="price">Price:</label>
 
-                                    <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="price">
+                                    <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="purchaseOrderItem.price">
 
 
                                     <button type="button" class="btn btn-default" ng-click="addPurchaseOrderItemRow()">Add</button>
@@ -50,10 +39,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Item</th>
-                                                <th>customerItem</th>
+                                                <th>customer Item</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
-                                               
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,16 +52,16 @@
                                                 <td>{{purchaseOrderItemRow.customerItem}}</td>
                                                 <td>{{purchaseOrderItemRow.quantity}}</td>
                                                 <td>{{purchaseOrderItemRow.price}}</td>
-                                                
+
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                       
-                    <br/>
-                    <br/>
+
+                        <br/>
+                        <br/>
                 </form>
             </div>
             <div class="modal-footer">
