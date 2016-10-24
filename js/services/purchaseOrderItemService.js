@@ -1,5 +1,5 @@
 
-app.service('purchaseOrderItemsService', function ($http, appService) {
+app.service('purchaseOrderItemService', function ($http, appService) {
     var apiURL = appService.baseURL + 'purchaseOrderItems/';
 
     this.save = function (purchaseOrderItem) {       
