@@ -1,0 +1,242 @@
+<!-- Modal -->
+<div class="modal fade" id="purchaseOrderItemModal" role="dialog" ng-controller="purchaseOrderItemFormController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Purchase Order Item</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    
+                    <br/>
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" data-target="#purchaseOrderItem">Purchase Order Item</a></li>
+                        
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="production" class="tab-pane fade in active">
+                            <br/>
+                            <div class="form">
+                                <div class="form-group">
+
+                                    <label class="control-label " for="purchaseOrder">Purchase Order:</label>
+
+                                    
+                                    <select class="form-control form-control-sm" id="purchaseOrder" name="purchaseOrder" ng-model="purchaseOrder">	
+                                        <option value="defect">D1</option>
+                                        <option value="scrap">S4</option>
+                                        <option value="defect">LR1</option>
+                                    </select>
+                                    <label class="control-label " for="item">Item:</label>
+
+                                    
+                                    <select class="form-control form-control-sm" id="item" name="item" ng-model="item">	
+                                        <option value="defect">D1</option>
+                                        <option value="scrap">S4</option>
+                                        <option value="defect">LR1</option>
+                                    </select>
+                                    <label class="control-label " for="quantity">Qty:</label>
+
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
+                                    <label class="control-label " for="price">Price:</label>
+
+                                    <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="price">
+
+
+                                    <button type="button" class="btn btn-default" ng-click="addPurchaseOrderItemRow()">Add</button>
+
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>customerItem</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr ng-repeat="purchaseOrderItemRow in purchaseOrderItemRows">
+                                                <td>{{purchaseOrderItemRow.item}}</td>                                                
+                                                <td>{{purchaseOrderItemRow.customerItem}}</td>
+                                                <td>{{purchaseOrderItemRow.quantity}}</td>
+                                                <td>{{purchaseOrderItemRow.price}}</td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="quality" class="tab-pane fade">
+                            <div class="form-group">
+                                <div class="form">
+
+                                    <label class="control-label " for="qualityJobNo">job No:</label>
+
+                                   <select class="form-control form-control-sm" id="qualityJobNo" name="qualityJobNo" ng-model="qualityJobNo">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                        <option value="defect">Loss Reason</option>
+                                    </select>
+
+                                    <select class="form-control form-control-sm" id="reason" name="reason" ng-model="reason">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                        <option value="defect">Loss Reason</option>
+                                    </select>
+
+                                    <select class="form-control form-control-sm" id="code" name="code" ng-model="code">	
+                                        <option value="defect">D1</option>
+                                        <option value="scrap">S4</option>
+                                        <option value="defect">LR1</option>
+                                    </select>
+
+                                    <label class="control-label " for="qualityQuantity">Qty:</label>
+
+                                    <input type="text" class="form-control input-sm" id="qualityQuantity" placeholder="" name="qualityQuantity" ng-model="qualityQuantity">
+
+                                    <button type="button" class="btn btn-default" ng-click='addQualityRow()'>Add</button>
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Job</th>
+                                                <th>Quantity</th>
+                                                <th>Type</th>
+                                                <th>Category</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="qualityRow in qualityRows">
+                                                <td>{{qualityRow.item}}</td>                                                
+                                                <td>{{qualityRow.job}}</td>
+                                                <td>{{qualityRow.quantity}}</td>
+                                                <td>{{qualityRow.type}}</td>
+                                                <td>{{qualityRow.category}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="maintenance" class="tab-pane fade">
+                            <div class="form-group">
+                                <div class="form">
+                                    <label class="control-label " for="maintenanceJobNo">job No:</label>
+
+                                     <select class="form-control form-control-sm" id="maintenanceJobNo" name="maintenanceJobNo" ng-model="maintenanceJobNo">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                        <option value="defect">Loss Reason</option>
+                                    </select>
+                                    <label class="control-label " for="machineNo">Machine No:</label>
+
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
+
+                                    <label class="control-label " for="noOfBreakdown">No Of Breakdown:</label>
+
+                                    <input type="text" class="form-control input-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-model="noOfBreakdownqu">
+
+                                    <label class="control-label " for="machinerunningtime">Machine Running Time:</label>
+
+                                    <input type="text" class="form-control input-sm" id="machinerunningtime" placeholder="" name="machinerunningtime" ng-model="machinerunningtime">
+
+
+
+                                    <button type="button" class="btn btn-default" >Add</button>
+
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Machine Name</th>
+                                                <th>No Of Breakdown</th>
+                                                <th>Machine Running Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hr" class="tab-pane fade">
+
+                            <div class="form-group">
+                                <div class="form">
+
+                                    <label class="control-label " for="HrJobNo">job No:</label>
+
+                                    <select class="form-control form-control-sm" id="HrJobNo" name="HrJobNo" ng-model="HrJobNo">	
+                                        <option value="defect">Defect</option>
+                                        <option value="scrap">Scrap</option>
+                                        <option value="defect">Loss Reason</option>
+                                    </select>
+
+                                    <label class="control-label " for="company">Company:</label>
+
+                                    <input type="text" class="form-control input-sm" id="company" placeholder="" name="company" ng-model="company">
+
+                                    <label class="control-label " for="contract">Contract:</label>
+
+                                    <input type="text" class="form-control input-sm" id="contract" placeholder="" name="contract" ng-model="contract">
+
+                                    <label class="control-label " for="help">Help:</label>
+
+                                    <input type="text" class="form-control input-sm" id="help" placeholder="" name="help" ng-model="help">
+
+
+
+                                    <button type="button" class="btn btn-default" >Add</button>
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Job No</th>
+                                                <th>Company</th>
+                                                <th>Contract</th>
+                                                <th>Help</th>
+                                                <th>Other </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
