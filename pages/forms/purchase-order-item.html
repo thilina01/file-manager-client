@@ -27,10 +27,10 @@
                                     </select>
                                     <label class="control-label " for="quantity">Qty:</label>
 
-                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="purchaseOrderItem.quantity">
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="rowQuantity">
                                     <label class="control-label " for="price">Price:</label>
 
-                                    <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="purchaseOrderItem.price">
+                                    <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="rowPrice">
 
 
                                     <button type="button" class="btn btn-default" ng-click="addPurchaseOrderItemRow()">Add</button>
@@ -48,7 +48,7 @@
                                         <tbody>
 
                                             <tr ng-repeat="purchaseOrderItemRow in purchaseOrderItemRows">
-                                                <td>{{purchaseOrderItemRow.item}}</td>                                                
+                                                <td>{{purchaseOrderItemRow.item.code}}</td>                                                
                                                 <td>{{purchaseOrderItemRow.customerItem}}</td>
                                                 <td>{{purchaseOrderItemRow.quantity}}</td>
                                                 <td>{{purchaseOrderItemRow.price}}</td>

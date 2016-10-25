@@ -4,9 +4,12 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
     $scope.purchaseOrderItem = {};
     $scope.purchaseOrder = {};
     $scope.item = {};
+    $scope.rowQuantity = '';
+    $scope.rowPrice = '';
 
     $scope.purchaseOrders = [];
     $scope.items = [];
+    $scope.purchaseOrderItemRows = [];
 
     $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
@@ -19,18 +22,17 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
         });
     }
     $scope.addPurchaseOrderItemRow = function () {
-        $scope.purchaseOrderItemRows.push({'item': '', 'customerItem': '', 'quantity': '', 'price': ''});
-        $scope.purchaseOrderItemClear();
+        var row = {'item': JSON.parse($scope.item), 'customerItem': 'dd', 'quantity': $scope.rowQuantity, 'price': $scope.rowPrice};
+        $scope.purchaseOrderItemRows.push(row);
+        $scope.rowQuantity = '';
+        $scope.rowPrice = '';
     };
 
     $scope.clear = function () {
-        $scope.showSuccess("saved");
-        //main
         $scope.purchaseOrderItem = {};
         $scope.purchaseOrder = {};
         $scope.item = {};
-        //auto 
-
+        $scope.purchaseOrderItemRows = [];
     }
     $scope.isValid = function () {
         if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.item, {}) || angular.equals($scope.purchaseOrder, {})) {
@@ -66,7 +68,6 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
         );
     }
     $('#purchaseOrderItemModal').on('shown.bs.modal', function () {
-        alert('fff');
         $scope.loadPurchaseOrders();
         $scope.loadItems();
     })
