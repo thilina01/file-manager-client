@@ -1,5 +1,5 @@
 
-app.controller('costCenterFormController', function ($scope, $cookies, accountService, appService, costCenterService, sectionService) {
+app.controller('costCenterFormController', function ($scope, $timeout, $cookies, accountService, appService, costCenterService, sectionService) {
 
     $scope.costCenter = {};
     $scope.section = {};
@@ -49,9 +49,9 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
     }
     $('#costCenterModal').on('show.bs.modal', function () {
         $scope.loadSections();
-         $scope.saveButtonText = 'Save';
+        $scope.saveButtonText = 'Save';
         if (costCenterService.toEdit.id != undefined) {
-             $timeout(function () {
+            $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.costCenter = costCenterService.toEdit;
             }, 500);

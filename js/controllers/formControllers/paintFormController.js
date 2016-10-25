@@ -1,5 +1,5 @@
 
-app.controller('paintFormController', function ($scope, $cookies, accountService, appService, paintService) {
+app.controller('paintFormController', function ($scope,$timeout, $cookies, accountService, appService, paintService) {
 
     $scope.paint = {};
     $scope.saveButtonText = 'Save';
