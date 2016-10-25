@@ -2,15 +2,10 @@
 app.service('scrapTypeService', function ($http, appService) {
     var apiURL = appService.baseURL + 'scrapTypes/';
 
-    this.save = function (code, type, typeInSinhala) {
-        var data = {
-            code: code,
-            type: type,
-            typeInSinhala: typeInSinhala
-        };
-        return  $http.post(apiURL, data, appService.getJsonHeaders());
+    this.save = function (scrapType) {
+       
+        return  $http.post(apiURL, scrapType, appService.getJsonHeaders());
     };
-
 
     this.getAll = function () {
         return $http.get(apiURL, appService.getJsonHeaders());

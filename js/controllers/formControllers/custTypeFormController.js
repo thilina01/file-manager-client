@@ -1,15 +1,13 @@
 
 app.controller('custTypeFormController', function ($scope, $cookies, custTypeService, appService) {
-    $scope.code = '';
-    $scope.name = '';
-
+    $scope.custType = {};
+    
     $scope.clear = function () {
-        $scope.code = '';
-        $scope.name = '';
+       $scope.custType = {};
     }
 
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '') {
+        if ($scope.custType.code == '' || $scope.custType.name == '') {
             return false;
         }
         return true;
@@ -20,7 +18,7 @@ app.controller('custTypeFormController', function ($scope, $cookies, custTypeSer
             $scope.showError("form not complete");
             return;
         }
-        custTypeService.save($scope.code, $scope.name).then(
+        custTypeService.save($scope.custType).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
