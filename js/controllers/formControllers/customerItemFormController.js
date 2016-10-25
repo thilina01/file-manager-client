@@ -58,7 +58,7 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
                 }
         );
     }
-    $('#customerItemModal').on('shown.bs.modal', function () {
+    $('#customerItemModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadItems();
         $scope.saveButtonText = 'Save';

@@ -38,7 +38,7 @@ app.controller('paintGridController', function ($http, $scope, $cookies, paintSe
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#paintGridModal').on('shown.bs.modal', function () {
+    $('#paintGridModal').on('show.bs.modal', function () {
         $scope.loadPaints();
     })
     $('#paintGridModal').on('hidden.bs.modal', function () {

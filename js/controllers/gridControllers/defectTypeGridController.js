@@ -5,7 +5,6 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
             defectTypeService.toEdit = $scope.dataTable.row('.selected').data();
             $('#defectTypeGridModal').modal('hide');
             $('#defectTypeModal').modal('show');
-
         }
     }
     $scope.delete = function () {
@@ -38,7 +37,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#defectTypeGridModal').on('shown.bs.modal', function () {
+    $('#defectTypeGridModal').on('show.bs.modal', function () {
         $scope.loadDefectTypes();
     })
     $('#defectTypeGridModal').on('hidden.bs.modal', function () {

@@ -53,7 +53,7 @@ app.controller('workCenterFormController', function ($scope, $cookies, costCente
                 }
         );
     }
-    $('#workCenterModal').on('shown.bs.modal', function () {
+    $('#workCenterModal').on('show.bs.modal', function () {
         $scope.loadCostCenters();
         $scope.saveButtonText = 'Save';
         if (workCenterService.toEdit.id != undefined) {

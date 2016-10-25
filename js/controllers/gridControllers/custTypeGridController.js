@@ -37,7 +37,7 @@ app.controller('custTypeGridController', function ($http, $scope, $cookies, cust
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#custTypeGridModal').on('shown.bs.modal', function () {
+    $('#custTypeGridModal').on('show.bs.modal', function () {
         $scope.loadCustTypes();
     })
     $('#custTypeGridModal').on('hidden.bs.modal', function () {

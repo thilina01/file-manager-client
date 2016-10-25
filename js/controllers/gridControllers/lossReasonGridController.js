@@ -38,7 +38,7 @@ app.controller('lossReasonGridController', function ($http, $scope, $cookies, lo
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#lossReasonGridModal').on('shown.bs.modal', function () {
+    $('#lossReasonGridModal').on('show.bs.modal', function () {
         $scope.loadLossReasons();
     })
     $('#lossReasonGridModal').on('hidden.bs.modal', function () {

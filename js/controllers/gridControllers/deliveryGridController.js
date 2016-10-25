@@ -40,7 +40,7 @@ app.controller('deliveryGridController', function ($http, $scope, $cookies, deli
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#deliveryGridModal').on('shown.bs.modal', function () {
+    $('#deliveryGridModal').on('show.bs.modal', function () {
         $scope.loadDeliveries();
     })
     $('#deliveryGridModal').on('hidden.bs.modal', function () {

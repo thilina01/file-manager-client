@@ -22,9 +22,10 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'customerPartNo'},
+            {data: 'item.code'},
+            {data: 'item.description'},
             {data: 'price'},
-            {data: 'customer.name'},
-            {data: 'item.description'}
+            {data: 'customer.name'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
@@ -39,7 +40,7 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#customerItemGridModal').on('shown.bs.modal', function () {
+    $('#customerItemGridModal').on('show.bs.modal', function () {
         $scope.loadCustomerItems();
     })
     $('#customerItemGridModal').on('hidden.bs.modal', function () {

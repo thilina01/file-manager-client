@@ -37,7 +37,7 @@ app.controller('incotermGridController', function ($http, $scope, $cookies, inco
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#incotermGridModal').on('shown.bs.modal', function () {
+    $('#incotermGridModal').on('show.bs.modal', function () {
         $scope.loadIncoterms();
     })
     $('#incotermGridModal').on('hidden.bs.modal', function () {

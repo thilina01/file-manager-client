@@ -38,7 +38,7 @@ app.controller('itemGridController', function ($http, $scope, $cookies, itemServ
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#itemGridModal').on('shown.bs.modal', function () {
+    $('#itemGridModal').on('show.bs.modal', function () {
         $scope.loadItems();
     })
     $('#itemGridModal').on('hidden.bs.modal', function () {

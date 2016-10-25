@@ -18,7 +18,7 @@ app.controller('scrapGridController', function ($http, $scope, $cookies, scrapSe
         });
     }
 
-    $('#scrapGridModal').on('shown.bs.modal', function () {
+    $('#scrapGridModal').on('show.bs.modal', function () {
         $scope.loadscraps();
     })
     $('#scrapGridModal').on('hidden.bs.modal', function () {
