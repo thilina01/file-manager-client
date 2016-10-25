@@ -1,18 +1,14 @@
 
 app.controller('lossReasonFormController', function ($scope, $cookies, accountService, appService, lossReasonService) {
-    $scope.code = '';
-    $scope.type = '';
-    $scope.typeInSinhala = '';
+    $scope.lossReason = {};
+   
 
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.type = '';
-        $scope.typeInSinhala = '';
+       $scope.lossReason = {};
     }
 
     $scope.save = function () {
-        lossReasonService.save($scope.code, $scope.type, $scope.typeInSinhala).then(
+        lossReasonService.save($scope.lossReason).then(
                 function (response) {
                     if (response.data) {
                     }

@@ -1,16 +1,9 @@
 
 app.controller('purchaseOrderTypeFormController', function ($scope, $cookies, accountService, appService, purchaseOrderTypeService) {
-    $scope.code = '';
-    $scope.type = '';
-    ;
-
-
-
+    $scope.purchaseOrderType = {};
 
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.type = '';
+       $scope.purchaseOrderType = {};
 
     }
     $scope.isValid = function () {
@@ -25,7 +18,7 @@ app.controller('purchaseOrderTypeFormController', function ($scope, $cookies, ac
             $scope.showError("form not complete");
             return;
         }
-        purchaseOrderTypeService.save($scope.code, $scope.type).then(
+        purchaseOrderTypeService.save($scope.purchaseOrderType).then(
                 function (response) {
                     if (response.data) {
 

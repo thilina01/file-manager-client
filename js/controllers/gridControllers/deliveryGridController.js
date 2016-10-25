@@ -1,13 +1,23 @@
 
 app.controller('deliveryGridController', function ($http, $scope, $cookies, deliveryService, appService) {
 
-    $scope.deliverys = '';
+    $scope.deliveries = '';
 
-    $scope.loadDeliverys = function () {
+    $scope.loadDeliveries = function () {
         deliveryService.getAll().then(function (response) {
-            $scope.deliverys = response.data;
-
+            $scope.deliveries = response.data;
             
+             var x = $('#deliveryTable').DataTable({
+                data: $scope.items,
+                columns: [
+                    {data: 'deliveryDate'},
+                    {data: 'quantity'},
+                    {data: 'location'},
+                    {data: 'item.code'},
+                    {data: 'purchaseOrder.poNumber'}
+                ]
+
+             });
         });
     }
 

@@ -6,14 +6,14 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
     $scope.loadCurrencies = function () {
         currencyService.getAll().then(function (response) {
             $scope.currencies = response.data;
-
-            var x = $('#currencyTable').DataTable({
+            
+             var x = $('#currencyTable').DataTable({
                 data: $scope.currencies,
                 columns: [
                     {data: 'code'},
                     {data: 'name'}
                 ]
-            });
+               });
         });
     }
 
