@@ -1,5 +1,5 @@
 
-app.controller('sectionFormController', function ($scope, $cookies, sectionService, appService) {
+app.controller('sectionFormController', function ($scope,$timeout, $cookies, sectionService, appService) {
     $scope.section = {};
     $scope.saveButtonText = 'Save';
    
@@ -43,8 +43,10 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
      $('#sectionModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (sectionService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.section = sectionService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.section = sectionService.toEdit;
+            }, 500);
         }
     })
 

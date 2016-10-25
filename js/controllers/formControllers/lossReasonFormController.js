@@ -1,5 +1,5 @@
 
-app.controller('lossReasonFormController', function ($scope, $cookies, accountService, appService, lossReasonService) {
+app.controller('lossReasonFormController', function ($scope, $timeout,$cookies, accountService, appService, lossReasonService) {
     $scope.lossReason = {};
     $scope.saveButtonText = 'Save';
    
@@ -34,8 +34,10 @@ app.controller('lossReasonFormController', function ($scope, $cookies, accountSe
      $('#lossReasonModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (lossReasonService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.lossReason = lossReasonService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.lossReason = lossReasonService.toEdit;
+            }, 500);
         }
     })
 });

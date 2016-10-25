@@ -1,5 +1,5 @@
 
-app.controller('jobFormController', function ($scope, $cookies, accountService, appService, jobService, itemService, customerService) {
+app.controller('jobFormController', function ($scope,$timeout, $cookies, accountService, appService, jobService, itemService, customerService) {
     $scope.job = {};
     $scope.item = {};
     $scope.customer = {};
@@ -69,8 +69,10 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
          $scope.loadCustomers();
          $scope.saveButtonText = 'Save';
         if (jobService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.job = jobService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.job = jobService.toEdit;
+            }, 500);
         }
     
     })

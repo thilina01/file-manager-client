@@ -1,5 +1,5 @@
 
-app.controller('customerFormController', function ($scope, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService, countryService) {
+app.controller('customerFormController', function ($scope,$timeout, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService, countryService) {
     $scope.customer = {};
     $scope.incoterm = {};
     $scope.custType = {};
@@ -95,8 +95,10 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.loadCountries();
         $scope.saveButtonText = 'Save';
         if (customerService.toEdit.id !== undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.customer = customerService.toEdit;
+           $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.customer = customerService.toEdit;
+            }, 500);
         }
     })
 });

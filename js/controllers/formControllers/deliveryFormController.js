@@ -1,5 +1,5 @@
 
-app.controller('deliveryFormController', function ($scope, $cookies, accountService, appService, itemService, purchaseOrderService,deliveryService) {
+app.controller('deliveryFormController', function ($scope,$timeout, $cookies, accountService, appService, itemService, purchaseOrderService,deliveryService) {
     $scope.delivery = {};
     $scope.item = {};
     $scope.purchaseOrder = {};
@@ -68,8 +68,10 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
         $scope.loadPurchaseOrders();
         $scope.saveButtonText = 'Save';
         if (deliveryService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.delivery = deliveryService.toEdit;
+          $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.delivery = deliveryService.toEdit;
+            }, 500);
         }
     })
 });

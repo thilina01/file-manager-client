@@ -1,5 +1,5 @@
 
-app.controller('itemFormController', function ($scope, $cookies, accountService, appService, itemService, itemTypeService, paintService) {
+app.controller('itemFormController', function ($scope,$timeout, $cookies, accountService, appService, itemService, itemTypeService, paintService) {
     $scope.item = {};
     $scope.itemType = {};
     $scope.paint = {};
@@ -65,8 +65,10 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
         $scope.loadPaints();
         $scope.saveButtonText = 'Save';
         if (itemService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.item = itemService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.item = itemService.toEdit;
+            }, 500);
         }
     })
 });

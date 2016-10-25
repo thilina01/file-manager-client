@@ -47,8 +47,10 @@ app.controller('paintFormController', function ($scope, $cookies, accountService
      $('#paintModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (paintService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.paint = paintService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.paint = paintService.toEdit;
+            }, 500);
         }
     })
 

@@ -1,5 +1,5 @@
 
-app.controller('shiftFormController', function ($scope, $cookies, accountService, appService, shiftService) {
+app.controller('shiftFormController', function ($scope,$timeout, $cookies, accountService, appService, shiftService) {
     $scope.shift = {};
     $scope.saveButtonText = 'Save';
     $scope.clear = function () {
@@ -44,8 +44,10 @@ app.controller('shiftFormController', function ($scope, $cookies, accountService
     $('#shiftModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (shiftService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.shift = shiftService.toEdit;
+           $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.shift = shiftService.toEdit;
+            }, 500);
         }
     })
 });

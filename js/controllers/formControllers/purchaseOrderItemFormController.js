@@ -1,5 +1,5 @@
 
-app.controller('purchaseOrderItemFormController', function ($scope, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderService) {
+app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderService) {
     //main
     $scope.purchaseOrderItem = {};
     $scope.purchaseOrder = {};
@@ -70,9 +70,11 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
     $('#purchaseOrderItemModal').on('show.bs.modal', function () {
         $scope.loadPurchaseOrders();
         $scope.saveButtonText = 'Save';
-        if (purchaseOrderService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.purchaseOrder = purchaseOrderService.toEdit;
+        if (purchaseOrderItemService.toEdit.id != undefined) {
+             $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.purchaseOrderItem = purchaseOrderItemService.toEdit;
+            }, 500);
         }
     })
 });

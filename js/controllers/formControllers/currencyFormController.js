@@ -1,5 +1,5 @@
 
-app.controller('currencyFormController', function ($scope, $cookies, accountService, appService, currencyService) {
+app.controller('currencyFormController', function ($scope,$timeout, $cookies, accountService, appService, currencyService) {
     $scope.currency = {};
      $scope.saveButtonText = 'Save';
     
@@ -42,8 +42,10 @@ app.controller('currencyFormController', function ($scope, $cookies, accountServ
      $('#currencyModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (currencyService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.currency = currencyService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.currency = currencyService.toEdit;
+            }, 500);
         }
     })
 });

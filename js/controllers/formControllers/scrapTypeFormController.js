@@ -1,5 +1,5 @@
 
-app.controller('scrapTypeFormController', function ($scope, $cookies, accountService, scrapTypeService, appService) {
+app.controller('scrapTypeFormController', function ($scope,$timeout, $cookies, accountService, scrapTypeService, appService) {
     $scope.scrapType = {};
     $scope.saveButtonText = 'Save';
   
@@ -44,8 +44,10 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
     $('#scrapTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (scrapTypeService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.scrapType = scrapTypeService.toEdit;
+           $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.scrapType = scrapTypeService.toEdit;
+            }, 500);
         }
     })
 });

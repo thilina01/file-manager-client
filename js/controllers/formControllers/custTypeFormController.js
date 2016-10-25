@@ -1,5 +1,5 @@
 
-app.controller('custTypeFormController', function ($scope, $cookies, custTypeService, appService) {
+app.controller('custTypeFormController', function ($scope,$timeout, $cookies, custTypeService, appService) {
     $scope.custType = {};
      $scope.saveButtonText = 'Save';
     
@@ -43,8 +43,10 @@ app.controller('custTypeFormController', function ($scope, $cookies, custTypeSer
     $('#custTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (custTypeService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.custType = custTypeService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.custType = custTypeService.toEdit;
+            }, 500);
         }
     })
 

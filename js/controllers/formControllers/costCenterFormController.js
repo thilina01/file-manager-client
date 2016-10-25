@@ -51,8 +51,10 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
         $scope.loadSections();
          $scope.saveButtonText = 'Save';
         if (costCenterService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.country = costCenterService.toEdit;
+             $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.costCenter = costCenterService.toEdit;
+            }, 500);
         }
     })
 });

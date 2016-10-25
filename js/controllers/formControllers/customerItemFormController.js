@@ -1,5 +1,5 @@
 
-app.controller('customerItemFormController', function ($scope, $cookies, accountService, appService, customerItemService, customerService, itemService) {
+app.controller('customerItemFormController', function ($scope,$timeout, $cookies, accountService, appService, customerItemService, customerService, itemService) {
 
     $scope.customerItem = {};
     $scope.customer = {};
@@ -63,8 +63,10 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
         $scope.loadItems();
         $scope.saveButtonText = 'Save';
         if (customerItemService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.customerItem= customerItemService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.customerItem = customerItemService.toEdit;
+            }, 500);
         }
     })
 });

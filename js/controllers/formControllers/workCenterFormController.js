@@ -1,5 +1,5 @@
 
-app.controller('workCenterFormController', function ($scope, $cookies, costCenterService, appService, workCenterService) {
+app.controller('workCenterFormController', function ($scope,$timeout, $cookies, costCenterService, appService, workCenterService) {
 
     $scope.workCenter = {};
     $scope.costCenter = {};
@@ -57,8 +57,10 @@ app.controller('workCenterFormController', function ($scope, $cookies, costCente
         $scope.loadCostCenters();
         $scope.saveButtonText = 'Save';
         if (workCenterService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.workCenter =workCenterService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.workCenter = workCenterService.toEdit;
+            }, 500);
         }
     })
 });

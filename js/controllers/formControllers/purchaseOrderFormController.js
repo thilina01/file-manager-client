@@ -1,5 +1,5 @@
 
-app.controller('purchaseOrderFormController', function ($scope, $cookies, accountService, appService, purchaseOrderService, customerService, purchaseOrderTypeService) {
+app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookies, accountService, appService, purchaseOrderService, customerService, purchaseOrderTypeService) {
     $scope.purchaseOrder = {};
     $scope.customer = {};
     $scope.purchaseOrderType = {};
@@ -83,8 +83,10 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         $scope.loadPurchaseOrderTypes();
          $scope.saveButtonText = 'Save';
         if (purchaseOrderService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.purchaseOrder =purchaseOrderService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.purchaseOrder = purchaseOrderService.toEdit;
+            }, 500);
         }
     })
 });

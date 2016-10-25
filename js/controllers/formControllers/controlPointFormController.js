@@ -1,5 +1,4 @@
-
-app.controller('controlPointFormController', function ($scope, $cookies, accountService, appService, controlPointService, workCenterService) {
+app.controller('controlPointFormController', function ($scope,$timeout, $cookies, accountService, appService, controlPointService, workCenterService) {
 
     $scope.controlPoint = {};
     $scope.workCenter = {};
@@ -64,8 +63,10 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         $scope.loadWorkcenters();
         $scope.saveButtonText = 'Save';
         if (controlPointService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.controlPoint = controlPointService.toEdit;
+             $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.controlPoint = controlPointService.toEdit;
+            }, 500);
         }
     })
 

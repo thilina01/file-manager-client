@@ -1,5 +1,5 @@
 
-app.controller('itemTypeFormController', function ($scope, $cookies, accountService, appService, itemTypeService) {
+app.controller('itemTypeFormController', function ($scope,$timeout, $cookies, accountService, appService, itemTypeService) {
     $scope.itemType = {};
      $scope.saveButtonText = 'Save';
     
@@ -44,8 +44,10 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
      $('#itemTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (itemTypeService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.itemType = itemTypeService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.itemType = itemTypeService.toEdit;
+            }, 500);
         }
     })
 });

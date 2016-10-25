@@ -1,5 +1,5 @@
 
-app.controller('machineFormController', function ($scope, $cookies, accountService, appService, workCenterService, machineService) {
+app.controller('machineFormController', function ($scope,$timeout, $cookies, accountService, appService, workCenterService, machineService) {
     $scope.machine = {};
     $scope.workCenter = {};
     $scope.workCenters = [];
@@ -57,8 +57,10 @@ app.controller('machineFormController', function ($scope, $cookies, accountServi
         $scope.loadWorkcenters();
          $scope.saveButtonText = 'Save';
         if (machineService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.machine = machineService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.machine = machineService.toEdit;
+            }, 500);
         }
     })
 });
