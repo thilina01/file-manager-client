@@ -5,7 +5,6 @@ app.controller('controlPointGridController', function ($http, $scope, $cookies, 
             controlPointService.toEdit = $scope.dataTable.row('.selected').data();
             $('#controlPointGridModal').modal('hide');
             $('#controlPointModal').modal('show');
-
         }
     }
     $scope.delete = function () {
