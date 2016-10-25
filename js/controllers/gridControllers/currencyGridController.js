@@ -27,7 +27,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadcurrencies = function () {
+    $scope.loadCurrencies = function () {
         $scope.dataTable.clear();
         currencyService.getAll().then(function (response) {
             $scope.currencies = response.data;

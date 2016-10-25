@@ -43,7 +43,7 @@ app.controller('customerGridController', function ($http, $scope, $cookies, cust
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadcustomers = function () {
+    $scope.loadCustomers = function () {
         $scope.dataTable.clear();
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;
@@ -54,7 +54,7 @@ app.controller('customerGridController', function ($http, $scope, $cookies, cust
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#customerGridModal').on('shown.bs.modal', function () {
-        $scope.loadcustomers();
+        $scope.loadCustomers();
     })
     $('#customerGridModal').on('hidden.bs.modal', function () {
 

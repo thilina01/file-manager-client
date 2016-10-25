@@ -29,7 +29,7 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadcustomerItems = function () {
+    $scope.loadCustomerItems = function () {
         $scope.dataTable.clear();
         customerItemService.getAll().then(function (response) {
             $scope.customerItems = response.data;
@@ -40,7 +40,7 @@ app.controller('customerItemGridController', function ($http, $scope, $cookies, 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#customerItemGridModal').on('shown.bs.modal', function () {
-        $scope.loadcustomerItems();
+        $scope.loadCustomerItems();
     })
     $('#customerItemGridModal').on('hidden.bs.modal', function () {
 

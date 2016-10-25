@@ -28,7 +28,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loaddefectTypes = function () {
+    $scope.loadDefectTypes = function () {
         $scope.dataTable.clear();
         defectTypeService.getAll().then(function (response) {
             $scope.defectTypes = response.data;
@@ -39,7 +39,7 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#defectTypeGridModal').on('shown.bs.modal', function () {
-        $scope.loaddefectTypes();
+        $scope.loadDefectTypes();
     })
     $('#defectTypeGridModal').on('hidden.bs.modal', function () {
 
