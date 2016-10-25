@@ -3,7 +3,7 @@ app.controller('controlPointGridController', function ($http, $scope, $cookies, 
 
     $scope.controlPoints = '';
 
-    $scope.loadSections = function () {
+    $scope.loadcontrolPoints = function () {
         controlPointService.getAll().then(function (response) {
             $scope.controlPoints = response.data;
 
@@ -12,8 +12,8 @@ app.controller('controlPointGridController', function ($http, $scope, $cookies, 
                 columns: [
                     {data: 'code'},
                     {data: 'name'},
-                    {data: 'wcc'},
-                    {data: 'section'}
+                    {data: 'workCenter.code'},
+                    {data: 'workCenter.costCenter.section.code'}
                 ]
             });
         });
