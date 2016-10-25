@@ -17,7 +17,7 @@ app.controller('purchaseOrderTypeGridController', function ($http, $scope, $cook
         });
     }
 
-    $('#purchaseOrderTypeGridModal').on('shown.bs.modal', function () {
+    $('#purchaseOrderTypeGridModal').on('show.bs.modal', function () {
         $scope.loadpurchaseOrderTypes();
     })
     $('#purchaseOrderTypeGridModal').on('hidden.bs.modal', function () {

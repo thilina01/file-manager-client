@@ -1,4 +1,3 @@
-
 app.controller('countryGridController', function ($http, $scope, $cookies, countryService, dataTableService, appService) {
 
     $scope.edit = function () {
@@ -38,11 +37,10 @@ app.controller('countryGridController', function ($http, $scope, $cookies, count
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#countryGridModal').on('shown.bs.modal', function () {
+    $('#countryGridModal').on('show.bs.modal', function () {
         $scope.loadCountries();
     })
     $('#countryGridModal').on('hidden.bs.modal', function () {
-        //$('#countryTable').DataTable().destroy();
     })
 
 });

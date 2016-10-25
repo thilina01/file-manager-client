@@ -38,7 +38,7 @@ app.controller('machineGridController', function ($http, $scope, $cookies, machi
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#machineGridModal').on('shown.bs.modal', function () {
+    $('#machineGridModal').on('show.bs.modal', function () {
         $scope.loadMachines();
     })
     $('#machineGridModal').on('hidden.bs.modal', function () {

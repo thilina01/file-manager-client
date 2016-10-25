@@ -34,7 +34,7 @@ app.controller('jobGridController', function ($http, $scope, $cookies, jobServic
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#jobGridModal').on('shown.bs.modal', function () {
+    $('#jobGridModal').on('show.bs.modal', function () {
         $scope.loadJobs();
     })
     $('#jobGridModal').on('hidden.bs.modal', function () {

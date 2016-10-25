@@ -17,7 +17,7 @@ app.controller('shiftGridController', function ($http, $scope, $cookies, shiftSe
         });
     }
 
-    $('#shiftGridModal').on('shown.bs.modal', function () {
+    $('#shiftGridModal').on('show.bs.modal', function () {
         $scope.loadShifts();
     })
     $('#shiftGridModal').on('hidden.bs.modal', function () {

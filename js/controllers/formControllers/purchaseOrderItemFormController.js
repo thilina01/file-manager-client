@@ -12,10 +12,7 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
     $scope.purchaseOrderItemRows = [];
     $scope.saveButtonText = 'Save';
 
-    $scope.loadItems = function () {
-        itemService.getAll().then(function (response) {
-            $scope.items = response.data;
-        });
+    $scope.fillItems = function () {
     }
     $scope.loadPurchaseOrders = function () {
         purchaseOrderService.getAll().then(function (response) {
@@ -34,7 +31,7 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
         $scope.purchaseOrder = {};
         $scope.item = {};
         $scope.purchaseOrderItemRows = [];
-      purchaseOrderItemService.toEdit = {};
+        purchaseOrderItemService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
@@ -72,7 +69,6 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
     }
     $('#purchaseOrderItemModal').on('show.bs.modal', function () {
         $scope.loadPurchaseOrders();
-        $scope.loadItems();
         $scope.saveButtonText = 'Save';
         if (purchaseOrderService.toEdit.id != undefined) {
             $scope.saveButtonText = 'Update';

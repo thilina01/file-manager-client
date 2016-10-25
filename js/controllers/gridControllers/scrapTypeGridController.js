@@ -18,7 +18,7 @@ app.controller('scrapTypeGridController', function ($http, $scope, $cookies, scr
         });
     }
 
-    $('#scrapTypeGridModal').on('shown.bs.modal', function () {
+    $('#scrapTypeGridModal').on('show.bs.modal', function () {
         $scope.loadscrapTypes();
     })
     $('#scrapTypeGridModal').on('hidden.bs.modal', function () {

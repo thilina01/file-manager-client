@@ -76,7 +76,7 @@ app.controller('planningFormController', function ($scope, $cookies, accountServ
         );
     }
 
-    $('#planningModal').on('shown.bs.modal', function () {
+    $('#planningModal').on('show.bs.modal', function () {
         $scope.loadControlPoints();
         $scope.loadJobs();
         $scope.loadShifts();

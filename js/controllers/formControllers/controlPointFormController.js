@@ -60,7 +60,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         );
     }
 
-    $('#controlPointModal').on('shown.bs.modal', function () {
+    $('#controlPointModal').on('show.bs.modal', function () {
         $scope.loadWorkcenters();
         $scope.saveButtonText = 'Save';
         if (controlPointService.toEdit.id != undefined) {

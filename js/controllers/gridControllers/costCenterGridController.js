@@ -20,7 +20,7 @@ app.controller('costCenterGridController', function ($http, $scope, $cookies, co
         });
     }
 
-    $('#costCenterGridModal').on('shown.bs.modal', function () {
+    $('#costCenterGridModal').on('show.bs.modal', function () {
         $scope.loadCostCenters();
     })
     $('#costCenterGridModal').on('hidden.bs.modal', function () {

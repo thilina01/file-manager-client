@@ -18,7 +18,7 @@ app.controller('workCenterGridController', function ($http, $scope, $cookies, wo
         });
     }
 
-    $('#workCenterGridModal').on('shown.bs.modal', function () {
+    $('#workCenterGridModal').on('show.bs.modal', function () {
         $scope.loadworkCenters();
     })
     $('#workCenterGridModal').on('hidden.bs.modal', function () {

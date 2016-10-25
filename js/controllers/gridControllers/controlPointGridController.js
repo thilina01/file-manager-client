@@ -19,7 +19,7 @@ app.controller('controlPointGridController', function ($http, $scope, $cookies, 
         });
     }
 
-    $('#controlPointGridModal').on('shown.bs.modal', function () {
+    $('#controlPointGridModal').on('show.bs.modal', function () {
         $scope.loadcontrolPoints();
     })
     $('#controlPointGridModal').on('hidden.bs.modal', function () {

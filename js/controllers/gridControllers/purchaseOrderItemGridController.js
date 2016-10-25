@@ -34,7 +34,7 @@ app.controller('purchaseOrderItemGridController', function ($http, $scope, $cook
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#purchaseOrderItemGridModal').on('shown.bs.modal', function () {
+    $('#purchaseOrderItemGridModal').on('show.bs.modal', function () {
         $scope.loadPurchaseOrderItems();
     })
     $('#purchaseOrderItemGridModal').on('hidden.bs.modal', function () {

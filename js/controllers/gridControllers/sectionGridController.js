@@ -17,7 +17,7 @@ app.controller('sectionGridController', function ($http, $scope, $cookies, secti
         });
     }
 
-    $('#sectionGridModal').on('shown.bs.modal', function () {
+    $('#sectionGridModal').on('show.bs.modal', function () {
         $scope.loadSections();
     })
     $('#sectionGridModal').on('hidden.bs.modal', function () {

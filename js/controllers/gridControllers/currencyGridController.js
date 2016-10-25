@@ -37,7 +37,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#currencyGridModal').on('shown.bs.modal', function () {
+    $('#currencyGridModal').on('show.bs.modal', function () {
         $scope.loadCurrencies();
     })
     $('#currencyGridModal').on('hidden.bs.modal', function () {

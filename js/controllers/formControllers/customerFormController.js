@@ -9,7 +9,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
     $scope.custTypes = [];
     $scope.currencies = [];
     $scope.countries = [];
- $scope.saveButtonText = 'Save';
+    $scope.saveButtonText = 'Save';
 
 
     $scope.clear = function () {
@@ -88,13 +88,13 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
     }
 
 
-    $('#customerModal').on('shown.bs.modal', function () {
+    $('#customerModal').on('show.bs.modal', function () {
         $scope.loadIncoterms();
         $scope.loadCustTypes();
         $scope.loadCurrencies();
         $scope.loadCountries();
-         $scope.saveButtonText = 'Save';
-        if (customerService.toEdit.id != undefined) {
+        $scope.saveButtonText = 'Save';
+        if (customerService.toEdit.id !== undefined) {
             $scope.saveButtonText = 'Update';
             $scope.customer = customerService.toEdit;
         }

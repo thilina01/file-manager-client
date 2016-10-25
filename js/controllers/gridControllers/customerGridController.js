@@ -53,7 +53,7 @@ app.controller('customerGridController', function ($http, $scope, $cookies, cust
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#customerGridModal').on('shown.bs.modal', function () {
+    $('#customerGridModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
     })
     $('#customerGridModal').on('hidden.bs.modal', function () {
