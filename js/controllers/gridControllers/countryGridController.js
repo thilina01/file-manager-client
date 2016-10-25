@@ -3,7 +3,9 @@ app.controller('countryGridController', function ($http, $scope, $cookies, count
 
     $scope.edit = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
-
+            countryService.toEdit = $scope.dataTable.row('.selected').data();
+            $('#countryGridModal').modal('hide');
+            $('#countryModal').modal('show');
         }
     }
     $scope.delete = function () {
@@ -25,6 +27,7 @@ app.controller('countryGridController', function ($http, $scope, $cookies, count
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
+
     $scope.loadCountries = function () {
         $scope.dataTable.clear();
         countryService.getAll().then(function (response) {
