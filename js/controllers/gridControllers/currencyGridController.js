@@ -2,6 +2,9 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
 
     $scope.edit = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
+            currencyService.toEdit = $scope.dataTable.row('.selected').data();
+            $('#currencyGridModal').modal('hide');
+            $('#currencyModal').modal('show');
 
         }
     }
@@ -28,8 +31,6 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
         $scope.dataTable.clear();
         currencyService.getAll().then(function (response) {
             $scope.currencies = response.data;
-
-
             $scope.dataTable.rows.add($scope.currencies).draw();
         });
     }
@@ -40,7 +41,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
         $scope.loadCurrencies();
     })
     $('#currencyGridModal').on('hidden.bs.modal', function () {
-        $('#currencyTable').DataTable().destroy();
+       
     })
 
 });
