@@ -1,5 +1,4 @@
 app.controller('controlPointFormController', function ($scope, $timeout, $cookies, accountService, appService, controlPointService, workCenterService) {
-    $scope.JSON = JSON;
     $scope.controlPoint = {};
     $scope.workCenters = [];
     $scope.saveButtonText = 'Save';
@@ -29,7 +28,7 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
             $scope.showError("form not complete");
             return;
         }
-        $scope.controlPoint.workCenter = JSON.parse($scope.controlPoint.workCenter);
+        //$scope.controlPoint.workCenter = JSON.parse($scope.controlPoint.workCenter);
 
         controlPointService.save($scope.controlPoint).then(
                 function (response) {

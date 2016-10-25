@@ -24,15 +24,13 @@
                     <div class="form-group row">
                         <label for="code" class="col-xs-2 col-form-label col-form-label-sm">Work Center:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="wcc" name="wcc" ng-model="controlPoint.workCenter" ng-change="">	
-                                <option ng-repeat="workCenter in workCenters" value="{{workCenter}}" ng-selected="{{workCenter.id}} == controlPoint.workCenter.id">{{workCenter.code}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="controlPoint.workCenter" ng-options="workCenter.code for workCenter in workCenters track by workCenter.id"></select>
                         </div>
                     </div> 
                     <div class="form-group row">
                         <label for="section" class="col-xs-2 col-form-label col-form-label-sm">Cost Center</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control input-sm" id="costCenter" placeholder="" name="costCenter" value="{{controlPoint.workCenter != undefined?JSON.parse(controlPoint.workCenter).costCenter.name:''}}">
+                            <input type="text" class="form-control input-sm" id="costCenter" placeholder="" name="costCenter" value="{{controlPoint.workCenter.id}}">
                         </div>
                     </div>
                 </div>
