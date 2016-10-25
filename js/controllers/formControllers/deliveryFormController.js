@@ -1,5 +1,5 @@
 
-app.controller('deliveryFormController', function ($scope, $cookies, accountService, appService, jobService, itemService, purchaseOrderService) {
+app.controller('deliveryFormController', function ($scope, $cookies, accountService, appService, itemService, purchaseOrderService,deliveryService) {
     $scope.delivery = {};
     $scope.item = {};
     $scope.purchaseOrder = {};
@@ -35,9 +35,9 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        $scope.job.item = JSON.parse($scope.item);
-        $scope.job.purchaseOrder = JSON.parse($scope.purchaseOrder);
-       deliveryService.save($scope.deliveryDate, $scope.quantity,$scope.location, $scope.itemCode, $scope.purchaseOrderpoNumber).then(
+        $scope.delivery.item = JSON.parse($scope.item);
+        $scope.delivery.purchaseOrder = JSON.parse($scope.purchaseOrder);
+        deliveryService.save($scope.delivery).then(
                 function (response) {
                     if (response.data) {
 
@@ -62,8 +62,6 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
     }
     $('#deliveryModal').on('shown.bs.modal', function () {
         $scope.loadItems();
-    })
-    $('#deliveryModal').on('shown.bs.modal', function () {
         $scope.loadPurchaseOrders();
     })
 });
