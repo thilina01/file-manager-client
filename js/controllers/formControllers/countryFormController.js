@@ -1,4 +1,4 @@
-app.controller('countryFormController', function ($scope, $cookies, accountService, appService, countryService) {
+app.controller('countryFormController', function ($scope, $timeout, $cookies, accountService, appService, countryService) {
     $scope.country = {};
     $scope.saveButtonText = 'Save';
 
@@ -42,8 +42,10 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
     $('#countryModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
         if (countryService.toEdit.id != undefined) {
-            $scope.saveButtonText = 'Update';
-            $scope.country = countryService.toEdit;
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.country = countryService.toEdit;
+            }, 500);
         }
     })
 });
