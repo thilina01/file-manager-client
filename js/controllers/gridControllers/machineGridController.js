@@ -1,27 +1,48 @@
+app.controller('machineGridController', function ($http, $scope, $cookies, machineService, dataTableService, appService) {
 
-app.controller('machineGridController', function ($http, $scope, $cookies, machineService, appService) {
+    $scope.edit = function () {
+        if ($scope.dataTable.row('.selected').data() != undefined) {
+            machineService.toEdit = $scope.dataTable.row('.selected').data();
+            $('#machineGridModal').modal('hide');
+            $('#machineModal').modal('show');
+
+        }
+    }
+    $scope.delete = function () {
+        if ($scope.dataTable.row('.selected').data() != undefined) {
+            machineService.delete($scope.dataTable.row('.selected').data().id).then(
+                    function (response) {
+                        $scope.dataTable.row('.selected').remove().draw(false);
+                    });
+        }
+    }
 
     $scope.machines = '';
-
-    $scope.loadmachines = function () {
+    $scope.table = $('#machineTable');
+    $scope.dataTable = $scope.table.DataTable({
+        columns: [
+            {data: 'machineNo'},
+            {data: 'machineName'},
+            {data: 'wcc'}
+        ],
+        dom: 'Bfrtip',
+        buttons: dataTableService.getButtons($scope.edit, $scope.delete)
+    });
+    $scope.loadMachines = function () {
+        $scope.dataTable.clear();
         machineService.getAll().then(function (response) {
             $scope.machines = response.data;
-
-            var x = $('#machineTable').DataTable({
-                data: $scope.machines,
-                columns: [
-                    {data: 'machineNo'},
-                    {data: 'machineName'},
-                    {data: 'wcc'}
-                ]
-            });
+            $scope.dataTable.rows.add($scope.machines).draw();
         });
     }
 
+    $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
+
     $('#machineGridModal').on('shown.bs.modal', function () {
-        $scope.loadmachins();
+        $scope.loadMachines();
     })
     $('#machineGridModal').on('hidden.bs.modal', function () {
-        $('#machineTable').DataTable().destroy();
+
     })
+
 });
