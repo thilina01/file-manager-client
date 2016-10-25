@@ -1,13 +1,9 @@
 
 app.controller('incotermFormController', function ($scope, $cookies, accountService, appService, incotermService) {
-    $scope.code = '';
-    $scope.name = '';
-
-
+    $scope.incoterm = {};
+   
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
+        $scope.incoterm = {};
     }
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.name == '') {
@@ -21,7 +17,7 @@ app.controller('incotermFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        incotermService.save($scope.code, $scope.name).then(
+        incotermService.save($scope.incoterm).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");

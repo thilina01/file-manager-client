@@ -1,16 +1,12 @@
 
 app.controller('currencyFormController', function ($scope, $cookies, accountService, appService, currencyService) {
-    $scope.code = '';
-    $scope.name = '';
-
-
+    $scope.currency = {};
+    
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
+        $scope.currency = {};
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '') {
+        if ($scope.currency.code == '' || $scope.currency.name == '') {
             return false;
         }
         return true;
@@ -21,7 +17,7 @@ app.controller('currencyFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        currencyService.save($scope.code, $scope.name).then(
+        currencyService.save($scope.currency).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");

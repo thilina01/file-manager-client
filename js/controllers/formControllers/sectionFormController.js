@@ -1,11 +1,9 @@
 
 app.controller('sectionFormController', function ($scope, $cookies, sectionService, appService) {
-    $scope.code = '';
-    $scope.name = '';
-
+    $scope.section = {};
+   
     $scope.clear = function () {
-        $scope.code = '';
-        $scope.name = '';
+       $scope.section = {};
     }
 
     $scope.isValid = function () {
@@ -20,7 +18,7 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
             $scope.showError("form not complete");
             return;
         }
-        sectionService.save($scope.code, $scope.name).then(
+        sectionService.save($scope.section).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");

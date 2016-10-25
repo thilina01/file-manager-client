@@ -1,16 +1,9 @@
 
 app.controller('scrapTypeFormController', function ($scope, $cookies, accountService, scrapTypeService, appService) {
-    $scope.code = '';
-    $scope.type = '';
-    $scope.typeInSinhala = '';
-
-
-
+    $scope.scrapType = {};
+  
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.type = '';
-        $scope.typeInSinhala = '';
+        $scope.scrapType = {};
     }
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.type == '' || $scope.typeInSinhala == '') {
@@ -24,7 +17,7 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
             $scope.showError("form not complete");
             return;
         }
-        scrapTypeService.save($scope.code, $scope.type, $scope.typeInSinhala).then(
+        scrapTypeService.save( $scope.scrapType).then(
                 function (response) {
                     if (response.data) {
 

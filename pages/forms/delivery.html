@@ -18,7 +18,7 @@
                         <label class="control-label col-sm-4" for="deliveryDate">Delivery Date:</label>
                         <div class='col-sm-8'>
                             <div class='input-group date' id='deliveryDatetimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="job.jobDate" />
+                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="delivery.deliveryDate" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -61,7 +61,7 @@
                         <label class="control-label col-sm-4" for="purchaseOrder">Purchase Order:</label>
                         <div class="col-sm-8">
                             <select class="form-control input-sm" id="purchaseOrder" name="purchaseOrder" ng-model="purchaseOrder">	
-                                <option ng-repeat="purchaseOrder in purchaseOrder"  value="{{purchaseOrder}}">{{purchaseOrder.poNumber}}</option>
+                                <option ng-repeat="purchaseOrder in purchaseOrders"  value="{{purchaseOrder}}">{{purchaseOrder.poNumber}}</option>
                             </select>      
                         </div>
 

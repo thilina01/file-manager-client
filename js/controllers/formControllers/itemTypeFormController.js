@@ -1,16 +1,9 @@
 
 app.controller('itemTypeFormController', function ($scope, $cookies, accountService, appService, itemTypeService) {
-    $scope.code = '';
-    $scope.type = '';
-    ;
-
-
-
-
+    $scope.itemType = {};
+    
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.type = '';
+        $scope.itemType = {};
 
     }
     $scope.isValid = function () {
@@ -25,7 +18,7 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
             $scope.showError("form not complete");
             return;
         }
-        itemTypeService.save($scope.code, $scope.type).then(
+        itemTypeService.save( $scope.itemType).then(
                 function (response) {
                     if (response.data) {
 
