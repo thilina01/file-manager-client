@@ -6,6 +6,8 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
 
     $scope.items = [];
     $scope.customers = [];
+     $scope.saveButtonText = 'Save';
+     
     $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
             $scope.items = response.data;
@@ -21,6 +23,8 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
         $scope.job = {};
         $scope.item = {};
         $scope.customer = {};
+         jobService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
 
@@ -60,10 +64,14 @@ app.controller('jobFormController', function ($scope, $cookies, accountService, 
 
 
     }
-    $('#jobModal').on('shown.bs.modal', function () {
+    $('#jobModal').on('show.bs.modal', function () {
         $scope.loadItems();
-    })
-    $('#jobModal').on('shown.bs.modal', function () {
-        $scope.loadCustomers();
+         $scope.loadCustomers();
+         $scope.saveButtonText = 'Save';
+        if (jobService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.job = jobService.toEdit;
+        }
+    
     })
 });

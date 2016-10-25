@@ -1,9 +1,12 @@
 
 app.controller('sectionFormController', function ($scope, $cookies, sectionService, appService) {
     $scope.section = {};
+    $scope.saveButtonText = 'Save';
    
     $scope.clear = function () {
        $scope.section = {};
+       sectionService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
 
     $scope.isValid = function () {
@@ -37,5 +40,12 @@ app.controller('sectionFormController', function ($scope, $cookies, sectionServi
                 }
         );
     }
+     $('#sectionModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (sectionService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.section = sectionService.toEdit;
+        }
+    })
 
 });

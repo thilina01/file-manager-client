@@ -1,9 +1,12 @@
 
 app.controller('itemTypeFormController', function ($scope, $cookies, accountService, appService, itemTypeService) {
     $scope.itemType = {};
+     $scope.saveButtonText = 'Save';
     
     $scope.clear = function () {
         $scope.itemType = {};
+         itemTypeService.toEdit = {};
+        $scope.saveButtonText = 'Save';
 
     }
     $scope.isValid = function () {
@@ -38,4 +41,11 @@ app.controller('itemTypeFormController', function ($scope, $cookies, accountServ
                 }
         );
     }
+     $('#itemTypeModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (itemTypeService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.itemType = itemTypeService.toEdit;
+        }
+    })
 });

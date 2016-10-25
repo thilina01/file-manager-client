@@ -1,14 +1,16 @@
 
 app.controller('shiftFormController', function ($scope, $cookies, accountService, appService, shiftService) {
     $scope.shift = {};
-
+    $scope.saveButtonText = 'Save';
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.shift = {};
+        shiftService.toEdit = {};
+        $scope.saveButtonText = 'Save';
 
     }
     $scope.isValid = function () {
-        if ($scope.shift.code == ''||$scope.shift.name == '') {
+        if ($scope.shift.code == '' || $scope.shift.name == '') {
             return false;
         }
         return true;
@@ -39,4 +41,11 @@ app.controller('shiftFormController', function ($scope, $cookies, accountService
                 }
         );
     }
+    $('#shiftModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (shiftService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.shift = shiftService.toEdit;
+        }
+    })
 });

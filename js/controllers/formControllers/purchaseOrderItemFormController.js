@@ -10,6 +10,7 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
     $scope.purchaseOrders = [];
     $scope.items = [];
     $scope.purchaseOrderItemRows = [];
+    $scope.saveButtonText = 'Save';
 
     $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
@@ -33,6 +34,8 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
         $scope.purchaseOrder = {};
         $scope.item = {};
         $scope.purchaseOrderItemRows = [];
+      purchaseOrderItemService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.item, {}) || angular.equals($scope.purchaseOrder, {})) {
@@ -67,8 +70,13 @@ app.controller('purchaseOrderItemFormController', function ($scope, $cookies, ac
                 }
         );
     }
-    $('#purchaseOrderItemModal').on('shown.bs.modal', function () {
+    $('#purchaseOrderItemModal').on('show.bs.modal', function () {
         $scope.loadPurchaseOrders();
         $scope.loadItems();
+        $scope.saveButtonText = 'Save';
+        if (purchaseOrderService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.purchaseOrder = purchaseOrderService.toEdit;
+        }
     })
 });

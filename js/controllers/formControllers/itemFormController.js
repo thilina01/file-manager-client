@@ -6,6 +6,7 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
 
     $scope.itemTypes = [];
     $scope.paints = [];
+     $scope.saveButtonText = 'Save';
 
     $scope.loadItemType = function () {
         itemTypeService.getAll().then(function (response) {
@@ -23,6 +24,8 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
         $scope.item = {};
         $scope.itemType = {};
         $scope.paint = {};
+        itemService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.item.code == '' || $scope.item.description == '' || angular.equals($scope.itemType, {}) || angular.equals($scope.paint, {})) {
@@ -57,8 +60,13 @@ app.controller('itemFormController', function ($scope, $cookies, accountService,
                 }
         );
     }
-    $('#itemModal').on('shown.bs.modal', function () {
+    $('#itemModal').on('show.bs.modal', function () {
         $scope.loadItemType();
         $scope.loadPaints();
+        $scope.saveButtonText = 'Save';
+        if (itemService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.item = itemService.toEdit;
+        }
     })
 });

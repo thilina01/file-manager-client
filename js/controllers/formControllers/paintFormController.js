@@ -2,13 +2,16 @@
 app.controller('paintFormController', function ($scope, $cookies, accountService, appService, paintService) {
 
     $scope.paint = {};
-  
+    $scope.saveButtonText = 'Save';
+
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.paint = {};
+         paintService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ( $scope.paint.code == '' || $scope.paint.description == '' ) {
+        if ($scope.paint.code == '' || $scope.paint.description == '') {
             return false;
         }
         return true;
@@ -19,7 +22,7 @@ app.controller('paintFormController', function ($scope, $cookies, accountService
             $scope.showError("form not complete");
             return;
         }
-       
+
 
         paintService.save($scope.paint).then(
                 function (response) {
@@ -41,5 +44,12 @@ app.controller('paintFormController', function ($scope, $cookies, accountService
                 }
         );
     }
+     $('#paintModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (paintService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.paint = paintService.toEdit;
+        }
+    })
 
 });

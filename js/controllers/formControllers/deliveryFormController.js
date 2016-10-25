@@ -6,6 +6,7 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
 
     $scope.items = [];
     $scope.purchaseOrders = [];
+     $scope.saveButtonText = 'Save';
     $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
             $scope.items = response.data;
@@ -21,6 +22,8 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
         $scope.delivery = {};
         $scope.item = {};
         $scope.purchaseOrder = {};
+         deliveryService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
 
@@ -60,8 +63,13 @@ app.controller('deliveryFormController', function ($scope, $cookies, accountServ
 
 
     }
-    $('#deliveryModal').on('shown.bs.modal', function () {
+    $('#deliveryModal').on('show.bs.modal', function () {
         $scope.loadItems();
         $scope.loadPurchaseOrders();
+        $scope.saveButtonText = 'Save';
+        if (deliveryService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.delivery = deliveryService.toEdit;
+        }
     })
 });

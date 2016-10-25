@@ -3,11 +3,12 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
     $scope.purchaseOrder = {};
     $scope.customer = {};
     $scope.purchaseOrderType = {};
-    $scope.orderReceivedDate='';
+    $scope.orderReceivedDate = '';
 
     $scope.customers = [];
     $scope.purchaseOrderTypes = [];
-
+    $scope.saveButtonText = 'Save'; 
+    
     $scope.loadCustomers = function () {
         customerService.getAll().then(function (response) {
             $scope.customers = response.data;
@@ -24,12 +25,14 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         $scope.purchaseOrder = {};
         $scope.customer = {};
         $scope.purchaseOrderType = {};
+        purchaseOrderService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-    	$scope.purchaseOrder.orderReceivedDate = $('#orderReceivedDate').val();
-    	$scope.purchaseOrder.trwConfirmedDate = $('#trwConfirmedDate').val();
-    	$scope.purchaseOrder.customerRequestedDate = $('#customerRequestedDate').val();
-    	$scope.purchaseOrder.actualDispatchedDate = $('#actualDispatchedDate').val();
+        $scope.purchaseOrder.orderReceivedDate = $('#orderReceivedDate').val();
+        $scope.purchaseOrder.trwConfirmedDate = $('#trwConfirmedDate').val();
+        $scope.purchaseOrder.customerRequestedDate = $('#customerRequestedDate').val();
+        $scope.purchaseOrder.actualDispatchedDate = $('#actualDispatchedDate').val();
 
         if (
                 $scope.purchaseOrder.orderReceivedDate == '' ||
@@ -75,8 +78,13 @@ app.controller('purchaseOrderFormController', function ($scope, $cookies, accoun
         );
     }
 
-    $('#purchaseOrderModal').on('shown.bs.modal', function () {
+    $('#purchaseOrderModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadPurchaseOrderTypes();
+         $scope.saveButtonText = 'Save';
+        if (purchaseOrderService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.purchaseOrder =purchaseOrderService.toEdit;
+        }
     })
 });

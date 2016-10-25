@@ -6,6 +6,7 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
     $scope.customers = [];
     $scope.item = {};
     $scope.items = [];
+      $scope.saveButtonText = 'Save';
 
     $scope.loadCustomers = function () {
         customerService.getAll().then(function (response) {
@@ -22,6 +23,8 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
         $scope.customerItem = {};
         $scope.customer = {};
         $scope.item = {};
+        customerItemService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.customerItem.customer_part_no == '' || $scope.customerItem.price == '' || angular.equals($scope.customer, {}) || angular.equals($scope.item, {})) {
@@ -58,5 +61,10 @@ app.controller('customerItemFormController', function ($scope, $cookies, account
     $('#customerItemModal').on('shown.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadItems();
+        $scope.saveButtonText = 'Save';
+        if (customerItemService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.customerItem= customerItemService.toEdit;
+        }
     })
 });

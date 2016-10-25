@@ -1,9 +1,12 @@
 
 app.controller('currencyFormController', function ($scope, $cookies, accountService, appService, currencyService) {
     $scope.currency = {};
+     $scope.saveButtonText = 'Save';
     
     $scope.clear = function () {
         $scope.currency = {};
+         currencyService.toEdit = {};
+         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.currency.code == '' || $scope.currency.name == '') {
@@ -36,4 +39,11 @@ app.controller('currencyFormController', function ($scope, $cookies, accountServ
                 }
         );
     }
+     $('#currencyModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (currencyService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.currency = currencyService.toEdit;
+        }
+    })
 });

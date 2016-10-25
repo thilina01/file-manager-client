@@ -1,9 +1,12 @@
 
 app.controller('scrapTypeFormController', function ($scope, $cookies, accountService, scrapTypeService, appService) {
     $scope.scrapType = {};
+    $scope.saveButtonText = 'Save';
   
     $scope.clear = function () {
         $scope.scrapType = {};
+       scrapTypeService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.type == '' || $scope.typeInSinhala == '') {
@@ -38,4 +41,11 @@ app.controller('scrapTypeFormController', function ($scope, $cookies, accountSer
                 }
         );
     }
+    $('#scrapTypeModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (scrapTypeService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.scrapType = scrapTypeService.toEdit;
+        }
+    })
 });

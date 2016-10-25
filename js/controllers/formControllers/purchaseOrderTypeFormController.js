@@ -1,9 +1,11 @@
 
 app.controller('purchaseOrderTypeFormController', function ($scope, $cookies, accountService, appService, purchaseOrderTypeService) {
     $scope.purchaseOrderType = {};
-
+    $scope.saveButtonText = 'Save';
     $scope.clear = function () {
-       $scope.purchaseOrderType = {};
+        $scope.purchaseOrderType = {};
+        purchaseOrderService.toEdit = {};
+        $scope.saveButtonText = 'Save';
 
     }
     $scope.isValid = function () {
@@ -38,4 +40,11 @@ app.controller('purchaseOrderTypeFormController', function ($scope, $cookies, ac
                 }
         );
     }
+     $('#purchaseOrderTypeModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (purchaseOrderTypeService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.purchaseOrderType = purchaseOrderTypeService.toEdit;
+        }
+    })
 });

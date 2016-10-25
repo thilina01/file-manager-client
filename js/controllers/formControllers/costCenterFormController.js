@@ -4,6 +4,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
     $scope.costCenter = {};
     $scope.section = {};
     $scope.sections = [];
+    $scope.saveButtonText = 'Save';
 
     $scope.loadSections = function () {
         sectionService.getAll().then(function (response) {
@@ -14,6 +15,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
     $scope.clear = function () {
         $scope.costCenter = {};
         $scope.section = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.costCenter.code == '' || $scope.costCenter.name == '' || angular.equals($scope.section, {})) {
@@ -46,6 +48,11 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
         );
     }
     $('#costCenterModal').on('shown.bs.modal', function () {
-        $scope.loadSections();
+        $scope.loadcostCenters();
+         $scope.saveButtonText = 'Save';
+        if (costCenterService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.country = costCenterService.toEdit;
+        }
     })
 });

@@ -1,9 +1,12 @@
 
 app.controller('custTypeFormController', function ($scope, $cookies, custTypeService, appService) {
     $scope.custType = {};
+     $scope.saveButtonText = 'Save';
     
     $scope.clear = function () {
        $scope.custType = {};
+       custTypeService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
 
     $scope.isValid = function () {
@@ -37,5 +40,12 @@ app.controller('custTypeFormController', function ($scope, $cookies, custTypeSer
                 }
         );
     }
+    $('#custTypeModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (custTypeService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.custType = custTypeService.toEdit;
+        }
+    })
 
 });

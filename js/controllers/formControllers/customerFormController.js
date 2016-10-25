@@ -9,7 +9,7 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
     $scope.custTypes = [];
     $scope.currencies = [];
     $scope.countries = [];
-
+ $scope.saveButtonText = 'Save';
 
 
     $scope.clear = function () {
@@ -19,6 +19,8 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.custType = {};
         $scope.currency = {};
         $scope.country = {};
+        customerService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
 
     $scope.isValid = function () {
@@ -91,5 +93,10 @@ app.controller('customerFormController', function ($scope, $cookies, accountServ
         $scope.loadCustTypes();
         $scope.loadCurrencies();
         $scope.loadCountries();
+         $scope.saveButtonText = 'Save';
+        if (customerService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.customer = customerService.toEdit;
+        }
     })
 });

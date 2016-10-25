@@ -1,10 +1,13 @@
 
 app.controller('lossReasonFormController', function ($scope, $cookies, accountService, appService, lossReasonService) {
     $scope.lossReason = {};
+    $scope.saveButtonText = 'Save';
    
 
     $scope.clear = function () {
        $scope.lossReason = {};
+       lossReasonService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
 
     $scope.save = function () {
@@ -28,4 +31,11 @@ app.controller('lossReasonFormController', function ($scope, $cookies, accountSe
                 }
         );
     }
+     $('#lossReasonModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (lossReasonService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.lossReason = lossReasonService.toEdit;
+        }
+    })
 });

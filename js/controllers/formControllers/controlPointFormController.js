@@ -5,6 +5,7 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
     $scope.workCenter = {};
     $scope.workCenters = [];
     $scope.costCenter = '';
+    $scope.saveButtonText = 'Save';
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -17,6 +18,8 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         // alert($scope.code + ' ' + $scope.name);
         $scope.controlPoint = {};
         $scope.workCenter = {};
+        controlPointService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.workCenter, {})) {
@@ -25,9 +28,9 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
         return true;
     }
 
-    $scope.test = function () {        
+    $scope.test = function () {
         $scope.costCenter = JSON.parse($scope.workCenter).costCenter;
-        
+
     }
     $scope.save = function () {
         if (!$scope.isValid()) {
@@ -59,6 +62,11 @@ app.controller('controlPointFormController', function ($scope, $cookies, account
 
     $('#controlPointModal').on('shown.bs.modal', function () {
         $scope.loadWorkcenters();
+        $scope.saveButtonText = 'Save';
+        if (controlPointService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.controlPoint = controlPointService.toEdit;
+        }
     })
 
 });

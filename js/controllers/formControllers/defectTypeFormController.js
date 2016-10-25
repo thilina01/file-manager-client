@@ -1,9 +1,12 @@
 
 app.controller('defectTypeFormController', function ($scope, $cookies, accountService, appService, defectTypeService) {
     $scope.defectType = {};
+     $scope.saveButtonText = 'Save';
   
     $scope.clear = function () {
          $scope.defectType= {};
+         defectTypeService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.type == '' || $scope.typeInSinhala == '') {
@@ -37,4 +40,11 @@ app.controller('defectTypeFormController', function ($scope, $cookies, accountSe
                 }
         );
     }
+    $('#defectTypeModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (defectTypeService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.defectType = defectTypeService.toEdit;
+        }
+    })
 });

@@ -1,9 +1,12 @@
 
 app.controller('incotermFormController', function ($scope, $cookies, accountService, appService, incotermService) {
     $scope.incoterm = {};
+    $scope.saveButtonText = 'Save';
    
     $scope.clear = function () {
         $scope.incoterm = {};
+         incotermService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
         if ($scope.code == '' || $scope.name == '') {
@@ -37,4 +40,11 @@ app.controller('incotermFormController', function ($scope, $cookies, accountServ
                 }
         );
     }
+    $('#incotermModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (incotermService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.incoterm = incotermService.toEdit;
+        }
+    })
 });
