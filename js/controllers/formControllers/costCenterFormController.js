@@ -48,7 +48,7 @@ app.controller('costCenterFormController', function ($scope, $cookies, accountSe
         );
     }
     $('#costCenterModal').on('show.bs.modal', function () {
-        $scope.loadcostCenters();
+        $scope.loadSections();
          $scope.saveButtonText = 'Save';
         if (costCenterService.toEdit.id != undefined) {
             $scope.saveButtonText = 'Update';
