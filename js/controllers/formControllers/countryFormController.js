@@ -1,16 +1,14 @@
-
 app.controller('countryFormController', function ($scope, $cookies, accountService, appService, countryService) {
-    $scope.code = '';
-    $scope.name = '';
-
+    $scope.country = {};
+    $scope.saveButtonText = 'Save';
 
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        $scope.code = '';
-        $scope.name = '';
+        $scope.country = {};
+        countryService.toEdit = {};
+        $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.code == '' || $scope.name == '') {
+        if ($scope.country.code == '' || $scope.country.name == '') {
             return false;
         }
         return true;
@@ -21,7 +19,7 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
             $scope.showError("form not complete");
             return;
         }
-        countryService.save($scope.code, $scope.name).then(
+        countryService.save($scope.country).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -40,4 +38,12 @@ app.controller('countryFormController', function ($scope, $cookies, accountServi
                 }
         );
     }
+
+    $('#countryModal').on('show.bs.modal', function () {
+        $scope.saveButtonText = 'Save';
+        if (countryService.toEdit.id != undefined) {
+            $scope.saveButtonText = 'Update';
+            $scope.country = countryService.toEdit;
+        }
+    })
 });
