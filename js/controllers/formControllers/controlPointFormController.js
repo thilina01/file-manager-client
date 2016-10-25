@@ -1,9 +1,7 @@
-app.controller('controlPointFormController', function ($scope,$timeout, $cookies, accountService, appService, controlPointService, workCenterService) {
-
+app.controller('controlPointFormController', function ($scope, $timeout, $cookies, accountService, appService, controlPointService, workCenterService) {
+    $scope.JSON = JSON;
     $scope.controlPoint = {};
-    $scope.workCenter = {};
     $scope.workCenters = [];
-    $scope.costCenter = '';
     $scope.saveButtonText = 'Save';
 
     $scope.loadWorkcenters = function () {
@@ -16,27 +14,22 @@ app.controller('controlPointFormController', function ($scope,$timeout, $cookies
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.controlPoint = {};
-        $scope.workCenter = {};
         controlPointService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.workCenter, {})) {
+        if ($scope.controlPoint.code == '' || $scope.controlPoint.name == '' || $scope.controlPoint.section == '' || angular.equals($scope.controlPoint.workCenter, {})) {
             return false;
         }
         return true;
     }
 
-    $scope.test = function () {
-        $scope.costCenter = JSON.parse($scope.workCenter).costCenter;
-
-    }
     $scope.save = function () {
         if (!$scope.isValid()) {
             $scope.showError("form not complete");
             return;
         }
-        $scope.controlPoint.workCenter = JSON.parse($scope.workCenter);
+        $scope.controlPoint.workCenter = JSON.parse($scope.controlPoint.workCenter);
 
         controlPointService.save($scope.controlPoint).then(
                 function (response) {
@@ -63,7 +56,7 @@ app.controller('controlPointFormController', function ($scope,$timeout, $cookies
         $scope.loadWorkcenters();
         $scope.saveButtonText = 'Save';
         if (controlPointService.toEdit.id != undefined) {
-             $timeout(function () {
+            $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.controlPoint = controlPointService.toEdit;
             }, 500);
