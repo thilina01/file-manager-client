@@ -1,20 +1,29 @@
 
-app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderService) {
+app.controller('purchaseOrderItemFormController', function ($scope, $timeout, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderTypeService, customerService) {
     //main
     $scope.purchaseOrderItem = {};
     $scope.rowQuantity = '';
     $scope.rowPrice = '';
+    $scope.customer = {};
+    $scope.purchaseOrderType = {};
 
     $scope.purchaseOrders = [];
     $scope.items = [];
     $scope.purchaseOrderItemRows = [];
+    $scope.customers = [];
+    $scope.purchaseOrderType = [];
     $scope.saveButtonText = 'Save';
 
     $scope.fillItems = function () {
     }
-    $scope.loadPurchaseOrders = function () {
-        purchaseOrderService.getAll().then(function (response) {
-            $scope.purchaseOrders = response.data;
+    $scope.loadPurchaseOrderTypes = function () {
+        purchaseOrderTypeService.getAll().then(function (response) {
+            $scope.purchaseOrderTypes = response.data;
+        });
+    }
+    $scope.loadCustomers = function () {
+        customerService.getAll().then(function (response) {
+            $scope.customers = response.data;
         });
     }
     $scope.addPurchaseOrderItemRow = function () {
@@ -31,7 +40,7 @@ app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $co
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.purchaseOrderItem.item, {}) || angular.equals($scope.purchaseOrderItem.purchaseOrder, {})) {
+        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.purchaseOrderItem.item, {}) || angular.equals($scope.purchaseOrderItem.customer, {}) || angular.equals($scope.purchaseOrderItem.purchaseOrderType, {})) {
             return false;
         }
         return true;
@@ -62,10 +71,11 @@ app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $co
         );
     }
     $('#purchaseOrderItemModal').on('show.bs.modal', function () {
-        $scope.loadPurchaseOrders();
+        $scope.loadPurchaseOrderTypes();
+        $scope.loadCustomers();
         $scope.saveButtonText = 'Save';
         if (purchaseOrderItemService.toEdit.id != undefined) {
-             $timeout(function () {
+            $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.purchaseOrderItem = purchaseOrderItemService.toEdit;
             }, 500);
