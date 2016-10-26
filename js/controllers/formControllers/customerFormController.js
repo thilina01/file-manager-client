@@ -1,10 +1,6 @@
 
 app.controller('customerFormController', function ($scope,$timeout, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService, countryService) {
     $scope.customer = {};
-    $scope.incoterm = {};
-    $scope.custType = {};
-    $scope.currency = {};
-    $scope.country = {};
     $scope.incoterms = [];
     $scope.custTypes = [];
     $scope.currencies = [];
@@ -15,18 +11,14 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
     $scope.clear = function () {
         $scope.showSuccess("saved");
         $scope.customer = {};
-        $scope.incoterm = {};
-        $scope.custType = {};
-        $scope.currency = {};
-        $scope.country = {};
         customerService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
 
     $scope.isValid = function () {
         if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == '' || $scope.customer.notifyParty == '' || $scope.customer.contact == '' ||
-                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.incoterm, {}) || angular.equals($scope.custType, {}) || $scope.customer.vatNo == '' ||
-                $scope.customer.sVatNo == '' || angular.equals($scope.currency, {}) || angular.equals($scope.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' || $scope.customer.note == '') {
+                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.custType, {}) || $scope.customer.vatNo == '' ||
+                $scope.customer.sVatNo == '' || angular.equals($scope.customer.currency, {}) || angular.equals($scope.customer.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' || $scope.customer.note == '') {
             return false;
         }
         return true;
@@ -37,10 +29,6 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
             $scope.showError("form not complete");
             return;
         }
-        $scope.customer.incoterm = JSON.parse($scope.incoterm);
-        $scope.customer.custType = JSON.parse($scope.custType);
-        $scope.customer.currency = JSON.parse($scope.currency);
-        $scope.customer.country = JSON.parse($scope.country);
         customerService.save($scope.customer).then(
                 function (response) {
                     if (response.data) {
