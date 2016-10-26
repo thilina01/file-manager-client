@@ -1,9 +1,9 @@
 
-app.controller('machineFormController', function ($scope,$timeout, $cookies, accountService, appService, workCenterService, machineService) {
+app.controller('machineFormController', function ($scope, $timeout, $cookies, accountService, appService, workCenterService, machineService) {
     $scope.machine = {};
-    $scope.workCenter = {};
+
     $scope.workCenters = [];
-     $scope.saveButtonText = 'Save';
+    $scope.saveButtonText = 'Save';
 
     $scope.loadWorkcenters = function () {
         workCenterService.getAll().then(function (response) {
@@ -13,13 +13,12 @@ app.controller('machineFormController', function ($scope,$timeout, $cookies, acc
 
     $scope.clear = function () {
         $scope.machine = {};
-        $scope.workCenter = {};
         $scope.workCenters = [];
-         machineService.toEdit = {};
+        machineService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.machine.code == '' || $scope.machine.name == '' ||angular.equals($scope.workCenter, {})) {
+        if ($scope.machine.code == '' || $scope.machine.name == '' || angular.equals($scope.machine.workCenter, {})) {
             return false;
         }
         return true;
@@ -29,8 +28,7 @@ app.controller('machineFormController', function ($scope,$timeout, $cookies, acc
         if (!$scope.isValid()) {
             $scope.showError("form not complete");
             return;
-        }        
-        $scope.machine.workCenter = JSON.parse($scope.workCenter);
+        }
         machineService.save($scope.machine).then(
                 function (response) {
                     if (response.data) {
@@ -55,7 +53,7 @@ app.controller('machineFormController', function ($scope,$timeout, $cookies, acc
 
     $('#machineModal').on('show.bs.modal', function () {
         $scope.loadWorkcenters();
-         $scope.saveButtonText = 'Save';
+        $scope.saveButtonText = 'Save';
         if (machineService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';

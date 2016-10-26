@@ -2,7 +2,6 @@
 app.controller('workCenterFormController', function ($scope,$timeout, $cookies, costCenterService, appService, workCenterService) {
 
     $scope.workCenter = {};
-    $scope.costCenter = {};
     $scope.costCenters = [];
     $scope.saveButtonText = 'Save';
 
@@ -14,12 +13,11 @@ app.controller('workCenterFormController', function ($scope,$timeout, $cookies, 
 
     $scope.clear = function () {
         $scope.workCenter = {};
-        $scope.costCenter = {};
          workCenterService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.workCenter.code == '' || $scope.workCenter.name == '' || angular.equals($scope.costCenter, {})) {
+        if ($scope.workCenter.code == '' || $scope.workCenter.name == '' || angular.equals($scope.workCenter.costCenter, {})) {
             return false;
         }
         return true;
@@ -31,7 +29,6 @@ app.controller('workCenterFormController', function ($scope,$timeout, $cookies, 
             return;
         }
 
-        $scope.workCenter.costCenter = JSON.parse($scope.costCenter);
         workCenterService.save($scope.workCenter).then(
                 function (response) {
                     if (response.data) {

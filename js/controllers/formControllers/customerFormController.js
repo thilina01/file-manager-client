@@ -16,9 +16,9 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
     }
 
     $scope.isValid = function () {
-        if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == '' || $scope.customer.notifyParty == '' || $scope.customer.contact == '' ||
-                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.saleType, {}) || $scope.customer.vatNo == '' ||
-                $scope.customer.sVatNo == '' || angular.equals($scope.customer.currency, {}) || angular.equals($scope.customer.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' || $scope.customer.note == '') {
+        if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == ''  || $scope.customer.contact == '' ||
+                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.saleType, {}) || 
+                angular.equals($scope.customer.currency, {}) || angular.equals($scope.customer.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' ) {
             return false;
         }
         return true;

@@ -2,7 +2,6 @@
 app.controller('costCenterFormController', function ($scope, $timeout, $cookies, accountService, appService, costCenterService, sectionService) {
 
     $scope.costCenter = {};
-    $scope.section = {};
     $scope.sections = [];
     $scope.saveButtonText = 'Save';
 
@@ -14,11 +13,10 @@ app.controller('costCenterFormController', function ($scope, $timeout, $cookies,
 
     $scope.clear = function () {
         $scope.costCenter = {};
-        $scope.section = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.costCenter.code == '' || $scope.costCenter.name == '' || angular.equals($scope.section, {})) {
+        if ($scope.costCenter.code == '' || $scope.costCenter.name == '' || angular.equals($scope.costCenter.section, {})) {
             return false;
         }
         return true;
@@ -29,7 +27,6 @@ app.controller('costCenterFormController', function ($scope, $timeout, $cookies,
             $scope.showError("form not complete");
             return;
         }
-        $scope.costCenter.section = JSON.parse($scope.section);
         costCenterService.save($scope.costCenter).then(
                 function (response) {
                     if (response.data) {
