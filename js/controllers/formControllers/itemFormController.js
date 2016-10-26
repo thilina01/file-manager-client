@@ -1,9 +1,6 @@
 
 app.controller('itemFormController', function ($scope,$timeout, $cookies, accountService, appService, itemService, itemTypeService, paintService) {
     $scope.item = {};
-    $scope.itemType = {};
-    $scope.paint = {};
-
     $scope.itemTypes = [];
     $scope.paints = [];
      $scope.saveButtonText = 'Save';
@@ -22,13 +19,11 @@ app.controller('itemFormController', function ($scope,$timeout, $cookies, accoun
     }
     $scope.clear = function () {
         $scope.item = {};
-        $scope.itemType = {};
-        $scope.paint = {};
         itemService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.item.code == '' || $scope.item.description == '' || angular.equals($scope.itemType, {}) || angular.equals($scope.paint, {})) {
+        if ($scope.item.code == '' || $scope.item.description == '' || angular.equals($scope.item.itemType, {}) || angular.equals($scope.item.paint, {})) {
             return false;
         }
         return true;
@@ -39,8 +34,6 @@ app.controller('itemFormController', function ($scope,$timeout, $cookies, accoun
             $scope.showError("form not complete");
             return;
         }
-        $scope.item.itemType = JSON.parse($scope.itemType);
-        $scope.item.paint = JSON.parse($scope.paint);
         itemService.save($scope.item).then(
                 function (response) {
                     if (response.data) {
