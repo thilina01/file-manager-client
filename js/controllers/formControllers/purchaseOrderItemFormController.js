@@ -2,8 +2,6 @@
 app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderService) {
     //main
     $scope.purchaseOrderItem = {};
-    $scope.purchaseOrder = {};
-    $scope.item = {};
     $scope.rowQuantity = '';
     $scope.rowPrice = '';
 
@@ -27,15 +25,13 @@ app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $co
     };
 
     $scope.clear = function () {
-        $scope.purchaseOrderItem = {};
-        $scope.purchaseOrder = {};
         $scope.item = {};
         $scope.purchaseOrderItemRows = [];
         purchaseOrderItemService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.item, {}) || angular.equals($scope.purchaseOrder, {})) {
+        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.purchaseOrderItem.item, {}) || angular.equals($scope.purchaseOrderItem.purchaseOrder, {})) {
             return false;
         }
         return true;
@@ -46,8 +42,6 @@ app.controller('purchaseOrderItemFormController', function ($scope,$timeout, $co
             $scope.showError("form not complete");
             return;
         }
-        $scope.job.item = JSON.parse($scope.item);
-        $scope.job.purchaseOrder = JSON.parse($scope.customer);
         purchaseOrderItemService.save($scope.date, $scope.shift, $scope.itemCode, $scope.purchaseOrderpoNumber).then(
                 function (response) {
                     if (response.data) {

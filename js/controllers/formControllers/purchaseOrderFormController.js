@@ -1,8 +1,6 @@
 
 app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookies, accountService, appService, purchaseOrderService, customerService, purchaseOrderTypeService) {
     $scope.purchaseOrder = {};
-    $scope.customer = {};
-    $scope.purchaseOrderType = {};
     $scope.orderReceivedDate = '';
 
     $scope.customers = [];
@@ -23,8 +21,6 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
 
     $scope.clear = function () {
         $scope.purchaseOrder = {};
-        $scope.customer = {};
-        $scope.purchaseOrderType = {};
         purchaseOrderService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
@@ -41,8 +37,8 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
                 $scope.purchaseOrder.actualDispatchedDate == '' ||
                 $scope.purchaseOrder.poNumber == '' ||
                 $scope.purchaseOrder.comments == '' ||
-                angular.equals($scope.customer, {}) ||
-                angular.equals($scope.purchaseOrderType, {})
+                angular.equals($scope.purchaseOrder.customer, {}) ||
+                angular.equals($scope.purchaseOrder.purchaseOrderType, {})
                 )
         {
             return false;
@@ -56,8 +52,6 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
             return;
         }
 
-        $scope.purchaseOrder.customer = JSON.parse($scope.customer);
-        $scope.purchaseOrder.purchaseOrderType = JSON.parse($scope.purchaseOrderType);
         purchaseOrderService.save($scope.purchaseOrder).then(
                 function (response) {
                     if (response.data) {

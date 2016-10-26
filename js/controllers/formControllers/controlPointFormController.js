@@ -9,7 +9,6 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
         });
     }
 
-
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.controlPoint = {};
