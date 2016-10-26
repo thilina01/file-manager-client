@@ -1,8 +1,8 @@
 
-app.controller('customerFormController', function ($scope,$timeout, $cookies, accountService, appService, custTypeService, customerService, incotermService, currencyService, countryService) {
+app.controller('customerFormController', function ($scope,$timeout, $cookies, accountService, appService, saleTypeService, customerService, incotermService, currencyService, countryService) {
     $scope.customer = {};
     $scope.incoterms = [];
-    $scope.custTypes = [];
+    $scope.saleTypes = [];
     $scope.currencies = [];
     $scope.countries = [];
     $scope.saveButtonText = 'Save';
@@ -17,7 +17,7 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
 
     $scope.isValid = function () {
         if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == '' || $scope.customer.notifyParty == '' || $scope.customer.contact == '' ||
-                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.custType, {}) || $scope.customer.vatNo == '' ||
+                $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.saleType, {}) || $scope.customer.vatNo == '' ||
                 $scope.customer.sVatNo == '' || angular.equals($scope.customer.currency, {}) || angular.equals($scope.customer.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' || $scope.customer.note == '') {
             return false;
         }
@@ -59,9 +59,9 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
 
         });
     }
-    $scope.loadCustTypes = function () {
-        custTypeService.getAll().then(function (response) {
-            $scope.custTypes = response.data;
+    $scope.loadSaleTypes = function () {
+        saleTypeService.getAll().then(function (response) {
+            $scope.saleTypes = response.data;
         });
     }
     $scope.loadCurrencies = function () {
@@ -78,7 +78,7 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
 
     $('#customerModal').on('show.bs.modal', function () {
         $scope.loadIncoterms();
-        $scope.loadCustTypes();
+        $scope.loadSaleTypes();
         $scope.loadCurrencies();
         $scope.loadCountries();
         $scope.saveButtonText = 'Save';
