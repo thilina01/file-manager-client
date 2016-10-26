@@ -87,18 +87,14 @@
                     <div class="form-group row">
                         <label for="purchaseOrderType" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="purchaseOrderType" name="purchaseOrderType" ng-model="purchaseOrderType">
-                                <option ng-repeat="purchaseOrderType in purchaseOrderTypes" value="{{purchaseOrderType}}">{{purchaseOrderType.code}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="purchaseOrder.purchaseOrderType" ng-options="purchaseOrderType.code for purchaseOrderType in purchaseOrderTypes track by purchaseOrderType.id"></select>                 
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="customer" class="col-xs-2 col-form-label col-form-label-sm">Customer:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="customer" name="customer" ng-model="customer">
-                                <option ng-repeat="customer in customers" value="{{customer}}">{{customer.code}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="purchaseOrder.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
                         </div>
                     </div>
 
