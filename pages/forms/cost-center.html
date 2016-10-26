@@ -23,10 +23,8 @@
                     </div>
                     <div class="form-group row">
                         <label for="section" class="col-xs-2 col-form-label col-form-label-sm">Section:</label>
-                        <div class="col-xs-10">
-                            <select class="form-control input-sm" id="section" name="section" ng-model="section">	
-                                <option ng-repeat="section in sections" value="{{section}}">{{section.code}}</option>
-                            </select>                          
+                        <div class="col-xs-10">                            
+                            <select class="form-control input-sm" ng-model="costCenter.section" ng-options="section.code for section in sections track by section.id"></select>
                         </div>
                     </div>
                 </div>

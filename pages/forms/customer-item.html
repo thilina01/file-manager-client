@@ -24,17 +24,13 @@
                     <div class="form-group row">
                         <label for="customer" class="col-xs-2 col-form-label col-form-label-sm">Customer:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="customer" name="customer" ng-model="customer">	
-                                <option ng-repeat="customer in customers" value="{{customer}}">{{customer.code}}</option>
-                            </select>                          
+                            <select class="form-control input-sm" ng-model="customerItem.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="item" class="col-xs-2 col-form-label col-form-label-sm">Item:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="item" name="item" ng-model="item">	
-                                <option ng-repeat="item in items" value="{{item}}">{{item.code}}</option>
-                            </select>                          
+                            <select class="form-control input-sm" ng-model="customerItem.item" ng-options="item.code for item in items track by item.id"></select>                                 
                         </div>
                     </div>
                 </div>

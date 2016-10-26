@@ -47,22 +47,16 @@
 
                         <label class="control-label col-sm-4" for="item">Item :</label>
                         <div class="col-sm-8">
-                            <select class="form-control input-sm" id="item" name="item" ng-model="item">	
-                                <option ng-repeat="item in items"  value="{{item}}">{{item.code}}</option>
-                            </select>                   
+                            <select class="form-control input-sm" ng-model="delivery.item" ng-options="item.code for item in items track by item.id" ></select>                 
                         </div>
 
                         <br/>
-                        <br/>
-
-                       
+                        <br/>                  
 
                        
                         <label class="control-label col-sm-4" for="purchaseOrder">Purchase Order:</label>
                         <div class="col-sm-8">
-                            <select class="form-control input-sm" id="purchaseOrder" name="purchaseOrder" ng-model="purchaseOrder">	
-                                <option ng-repeat="purchaseOrder in purchaseOrders"  value="{{purchaseOrder}}">{{purchaseOrder.poNumber}}</option>
-                            </select>      
+                            <select class="form-control input-sm" ng-model="delivery.purchaseOrder" ng-options="purchaseOrder.poNumber for purchaseOrder in purchaseOrders track by purchaseOrder.id" ></select>                                 
                         </div>
 
                        

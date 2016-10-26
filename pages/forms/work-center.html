@@ -24,11 +24,7 @@
                     <div class="form-group row">
                         <label for="costCenter" class="col-xs-2 col-form-label col-form-label-sm">Cost Center</label>
                         <div class="col-xs-10">
-                            <select class="form-control form-control-sm" id="costCenter" name="costCenter" ng-model="costCenter">
-
-                                <option ng-repeat="costCenter in costCenters" value="{{costCenter}}">{{costCenter.name}}</option>
-
-                            </select>
+                            <select class="form-control input-sm" ng-model="workCenter.costCenter" ng-options="costCenter.name for costCenter in costCenters track by costCenter.id"></select>                       
                         </div>
                     </div>
                 </div>

@@ -66,17 +66,13 @@
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Incoterm:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="incoterm" name="incoterm" ng-model="incoterm">	
-                                <option ng-repeat="incoterm in incoterms" value="{{incoterm}}">{{incoterm.name}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="customer.incoterm" ng-options="incoterm.name for incoterm in incoterms track by incoterm.id" ></select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Cust Type:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="custType" name="custType" ng-model="custType">	
-                                <option ng-repeat="custType in custTypes" value="{{custType}}">{{custType.name}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="customer.custType" ng-options="custType.name for custType in custTypes track by custType.id" ></select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -94,17 +90,13 @@
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Currency:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="currency" name="currency" ng-model="currency">	
-                                <option ng-repeat="currency in currencies" value="{{currency}}">{{currency.name}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="customer.currency" ng-options="currency.name for currency in currencies track by currency.id" ></select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Country:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="country" name="country" ng-model="country">	
-                                  <option ng-repeat="country in countries" value="{{country}}">{{country.name}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="customer.country" ng-options="country.name for country in countries track by country.id" ></select>
                         </div>
                     </div>
                     <div class="form-group row">

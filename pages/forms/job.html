@@ -41,9 +41,7 @@
 
                         <label class="control-label col-sm-4" for="itemCode">Item Code:</label>
                         <div class="col-sm-8">
-                            <select class="form-control input-sm" id="item" name="item" ng-model="item">	
-                                <option ng-repeat="item in items"  value="{{item}}">{{item.code}}</option>
-                            </select>                   
+                            <select class="form-control input-sm" ng-model="job.item" ng-options="item.code for item in items track by item.id" ></select>
                         </div>
 
                         <br/>
@@ -65,9 +63,7 @@
                         <br/>
                         <label class="control-label col-sm-4" for="customerCode">Customer Code:</label>
                         <div class="col-sm-8">
-                            <select class="form-control input-sm" id="customer" name="customer" ng-model="customer">	
-                                <option ng-repeat="customer in customers"  value="{{customer}}">{{customer.code}}</option>
-                            </select>      
+                            <select class="form-control input-sm" ng-model="job.customer" ng-options="customer.code for customer in customers track by customer.id" ></select>
                         </div>
 
                         <br/>

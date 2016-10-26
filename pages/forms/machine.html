@@ -24,9 +24,7 @@
                     <div class="form-group row">
                         <label for="wcc" class="col-xs-2 col-form-label col-form-label-sm">Work Center</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" id="wcc" name="wcc" ng-model="workCenter">	
-                                <option ng-repeat="workCenter in workCenters" value="{{workCenter}}">{{workCenter.code}}</option>
-                            </select>
+                            <select class="form-control input-sm" ng-model="machine.workCenter" ng-options="workCenter.code for workCenter in workCenters track by workCenter.id" ></select>
                         </div>
                     </div>
                 </div>
