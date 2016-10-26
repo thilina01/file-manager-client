@@ -31,7 +31,7 @@ app.controller('customerGridController', function ($http, $scope, $cookies, cust
             {data: 'fax'},
             {data: 'paymentTerm'},
             {data: 'incoterm'},
-            {data: 'custType'},
+            {data: 'saleType'},
             {data: 'vatNo'},
             {data: 'sVatNo'},
             {data: 'customer'},

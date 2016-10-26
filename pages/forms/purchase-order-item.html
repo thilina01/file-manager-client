@@ -12,7 +12,7 @@
                 <form class="form-inline">
 
                     <label class="control-label " for="purchaseOrder">Purchase Order:</label>
-                    <select class="form-control input-sm" id="custType" name="purchaseOrder" ng-model="purchaseOrder" ng-change="fillItems()">	
+                    <select class="form-control input-sm" id="saleType" name="purchaseOrder" ng-model="purchaseOrder" ng-change="fillItems()">	
                         <option ng-repeat="purchaseOrder in purchaseOrders" value="{{purchaseOrder}}">{{purchaseOrder.poNumber}}</option>
                     </select>
 

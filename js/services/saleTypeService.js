@@ -1,10 +1,10 @@
 
-app.service('custTypeService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'custTypes/';
+app.service('saleTypeService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'saleTypes/';
      this.toEdit = {};
-    this.save = function (custType) {
+    this.save = function (saleType) {
         
-        return  $http.post(apiURL, custType, appService.getJsonHeaders());
+        return  $http.post(apiURL, saleType, appService.getJsonHeaders());
     };
 
     this.getAll = function () {

@@ -1,16 +1,16 @@
 
-app.controller('custTypeFormController', function ($scope,$timeout, $cookies, custTypeService, appService) {
-    $scope.custType = {};
+app.controller('saleTypeFormController', function ($scope,$timeout, $cookies, saleTypeService, appService) {
+    $scope.saleType = {};
      $scope.saveButtonText = 'Save';
     
     $scope.clear = function () {
-       $scope.custType = {};
-       custTypeService.toEdit = {};
+       $scope.saleType = {};
+       saleTypeService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
 
     $scope.isValid = function () {
-        if ($scope.custType.code == '' || $scope.custType.name == '') {
+        if ($scope.saleType.code == '' || $scope.saleType.name == '') {
             return false;
         }
         return true;
@@ -21,7 +21,7 @@ app.controller('custTypeFormController', function ($scope,$timeout, $cookies, cu
             $scope.showError("form not complete");
             return;
         }
-        custTypeService.save($scope.custType).then(
+        saleTypeService.save($scope.saleType).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -40,12 +40,12 @@ app.controller('custTypeFormController', function ($scope,$timeout, $cookies, cu
                 }
         );
     }
-    $('#custTypeModal').on('show.bs.modal', function () {
+    $('#saleTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
-        if (custTypeService.toEdit.id != undefined) {
+        if (saleTypeService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.custType = custTypeService.toEdit;
+                $scope.saleType = saleTypeService.toEdit;
             }, 500);
         }
     })
