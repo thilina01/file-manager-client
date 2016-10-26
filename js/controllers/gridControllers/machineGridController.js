@@ -21,9 +21,9 @@ app.controller('machineGridController', function ($http, $scope, $cookies, machi
     $scope.table = $('#machineTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'machineNo'},
-            {data: 'machineName'},
-            {data: 'wcc'}
+            {data: 'code'},
+            {data: 'name'},
+            {data: 'workCenter.code'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
