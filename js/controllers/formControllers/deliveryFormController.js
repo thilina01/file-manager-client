@@ -1,11 +1,11 @@
 
-app.controller('deliveryFormController', function ($scope,$timeout, $cookies, accountService, appService, itemService, purchaseOrderService,deliveryService) {
+app.controller('deliveryFormController', function ($scope,$timeout, $cookies, accountService, appService, itemService, salesOrderService,deliveryService) {
     $scope.delivery = {};
     $scope.item = {};
-    $scope.purchaseOrder = {};
+    $scope.salesOrder = {};
 
     $scope.items = [];
-    $scope.purchaseOrders = [];
+    $scope.salesOrders = [];
      $scope.saveButtonText = 'Save';
     $scope.loadItems = function () {
         itemService.getAll().then(function (response) {
@@ -13,21 +13,21 @@ app.controller('deliveryFormController', function ($scope,$timeout, $cookies, ac
         });
     }
     $scope.loadPurchaseOrders = function () {
-        purchaseOrderService.getAll().then(function (response) {
-            $scope.purchaseOrders = response.data;
+        salesOrderService.getAll().then(function (response) {
+            $scope.salesOrders = response.data;
         });
     }
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
         $scope.delivery = {};
         $scope.item = {};
-        $scope.purchaseOrder = {};
+        $scope.salesOrder = {};
          deliveryService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
 
-        if ($scope.delivery.deliveryDate == '' || $scope.delivery.quantity == '' || angular.equals($scope.item, {}) || angular.equals($scope.purchaseOrder, {}) || $scope.delivery.location == '') {
+        if ($scope.delivery.deliveryDate == '' || $scope.delivery.quantity == '' || angular.equals($scope.item, {}) || angular.equals($scope.salesOrder, {}) || $scope.delivery.location == '') {
             return false;
         }
         return true;
@@ -39,7 +39,7 @@ app.controller('deliveryFormController', function ($scope,$timeout, $cookies, ac
             return;
         }
         $scope.delivery.item = JSON.parse($scope.item);
-        $scope.delivery.purchaseOrder = JSON.parse($scope.purchaseOrder);
+        $scope.delivery.salesOrder = JSON.parse($scope.salesOrder);
         deliveryService.save($scope.delivery).then(
                 function (response) {
                     if (response.data) {

@@ -1,19 +1,19 @@
 <!-- Modal -->
-<div class="modal fade" id="purchaseOrderModal" role="dialog" ng-controller="purchaseOrderFormController">
+<div class="modal fade" id="salesOrderModal" role="dialog" ng-controller="salesOrderFormController">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Purchase Order</h4>
+                <h4 class="modal-title">Sales Order</h4>
             </div>
             <div class="modal-body">
                 <div class="form">
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label col-form-label-sm" for="orderReceivedDate">Received Date:</label>
                         <div class='col-xs-10'>
-                            <div class='input-group date' id='orderReceivedDateTimepicker' ng-controller="purchaseOrderFormController">
+                            <div class='input-group date' id='orderReceivedDateTimepicker' ng-controller="salesOrderFormController">
                                 <input type='text' class="form-control form-control-sm" id="orderReceivedDate" name="orderReceivedDate" ng-model="orderReceivedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -32,7 +32,7 @@
                         <label class="col-xs-2 col-form-label col-form-label-sm" for="trwConfirmedDate">Confirmed Date:</label>
                         <div class='col-xs-10'>
                             <div class='input-group date' id='trwConfirmedDateTimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="trwConfirmedDate" name="trwConfirmedDate" ng-model="purchaseOrder.trwConfirmedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                                <input type='text' class="form-control form-control-sm" id="trwConfirmedDate" name="trwConfirmedDate" ng-model="salesOrder.trwConfirmedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
                             <script type="text/javascript">
@@ -50,7 +50,7 @@
                         <label class="col-xs-2 col-form-label col-form-label-sm" for="customerRequestedDate">Requested Date:</label>
                         <div class='col-xs-10'>
                             <div class='input-group date' id='customerRequestedDateTimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="customerRequestedDate" name="customerRequestedDate" ng-model="purchaseOrder.customerRequestedDate" /> <span class="input-group-addon"> <span
+                                <input type='text' class="form-control form-control-sm" id="customerRequestedDate" name="customerRequestedDate" ng-model="salesOrder.customerRequestedDate" /> <span class="input-group-addon"> <span
                                         class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -69,7 +69,7 @@
                         <label class="col-xs-2 col-form-label col-form-label-sm" for="actualDispatchedDate">Dispatched Date:</label>
                         <div class='col-xs-10'>
                             <div class='input-group date' id='actualDispatchedDateTimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="actualDispatchedDate" name="actualDispatchedDate" value="ggg" ng-model="$scope.orderReceivedDate" /> <span class="input-group-addon"> <span
+                                <input type='text' class="form-control form-control-sm" id="actualDispatchedDate" name="actualDispatchedDate" value="" ng-model="$scope.orderReceivedDate" /> <span class="input-group-addon"> <span
                                         class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -85,30 +85,30 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="purchaseOrderType" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
+                        <label for="salesOrderType" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" ng-model="purchaseOrder.purchaseOrderType" ng-options="purchaseOrderType.code for purchaseOrderType in purchaseOrderTypes track by purchaseOrderType.id"></select>                 
+                            <select class="form-control input-sm" ng-model="salesOrder.salesOrderType" ng-options="salesOrderType.code for salesOrderType in salesOrderTypes track by salesOrderType.id"></select>                 
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="customer" class="col-xs-2 col-form-label col-form-label-sm">Customer:</label>
                         <div class="col-xs-10">
-                            <select class="form-control input-sm" ng-model="purchaseOrder.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
+                            <select class="form-control input-sm" ng-model="salesOrder.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="poNumber" class="col-xs-2 col-form-label col-form-label-sm">PO Number</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="poNumber" placeholder="" name="poNumber" ng-model="purchaseOrder.poNumber">
+                            <input type="text" class="form-control form-control-sm" id="poNumber" placeholder="" name="poNumber" ng-model="salesOrder.poNumber">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="comments" class="col-xs-2 col-form-label col-form-label-sm">Comments:</label>
                         <div class="col-xs-10">
-                            <input type="text" class="form-control form-control-sm" id="comments" placeholder="" name="comments" ng-model="purchaseOrder.comments">
+                            <input type="text" class="form-control form-control-sm" id="comments" placeholder="" name="comments" ng-model="salesOrder.comments">
                         </div>
                     </div>
 

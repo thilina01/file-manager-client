@@ -1,24 +1,22 @@
 
-app.controller('purchaseOrderItemFormController', function ($scope, $timeout, $cookies, accountService, purchaseOrderItemService, appService, itemService, purchaseOrderTypeService, customerService) {
+app.controller('salesOrderItemFormController', function ($scope, $timeout, $cookies, accountService, salesOrderService, appService, itemService, salesOrderTypeService, customerService) {
     //main
-    $scope.purchaseOrderItem = {};
+    $scope.salesOrder = {};
     $scope.rowQuantity = '';
     $scope.rowPrice = '';
-    $scope.customer = {};
-    $scope.purchaseOrderType = {};
+    $scope.salesOrderType = {};
+    $scope.customerItem = {};
 
-    $scope.purchaseOrders = [];
+    $scope.salesOrders = [];
     $scope.items = [];
-    $scope.purchaseOrderItemRows = [];
+    $scope.salesOrderItemRows = [];
     $scope.customers = [];
-    $scope.purchaseOrderType = [];
+    $scope.salesOrderType = [];
     $scope.saveButtonText = 'Save';
 
-    $scope.fillItems = function () {
-    }
     $scope.loadPurchaseOrderTypes = function () {
-        purchaseOrderTypeService.getAll().then(function (response) {
-            $scope.purchaseOrderTypes = response.data;
+        salesOrderTypeService.getAll().then(function (response) {
+            $scope.salesOrderTypes = response.data;
         });
     }
     $scope.loadCustomers = function () {
@@ -26,32 +24,37 @@ app.controller('purchaseOrderItemFormController', function ($scope, $timeout, $c
             $scope.customers = response.data;
         });
     }
-    $scope.addPurchaseOrderItemRow = function () {
-        var row = {'item': JSON.parse($scope.item), 'customerItem': 'dd', 'quantity': $scope.rowQuantity, 'price': $scope.rowPrice};
-        $scope.purchaseOrderItemRows.push(row);
+    $scope.addPurchaseOrderItem = function () {
+        if ($scope.salesOrder.salesOrderHasItemList == undefined) {
+            $scope.salesOrder.salesOrderHasItemList = [];
+        }
+        alert($scope.customerItem.id);
+        var salesOrderHasItem = {customerItem: $scope.customerItem, item: $scope.customerItem.item, quantity: $scope.rowQuantity, price: $scope.rowPrice};
+        $scope.salesOrder.salesOrderHasItemList.push(salesOrderHasItem);
         $scope.rowQuantity = '';
         $scope.rowPrice = '';
+        $scope.customerItem = {};
     };
 
     $scope.clear = function () {
         $scope.item = {};
-        $scope.purchaseOrderItemRows = [];
-        purchaseOrderItemService.toEdit = {};
+        $scope.salesOrderItemRows = [];
+        salesOrderService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        if ($scope.purchaseOrderItem.quantity == '' || $scope.purchaseOrderItem.price == '' || angular.equals($scope.purchaseOrderItem.item, {}) || angular.equals($scope.purchaseOrderItem.customer, {}) || angular.equals($scope.purchaseOrderItem.purchaseOrderType, {})) {
+        if ($scope.salesOrderItem.quantity == '' || $scope.salesOrderItem.price == '' || angular.equals($scope.salesOrderItem.item, {}) || angular.equals($scope.salesOrderItem.customer, {}) || angular.equals($scope.salesOrderItem.salesOrderType, {})) {
             return false;
         }
         return true;
     }
     $scope.save = function () {
-
-        if (!$scope.isValid()) {
-            $scope.showError("form not complete");
-            return;
-        }
-        purchaseOrderItemService.save($scope.date, $scope.shift, $scope.itemCode, $scope.purchaseOrderpoNumber).then(
+        /*
+         if (!$scope.isValid()) {
+         $scope.showError("form not complete");
+         return;
+         }*/
+        salesOrderService.save($scope.salesOrder).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
@@ -70,14 +73,14 @@ app.controller('purchaseOrderItemFormController', function ($scope, $timeout, $c
                 }
         );
     }
-    $('#purchaseOrderItemModal').on('show.bs.modal', function () {
+    $('#salesOrderItemModal').on('show.bs.modal', function () {
         $scope.loadPurchaseOrderTypes();
         $scope.loadCustomers();
         $scope.saveButtonText = 'Save';
-        if (purchaseOrderItemService.toEdit.id != undefined) {
+        if (salesOrderService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.purchaseOrderItem = purchaseOrderItemService.toEdit;
+                $scope.salesOrderItem = salesOrderService.toEdit;
             }, 500);
         }
     })

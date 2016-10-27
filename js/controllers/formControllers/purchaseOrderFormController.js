@@ -1,10 +1,10 @@
 
-app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookies, accountService, appService, purchaseOrderService, customerService, purchaseOrderTypeService) {
-    $scope.purchaseOrder = {};
+app.controller('salesOrderFormController', function ($scope,$timeout, $cookies, accountService, appService, salesOrderService, customerService, salesOrderTypeService) {
+    $scope.salesOrder = {};
     $scope.orderReceivedDate = '';
 
     $scope.customers = [];
-    $scope.purchaseOrderTypes = [];
+    $scope.salesOrderTypes = [];
     $scope.saveButtonText = 'Save'; 
     
     $scope.loadCustomers = function () {
@@ -14,31 +14,31 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
     }
 
     $scope.loadPurchaseOrderTypes = function () {
-        purchaseOrderTypeService.getAll().then(function (response) {
-            $scope.purchaseOrderTypes = response.data;
+        salesOrderTypeService.getAll().then(function (response) {
+            $scope.salesOrderTypes = response.data;
         });
     }
 
     $scope.clear = function () {
-        $scope.purchaseOrder = {};
-        purchaseOrderService.toEdit = {};
+        $scope.salesOrder = {};
+        salesOrderService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
-        $scope.purchaseOrder.orderReceivedDate = $('#orderReceivedDate').val();
-        $scope.purchaseOrder.trwConfirmedDate = $('#trwConfirmedDate').val();
-        $scope.purchaseOrder.customerRequestedDate = $('#customerRequestedDate').val();
-        $scope.purchaseOrder.actualDispatchedDate = $('#actualDispatchedDate').val();
+        $scope.salesOrder.orderReceivedDate = $('#orderReceivedDate').val();
+        $scope.salesOrder.trwConfirmedDate = $('#trwConfirmedDate').val();
+        $scope.salesOrder.customerRequestedDate = $('#customerRequestedDate').val();
+        $scope.salesOrder.actualDispatchedDate = $('#actualDispatchedDate').val();
 
         if (
-                $scope.purchaseOrder.orderReceivedDate == '' ||
-                $scope.purchaseOrder.trwConfirmedDate == '' ||
-                $scope.purchaseOrder.customerRequestedDate == '' ||
-                $scope.purchaseOrder.actualDispatchedDate == '' ||
-                $scope.purchaseOrder.poNumber == '' ||
-                $scope.purchaseOrder.comments == '' ||
-                angular.equals($scope.purchaseOrder.customer, {}) ||
-                angular.equals($scope.purchaseOrder.purchaseOrderType, {})
+                $scope.salesOrder.orderReceivedDate == '' ||
+                $scope.salesOrder.trwConfirmedDate == '' ||
+                $scope.salesOrder.customerRequestedDate == '' ||
+                $scope.salesOrder.actualDispatchedDate == '' ||
+                $scope.salesOrder.poNumber == '' ||
+                $scope.salesOrder.comments == '' ||
+                angular.equals($scope.salesOrder.customer, {}) ||
+                angular.equals($scope.salesOrder.salesOrderType, {})
                 )
         {
             return false;
@@ -52,7 +52,7 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
             return;
         }
 
-        purchaseOrderService.save($scope.purchaseOrder).then(
+        salesOrderService.save($scope.salesOrder).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -72,14 +72,14 @@ app.controller('purchaseOrderFormController', function ($scope,$timeout, $cookie
         );
     }
 
-    $('#purchaseOrderModal').on('show.bs.modal', function () {
+    $('#salesOrderModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadPurchaseOrderTypes();
          $scope.saveButtonText = 'Save';
-        if (purchaseOrderService.toEdit.id != undefined) {
+        if (salesOrderService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.purchaseOrder = purchaseOrderService.toEdit;
+                $scope.salesOrder = salesOrderService.toEdit;
             }, 500);
         }
     })

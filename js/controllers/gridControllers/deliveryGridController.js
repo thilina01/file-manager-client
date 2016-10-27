@@ -25,7 +25,7 @@ app.controller('deliveryGridController', function ($http, $scope, $cookies, deli
             {data: 'quantity'},
             {data: 'location'},
             {data: 'item.code'},
-            {data: 'purchaseOrder.poNumber'}
+            {data: 'salesOrder.poNumber'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)

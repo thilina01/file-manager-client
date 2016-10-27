@@ -1,37 +1,37 @@
 <!-- Modal -->
-<div class="modal fade" id="purchaseOrderItemModal" role="dialog" ng-controller="purchaseOrderItemFormController">
+<div class="modal fade" id="salesOrderItemModal" role="dialog" ng-controller="salesOrderItemFormController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Purchase Order Item</h4>
+                <h4 class="modal-title">Sales Order Item</h4>
             </div>
             <div class="modal-body">
 
                 <div class="form-group row">
                     <label for="customer" class="col-xs-2 col-form-label col-form-label-sm">Customer Code:</label>
                     <div class="col-xs-2">
-                        <select class="form-control input-sm" ng-model="purchaseOrder.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
+                        <select class="form-control input-sm" ng-model="salesOrder.customer" ng-options="customer.code for customer in customers track by customer.id"></select>
                     </div>
-                    <label for="customer" class="col-xs-8 col-form-label col-form-label-sm">{{purchaseOrder.customer.name}}</label>
+                    <label for="customer" class="col-xs-8 col-form-label col-form-label-sm">{{salesOrder.customer.name}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="purchaseOrder" class="col-xs-2 col-form-label col-form-label-sm">Purchase Order:</label>
+                    <label for="salesOrder" class="col-xs-2 col-form-label col-form-label-sm">Sales Order:</label>
                     <div class="col-xs-3">
-                        <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" >
+                        <input type="text" class="form-control input-sm" id="price" placeholder="" name="poNumber" ng-model="salesOrder.poNumber">
                     </div>
-                    <label for="purchaseOrderType" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
+                    <label for="salesOrderType" class="col-xs-2 col-form-label col-form-label-sm">Type:</label>
                     <div class="col-xs-3">
-                        <select class="form-control input-sm" ng-model="purchaseOrder.purchaseOrderType" ng-options="purchaseOrderType.code for purchaseOrderType in purchaseOrderTypes track by purchaseOrderType.id"></select>                 
+                        <select class="form-control input-sm" ng-model="salesOrder.salesOrderType" ng-options="salesOrderType.code for salesOrderType in salesOrderTypes track by salesOrderType.id"></select>                 
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-xs-2 col-form-label col-form-label-sm" for="orderReceivedDate">Received Date:</label>
                     <div class='col-xs-10'>
-                        <div class='input-group date' id='orderReceivedDateTimepicker' ng-controller="purchaseOrderFormController">
-                            <input type='text' class="form-control form-control-sm" id="orderReceivedDate" name="orderReceivedDate" ng-model="orderReceivedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                        <div class='input-group date' id='orderReceivedDateTimepicker' ng-controller="salesOrderFormController">
+                            <input type='text' class="form-control form-control-sm" id="orderReceivedDate" name="orderReceivedDate" ng-model="salesOrder.orderReceivedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                         <script type="text/javascript">
@@ -52,9 +52,7 @@
                             <div class="form-group row">
                                 <label class="control-label col-xs-2" for="item">Customer Item:</label>
                                 <div class="col-xs-2">
-                                    <select class="form-control input-sm" id="item" name="item" ng-model="item">	
-                                        <option ng-repeat="customerItem in customerItems" value="{{customerItem}}">{{customerItem.code}}</option>
-                                    </select>
+                                    <select class="form-control input-sm" ng-model="customerItem" ng-options="customerItem.customerPartNo for customerItem in salesOrder.customer.customerItemList track by customerItem.id"></select>
                                 </div>
                                 <label class="control-label col-xs-2" for="quantity">Qty:</label>
                                 <div class="col-xs-2">
@@ -66,7 +64,7 @@
 
                                 </div>
                                 <div class="col-xs-1">
-                                    <button type="button" class="btn btn-default " ng-click="addPurchaseOrderItemRow()">Add</button>
+                                    <button type="button" class="btn btn-default " ng-click="addPurchaseOrderItem()">Add</button>
                                 </div>
                             </div>
                             <table class="table table-hover table-striped">
@@ -81,11 +79,11 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr ng-repeat="purchaseOrderItemRow in purchaseOrderItemRows">
-                                        <td>{{purchaseOrderItemRow.item.code}}</td>                                                
-                                        <td>{{purchaseOrderItemRow.customerItem}}</td>
-                                        <td>{{purchaseOrderItemRow.quantity}}</td>
-                                        <td>{{purchaseOrderItemRow.price}}</td>
+                                    <tr ng-repeat="salesOrderHasItem in salesOrder.salesOrderHasItemList">
+                                        <td>{{salesOrderHasItem.customerItem.customerPartNo}}</td>    
+                                        <td>{{salesOrderHasItem.item.code}}</td>       
+                                        <td>{{salesOrderHasItem.quantity}}</td>
+                                        <td>{{salesOrderHasItem.price}}</td>
 
                                     </tr>
                                 </tbody>

@@ -1,10 +1,10 @@
 
-app.controller('purchaseOrderTypeFormController', function ($scope,$timeout, $cookies, accountService, appService, purchaseOrderTypeService) {
-    $scope.purchaseOrderType = {};
+app.controller('salesOrderTypeFormController', function ($scope,$timeout, $cookies, accountService, appService, salesOrderTypeService) {
+    $scope.salesOrderType = {};
     $scope.saveButtonText = 'Save';
     $scope.clear = function () {
-        $scope.purchaseOrderType = {};
-        purchaseOrderService.toEdit = {};
+        $scope.salesOrderType = {};
+        salesOrderService.toEdit = {};
         $scope.saveButtonText = 'Save';
 
     }
@@ -20,7 +20,7 @@ app.controller('purchaseOrderTypeFormController', function ($scope,$timeout, $co
             $scope.showError("form not complete");
             return;
         }
-        purchaseOrderTypeService.save($scope.purchaseOrderType).then(
+        salesOrderTypeService.save($scope.salesOrderType).then(
                 function (response) {
                     if (response.data) {
 
@@ -40,12 +40,12 @@ app.controller('purchaseOrderTypeFormController', function ($scope,$timeout, $co
                 }
         );
     }
-     $('#purchaseOrderTypeModal').on('show.bs.modal', function () {
+     $('#salesOrderTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
-        if (purchaseOrderTypeService.toEdit.id != undefined) {
+        if (salesOrderTypeService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.purchaseOrderType = purchaseOrderTypeService.toEdit;
+                $scope.salesOrderType = salesOrderTypeService.toEdit;
             }, 500);
         }
     })

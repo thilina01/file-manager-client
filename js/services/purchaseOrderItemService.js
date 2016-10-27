@@ -1,9 +1,9 @@
 
-app.service('purchaseOrderItemService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'purchaseOrderItems/';
+app.service('salesOrderItemService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'salesOrderItems/';
 this.toEdit = {};
-    this.save = function (purchaseOrderItem) {       
-        return  $http.post(apiURL, purchaseOrderItem, appService.getJsonHeaders());
+    this.save = function (salesOrderItem) {       
+        return  $http.post(apiURL, salesOrderItem, appService.getJsonHeaders());
     };
 
     this.getAll = function () {
