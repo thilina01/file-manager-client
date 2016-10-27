@@ -144,6 +144,20 @@
                         <li><a data-toggle="modal" data-target="#deliveryGridModal">Delivery</a></li>
                     </ul>
                 </li>
+                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
+                        Chart
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">                       
+                        <li><a data-toggle="modal" data-target="#lossReasonChartModal">Loss Reason</a></li>
+                        <li><a data-toggle="modal" data-target="#defectTypeChartModal">Defect Type</a></li>
+                        <li><a data-toggle="modal" data-target="#scrapTypeChartModal">Scrap Type</a></li>
+                        <li><a data-toggle="modal" data-target="#defectAndScrapChartModal">Defect And Scrap</a></li>
+                        <li><a data-toggle="modal" data-target="#scheduleAdhereanceChartModal">Schedule Adhereance</a></li>
+
+                    </ul>
+                </li>
                 <li ng-repeat="menu in menus">
                     <a data-toggle="modal" href="" data-target="{{menu.target}}" >{{menu.name}}</a>
                 </li>
@@ -210,3 +224,10 @@
 <div ng-include="'pages/grids/customerItem.html'"></div>
 <div ng-include="'pages/grids/salesOrderItem.html'"></div>
 <div ng-include="'pages/grids/delivery.html'"></div>
+
+<div ng-include="'pages/chart/loss-reason.html'"></div>
+<div ng-include="'pages/chart/defect-type.html'"></div>
+<div ng-include="'pages/chart/scrap-type.html'"></div>
+<div ng-include="'pages/chart/defect-and-scrap.html'"></div>
+<div ng-include="'pages/chart/schedule-adhereance.html'"></div>
+
