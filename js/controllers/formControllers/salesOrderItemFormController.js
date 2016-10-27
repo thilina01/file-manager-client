@@ -28,7 +28,6 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
         if ($scope.salesOrder.salesOrderHasItemList == undefined) {
             $scope.salesOrder.salesOrderHasItemList = [];
         }
-        alert($scope.customerItem.id);
         var salesOrderHasItem = {customerItem: $scope.customerItem, item: $scope.customerItem.item, quantity: $scope.rowQuantity, price: $scope.rowPrice};
         $scope.salesOrder.salesOrderHasItemList.push(salesOrderHasItem);
         $scope.rowQuantity = '';
