@@ -79,11 +79,11 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr ng-repeat="salesOrderHasItem in salesOrder.salesOrderHasItemList">
-                                        <td>{{salesOrderHasItem.customerItem.customerPartNo}}</td>    
-                                        <td>{{salesOrderHasItem.item.code}}</td>       
-                                        <td>{{salesOrderHasItem.quantity}}</td>
-                                        <td>{{salesOrderHasItem.price}}</td>
+                                    <tr ng-repeat="salesOrderItem in salesOrder.salesOrderItemList">
+                                        <td>{{salesOrderItem.customerItem.customerPartNo}}</td>    
+                                        <td>{{salesOrderItem.item.code}}</td>       
+                                        <td>{{salesOrderItem.quantity}}</td>
+                                        <td>{{salesOrderItem.price}}</td>
 
                                     </tr>
                                 </tbody>

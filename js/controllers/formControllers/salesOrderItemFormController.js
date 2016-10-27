@@ -25,11 +25,11 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
         });
     }
     $scope.addPurchaseOrderItem = function () {
-        if ($scope.salesOrder.salesOrderHasItemList == undefined) {
-            $scope.salesOrder.salesOrderHasItemList = [];
+        if ($scope.salesOrder.salesOrderItemList == undefined) {
+            $scope.salesOrder.salesOrderItemList = [];
         }
-        var salesOrderHasItem = {customerItem: $scope.customerItem, item: $scope.customerItem.item, quantity: $scope.rowQuantity, price: $scope.rowPrice};
-        $scope.salesOrder.salesOrderHasItemList.push(salesOrderHasItem);
+        var salesOrderItem = {customerItem: $scope.customerItem, item: $scope.customerItem.item, quantity: $scope.rowQuantity, price: $scope.rowPrice};
+        $scope.salesOrder.salesOrderItemList.push(salesOrderItem);
         $scope.rowQuantity = '';
         $scope.rowPrice = '';
         $scope.customerItem = {};
@@ -55,9 +55,8 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
          }*/
         salesOrderService.save($scope.salesOrder).then(
                 function (response) {
-                    if (response.data) {
-                        //alert(response.data);
-                    }
+
+                    $scope.showSuccess("saved");
                     $scope.clear();
                     $scope.reloadApp();
                     return response;
@@ -67,7 +66,7 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
                         $scope.showError(response.data.message);
                         return response;
                     }
-                    //$scope.reloadApp();
+                    $scope.showError("Unable to save");
                     return response;
                 }
         );
