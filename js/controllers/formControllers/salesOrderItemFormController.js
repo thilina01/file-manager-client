@@ -48,6 +48,8 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
         return true;
     }
     $scope.save = function () {
+        $scope.salesOrder.orderReceivedDate = $('#orderReceivedDate1').val();
+        alert($scope.salesOrder.orderReceivedDate);
         /*
          if (!$scope.isValid()) {
          $scope.showError("form not complete");
