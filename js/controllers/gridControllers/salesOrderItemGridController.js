@@ -19,12 +19,17 @@ app.controller('salesOrderItemGridController', function ($http, $scope, $cookies
 
     $scope.salesOrderItems = '';
     $scope.table = $('#salesOrderItemTable');
-    $scope.dataTable = $scope.table.DataTable({
-
+    $scope.dataTable = $scope.table.DataTable({        
+        columns: [
+            {data: 'salesOrder.poNumber'},
+            {data: 'item.code'},
+            {data: 'quantity'},
+            {data: 'price'}
+        ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadPurchaseOrderItems = function () {
+    $scope.loadSalesOrderItems = function () {
         $scope.dataTable.clear();
         salesOrderItemService.getAll().then(function (response) {
             $scope.salesOrderItems = response.data;
@@ -35,7 +40,7 @@ app.controller('salesOrderItemGridController', function ($http, $scope, $cookies
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#salesOrderItemGridModal').on('show.bs.modal', function () {
-        $scope.loadPurchaseOrderItems();
+        $scope.loadSalesOrderItems();
     })
     $('#salesOrderItemGridModal').on('hidden.bs.modal', function () {
 
