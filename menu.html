@@ -79,9 +79,16 @@
                                 <li><a data-toggle="modal" data-target="#salesOrderItemModal">Sales Order Item</a></li>
 
                             </ul>
+                             <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job</a>
+                            <ul class="dropdown-menu">
+                             <li><a data-toggle="modal" data-target="#jobModal">Job</a></li>  
+                              <li><a data-toggle="modal" data-target="#jobTypeModal">Job Type</a></li>  
+                            
+                            </ul>
 
                         <li><a data-toggle="modal" data-target="#customerItemModal">Customer Item</a></li>
-                        <li><a data-toggle="modal" data-target="#jobModal">Job</a></li>
+                        
 
 
                         <li><a data-toggle="modal" data-target="#machineModal">Machine</a></li>
@@ -206,6 +213,7 @@
 <div ng-include="'pages/forms/customer-item.html'"></div>
 <div ng-include="'pages/forms/sales-order-item.html'"></div>
 <div ng-include="'pages/forms/delivery.html'"></div>
+<div ng-include="'pages/forms/job-type.html'"></div>
 
 <div ng-include="'pages/grids/controlPoint.html'"></div>
 <div ng-include="'pages/grids/customer.html'"></div>
