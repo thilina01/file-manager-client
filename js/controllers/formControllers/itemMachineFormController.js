@@ -11,6 +11,12 @@ app.controller('itemMachineFormController', function ($scope, $timeout, $cookies
             $scope.items = response.data;
         })
     }
+    $scope.loadMachines = function () {
+        machineService.getAll().then(function (response) {
+            $scope.machines = response.data;
+        })
+    }
+
 
     $scope.clear = function () {
         $scope.itemMachine= {};
