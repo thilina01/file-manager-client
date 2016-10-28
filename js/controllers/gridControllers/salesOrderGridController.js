@@ -8,6 +8,7 @@ app.controller('salesOrderGridController', function ($http, $scope, $cookies, sa
 
         }
     }
+    
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
             salesOrderService.delete($scope.dataTable.row('.selected').data().id).then(
