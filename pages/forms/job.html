@@ -18,7 +18,7 @@
                         <label class="control-label col-sm-4" for="jobDate">Date:</label>
                         <div class='col-sm-8'>
                             <div class='input-group date' id='planningDatetimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="date" name="date" ng-model="job.jobDate" />
+                                <input type='text' class="form-control form-control-sm" id="jobDate" name="jobDate" ng-model="jobDate" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -37,6 +37,13 @@
                         <label class="control-label col-sm-4" for="jobNo">Job No:</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control form-control-sm" id="jobNo" placeholder="" name="jobNo" ng-model="job.jobNo">
+                        </div>
+                        <br/>
+                        <br/>
+
+                        <label class="control-label col-sm-4" for="itemCode">Type:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control input-sm" ng-model="job.jobType" ng-options="jobType.code for jobType in jobTypes track by jobType.id" ></select>
                         </div>
                         <br/>
                         <br/>
