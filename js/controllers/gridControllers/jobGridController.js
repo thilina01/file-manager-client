@@ -5,9 +5,9 @@ app.controller('jobGridController', function ($http, $scope, $cookies, jobServic
             jobService.toEdit = $scope.dataTable.row('.selected').data();
             $('#jobGridModal').modal('hide');
             $('#jobModal').modal('show');
-
         }
     }
+    
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
             jobService.delete($scope.dataTable.row('.selected').data().id).then(
@@ -20,10 +20,17 @@ app.controller('jobGridController', function ($http, $scope, $cookies, jobServic
     $scope.jobs = '';
     $scope.table = $('#jobTable');
     $scope.dataTable = $scope.table.DataTable({
-
+        columns: [
+            {data: 'id'},
+            {data: 'jobDate'},
+            {data: 'jobType.code'},
+            {data: 'item.code'},
+            {data: 'quantity'}
+        ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
+    
     $scope.loadJobs = function () {
         $scope.dataTable.clear();
         jobService.getAll().then(function (response) {
@@ -38,7 +45,6 @@ app.controller('jobGridController', function ($http, $scope, $cookies, jobServic
         $scope.loadJobs();
     })
     $('#jobGridModal').on('hidden.bs.modal', function () {
-       
     })
 
 });
