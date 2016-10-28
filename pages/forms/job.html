@@ -10,79 +10,71 @@
             </div>
             <div class="modal-body">
 
-                <form class="form">
+                <div class="form">
 
                     <div class="form-group">
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="jobDate">Date:</label>
-                        <div class='col-sm-8'>
-                            <div class='input-group date' id='planningDatetimepicker'>
-                                <input type='text' class="form-control form-control-sm" id="jobDate" name="jobDate" ng-model="jobDate" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="jobDate">Date:</label>
+                            <div class='col-xs-8'>
+                                <div class='input-group date' id='planningDatetimepicker'>
+                                    <input type='text' class="form-control form-control-sm" id="jobDate" name="jobDate" ng-model="jobDate" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                    $('#planningDatetimepicker').datetimepicker({
+                                    format: 'YYYY-MM-DD'
+                                    });
+                                    });
+                                </script>
                             </div>
-                            <script type="text/javascript">
-                                        $(function () {
-                                            $('#planningDatetimepicker').datetimepicker({
-                                                format: 'YYYY-MM-DD'
-                                            });
-                                        });
-                            </script>
                         </div>
-
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="jobNo">Job No:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="jobNo" placeholder="" name="jobNo" ng-model="job.jobNo">
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="jobNo">Job No:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control form-control-sm" id="jobNo" placeholder="" name="jobNo" ng-model="job.jobNo">
+                            </div>
                         </div>
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="itemCode">Type:</label>
-                        <div class="col-sm-8">
-                            <select class="form-control input-sm" ng-model="job.jobType" ng-options="jobType.code for jobType in jobTypes track by jobType.id" ></select>
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="itemCode">Type:</label>
+                            <div class="col-xs-8">
+                                <select class="form-control input-sm" ng-model="job.jobType" ng-options="jobType.code for jobType in jobTypes track by jobType.id" ></select>
+                            </div>
                         </div>
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="itemCode">Item Code:</label>
-                        <div class="col-sm-8">
-                            <select class="form-control input-sm" ng-model="job.item" ng-options="item.code for item in items track by item.id" ></select>
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="itemCode">Item Code:</label>
+                            <div class="col-xs-8">
+                                <select class="form-control input-sm" ng-model="job.item" ng-options="item.code for item in items track by item.id" ></select>
+                            </div>
                         </div>
-
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="itemType">Item Type:</label>
-                        <div class="col-sm-8">
-                            <input type="text" disabled class="form-control form-control-sm" id="itemType" placeholder="" name="itemType" ng-model="job.item.itemType.type">
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="itemType">Item Type:</label>
+                            <div class="col-xs-8">
+                                <input type="text" disabled class="form-control form-control-sm" id="itemType" placeholder="" name="itemType" ng-model="job.item.itemType.type">
+                            </div>
                         </div>
-                        <br/>
-                        <br/>
-
-                        <label class="control-label col-sm-4" for="itemDescription">Item Description:</label>
-                        <div class="col-sm-8">
-                            <input type="text" disabled class="form-control form-control-sm" id="itemDescription" placeholder="" name="itemDescription" ng-model="job.item.description">
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="itemDescription">Item Description:</label>
+                            <div class="col-xs-8">
+                                <input type="text" disabled class="form-control form-control-sm" id="itemDescription" placeholder="" name="itemDescription" ng-model="job.item.description">
+                            </div>
                         </div>
-                        <br/>
-                        <br/>
-                        <label class="control-label col-sm-4" for="jobQty">Quantity:</label>
-                        <div class="col-sm-8">
-                            <input type="number" class="form-control form-control-sm" id="jobQty" placeholder="" name="jobQty" ng-model="job.quantity">
+                        <div class="form-group row">
+                            <label class="col-xs-4 col-form-label col-form-label-sm" for="jobQty">Quantity:</label>
+                            <div class="col-xs-8">
+                                <input type="number" class="form-control form-control-sm" id="jobQty" placeholder="" name="jobQty" ng-model="job.quantity">
+                            </div>
                         </div>
                     </div>
-                    <br/>
-                    <br/>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> {{saveButtonText}}</button>
-                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> {{saveButtonText}}</button>
+                    <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
