@@ -1,10 +1,10 @@
-app.controller('mttbChartController', function ($scope, $timeout, $cookies, accountService, appService, lossReasonService) {
+app.controller('mttrChartController', function ($scope, $timeout, $cookies, accountService, appService, lossReasonService) {
 
    function drawMtbChart() {
 
       
         var data = google.visualization.arrayToDataTable([
-          ['Control Point', 'MTTB'],
+          ['Control Point', 'MTTR'],
           ['CP-32', 1000],
           ['CP-33', 1170],
           ['CP-34', 660],
@@ -15,7 +15,7 @@ app.controller('mttbChartController', function ($scope, $timeout, $cookies, acco
         duration: 1000,
         easing: 'out',"startup": true
       },
-        title: 'MTTB',
+        title: 'MTTR',
         hAxis: {
           title: 'Control Point',
           format: '',
@@ -25,16 +25,16 @@ app.controller('mttbChartController', function ($scope, $timeout, $cookies, acco
           }
         },
         vAxis: {
-          title: 'MTTB'
+          title: 'MTTR'
         }
       };
 
       var chart = new google.visualization.ColumnChart(
-        document.getElementById('mttbChart_div'));
+        document.getElementById('mttrChart_div'));
 
       chart.draw(data, options);
     }
- $('#mttbChartModal').on('show.bs.modal', function () {
+ $('#mttrChartModal').on('show.bs.modal', function () {
         drawMtbChart();
     });
 
