@@ -1,31 +1,26 @@
 
-app.controller('productionFormController', function ($scope, $cookies, accountService, productionService, appService) {
+app.controller('productionFormController', function ($scope, $cookies, accountService, productionService, appService,controlPointService,shiftService,) {
     //main
-    $scope.date = '';
-    $scope.shift = '';
-    $scope.controlPointCode = '';
+    $scope.production = {};
+    $scope.controlPoint = {};
+    $scope.shift = {};
     //auto 
-    $scope.controlPointName = '';
+   
     //production
-    $scope.productionJobNo = '';
-    $scope.productionQuantity = '';
+    $scope.Job = {};
+   // $scope.productionQuantity = '';
     //Quality
-    $scope.qualityJobNo = '';
-    $scope.reason = '';
-    $scope.code = '';
-    $scope.qualityQuantity = '';
+   // $scope.qualityJobNo = '';
+    //$scope.reason = '';
+    //$scope.code = '';
+    // $scope.qualityQuantity = '';
     //maintenance
-    $scope.maintenanceJobNo = '';
-    $scope.machineNo = '';
-    $scope.noOfBreakdown = '';
-    $scope.machinerunningTime = '';
+   // $scope.maintenanceJobNo = '';
+    $scope.machine = '';
+    //$scope.noOfBreakdown = '';
+    //$scope.machinerunningTime = '';
     //Hr
-    $scope.hrJobNo = '';
-    $scope.company = '';
-    $scope.contract = '';
-    $scope.help = '';
-    $scope.other = '';
-
+    
     $scope.productionRows = [];
     $scope.qualityRows = [];
     $scope.maintenanceRows = [];
