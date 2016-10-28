@@ -28,19 +28,21 @@ app.controller('jobFormController', function ($scope,$timeout, $cookies, account
     }
     $scope.isValid = function () {
 
-        if ($scope.job.jobDate == '' || $scope.job.jobNo == '' || angular.equals($scope.item, {}) || angular.equals($scope.customer, {}) || $scope.job.jobQty == '') {
+        if ($scope.job.jobDate == '' || $scope.job.jobNo == '' || angular.equals($scope.job.item, {}) || angular.equals($scope.job.customer, {}) || $scope.job.jobQty == '') {
             return false;
         }
         return true;
     }
 
     $scope.save = function () {
+        /*
         if (!$scope.isValid()) {
             $scope.showError("form not complete");
             return;
         }
+       
         $scope.job.item = JSON.parse($scope.item);
-        $scope.job.customer = JSON.parse($scope.customer);
+        $scope.job.customer = JSON.parse($scope.customer); */
         jobService.save($scope.job).then(
                 function (response) {
                     if (response.data) {
