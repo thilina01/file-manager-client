@@ -1,13 +1,25 @@
 
-app.controller('lossReasonFormController', function ($scope, $timeout,$cookies, accountService, appService, lossReasonService) {
+app.controller('lossReasonFormController', function ($scope, $timeout, $cookies, accountService, appService, lossReasonService,lossTypeService) {
     $scope.lossReason = {};
+    $scope.lossTypes = [];
     $scope.saveButtonText = 'Save';
-   
+
+    $scope.loadLossTypes = function () {
+        lossTypeService.getAll().then(function (response) {
+            $scope.lossTypes = response.data;
+        });
+    }
 
     $scope.clear = function () {
-       $scope.lossReason = {};
-       lossReasonService.toEdit = {};
+        $scope.lossReason = {};
+        lossReasonService.toEdit = {};
         $scope.saveButtonText = 'Save';
+    }
+    $scope.isValid = function () {
+        if ($scope.lossReason.code == '' || $scope.lossReason.reason == '' || $scope.controlPoint.typeInShinhala == '' || angular.equals($scope.lossReason.lossType, {})) {
+            return false;
+        }
+        return true;
     }
 
     $scope.save = function () {
@@ -31,7 +43,8 @@ app.controller('lossReasonFormController', function ($scope, $timeout,$cookies, 
                 }
         );
     }
-     $('#lossReasonModal').on('show.bs.modal', function () {
+    $('#lossReasonModal').on('show.bs.modal', function () {
+        $scope.loadLossTypes();
         $scope.saveButtonText = 'Save';
         if (lossReasonService.toEdit.id != undefined) {
             $timeout(function () {
