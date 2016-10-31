@@ -1,11 +1,11 @@
 
-app.controller('scrapTypeFormController', function ($scope,$timeout, $cookies, accountService, scrapTypeService, appService) {
-    $scope.scrapType = {};
+app.controller('manpowerTypeFormController', function ($scope,$timeout, $cookies, accountService, manpowerTypeService, appService) {
+    $scope.manpowerType = {};
     $scope.saveButtonText = 'Save';
   
     $scope.clear = function () {
-        $scope.scrapType = {};
-       scrapTypeService.toEdit = {};
+        $scope.manpowerType = {};
+       manpowerTypeService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
@@ -20,7 +20,7 @@ app.controller('scrapTypeFormController', function ($scope,$timeout, $cookies, a
             $scope.showError("form not complete");
             return;
         }
-        scrapTypeService.save( $scope.scrapType).then(
+        manpowerTypeService.save( $scope.manpowerType).then(
                 function (response) {
                     if (response.data) {
 
@@ -41,12 +41,12 @@ app.controller('scrapTypeFormController', function ($scope,$timeout, $cookies, a
                 }
         );
     }
-    $('#scrapTypeModal').on('show.bs.modal', function () {
+    $('#manpowerTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
-        if (scrapTypeService.toEdit.id != undefined) {
+        if (manpowerTypeService.toEdit.id != undefined) {
            $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.scrapType = scrapTypeService.toEdit;
+                $scope.manpowerType = manpowerTypeService.toEdit;
             }, 500);
         }
     })

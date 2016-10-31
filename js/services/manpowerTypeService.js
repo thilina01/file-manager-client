@@ -1,10 +1,10 @@
 
-app.service('scrapTypeService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'scrapTypes/';
+app.service('manpowerTypeService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'manpowerTypes/';
 this.toEdit = {};
-    this.save = function (scrapType) {
+    this.save = function (manpowerType) {
        
-        return  $http.post(apiURL, scrapType, appService.getJsonHeaders());
+        return  $http.post(apiURL, manpowerType, appService.getJsonHeaders());
     };
 
     this.getAll = function () {
