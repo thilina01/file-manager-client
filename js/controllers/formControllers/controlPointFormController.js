@@ -3,11 +3,8 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
     $scope.workCenters = [];
     $scope.saveButtonText = 'Save';
 
-    $scope.loadWorkcenters = function () {
-        workCenterService.getAll().then(function (response) {
-            $scope.workCenters = response.data;
-        });
-    }
+    
+    
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);

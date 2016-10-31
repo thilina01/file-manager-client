@@ -1,34 +1,77 @@
 
-app.controller('productionFormController', function ($scope, productionService, appService) {
+app.controller('productionFormController', function ($scope, $timeout, productionService, appService, controlPointService, shiftService, jobService, machineService,lossTypeService,lossReasonService,manpowerTypeService) {
 
 
     //main
     $scope.production = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
-    $scope.jobNos = [];
+    $scope.jobs = [];
+     $scope.lossTypes = [];
+      $scope.lossReasons = [];
+      $scope.manpowerTypes = [];
+    
     //auto 
-   
+
     //production
-   
-   // $scope.productionQuantity = '';
+
+    // $scope.productionQuantity = '';
     //Quality
-   // $scope.qualityJobNo = '';
+    // $scope.qualityJobNo = '';
     //$scope.reason = '';
     //$scope.code = '';
     // $scope.qualityQuantity = '';
     //maintenance
-   // $scope.maintenanceJobNo = '';
+    // $scope.maintenanceJobNo = '';
     $scope.machines = [];
     //$scope.noOfBreakdown = '';
     //$scope.machinerunningTime = '';
     //Hr
-    
+    $scope.saveButtonText = 'Save';
     $scope.productionRows = [];
     $scope.qualityRows = [];
     $scope.maintenanceRows = [];
     $scope.hrRows = [];
 
+    $scope.loadShifts = function () {
+        shiftService.getAll().then(function (response) {
+            $scope.shifts = response.data;
+        });
+    }
+    $scope.loadControlPoints = function () {
+        controlPointService.getAll().then(function (response) {
+            $scope.controlPoints = response.data;
+        });
+    }
+
+    $scope.loadJobs = function () {
+        jobService.getAll().then(function (response) {
+            $scope.jobs = response.data;
+        });
+    }
+    $scope.loadMachines = function () {
+        machineService.getAll().then(function (response) {
+            $scope.machines = response.data;
+        });
+    }
+    $scope.loadLossTypes = function () {
+        lossTypeService.getAll().then(function (response) {
+            $scope.lossTypes = response.data;
+        });
+    }
+    
+     $scope.loadLossReasons = function () {
+        lossReasonService.getAll().then(function (response) {
+            $scope.lossReasons = response.data;
+        });
+    }
+    $scope.loadManpowerTypes = function () {
+        
+        alert("ghhj");
+        manpowerTypeService.getAll().then(function (response) {
+            $scope.manpowerTypes = response.data;
+        });
+    }
     $scope.addProductionRow = function () {
         $scope.productionRows.push({'item': '', 'job': $scope.productionJobNo, 'quantity': $scope.productionQuantity, 'reason': ''});
         $scope.productionClear();
@@ -99,4 +142,20 @@ app.controller('productionFormController', function ($scope, productionService, 
                 }
         );
     }
+    $('#productionModal').on('show.bs.modal', function () {
+        $scope.loadShifts();
+        $scope.loadJobs();
+        $scope.loadControlPoints();
+        $scope.loadMachines();
+        $scope.loadLossTypes();
+        $scope.loadLossReasons();
+         $scope.loadManpowerTypes();
+        $scope.saveButtonText = 'Save';
+        if (productionService.toEdit.id != undefined) {
+            $timeout(function () {
+                $scope.saveButtonText = 'Update';
+                $scope.production = productionService.toEdit;
+            }, 500);
+        }
+    })
 });
