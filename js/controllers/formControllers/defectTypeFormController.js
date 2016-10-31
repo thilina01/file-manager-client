@@ -1,10 +1,10 @@
-app.controller('lossTypeFormController', function ($scope, $timeout, $cookies, accountService, appService, lossTypeService) {
-    $scope.lossType = {};
+app.controller('defectTypeFormController', function ($scope, $timeout, $cookies, accountService, appService, defectTypeService) {
+    $scope.defectType = {};
     $scope.saveButtonText = 'Save';
 
     $scope.clear = function () {
-        $scope.lossType = {};
-        lossTypeService.toEdit = {};
+        $scope.defectType = {};
+        defectTypeService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
@@ -19,7 +19,7 @@ app.controller('lossTypeFormController', function ($scope, $timeout, $cookies, a
             $scope.showError("form not complete");
             return;
         }
-        lossTypeService.save($scope.lossType).then(
+        defectTypeService.save($scope.defectType).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -39,12 +39,12 @@ app.controller('lossTypeFormController', function ($scope, $timeout, $cookies, a
                 }
         );
     }
-    $('#lossTypeModal').on('show.bs.modal', function () {
+    $('#defectTypeModal').on('show.bs.modal', function () {
         $scope.saveButtonText = 'Save';
-        if (lossTypeService.toEdit.id != undefined) {
+        if (defectTypeService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.lossType = lossTypeService.toEdit;
+                $scope.defectType = defectTypeService.toEdit;
             }, 500);
         }
     })
