@@ -1,5 +1,7 @@
 
-app.controller('productionFormController', function ($scope, $cookies, accountService, productionService, appService,controlPointService,shiftService,) {
+app.controller('productionFormController', function ($scope, productionService, appService) {
+
+
     //main
     $scope.production = {};
     $scope.controlPoint = {};

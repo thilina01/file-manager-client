@@ -1,35 +1,35 @@
 
-app.controller('energyFormController', function ($scope, $cookies, accountService, appService, energyService,shiftService,jobNoService,machineService) {
+app.controller('energyFormController', function ($scope, $cookies, accountService, appService, energyService, shiftService, jobService, machineService) {
     $scope.energy = {};
-    $scope.jobNo = {};
+    $scope.job = {};
     $scope.machine = {};
     $scope.energies = [];
-    $scope.jobNos = [];
+    $scope.jobs = [];
     $scope.machineNo = [];
-     $scope.saveButtonText = 'Save';
-     $scope.loadShifts = function () {
+    $scope.saveButtonText = 'Save';
+    $scope.loadShifts = function () {
         shiftService.getAll().then(function (response) {
             $scope.shifts = response.data;
         });
     }
-     $scope.loadJobNos = function () {
-        jobNoService.getAll().then(function (response) {
-            $scope.jobNos = response.data;
+    $scope.loadJobs = function () {
+        jobService.getAll().then(function (response) {
+            $scope.jobs = response.data;
         });
     }
-     $scope.loadMachines = function () {
+    $scope.loadMachines = function () {
         machineService.getAll().then(function (response) {
             $scope.machines = response.data;
         });
     }
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
-       $scope.energy = {};
-    $scope.jobNo = {};
-    $scope.machineNo = {};
+        $scope.energy = {};
+        $scope.job = {};
+        $scope.machine = {};
     }
     $scope.isValid = function () {
-        if ($scope.energy.energyDate == '' ||angular.equals($scope.energy.shift, {}) ||angular.equals($scope.energy.jobNo, {})|| angular.equals($scope.energy.machineNo, {}) || $scope.energy.consumptionRate == '') {
+        if ($scope.energy.energyDate == '' || angular.equals($scope.energy.shift, {}) || angular.equals($scope.energy.jobNo, {}) || angular.equals($scope.energy.machineNo, {}) || $scope.energy.consumptionRate == '') {
             return false;
         }
         return true;
@@ -61,10 +61,10 @@ app.controller('energyFormController', function ($scope, $cookies, accountServic
         );
 
     }
-     $('#energyModal').on('show.bs.modal', function () {
+    $('#energyModal').on('show.bs.modal', function () {
         $scope.loadShifts();
-         $scope.loadJobNos();
-          $scope.loadMachineNos();
+        $scope.loadJobs();
+        $scope.loadMachines();
         $scope.saveButtonText = 'Save';
         if (energyService.toEdit.id != undefined) {
             $timeout(function () {

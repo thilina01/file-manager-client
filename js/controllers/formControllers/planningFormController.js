@@ -1,5 +1,5 @@
 
-app.controller('planningFormController', function ($scope, $cookies, accountService, controlPointService, jobService, appService, planningService) {
+app.controller('planningFormController', function ($scope, $cookies, accountService, controlPointService, jobService, appService, planningService,shiftService) {
     $scope.planningDate = '';
     $scope.shift = '';
     $scope.jobNo = '';
