@@ -1,6 +1,6 @@
 
-app.service('defectTypeService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'defectTypes/';
+app.service('lossTypeService', function ($http, appService) {
+    var apiURL = appService.baseURL + 'lossTypes/';
 this.toEdit = {};
     this.save = function (defect) {
         
