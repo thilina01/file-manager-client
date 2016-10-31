@@ -1,23 +1,23 @@
-app.controller('defectTypeGridController', function ($http, $scope, $cookies, defectTypeService, dataTableService, appService) {
+app.controller('lossTypeGridController', function ($http, $scope, $cookies, lossTypeService, dataTableService, appService) {
 
     $scope.edit = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
-            defectTypeService.toEdit = $scope.dataTable.row('.selected').data();
-            $('#defectTypeGridModal').modal('hide');
-            $('#defectTypeModal').modal('show');
+            lossTypeService.toEdit = $scope.dataTable.row('.selected').data();
+            $('#lossTypeGridModal').modal('hide');
+            $('#lossTypeModal').modal('show');
         }
     }
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
-            defectTypeService.delete($scope.dataTable.row('.selected').data().id).then(
+            lossTypeService.delete($scope.dataTable.row('.selected').data().id).then(
                     function (response) {
                         $scope.dataTable.row('.selected').remove().draw(false);
                     });
         }
     }
 
-    $scope.defectTypes = '';
-    $scope.table = $('#defectTypeTable');
+    $scope.lossTypes = '';
+    $scope.table = $('#lossTypeTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'code'},
@@ -29,18 +29,18 @@ app.controller('defectTypeGridController', function ($http, $scope, $cookies, de
     });
     $scope.loadDefectTypes = function () {
         $scope.dataTable.clear();
-        defectTypeService.getAll().then(function (response) {
-            $scope.defectTypes = response.data;
-            $scope.dataTable.rows.add($scope.defectTypes).draw();
+        lossTypeService.getAll().then(function (response) {
+            $scope.lossTypes = response.data;
+            $scope.dataTable.rows.add($scope.lossTypes).draw();
         });
     }
 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
-    $('#defectTypeGridModal').on('show.bs.modal', function () {
+    $('#lossTypeGridModal').on('show.bs.modal', function () {
         $scope.loadDefectTypes();
     })
-    $('#defectTypeGridModal').on('hidden.bs.modal', function () {
+    $('#lossTypeGridModal').on('hidden.bs.modal', function () {
 
     })
 
