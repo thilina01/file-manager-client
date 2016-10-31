@@ -34,7 +34,7 @@
                         <label class="control-label" for="controlPointCode">CP Code:</label>
 
                         <select class="form-control input-sm" ng-model="production.controlPoint" ng-options="controlPoint.code for controlPoint in controlPoints track by controlPoint.id"></select>
-                        
+
 
                         <label class="control-label" >Steel Band Line</label>
 
@@ -57,8 +57,7 @@
                                 <div class="form-group">
 
                                     <label class="control-label " for="productionJobNo">job No:</label>
-
-                                    <input type="text" class="form-control input-sm" id="productionJobNo" placeholder="" name="productionJobNo" ng-model="productionJobNo">
+                                    <select class="form-control input-sm" ng-model="production.jobNo" ng-options="jobNo.code for jobNo in jobNos track by jobNo.id"></select>
 
                                     <label class="control-label " for="productionQuantity">Qty:</label>
 
@@ -72,7 +71,7 @@
                                                 <th>Item</th>
                                                 <th>Job</th>
                                                 <th>Quantity</th>
-                                               
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -81,7 +80,7 @@
                                                 <td>{{productionRow.item}}</td>                                                
                                                 <td>{{productionRow.job}}</td>
                                                 <td>{{productionRow.quantity}}</td>
-                                                
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -93,18 +92,10 @@
                                 <div class="form">
 
                                     <label class="control-label " for="qualityJobNo">job No:</label>
+                                    <select class="form-control input-sm" ng-model="production.jobNo" ng-options="jobNo.code for jobNo in jobNos track by jobNo.id"></select>
 
-                                   <select class="form-control form-control-sm" id="qualityJobNo" name="qualityJobNo" ng-model="qualityJobNo">	
-                                        <option value="defect">Defect</option>
-                                        <option value="scrap">Scrap</option>
-                                        <option value="defect">Loss Reason</option>
-                                    </select>
+                                    <select class="form-control input-sm" ng-model="production.lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
 
-                                    <select class="form-control form-control-sm" id="reason" name="reason" ng-model="reason">	
-                                        <option value="defect">Defect</option>
-                                        <option value="scrap">Scrap</option>
-                                        <option value="defect">Loss Reason</option>
-                                    </select>
 
                                     <select class="form-control form-control-sm" id="code" name="code" ng-model="code">	
                                         <option value="defect">D1</option>
@@ -148,11 +139,8 @@
                                 <div class="form">
                                     <label class="control-label " for="maintenanceJobNo">job No:</label>
 
-                                     <select class="form-control form-control-sm" id="maintenanceJobNo" name="maintenanceJobNo" ng-model="maintenanceJobNo">	
-                                        <option value="defect">Defect</option>
-                                        <option value="scrap">Scrap</option>
-                                        <option value="defect">Loss Reason</option>
-                                    </select>
+                                    <select class="form-control input-sm" ng-model="production.jobNo" ng-options="jobNo.code for jobNo in jobNos track by jobNo.id"></select>
+
                                     <label class="control-label " for="machineNo">Machine No:</label>
 
                                     <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
@@ -198,11 +186,7 @@
 
                                     <label class="control-label " for="HrJobNo">job No:</label>
 
-                                    <select class="form-control form-control-sm" id="HrJobNo" name="HrJobNo" ng-model="HrJobNo">	
-                                        <option value="defect">Defect</option>
-                                        <option value="scrap">Scrap</option>
-                                        <option value="defect">Loss Reason</option>
-                                    </select>
+                                    <select class="form-control input-sm" ng-model="production.jobNo" ng-options="jobNo.code for jobNo in jobNos track by jobNo.id"></select>
 
                                     <label class="control-label " for="company">Company:</label>
 

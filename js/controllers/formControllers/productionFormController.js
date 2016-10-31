@@ -4,12 +4,13 @@ app.controller('productionFormController', function ($scope, productionService, 
 
     //main
     $scope.production = {};
-    $scope.controlPoint = {};
-    $scope.shift = {};
+    $scope.controlPoints = [];
+    $scope.shifts = [];
+    $scope.jobNos = [];
     //auto 
    
     //production
-    $scope.Job = {};
+   
    // $scope.productionQuantity = '';
     //Quality
    // $scope.qualityJobNo = '';
@@ -18,7 +19,7 @@ app.controller('productionFormController', function ($scope, productionService, 
     // $scope.qualityQuantity = '';
     //maintenance
    // $scope.maintenanceJobNo = '';
-    $scope.machine = '';
+    $scope.machines = [];
     //$scope.noOfBreakdown = '';
     //$scope.machinerunningTime = '';
     //Hr
