@@ -21,9 +21,10 @@ app.controller('lossReasonGridController', function ($http, $scope, $cookies, lo
     $scope.table = $('#lossReasonTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
+            {data: 'lossType.type'},
             {data: 'code'},
-            {data: 'type'},
-            {data: 'typeInSinhala'}
+            {data: 'reason'},
+            {data: 'reasonInSinhala'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
