@@ -14,7 +14,7 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
     $scope.salesOrderType = [];
     $scope.saveButtonText = 'Save';
 
-    $scope.loadPurchaseOrderTypes = function () {
+    $scope.loadSalesOrderTypes = function () {
         salesOrderTypeService.getAll().then(function (response) {
             $scope.salesOrderTypes = response.data;
         });
@@ -24,7 +24,7 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
             $scope.customers = response.data;
         });
     }
-    $scope.addPurchaseOrderItem = function () {
+    $scope.addSalesOrderItem = function () {
         if ($scope.salesOrder.salesOrderItemList == undefined) {
             $scope.salesOrder.salesOrderItemList = [];
         }
@@ -74,7 +74,7 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
         );
     }
     $('#salesOrderItemModal').on('show.bs.modal', function () {
-        $scope.loadPurchaseOrderTypes();
+        $scope.loadSalesOrderTypes();
         $scope.loadCustomers();
         $scope.saveButtonText = 'Save';
         if (salesOrderService.toEdit.id != undefined) {
