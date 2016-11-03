@@ -14,7 +14,7 @@
                     <label class="col-xs-1 col-form-label col-form-label-sm" for="Date">Date:</label>
                     <div class='col-xs-2'>
                         <div class='input-group date' id='productDatetimepicker'>
-                            <input type='text' class="form-control form-control-sm" />
+                            <input type='text' class="form-control form-control-sm" id="productionDate"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -22,7 +22,9 @@
                         </div>
                         <script type="text/javascript">
                                     $(function () {
-                                        $('#productDatetimepicker').datetimepicker();
+                                        $('#productDatetimepicker').datetimepicker({
+                                        format : 'YYYY-MM-DD'
+                                        });
                                     });
                         </script>
                     </div>
@@ -41,13 +43,13 @@
 
 
                 <div class="form-group row">
-                    <label class="col-xs-1 col-form-label col-form-label-sm"  for="noOfBreakdown">No Of Breakdown:</label>
+                    <label class="col-xs-1 col-form-label col-form-label-sm"  for="breakdownCount">Breakdown Count:</label>
                     <div class="col-xs-2">
-                        <input type="text" class="form-control form-control-sm" id="noOfBreakdown" placeholder="" name="noOfBreakdown" ng-model="noOfBreakdown">
+                        <input type="text" class="form-control form-control-sm" id="breakdownCount" placeholder="" name="breakdownCount" ng-model="production.breakdownCount">
                     </div>
-                    <label class="col-xs-2 col-form-label col-form-label-sm " for="runningTime">Running Time:</label>
+                    <label class="col-xs-2 col-form-label col-form-label-sm " for="runningTime">Working Duration:</label>
                     <div class="col-xs-3">
-                        <input type="text" class="form-control form-control-sm" id="runningTime" placeholder="" name="runningTime" ng-model="runningTime">
+                        <input type="text" class="form-control form-control-sm" id="runningTime" workingDuration="" name="workingDuration" ng-model="production.workingDuration">
 
                     </div>
                 </div>
@@ -198,9 +200,9 @@
                         <div class="form">
 
 
-                           <label class="col-xs-1 col-form-label col-form-label-sm" for="manPowerType">Manpower Type:</label>
+                           <label class="col-xs-1 col-form-label col-form-label-sm" for="manpowerType">Manpower Type:</label>
                             <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="production.manPowerType" ng-options="manPowerType.type for manPowerType in manPowerTypes track by manPowerType.id"></select>
+                                <select class="form-control input-sm" ng-model="production.manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
                             </div>
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="quantity">Quantity:</label>
                             <div class="col-xs-2">

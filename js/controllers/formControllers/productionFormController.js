@@ -1,5 +1,5 @@
 
-app.controller('productionFormController', function ($scope, $timeout, productionService, appService, controlPointService, shiftService, jobService, machineService,lossTypeService,lossReasonService,manpowerTypeService) {
+app.controller('productionFormController', function ($scope, $timeout, productionService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
 
 
     //main
@@ -7,10 +7,10 @@ app.controller('productionFormController', function ($scope, $timeout, productio
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
-     $scope.lossTypes = [];
-      $scope.lossReasons = [];
-      $scope.manpowerTypes = [];
-    
+    $scope.lossTypes = [];
+    $scope.lossReasons = [];
+    $scope.manpowerTypes = [];
+
     //auto 
 
     //production
@@ -59,14 +59,14 @@ app.controller('productionFormController', function ($scope, $timeout, productio
             $scope.lossTypes = response.data;
         });
     }
-    
-     $scope.loadLossReasons = function () {
+
+    $scope.loadLossReasons = function () {
         lossReasonService.getAll().then(function (response) {
             $scope.lossReasons = response.data;
         });
     }
     $scope.loadManpowerTypes = function () {
-        
+
         alert("ghhj");
         manpowerTypeService.getAll().then(function (response) {
             $scope.manpowerTypes = response.data;
@@ -122,8 +122,20 @@ app.controller('productionFormController', function ($scope, $timeout, productio
         $scope.hrClear();
     }
 
+    $scope.addManpower = function () {
+        if ($scope.production.manpowerList == undefined) {
+            $scope.production.manpowerList = [];
+        }
+        var manpowerList = {manpowerType: $scope.manpowerType, quantity: $scope.manpowerQuantity};
+        $scope.production.manpowerList.push(manpowerList);
+        $scope.manpowerType = {};
+        $scope.manpowerQuantity = '';
+    };
+
     $scope.save = function () {
-        productionService.save($scope.date, $scope.shift, $scope.controlPointCode).then(
+
+        $scope.production.productionDate = $('#productionDate').val();
+        productionService.save($scope.production).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
@@ -149,7 +161,7 @@ app.controller('productionFormController', function ($scope, $timeout, productio
         $scope.loadMachines();
         $scope.loadLossTypes();
         $scope.loadLossReasons();
-         $scope.loadManpowerTypes();
+        $scope.loadManpowerTypes();
         $scope.saveButtonText = 'Save';
         if (productionService.toEdit.id != undefined) {
             $timeout(function () {
