@@ -134,7 +134,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
 
     $scope.save = function () {
 
-        $scope.controlPointRun.productionDate = $('#productionDate').val();
+        $scope.controlPointRun.runDate = $('#runDate').val();
         controlPointRunService.save($scope.controlPointRun).then(
                 function (response) {
                     if (response.data) {

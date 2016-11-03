@@ -13,8 +13,8 @@
                 <div class="form-group row">
                     <label class="col-xs-1 col-form-label col-form-label-sm" for="Date">Date:</label>
                     <div class='col-xs-2'>
-                        <div class='input-group date' id='productDatetimepicker'>
-                            <input type='text' class="form-control form-control-sm" id="productionDate"/>
+                        <div class='input-group date' id='runDatetimepicker'>
+                            <input type='text' class="form-control form-control-sm" id="runDate"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -22,7 +22,7 @@
                         </div>
                         <script type="text/javascript">
                                     $(function () {
-                                        $('#productDatetimepicker').datetimepicker({
+                                        $('#runDatetimepicker').datetimepicker({
                                         format : 'YYYY-MM-DD'
                                         });
                                     });
@@ -30,12 +30,12 @@
                     </div>
                     <label class="col-xs-2 col-form-label col-form-label-sm" for="shift">Shift:</label>
                     <div class="col-xs-3">
-                        <select class="form-control input-sm" ng-model="controlPointRun.shift" ng-options="controlPointRun.code for shift in shifts track by shift.id"></select>
+                        <select class="form-control input-sm" ng-model="controlPointRun.shift" ng-options="shift.code for shift in shifts track by shift.id"></select>
                     </div>
 
                     <label class="col-xs-1 col-form-label col-form-label-sm" for="controlPointCode">CP Code:</label>
                     <div class="col-xs-1">
-                        <select class="form-control input-sm" ng-model="controlPointRun.controlPoint" ng-options="controlPointRun.code for controlPoint in controlPoints track by controlPoint.id"></select>
+                        <select class="form-control input-sm" ng-model="controlPointRun.controlPoint" ng-options="controlPoint.code for controlPoint in controlPoints track by controlPoint.id"></select>
                     </div>
 
                     <label class="col-xs-2 col-form-label col-form-label-sm" >{{controlPointRun.controlPoint.name}}</label>
