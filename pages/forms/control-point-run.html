@@ -1,0 +1,205 @@
+<!-- Modal -->
+<div class="modal fade" id="controlPointRunModal" role="dialog" ng-controller="controlPointRunFormController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Production</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group row">
+                    <label class="col-xs-1 col-form-label col-form-label-sm" for="Date">Date:</label>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='productDatetimepicker'>
+                            <input type='text' class="form-control form-control-sm" id="productionDate"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+
+                        </div>
+                        <script type="text/javascript">
+                                    $(function () {
+                                        $('#productDatetimepicker').datetimepicker({
+                                        format : 'YYYY-MM-DD'
+                                        });
+                                    });
+                        </script>
+                    </div>
+                    <label class="col-xs-2 col-form-label col-form-label-sm" for="shift">Shift:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control input-sm" ng-model="controlPointRun.shift" ng-options="controlPointRun.code for shift in shifts track by shift.id"></select>
+                    </div>
+
+                    <label class="col-xs-1 col-form-label col-form-label-sm" for="controlPointCode">CP Code:</label>
+                    <div class="col-xs-1">
+                        <select class="form-control input-sm" ng-model="controlPointRun.controlPoint" ng-options="controlPointRun.code for controlPoint in controlPoints track by controlPoint.id"></select>
+                    </div>
+
+                    <label class="col-xs-2 col-form-label col-form-label-sm" >{{controlPointRun.controlPoint.name}}</label>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-xs-1 col-form-label col-form-label-sm"  for="breakdownCount">Breakdown Count:</label>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control form-control-sm" id="breakdownCount" placeholder="" name="breakdownCount" ng-model="controlPointRun.breakdownCount">
+                    </div>
+                    <label class="col-xs-2 col-form-label col-form-label-sm " for="runningTime">Working Duration:</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control form-control-sm" id="runningTime" workingDuration="" name="workingDuration" ng-model="controlPointRun.workingDuration">
+
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" data-target="#production">Production</a></li>
+                <li><a data-toggle="tab" data-target="#quality">Quality</a></li>
+                <li><a data-toggle="tab" data-target="#maintenance">Maintenance</a></li>
+                <li><a data-toggle="tab" data-target="#hr">HR</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="production" class="tab-pane fade in active">
+                    <div class="form">
+                        <div class="form-group row">
+
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="productionJobNo">job No:</label>
+                            <div class="col-xs-3">
+                                <select class="form-control input-sm" ng-model="controlPointRun.job" ng-options="job.id for job in jobs track by job.id"></select>
+                            </div>
+                            <div class="col-xs-1"></div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="productionQuantity">Qty:</label>
+                            <div class="col-xs-3">
+                                <input type="text" class="form-control input-sm" id="productionQuantity" placeholder="" name="productionQuantity" ng-model="productionQuantity">
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click="addProductionRow()">Add</button>
+                        </div>
+
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Job</th>
+                                    <th>Quantity</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                <tr ng-repeat="productionRow in productionRows">
+                                    <td>{{productionRow.item}}</td>                                                
+                                    <td>{{productionRow.job}}</td>
+                                    <td>{{productionRow.quantity}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="quality" class="tab-pane fade">
+
+                    <div class="form">
+                        <div class="form-group row">
+
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="qualityJobNo">job No:</label>
+                            <div class="col-xs-1">
+                                <select class="form-control input-sm" ng-model="controlPointRun.job" ng-options="job.id  for job in jobs track by job.id"></select>
+                            </div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="lossType">Loss Type:</label>
+                            <div class="col-xs-2">
+                                <select class="form-control input-sm" ng-model="controlPointRun.lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
+                            </div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="lossReason">Loss Reason:</label>
+                            <div class="col-xs-2">
+                                <select class="form-control input-sm" ng-model="controlPointRun.lossReason" ng-options="lossReason.code for lossReason in lossReasons track by lossType.id"></select>
+                            </div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="qualityQuantity">Qty:</label>
+                            <div class="col-xs-1">
+                                <input type="text" class="form-control input-sm" id="qualityQuantity" placeholder="" name="qualityQuantity" ng-model="qualityQuantity">
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click='addQualityRow()'>Add</button>
+                        </div>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Job</th>
+                                    <th>Quantity</th>
+                                    <th>Type</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="qualityRow in qualityRows">
+                                    <td>{{qualityRow.item}}</td>                                                
+                                    <td>{{qualityRow.job}}</td>
+                                    <td>{{qualityRow.quantity}}</td>
+                                    <td>{{qualityRow.type}}</td>
+                                    <td>{{qualityRow.category}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div id="hr" class="tab-pane fade">
+
+                    <div class="form-group">
+                        <div class="form">
+
+
+                           <label class="col-xs-1 col-form-label col-form-label-sm" for="manpowerType">Manpower Type:</label>
+                            <div class="col-xs-2">
+                                <select class="form-control input-sm" ng-model="controlPointRun.manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
+                            </div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="quantity">Quantity:</label>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
+                            </div>
+
+
+                            <button type="button" class="btn btn-default" >Add</button>
+                        </div>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Job No</th>
+                                    <th>Company</th>
+                                    <th>Contract</th>
+                                    <th>Help</th>
+                                    <th>Other </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>

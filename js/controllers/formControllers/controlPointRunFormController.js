@@ -1,9 +1,9 @@
 
-app.controller('productionFormController', function ($scope, $timeout, productionService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
+app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
 
 
     //main
-    $scope.production = {};
+    $scope.controlPointRun = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
@@ -67,7 +67,7 @@ app.controller('productionFormController', function ($scope, $timeout, productio
     }
     $scope.loadManpowerTypes = function () {
 
-        alert("ghhj");
+        
         manpowerTypeService.getAll().then(function (response) {
             $scope.manpowerTypes = response.data;
         });
@@ -123,19 +123,19 @@ app.controller('productionFormController', function ($scope, $timeout, productio
     }
 
     $scope.addManpower = function () {
-        if ($scope.production.manpowerList == undefined) {
-            $scope.production.manpowerList = [];
+        if ($scope.controlPointRun.manpowerList == undefined) {
+            $scope.controlPointRun.manpowerList = [];
         }
         var manpowerList = {manpowerType: $scope.manpowerType, quantity: $scope.manpowerQuantity};
-        $scope.production.manpowerList.push(manpowerList);
+        $scope.controlPointRun.manpowerList.push(manpowerList);
         $scope.manpowerType = {};
         $scope.manpowerQuantity = '';
     };
 
     $scope.save = function () {
 
-        $scope.production.productionDate = $('#productionDate').val();
-        productionService.save($scope.production).then(
+        $scope.controlPointRun.productionDate = $('#productionDate').val();
+        controlPointRunService.save($scope.controlPointRun).then(
                 function (response) {
                     if (response.data) {
                         //alert(response.data);
@@ -154,7 +154,7 @@ app.controller('productionFormController', function ($scope, $timeout, productio
                 }
         );
     }
-    $('#productionModal').on('show.bs.modal', function () {
+    $('#controlPointRunModal').on('show.bs.modal', function () {
         $scope.loadShifts();
         $scope.loadJobs();
         $scope.loadControlPoints();
@@ -163,10 +163,10 @@ app.controller('productionFormController', function ($scope, $timeout, productio
         $scope.loadLossReasons();
         $scope.loadManpowerTypes();
         $scope.saveButtonText = 'Save';
-        if (productionService.toEdit.id != undefined) {
+        if (controlPointRunService.toEdit.id != undefined) {
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.production = productionService.toEdit;
+                $scope.controlPointRun = controlPointRunService.toEdit;
             }, 500);
         }
     })
