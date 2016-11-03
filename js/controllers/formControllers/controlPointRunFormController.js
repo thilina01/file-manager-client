@@ -122,12 +122,12 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.hrClear();
     }
 
-    $scope.addManpower = function () {
-        if ($scope.controlPointRun.manpowerList == undefined) {
-            $scope.controlPointRun.manpowerList = [];
+    $scope.addControlPointRunManpower = function () {
+        if ($scope.controlPointRun.controlPointRunManpowerList == undefined) {
+            $scope.controlPointRun.controlPointRunManpowerList = [];
         }
-        var manpowerList = {manpowerType: $scope.manpowerType, quantity: $scope.manpowerQuantity};
-        $scope.controlPointRun.manpowerList.push(manpowerList);
+        var controlPointRunManpower = {manpowerType: $scope.manpowerType, quantity: $scope.manpowerQuantity};
+        $scope.controlPointRun.controlPointRunManpowerList.push(controlPointRunManpower);
         $scope.manpowerType = {};
         $scope.manpowerQuantity = '';
     };

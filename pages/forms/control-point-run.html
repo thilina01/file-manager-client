@@ -23,7 +23,7 @@
                         <script type="text/javascript">
                                     $(function () {
                                         $('#runDatetimepicker').datetimepicker({
-                                        format : 'YYYY-MM-DD'
+                                            format: 'YYYY-MM-DD'
                                         });
                                     });
                         </script>
@@ -159,36 +159,33 @@
                         <div class="form">
 
 
-                           <label class="col-xs-1 col-form-label col-form-label-sm" for="manpowerType">Manpower Type:</label>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="manpowerType">Manpower Type:</label>
                             <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="controlPointRun.manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
+                                <select class="form-control input-sm" ng-model="manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
                             </div>
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="quantity">Quantity:</label>
                             <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="quantity">
+                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="manpowerQuantity">
                             </div>
 
 
-                            <button type="button" class="btn btn-default" >Add</button>
+                            <button type="button" class="btn btn-default" ng-click="addControlPointRunManpower()">Add</button>
                         </div>
 
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Job No</th>
-                                    <th>Company</th>
-                                    <th>Contract</th>
-                                    <th>Help</th>
-                                    <th>Other </th>
+                                    <th>Type</th>
+                                    <th>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+
+
+                                <tr ng-repeat="controlPointRunManpower in controlPointRun.controlPointRunManpowerList">
+                                    <td>{{controlPointRunManpower.manpowerType.type}}</td>    
+                                    <td>{{controlPointRunManpower.quantity}}</td>  
+
                             </tbody>
                         </table>
                     </div>
