@@ -11,6 +11,10 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
 
+
+    $scope.lossType = {};
+    $scope.lossReason = {};
+
     //auto 
 
     //production
@@ -67,19 +71,14 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
     }
     $scope.loadManpowerTypes = function () {
 
-        
+
         manpowerTypeService.getAll().then(function (response) {
             $scope.manpowerTypes = response.data;
         });
     }
-    $scope.addProductionRow = function () {
-        $scope.productionRows.push({'item': '', 'job': $scope.productionJobNo, 'quantity': $scope.productionQuantity, 'reason': ''});
-        $scope.productionClear();
-    };
-    $scope.addQualityRow = function () {
-        $scope.qualityRows.push({'item': '', 'job': $scope.qualityJobNo, 'quantity': $scope.qualityQuantity, 'type': '', category: ''});
-        $scope.qualityClear()();
-    };
+
+
+
 
     $scope.productionClear = function () {
         $scope.productionJobNo = '';
@@ -132,6 +131,32 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.manpowerQuantity = '';
     };
 
+    $scope.addControlPointRunLoss = function () {
+        if ($scope.controlPointRun.controlPointRunLossList == undefined) {
+            $scope.controlPointRun.controlPointRunLossList = [];
+        }
+        var controlPointRunLoss = {lossReason: $scope.lossReason, quantity: $scope.lossQuantity};
+
+        $scope.controlPointRun.controlPointRunLossList.push(controlPointRunLoss);
+
+        alert($scope.controlPointRun.controlPointRunLossList)
+        $scope.lossReason = {};
+        $scope.lossQuantity = '';
+    };
+
+    $scope.addControlPointRunJob = function () {
+        
+        if ($scope.controlPointRun.controlPointRunJobList == undefined) {
+            $scope.controlPointRun.controlPointRunJobList = [];
+        }
+        var controlPointRunJob = {job: $scope.job, quantity: $scope.jobQuantity};
+
+        $scope.controlPointRun.controlPointRunJobList.push(controlPointRunJob);
+
+        alert($scope.controlPointRun.controlPointRunJobList)
+        $scope.job = {};
+        $scope.jobQuantity = '';
+    };
     $scope.save = function () {
 
         $scope.controlPointRun.runDate = $('#runDate').val();

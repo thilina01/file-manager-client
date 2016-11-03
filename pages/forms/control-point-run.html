@@ -60,7 +60,6 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" data-target="#production">Production</a></li>
                 <li><a data-toggle="tab" data-target="#quality">Quality</a></li>
-                <li><a data-toggle="tab" data-target="#maintenance">Maintenance</a></li>
                 <li><a data-toggle="tab" data-target="#hr">HR</a></li>
             </ul>
 
@@ -71,14 +70,14 @@
 
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="productionJobNo">job No:</label>
                             <div class="col-xs-3">
-                                <select class="form-control input-sm" ng-model="controlPointRun.job" ng-options="job.id for job in jobs track by job.id"></select>
+                                <select class="form-control input-sm" ng-model="job" ng-options="job.id for job in jobs track by job.id"></select>
                             </div>
                             <div class="col-xs-1"></div>
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="productionQuantity">Qty:</label>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="jobQuantity">Qty:</label>
                             <div class="col-xs-3">
-                                <input type="text" class="form-control input-sm" id="productionQuantity" placeholder="" name="productionQuantity" ng-model="productionQuantity">
+                                <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
                             </div>
-                            <button type="button" class="btn btn-default" ng-click="addProductionRow()">Add</button>
+                            <button type="button" class="btn btn-default" ng-click="addControlPointRunJob()">Add</button>
                         </div>
 
                         <table class="table table-hover table-striped">
@@ -92,14 +91,12 @@
                             </thead>
                             <tbody>
 
-
-
-                                <tr ng-repeat="productionRow in productionRows">
-                                    <td>{{productionRow.item}}</td>                                                
-                                    <td>{{productionRow.job}}</td>
-                                    <td>{{productionRow.quantity}}</td>
-
+                                <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
+                                    <td>{{controlPointRunJob.item.code}}</td>  
+                                    <td>{{controlPointRunJob.job.id}}</td>   
+                                    <td>{{controlPointRunJob.job.quantity}}</td> 
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -110,42 +107,36 @@
                     <div class="form">
                         <div class="form-group row">
 
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="qualityJobNo">job No:</label>
-                            <div class="col-xs-1">
-                                <select class="form-control input-sm" ng-model="controlPointRun.job" ng-options="job.id  for job in jobs track by job.id"></select>
-                            </div>
+
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="lossType">Loss Type:</label>
                             <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="controlPointRun.lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
+                                <select class="form-control input-sm" ng-model="lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
                             </div>
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="lossReason">Loss Reason:</label>
                             <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="controlPointRun.lossReason" ng-options="lossReason.code for lossReason in lossReasons track by lossType.id"></select>
+                                <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.code for lossReason in lossType.lossReasonList track by lossType.id"></select>
                             </div>
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="qualityQuantity">Qty:</label>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="quantity">Qty:</label>
                             <div class="col-xs-1">
-                                <input type="text" class="form-control input-sm" id="qualityQuantity" placeholder="" name="qualityQuantity" ng-model="qualityQuantity">
+                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="lossQuantity">
                             </div>
-                            <button type="button" class="btn btn-default" ng-click='addQualityRow()'>Add</button>
+                            <button type="button" class="btn btn-default" ng-click='addControlPointRunLoss()'>Add</button>
                         </div>
 
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Item</th>
-                                    <th>Job</th>
+                                    <th>Loss Type</th>
+                                    <th>Loss Reason</th>
                                     <th>Quantity</th>
-                                    <th>Type</th>
-                                    <th>Category</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="qualityRow in qualityRows">
-                                    <td>{{qualityRow.item}}</td>                                                
-                                    <td>{{qualityRow.job}}</td>
-                                    <td>{{qualityRow.quantity}}</td>
-                                    <td>{{qualityRow.type}}</td>
-                                    <td>{{qualityRow.category}}</td>
+
+                                <tr ng-repeat="controlPointRunLoss in controlPointRun.controlPointRunLossList">
+                                    <td>{{controlPointRunLoss.lossReason.type}}</td>   
+                                    <td>{{controlPointRunLoss.lossReason.reason}}</td>   
+                                    <td>{{controlPointRunLoss.quantity}}</td>  
                                 </tr>
                             </tbody>
                         </table>
