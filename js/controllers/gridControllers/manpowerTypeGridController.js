@@ -28,7 +28,7 @@ app.controller('manpowerTypeGridController', function ($http, $scope, $cookies, 
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadScrapTypes = function () {
+    $scope.loadManpowerTypes = function () {
         $scope.dataTable.clear();
         manpowerTypeService.getAll().then(function (response) {
             $scope.manpowerTypes = response.data;

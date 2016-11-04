@@ -21,9 +21,10 @@ app.controller('controlPointRunGridController', function ($http, $scope, $cookie
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'runDate'},
-            {data: 'shift'},
+            {data: 'shift.code'},
             {data: 'controlPoint.code'},
-            {data: 'workingDuretion'}
+            {data: 'breakdownCount'},
+            {data: 'workingDuration'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)

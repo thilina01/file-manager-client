@@ -7,6 +7,7 @@ app.controller('controlPointRunManpowerGridController', function ($http, $scope,
             $('#controlPointRunManpowerModal').modal('show');
         }
     }
+    
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
             controlPointRunManpowerService.delete($scope.dataTable.row('.selected').data().id).then(
@@ -20,16 +21,17 @@ app.controller('controlPointRunManpowerGridController', function ($http, $scope,
     $scope.table = $('#controlPointRunManpowerTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointRunManpower.manpowerTypeId'},
-            {data: 'controlPointRunManpower.count'},
+            {data: 'count'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
+    
     $scope.loadControlPointRunManpowers = function () {
         $scope.dataTable.clear();
         controlPointRunManpowerService.getAll().then(function (response) {
             $scope.controlPointRunManpowers = response.data;
+            alert(controlPointRunManpowers);
             $scope.dataTable.rows.add($scope.controlPointRunManpowers).draw();
         });
     }
@@ -37,7 +39,7 @@ app.controller('controlPointRunManpowerGridController', function ($http, $scope,
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#controlPointRunManpowerGridModal').on('show.bs.modal', function () {
-        $scope.loadControlPointRunJobs();
+        $scope.loadControlPointRunManpowers();
     })
     $('#controlPointRunManpowerGridModal').on('hidden.bs.modal', function () {
 

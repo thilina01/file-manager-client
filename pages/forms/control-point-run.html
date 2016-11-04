@@ -125,15 +125,13 @@
                                 <tr>
                                     <th>Loss Type</th>
                                     <th>Loss Reason</th>
-                                    <th>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr ng-repeat="controlPointRunLoss in controlPointRun.controlPointRunLossList">
-                                    <td>{{controlPointRunLoss.lossReason.type}}</td>   
-                                    <td>{{controlPointRunLoss.lossReason.reason}}</td>   
-                                    <td>{{controlPointRunLoss.quantity}}</td>  
+                                    <td>{{controlPointRunLoss.lossReason.lossType.type}}</td>   
+                                    <td>{{controlPointRunLoss.lossReason.reason}}</td>  
                                 </tr>
                             </tbody>
                         </table>

@@ -20,9 +20,11 @@ app.controller('controlPointRunJobGridController', function ($http, $scope, $coo
     $scope.table = $('#controlPointRunJobTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointRunJob.jobId'},
-            {data: 'controlPointRunJob.jobQuantity'},
-            {data: 'controlPointRunJob.job.item.code'},
+            {data: 'controlPointRun.runDate'},
+            {data: 'controlPointRun.controlPoint.code'},
+            {data: 'controlPointRun.shift.code'},
+            {data: 'job.id'},
+            {data: 'quantity'}
            
         ],
         dom: 'Bfrtip',

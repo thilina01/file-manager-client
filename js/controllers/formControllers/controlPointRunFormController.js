@@ -125,7 +125,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunManpowerList == undefined) {
             $scope.controlPointRun.controlPointRunManpowerList = [];
         }
-        var controlPointRunManpower = {manpowerType: $scope.manpowerType, quantity: $scope.manpowerQuantity};
+        var controlPointRunManpower = {manpowerType: $scope.manpowerType, count: $scope.manpowerQuantity};
         $scope.controlPointRun.controlPointRunManpowerList.push(controlPointRunManpower);
         $scope.manpowerType = {};
         $scope.manpowerQuantity = '';
@@ -135,17 +135,15 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunLossList == undefined) {
             $scope.controlPointRun.controlPointRunLossList = [];
         }
-        var controlPointRunLoss = {lossReason: $scope.lossReason, quantity: $scope.lossQuantity};
+        var controlPointRunLoss = {lossReason: $scope.lossReason};
 
         $scope.controlPointRun.controlPointRunLossList.push(controlPointRunLoss);
 
-        alert($scope.controlPointRun.controlPointRunLossList)
         $scope.lossReason = {};
-        $scope.lossQuantity = '';
     };
 
     $scope.addControlPointRunJob = function () {
-        
+
         if ($scope.controlPointRun.controlPointRunJobList == undefined) {
             $scope.controlPointRun.controlPointRunJobList = [];
         }
