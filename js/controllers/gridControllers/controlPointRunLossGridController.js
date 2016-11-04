@@ -20,9 +20,8 @@ app.controller('GridController', function ($http, $scope, $cookies, controlPoint
     $scope.table = $('#controlPointRunLossTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointRunLoss.lossType'},
-            {data: 'controlPointRunLoss.lossReason'},
-            {data: 'controlPointRunLoss.lossQuantity'},
+            {data: 'controlPointRunLoss.lossReason.lossType.type'},
+            {data: 'controlPointRunLoss.lossReason.reason'},
             
         ],
         dom: 'Bfrtip',
