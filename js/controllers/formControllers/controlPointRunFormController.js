@@ -1,7 +1,5 @@
 
 app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
-
-
     //main
     $scope.controlPointRun = {};
     $scope.controlPoints = [];
@@ -11,31 +9,11 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
 
-
     $scope.lossType = {};
-    $scope.lossReason = {};
 
-    //auto 
-
-    //production
-
-    // $scope.productionQuantity = '';
-    //Quality
-    // $scope.qualityJobNo = '';
-    //$scope.reason = '';
-    //$scope.code = '';
-    // $scope.qualityQuantity = '';
-    //maintenance
-    // $scope.maintenanceJobNo = '';
     $scope.machines = [];
-    //$scope.noOfBreakdown = '';
-    //$scope.machinerunningTime = '';
-    //Hr
+
     $scope.saveButtonText = 'Save';
-    $scope.productionRows = [];
-    $scope.qualityRows = [];
-    $scope.maintenanceRows = [];
-    $scope.hrRows = [];
 
     $scope.loadShifts = function () {
         shiftService.getAll().then(function (response) {
@@ -135,10 +113,9 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunLossList == undefined) {
             $scope.controlPointRun.controlPointRunLossList = [];
         }
-        var controlPointRunLoss = {lossReason: $scope.lossReason};
 
+        var controlPointRunLoss = {lossType: $scope.lossType, lossReason: $scope.lossReason};
         $scope.controlPointRun.controlPointRunLossList.push(controlPointRunLoss);
-
         $scope.lossReason = {};
     };
 
@@ -148,10 +125,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
             $scope.controlPointRun.controlPointRunJobList = [];
         }
         var controlPointRunJob = {job: $scope.job, quantity: $scope.jobQuantity};
-
         $scope.controlPointRun.controlPointRunJobList.push(controlPointRunJob);
-
-        alert($scope.controlPointRun.controlPointRunJobList)
         $scope.job = {};
         $scope.jobQuantity = '';
     };

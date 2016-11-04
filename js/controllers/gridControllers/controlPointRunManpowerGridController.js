@@ -21,6 +21,10 @@ app.controller('controlPointRunManpowerGridController', function ($http, $scope,
     $scope.table = $('#controlPointRunManpowerTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
+            {data: 'controlPointRun.controlPoint.code'},
+            {data: 'controlPointRun.runDate'},
+            {data: 'controlPointRun.shift.code'},
+            {data: 'manpowerType.type'},
             {data: 'count'}
         ],
         dom: 'Bfrtip',
@@ -31,7 +35,7 @@ app.controller('controlPointRunManpowerGridController', function ($http, $scope,
         $scope.dataTable.clear();
         controlPointRunManpowerService.getAll().then(function (response) {
             $scope.controlPointRunManpowers = response.data;
-            alert(controlPointRunManpowers);
+            console.log($scope.controlPointRunManpowers);
             $scope.dataTable.rows.add($scope.controlPointRunManpowers).draw();
         });
     }

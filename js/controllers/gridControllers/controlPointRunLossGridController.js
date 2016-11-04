@@ -20,9 +20,11 @@ app.controller('controlPointRunLossGridController', function ($http, $scope, $co
     $scope.table = $('#controlPointRunLossTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointRunLoss.lossReason.lossType.type'},
-            {data: 'controlPointRunLoss.lossReason.reason'},
-            
+            {data: 'controlPointRun.controlPoint.code'},
+            {data: 'controlPointRun.runDate'},
+            {data: 'controlPointRun.shift.code'},
+            {data: 'lossReason.lossType.type'},
+            {data: 'lossReason.reason'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
