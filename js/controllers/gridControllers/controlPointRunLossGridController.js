@@ -1,4 +1,4 @@
-app.controller('GridController', function ($http, $scope, $cookies, controlPointRunLossService, dataTableService, appService) {
+app.controller('controlPointRunLossGridController', function ($http, $scope, $cookies, controlPointRunLossService, dataTableService, appService) {
 
     $scope.edit = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
