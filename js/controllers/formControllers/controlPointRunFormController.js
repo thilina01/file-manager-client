@@ -15,6 +15,8 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
 
     $scope.saveButtonText = 'Save';
 
+    $scope.jobQuantity = '';
+
     $scope.loadShifts = function () {
         shiftService.getAll().then(function (response) {
             $scope.shifts = response.data;
@@ -82,21 +84,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.other = '';
     }
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
-        //main
-        $scope.date = '';
-        $scope.shift = '';
-        $scope.controlPointCode = '';
-        //auto 
-        $scope.controlPointName = '';
-        //production
-        $scope.productionClear();
-        //Quality
-        $scope.qualityClear();
-        //maintenance
-        $scope.maintenanceClear();
-        //Hr
-        $scope.hrClear();
+        $scope.controlPointRun = {};
     }
 
     $scope.addControlPointRunManpower = function () {
@@ -118,9 +106,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.controlPointRun.controlPointRunLossList.push(controlPointRunLoss);
         $scope.lossReason = {};
     };
-
     $scope.addControlPointRunJob = function () {
-
         if ($scope.controlPointRun.controlPointRunJobList == undefined) {
             $scope.controlPointRun.controlPointRunJobList = [];
         }

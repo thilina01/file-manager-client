@@ -83,12 +83,14 @@
                                 <th>Item</th>
                                 <th>Job</th>
                                 <th>Quantity</th>
+                                <th>Job Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
-                                <td>{{controlPointRunJob.item.code}}</td>  
+                                <td>{{controlPointRunJob.job.item.code}}</td>  
                                 <td>{{controlPointRunJob.job.id}}</td>   
+                                <td>{{controlPointRunJob.quantity}}</td> 
                                 <td>{{controlPointRunJob.job.quantity}}</td> 
                             </tr>
                         </tbody>
