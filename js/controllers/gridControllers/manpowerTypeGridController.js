@@ -39,7 +39,7 @@ app.controller('manpowerTypeGridController', function ($http, $scope, $cookies, 
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#manpowerTypeGridModal').on('shown.bs.modal', function () {
-        $scope.loadScrapTypes();
+        $scope.loadManpowerTypes();
     })
     $('#manpowerTypeGridModal').on('hidden.bs.modal', function () {
 
