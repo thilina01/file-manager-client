@@ -4,7 +4,11 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
     $scope.saveButtonText = 'Save';
 
     
-    
+    $scope.loadWorkcenters = function () {
+        workCenterService.getAll().then(function (response) {
+            $scope.workcenters = response.data;
+        })
+    }
 
     $scope.clear = function () {
         // alert($scope.code + ' ' + $scope.name);
