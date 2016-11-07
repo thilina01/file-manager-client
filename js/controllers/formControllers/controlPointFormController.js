@@ -4,9 +4,9 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
     $scope.saveButtonText = 'Save';
 
     
-    $scope.loadWorkcenters = function () {
+    $scope.loadWorkCenters = function () {
         workCenterService.getAll().then(function (response) {
-            $scope.workcenters = response.data;
+            $scope.workCenters = response.data;
         })
     }
 
@@ -52,7 +52,7 @@ app.controller('controlPointFormController', function ($scope, $timeout, $cookie
     }
 
     $('#controlPointModal').on('show.bs.modal', function () {
-        $scope.loadWorkcenters();
+        $scope.loadWorkCenters();
         $scope.saveButtonText = 'Save';
         if (controlPointService.toEdit.id != undefined) {
             $timeout(function () {
