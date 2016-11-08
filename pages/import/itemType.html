@@ -1,24 +1,25 @@
-<div class="modal fade" id="importPaintModal" role="dialog" ng-controller="importPaintController">
+<div class="modal fade" id="importItemTypeModal" role="dialog" ng-controller="importItemTypeController">
     <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Paint</h4>
-            </div> 
-            <div class="modal-body">           
-            <label class="btn btn-default btn-file" for="file">
-                Browse 
-                <input type="file" name="file" id="file" ng-model="file" onchange="angular.element(this).scope().setFile(this.files[0])" >
-            </label>
-                <table id="importPaintTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                <h4 class="modal-title">Item Types</h4>
+            </div>
+            <div class="modal-body">
+
+                <label class="btn btn-default btn-file" for="file">
+                    Browse 
+                    <input type="file" name="file" id="file" ng-model="file" onchange="angular.element(this).scope().setFile(this.files[0])" >
+                </label>
+                <table id="importItemTypeTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Code</th>
-                            <th>Description</th>
+                            <th>Type</th>
                         </tr>
-                    </thead>
+                    </thead>                    
                 </table>
             </div>
             <div class="modal-footer">
