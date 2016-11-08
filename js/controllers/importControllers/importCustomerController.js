@@ -59,6 +59,8 @@ app.controller('importCustomerController', function ($scope, $timeout, $cookies,
 
             for (var i = 0; i < $scope.customers.length; i++) {
                 console.log($scope.customers[i].x_code);
+                 $scope.customers[i].incoTerm = {name: incoTerm_name};
+                $scope.customers[i].currency = {code: currency_code};
             }
             $scope.dataTable.rows.add($scope.customers).draw();
         };
