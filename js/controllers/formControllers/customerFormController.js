@@ -16,7 +16,7 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
     }
 
     $scope.isValid = function () {
-        if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == ''  || $scope.customer.contact == '' ||
+        if ($scope.customer.code == '' || $scope.customer.name == '' || $scope.customer.officeAddress == '' || $scope.customer.consignee == ''  || 
                 $scope.customer.phoneNo == '' || $scope.customer.fax == '' || $scope.customer.paymentTerm == '' || angular.equals($scope.customer.incoterm, {}) || angular.equals($scope.customer.saleType, {}) || 
                 angular.equals($scope.customer.currency, {}) || angular.equals($scope.customer.country, {}) || $scope.customer.finalDestination == '' || $scope.customer.continent == '' ) {
             return false;
@@ -86,6 +86,8 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
            $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.customer = customerService.toEdit;
+                alert('$scope.customer.id');
+                alert($scope.customer.id);
             }, 500);
         }
     })
