@@ -6,6 +6,10 @@ app.service('countryService', function ($http, appService) {
     this.save = function (country) {
         return  $http.post(apiURL, country, appService.getJsonHeaders());
     };
+    
+    this.saveMany = function (countries) {
+        return  $http.post(apiURL+'many', countries, appService.getJsonHeaders());
+    };
 
     this.getAll = function () {
         return $http.get(apiURL, appService.getJsonHeaders());

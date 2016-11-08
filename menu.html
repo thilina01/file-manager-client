@@ -178,6 +178,16 @@
                         <li><a data-toggle="modal" data-target="#mtbfChartModal">MTBF</a></li>
 
                     </ul>
+                </li><li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
+                        Import
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">                       
+                        <li><a data-toggle="modal" data-target="#importCountryModal">Country</a></li>
+                        <li><a data-toggle="modal" data-target="#importItemModal">Item</a></li>
+                        <li><a data-toggle="modal" data-target="#importPaintModal">Paint</a></li>
+                    </ul>
                 </li>
                 <li ng-repeat="menu in menus">
                     <a data-toggle="modal" href="" data-target="{{menu.target}}" >{{menu.name}}</a>
@@ -264,3 +274,6 @@
 <div ng-include="'pages/chart/mttr.html'"></div>
 <div ng-include="'pages/chart/mtbf.html'"></div>
 
+<div ng-include="'pages/import/country.html'"></div>
+<div ng-include="'pages/import/item.html'"></div>
+<div ng-include="'pages/import/paint.html'"></div>
