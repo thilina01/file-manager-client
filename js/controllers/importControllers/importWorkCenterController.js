@@ -58,8 +58,8 @@ app.controller('importWorkCenterController', function ($scope, $timeout, $cookie
             });
 
             for (var i = 0; i < $scope.workCenters.length; i++) {
-                var lossType_code = $scope.workCenters[i].lossType_code;
-                $scope.workCenters[i].lossType = {code: lossType_code};
+                var costCenter_name = $scope.workCenters[i].costCenter_name;
+                $scope.workCenters[i].costCenter = {name: costCenter_name};
             }
             $scope.dataTable.rows.add($scope.workCenters).draw();
         };
