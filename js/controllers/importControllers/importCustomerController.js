@@ -58,9 +58,15 @@ app.controller('importCustomerController', function ($scope, $timeout, $cookies,
             });
 
             for (var i = 0; i < $scope.customers.length; i++) {
-                console.log($scope.customers[i].x_code);
-                 $scope.customers[i].incoTerm = {name: incoTerm_name};
+                
+                var incoterm_name = $scope.customers[i].incoterm_name;
+                var currency_code = $scope.customers[i].currency_code;
+                var saleType_name = $scope.customers[i].saleType_name;
+                var country_name = $scope.customers[i].country_name;
+                 $scope.customers[i].incoterm = {name: incoterm_name};
                 $scope.customers[i].currency = {code: currency_code};
+                $scope.customers[i].saleType = {name: saleType_name};
+                $scope.customers[i].country = {name: country_name};
             }
             $scope.dataTable.rows.add($scope.customers).draw();
         };
@@ -81,12 +87,12 @@ app.controller('importCustomerController', function ($scope, $timeout, $cookies,
             {data: 'phoneNo'},
             {data: 'fax'},
             {data: 'paymentTerm'},
-            {data: 'incoterm.code'},
-            {data: 'saleType.code'},
+            {data: 'incoterm.name'},
+            {data: 'saleType.name'},
             {data: 'vatNo'},
             {data: 'sVatNo'},
             {data: 'currency.code'},
-            {data: 'country.code'},
+            {data: 'country.name'},
             {data: 'finalDestination'},
             {data: 'continent'},
             {data: 'note'}
