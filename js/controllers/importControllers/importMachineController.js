@@ -58,8 +58,12 @@ app.controller('importMachineController', function ($scope, $timeout, $cookies, 
             });
 
             for (var i = 0; i < $scope.machines.length; i++) {
-                var lossType_code = $scope.machines[i].lossType_code;
-                $scope.machines[i].lossType = {code: lossType_code};
+                var workCenter_code = $scope.machines[i].workCenter_code;
+                var workCenter_name = $scope.machines[i].workCenter_name;
+                /*console.log(machineType_type);
+                 console.log(paint_code);
+                 console.log(paint_description);*/
+                $scope.machines[i].workCenter = {code: workCenter_code,name: workCenter_name};
             }
             $scope.dataTable.rows.add($scope.machines).draw();
         };
@@ -73,7 +77,8 @@ app.controller('importMachineController', function ($scope, $timeout, $cookies, 
         columns: [
             {data: 'code'},
             {data: 'name'},
-            {data: 'workCenter.code'}
+            {data: 'workCenter.code'},
+            {data: 'workCenter.name'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
