@@ -58,8 +58,8 @@ app.controller('importControlPointController', function ($scope, $timeout, $cook
             });
 
             for (var i = 0; i < $scope.controlPoints.length; i++) {
-                var lossType_code = $scope.controlPoints[i].lossType_code;
-                $scope.controlPoints[i].lossType = {code: lossType_code};
+                var workCenter_code = $scope.controlPoints[i].workCenter_code;
+                $scope.controlPoints[i].workCenter = {code: workCenter_code};
             }
             $scope.dataTable.rows.add($scope.controlPoints).draw();
         };

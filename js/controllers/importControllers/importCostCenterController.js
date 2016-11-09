@@ -58,11 +58,11 @@ app.controller('importCostCenterController', function ($scope, $timeout, $cookie
             });
 
             for (var i = 0; i < $scope.costCenters.length; i++) {
-                var section_name = $scope.costCenters[i].section_name;
+                var section_code = $scope.costCenters[i].section_code;
                 /*console.log(costCenterType_type);
                  console.log(paint_code);
                  console.log(paint_description);*/
-                $scope.costCenters[i].section = {name: section_name};
+                $scope.costCenters[i].section = {code: section_code};
             }
             $scope.dataTable.rows.add($scope.costCenters).draw();
         };
@@ -76,7 +76,7 @@ app.controller('importCostCenterController', function ($scope, $timeout, $cookie
         columns: [
             {data: 'code'},
             {data: 'name'},
-            {data: 'section.name'}
+            {data: 'section.code'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)

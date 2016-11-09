@@ -58,8 +58,8 @@ app.controller('importWorkCenterController', function ($scope, $timeout, $cookie
             });
 
             for (var i = 0; i < $scope.workCenters.length; i++) {
-                var costCenter_name = $scope.workCenters[i].costCenter_name;
-                $scope.workCenters[i].costCenter = {name: costCenter_name};
+                var costCenter_code = $scope.workCenters[i].costCenter_code;
+                $scope.workCenters[i].costCenter = {code: costCenter_code};
             }
             $scope.dataTable.rows.add($scope.workCenters).draw();
         };
@@ -73,7 +73,7 @@ app.controller('importWorkCenterController', function ($scope, $timeout, $cookie
         columns: [
             {data: 'code'},
             {data: 'name'},
-            {data: 'costCenter.name'}
+            {data: 'costCenter.code'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
