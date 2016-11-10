@@ -77,7 +77,7 @@ app.controller('importControlPointRunController', function ($scope, $timeout, $c
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'runDate'},
-            {data: 'workingDuretion'},
+            {data: 'workingDuration'},
             {data: 'controlPoint.code'},
             {data: 'shift.code'},
             {data: 'breakdownCount'}
