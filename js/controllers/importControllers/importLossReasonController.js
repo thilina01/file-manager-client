@@ -71,10 +71,11 @@ app.controller('importLossReasonController', function ($scope, $timeout, $cookie
     $scope.table = $('#importLossReasonTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
+            {data: 'lossType.code'},
             {data: 'code'},
             {data: 'reason'},
-            {data: 'reasonInSinhala'},
-            {data: 'lossType.code'}
+            {data: 'reasonInSinhala'}
+
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
