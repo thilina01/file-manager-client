@@ -1,12 +1,12 @@
-app.controller('importLossReasonController', function ($scope, $timeout, $cookies, dataTableService, accountService, appService, lossReasonService) {
+app.controller('importControlPointRunController', function ($scope, $timeout, $cookies, dataTableService, accountService, appService, controlPointRunService) {
     $scope.clear = function () {
-        $scope.lossReasons = [];
+        $scope.controlPointRuns = [];
         $scope.dataTable.clear();
-        $scope.dataTable.rows.add($scope.lossReasons).draw();
+        $scope.dataTable.rows.add($scope.controlPointRuns).draw();
     }
     $scope.save = function () {
 
-        lossReasonService.saveMany($scope.lossReasons).then(
+        controlPointRunService.saveMany($scope.controlPointRuns).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -53,35 +53,40 @@ app.controller('importLossReasonController', function ($scope, $timeout, $cookie
                 var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
 
                 //$("#my_file_output").html(sCSV);
-                $scope.lossReasons = oJS;
+                $scope.controlPointRuns = oJS;
                 console.log(oJS)
             });
 
-            for (var i = 0; i < $scope.lossReasons.length; i++) {
-                var lossType_code = $scope.lossReasons[i].lossType_code;
-                $scope.lossReasons[i].lossType = {code: lossType_code};
+            for (var i = 0; i < $scope.controlPointRuns.length; i++) {
+                var controlPoint_code = $scope.controlPointRuns[i].controlPoint_code;
+                var shift_code = $scope.controlPointRuns[i].shift_code;
+                /*console.log(controlPointRunType_type);
+                 console.log(paint_code);
+                 console.log(paint_description);*/
+                $scope.controlPointRuns[i].controlPoint = {code: controlPoint_code};
+                $scope.controlPointRuns[i].shift = {code: shift_code};
             }
-            $scope.dataTable.rows.add($scope.lossReasons).draw();
+            $scope.dataTable.rows.add($scope.controlPointRuns).draw();
         };
 
         reader.readAsBinaryString($file);
     }
 
-    $scope.lossReasons = [];
-    $scope.table = $('#importLossReasonTable');
+    $scope.controlPointRuns = [];
+    $scope.table = $('#importControlPointRunTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'lossType.code'},
-            {data: 'code'},
-            {data: 'reason'},
-            {data: 'reasonInSinhala'}
-
+            {data: 'runDate'},
+            {data: 'workingDuration'},
+            {data: 'controlPoint.code'},
+            {data: 'shift.code'},
+            {data: 'breakdownCount'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
 
 
-    $('#importLossReasonModal').on('show.bs.modal', function () {
+    $('#importControlPointRunModal').on('show.bs.modal', function () {
     })
 });

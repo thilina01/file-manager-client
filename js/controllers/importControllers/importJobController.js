@@ -1,12 +1,12 @@
-app.controller('importLossReasonController', function ($scope, $timeout, $cookies, dataTableService, accountService, appService, lossReasonService) {
+app.controller('importJobController', function ($scope, $timeout, $cookies, dataTableService, accountService, appService, jobService) {
     $scope.clear = function () {
-        $scope.lossReasons = [];
+        $scope.jobs = [];
         $scope.dataTable.clear();
-        $scope.dataTable.rows.add($scope.lossReasons).draw();
+        $scope.dataTable.rows.add($scope.jobs).draw();
     }
     $scope.save = function () {
 
-        lossReasonService.saveMany($scope.lossReasons).then(
+        jobService.saveMany($scope.jobs).then(
                 function (response) {
                     if (response.data) {
                         $scope.showSuccess("saved");
@@ -53,35 +53,40 @@ app.controller('importLossReasonController', function ($scope, $timeout, $cookie
                 var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);
 
                 //$("#my_file_output").html(sCSV);
-                $scope.lossReasons = oJS;
+                $scope.jobs = oJS;
                 console.log(oJS)
             });
 
-            for (var i = 0; i < $scope.lossReasons.length; i++) {
-                var lossType_code = $scope.lossReasons[i].lossType_code;
-                $scope.lossReasons[i].lossType = {code: lossType_code};
+            for (var i = 0; i < $scope.jobs.length; i++) {
+                var item_code = $scope.jobs[i].item_code;
+                var jobType_code = $scope.jobs[i].jobType_code;
+                /*console.log(jobType_type);
+                 console.log(paint_code);
+                 console.log(paint_description);*/
+                $scope.jobs[i].item = {code: item_code};
+                $scope.jobs[i].jobType = {code: jobType_code};
             }
-            $scope.dataTable.rows.add($scope.lossReasons).draw();
+            $scope.dataTable.rows.add($scope.jobs).draw();
         };
 
         reader.readAsBinaryString($file);
     }
 
-    $scope.lossReasons = [];
-    $scope.table = $('#importLossReasonTable');
+    $scope.jobs = [];
+    $scope.table = $('#importJobTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'lossType.code'},
-            {data: 'code'},
-            {data: 'reason'},
-            {data: 'reasonInSinhala'}
-
+            {data: 'jobNo'},
+            {data: 'jobDate'},
+            {data: 'quantity'},
+            {data: 'item.code'},
+            {data: 'jobType.code'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
 
 
-    $('#importLossReasonModal').on('show.bs.modal', function () {
+    $('#importJobModal').on('show.bs.modal', function () {
     })
 });

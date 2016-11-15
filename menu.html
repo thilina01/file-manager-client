@@ -105,7 +105,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">                       
-                        <li><a data-toggle="modal" data-target="#planningModal">Planning</a></li>
+                        <li><a data-toggle="modal" data-target="#controlPointPlanModal">Planning</a></li>
 
                     </ul>
                 </li>
@@ -160,6 +160,8 @@
                         <li><a data-toggle="modal" data-target="#controlPointRunJobGridModal">Control point Job</a></li>
                         <li><a data-toggle="modal" data-target="#controlPointRunLossGridModal">Control point Loss</a></li>
                         <li><a data-toggle="modal" data-target="#controlPointRunManpowerGridModal">Control point Run Manpower</a></li>
+                        <li><a data-toggle="modal" data-target="#controlPointPlanManpowerGridModal">Control point Plan Manpower</a></li>
+                        <li><a data-toggle="modal" data-target="#controlPointPlanJobGridModal">Control point Plan Job</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -191,9 +193,13 @@
                         <li><a data-toggle="modal" data-target="#importItemTypeModal">Item Type</a></li>
                         <li><a data-toggle="modal" data-target="#importMachineModal">Machine</a></li>
                         <li><a data-toggle="modal" data-target="#importSectionModal">Section</a></li>
-                        <li><a data-toggle="modal" data-target="#importCostCenterModal">CostCenter</a></li>
-                        <li><a data-toggle="modal" data-target="#importWorkCenterModal">WorkCenter</a></li>
-                        <li><a data-toggle="modal" data-target="#importControlPointModal">ControlPoint</a></li>
+                        <li><a data-toggle="modal" data-target="#importCostCenterModal">Cost Center</a></li>
+                        <li><a data-toggle="modal" data-target="#importWorkCenterModal">Work Center</a></li>
+                        <li><a data-toggle="modal" data-target="#importControlPointModal">Control Point</a></li>
+                        <li><a data-toggle="modal" data-target="#importJobModal">Job</a></li>
+                        <li><a data-toggle="modal" data-target="#importControlPointRunModal">Control Point Run</a></li>
+                        <li><a data-toggle="modal" data-target="#importControlPointRunJobModal">Control Point Run Job</a></li>
+                        <li><a data-toggle="modal" data-target="#importLossReasonModal">Loss Reason</a></li>
                     </ul>
                 </li>
                 <li ng-repeat="menu in menus">
@@ -217,7 +223,7 @@
 <div ng-include="'pages/forms/section.html'"></div>
 <div ng-include="'pages/forms/work-center.html'"></div>
 <div ng-include="'pages/forms/control-point.html'"></div>
-<div ng-include="'pages/forms/planning.html'"></div>
+<div ng-include="'pages/forms/control-Point-plan.html'"></div>
 <div ng-include="'pages/forms/control-point-run.html'"></div>
 <div ng-include="'pages/forms/loss-reason.html'"></div>
 <div ng-include="'pages/forms/manpower-type.html'"></div>
@@ -271,6 +277,8 @@
 <div ng-include="'pages/grids/controlpointRunJob.html'"></div>
 <div ng-include="'pages/grids/controlpointRunLoss.html'"></div>
 <div ng-include="'pages/grids/controlpointRunManpower.html'"></div>
+<div ng-include="'pages/grids/controlpointPlanManpower.html'"></div>
+<div ng-include="'pages/grids/controlpointPlanJob.html'"></div>
 
 <div ng-include="'pages/chart/loss-reason.html'"></div>
 <div ng-include="'pages/chart/defect-type.html'"></div>
@@ -293,3 +301,7 @@
 <div ng-include="'pages/import/costCenter.html'"></div>
 <div ng-include="'pages/import/workCenter.html'"></div>
 <div ng-include="'pages/import/controlPoint.html'"></div>
+<div ng-include="'pages/import/job.html'"></div>
+<div ng-include="'pages/import/controlPointRun.html'"></div>
+<div ng-include="'pages/import/controlPointRunJob.html'"></div>
+<div ng-include="'pages/import/lossReason.html'"></div>
