@@ -1,89 +1,163 @@
 <div data-ng-init="load()" ng-controller="kpiController">
-    <h2>KPI Monitoring</h2>
-
-    <script type="text/javascript">
-        $('#collapseOne').on('shown.bs.collapse', function() {
-        drawAttendanceChart();
-        //alert("shown");
-        }).on('show.bs.collapse', function() {
-        //alert("show");
-        });
-        $('#collapseDefects').on('shown.bs.collapse', function() {
-        drawDefectChart();
-        //alert("shown");
-        }).on('show.bs.collapse', function() {
-        //alert("show");
-        });
-        $('#collapseDefectsAndScraps').on('shown.bs.collapse', function() {
-        drawDefectsAndScrapsChart();
-        //alert("shown");
-        }).on('show.bs.collapse', function() {
-        //alert("show");
-        });
-        $('#collapseLoss').on('shown.bs.collapse', function() {
-        drawLossChart();
-        //alert("shown");
-        }).on('show.bs.collapse', function() {
-        //alert("show");
-        });
-    </script>
-
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-        <div class="panel panel-default">
-          <!--  <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                <h4 class="panel-title">                    
-                    Attendance                    
-                </h4>
+    <h2>Key Performance Indications</h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Planning</h4>      
+            </div>    
+            <div class="row">     
+                <img alt="planning icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/plan.png" />
             </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body" ng-controller="kpiController">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="func()">func</button>
-
-                    <script src="js/charts/attendance.js"></script>
-                    <div id="attendance_chart_div" ></div>  
-                </div>
+            <div class="row">
+                <hr/>
             </div>
         </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" data-target="#collapseDefects" aria-expanded="false" aria-controls="collapseDefects">
-                <h4 class="panel-title">
-                    Defects
-                </h4>
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Production</h4>      
+            </div>    
+            <div class="row">    
+                <a data-toggle="modal" data-target="#productionChartModal">
+                    <img alt="production icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/production-icon-18.png" />
+                </a>
             </div>
-            <div id="collapseDefects" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    <script src="js/charts/defect.js"></script>
-                    <div id="defect_chart_div" ></div>                     
-                </div>
+            <div class="row">
+                <hr/>
             </div>
-        </div>    
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingDefectsAndScraps" data-toggle="collapse" data-parent="#accordion" data-target="#collapseDefectsAndScraps" aria-expanded="false" aria-controls="collapseDefectsAndScraps">
-                <h4 class="panel-title">
-                    Defects and Scraps
-                </h4>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Engineering</h4>      
+            </div>    
+            <div class="row">     
+                <img alt="engineering icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/engineering.png" />
             </div>
-            <div id="collapseDefectsAndScraps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDefectsAndScraps">
-                <div class="panel-body">
-                    <script src="js/charts/defects-and-scraps.js"></script>
-                    <div id="defects_and_scraps_chart_div" ></div>                        
-                </div>
+            <div class="row">
+                <hr/>
             </div>
-        </div>   
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingLoss" data-toggle="collapse" data-parent="#accordion" data-target="#collapseLoss" aria-expanded="false" aria-controls="collapseLoss">
-                <h4 class="panel-title">
-                    Loss
-                </h4>
-            </div>
-            <div id="collapseLoss" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLoss">
-                <div class="panel-body">
-                    <script src="js/charts/loss.js"></script>
-                    <div id="loss_chart_div" ></div>
-                </div>
-            </div>
-        </div>   -->
+        </div>
     </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Human Resource</h4>      
+            </div>    
+            <div class="row">     
+                <img alt="human resource icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/hr.png" />
+            </div>
+            <div class="row">
+                <hr/>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Finance</h4>      
+            </div>    
+            <div class="row">     
+                <img alt="finance icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/finance.png" />
+            </div>
+            <div class="row">
+                <hr/>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <h4>Sales</h4>      
+            </div>    
+            <div class="row">     
+                <img alt="sales icon" class="pull-left" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; height: 150px; cursor:pointer;" src="img/sales.png" />
+            </div>
+            <div class="row">
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <!-- 
+        <script type="text/javascript">
+            $('#collapseOne').on('shown.bs.collapse', function() {
+            drawAttendanceChart();
+            //alert("shown");
+            }).on('show.bs.collapse', function() {
+            //alert("show");
+            });
+            $('#collapseDefects').on('shown.bs.collapse', function() {
+            drawDefectChart();
+            //alert("shown");
+            }).on('show.bs.collapse', function() {
+            //alert("show");
+            });
+            $('#collapseDefectsAndScraps').on('shown.bs.collapse', function() {
+            drawDefectsAndScrapsChart();
+            //alert("shown");
+            }).on('show.bs.collapse', function() {
+            //alert("show");
+            });
+            $('#collapseLoss').on('shown.bs.collapse', function() {
+            drawLossChart();
+            //alert("shown");
+            }).on('show.bs.collapse', function() {
+            //alert("show");
+            });
+        </script>
+    
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    
+            <div class="panel panel-default">
+                 <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <h4 class="panel-title">                    
+                          Attendance                    
+                      </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body" ng-controller="kpiController">
+                          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="func()">func</button>
+        
+                          <script src="js/charts/attendance.js"></script>
+                          <div id="attendance_chart_div" ></div>  
+                      </div>
+                  </div>
+              </div>
+        
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" data-target="#collapseDefects" aria-expanded="false" aria-controls="collapseDefects">
+                      <h4 class="panel-title">
+                          Defects
+                      </h4>
+                  </div>
+                  <div id="collapseDefects" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                          <script src="js/charts/defect.js"></script>
+                          <div id="defect_chart_div" ></div>                     
+                      </div>
+                  </div>
+              </div>    
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingDefectsAndScraps" data-toggle="collapse" data-parent="#accordion" data-target="#collapseDefectsAndScraps" aria-expanded="false" aria-controls="collapseDefectsAndScraps">
+                      <h4 class="panel-title">
+                          Defects and Scraps
+                      </h4>
+                  </div>
+                  <div id="collapseDefectsAndScraps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDefectsAndScraps">
+                      <div class="panel-body">
+                          <script src="js/charts/defects-and-scraps.js"></script>
+                          <div id="defects_and_scraps_chart_div" ></div>                        
+                      </div>
+                  </div>
+              </div>   
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingLoss" data-toggle="collapse" data-parent="#accordion" data-target="#collapseLoss" aria-expanded="false" aria-controls="collapseLoss">
+                      <h4 class="panel-title">
+                          Loss
+                      </h4>
+                  </div>
+                  <div id="collapseLoss" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLoss">
+                      <div class="panel-body">
+                          <script src="js/charts/loss.js"></script>
+                          <div id="loss_chart_div" ></div>
+                      </div>
+                  </div>
+              </div>   
+            </div>
+                </div>       
+    -->
 </div>
