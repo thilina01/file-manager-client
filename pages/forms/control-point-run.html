@@ -106,7 +106,7 @@
                             </div>
                             <label class="col-xs-2 col-form-label col-form-label-sm" for="lossReason">Loss Reason:</label>
                             <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.code for lossReason in lossType.lossReasonList track by lossReason.id"></select>
+                                <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.reason for lossReason in lossType.lossReasonList track by lossReason.id"></select>
                             </div>
                             <button type="button" class="btn btn-default" ng-click='addControlPointRunLoss()'>Add</button>
                         </div>
