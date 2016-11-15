@@ -24,6 +24,7 @@ app.controller('controlPointRunGridController', function ($http, $scope, $cookie
             {data: 'shift.code'},
             {data: 'controlPoint.code'},
             {data: 'breakdownCount'},
+            {data: 'breakdownDuration'},
             {data: 'workingDuration'}
         ],
         dom: 'Bfrtip',

@@ -21,19 +21,19 @@
 
                         </div>
                         <script type="text/javascript">
-                                    $(function () {
-                                        $('#runDatetimepicker').datetimepicker({
-                                            format: 'YYYY-MM-DD'
-                                        });
-                                    });
+                            $(function () {
+                            $('#runDatetimepicker').datetimepicker({
+                            format: 'YYYY-MM-DD'
+                            });
+                            });
                         </script>
                     </div>
                     <label class="col-xs-2 col-form-label col-form-label-sm" for="shift">Shift:</label>
-                    <div class="col-xs-3">
+                    <div class="col-xs-2">
                         <select class="form-control input-sm" ng-model="controlPointRun.shift" ng-options="shift.code for shift in shifts track by shift.id"></select>
                     </div>
 
-                    <label class="col-xs-1 col-form-label col-form-label-sm" for="controlPointCode">CP Code:</label>
+                    <label class="col-xs-2 col-form-label col-form-label-sm" for="controlPointCode">CP Code:</label>
                     <div class="col-xs-1">
                         <select class="form-control input-sm" ng-model="controlPointRun.controlPoint" ng-options="controlPoint.code for controlPoint in controlPoints track by controlPoint.id"></select>
                     </div>
@@ -47,8 +47,13 @@
                     <div class="col-xs-2">
                         <input type="text" class="form-control form-control-sm" id="breakdownCount" placeholder="" name="breakdownCount" ng-model="controlPointRun.breakdownCount">
                     </div>
+                    <label class="col-xs-2 col-form-label col-form-label-sm " for="breakdownDuration">Breakdown Duration:</label>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control form-control-sm" id="breakdownDuration" workingDuration="" name="breakdownDuration" ng-model="controlPointRun.breakdownDuration">
+
+                    </div>
                     <label class="col-xs-2 col-form-label col-form-label-sm " for="runningTime">Working Duration:</label>
-                    <div class="col-xs-3">
+                    <div class="col-xs-2">
                         <input type="text" class="form-control form-control-sm" id="runningTime" workingDuration="" name="workingDuration" ng-model="controlPointRun.workingDuration">
 
                     </div>
@@ -58,7 +63,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" data-target="#production">Production</a></li>
                 <li><a data-toggle="tab" data-target="#quality">Quality</a></li>
-                <li><a data-toggle="tab" data-target="#hr">HR</a></li>
+                <li><a data-toggle="tab" data-target="#runHr">HR</a></li>
             </ul>
 
             <div class="tab-content">
@@ -129,8 +134,7 @@
                     </table>
                 </div>
 
-
-                <div id="hr" class="tab-pane fade">
+                <div id="runHr" class="tab-pane fade">
 
                     <div class="form-group">
                         <div class="form">
@@ -144,24 +148,24 @@
                             </div>
                             <button type="button" class="btn btn-default" ng-click="addControlPointRunManpower()">Add</button>
                         </div>
-
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Count</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="controlPointRunManpower in controlPointRun.controlPointRunManpowerList">
-                                    <td>{{controlPointRunManpower.manpowerType.type}}</td>    
-                                    <td>{{controlPointRunManpower.count}}</td>  
-
-                            </tbody>
-                        </table>
                     </div>
 
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="controlPointRunManpower in controlPointRun.controlPointRunManpowerList">
+                                <td>{{controlPointRunManpower.manpowerType.type}}</td>    
+                                <td>{{controlPointRunManpower.count}}</td>  
+
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
