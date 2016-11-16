@@ -8,6 +8,7 @@ app.controller('currencyGridController', function ($http, $scope, $cookies, curr
 
         }
     }
+    
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
             currencyService.delete($scope.dataTable.row('.selected').data().id).then(
