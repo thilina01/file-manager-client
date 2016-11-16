@@ -20,7 +20,7 @@ app.controller('controlPointPlanJobGridController', function ($http, $scope, $co
     $scope.table = $('#controlPointPlanJobTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointPlan.runDate'},
+            {data: 'controlPointPlan.planDate'},
             {data: 'controlPointPlan.controlPoint.code'},
             {data: 'controlPointPlan.shift.code'},
             {data: 'job.id'},
