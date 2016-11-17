@@ -9,11 +9,9 @@
             </div>
             <div class="modal-body">
 
-                <div class="row">
-                    <div class='col-xs-2'>
+                <div class="row form-inline">
+                    <div class='form-group'>
                         <label>Duration:</label>
-                    </div>
-                    <div class='col-xs-2'>
                         <div class='input-group date' id='productionChartStartDateTimepicker' ng-controller="productionChartController">
                             <input type='text' class="form-control form-control-sm" id="productionChartStartDate" name="productionChartStartDate" ng-model="productionChartStartDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -26,8 +24,6 @@
                                     });
                             });
                         </script>
-                    </div>
-                    <div class='col-xs-2'>
                         <div class='input-group date' id='productionChartEndDateTimepicker' ng-controller="productionChartController">
                             <input type='text' class="form-control form-control-sm" id="productionChartEndDate" name="productionChartEndDate" ng-model="productionChartEndDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -50,7 +46,7 @@
                     <button type="button" class="btn btn-default" ng-click="defectType()">Defect and Scrap</button>
                     <button type="button" class="btn btn-default" ng-click="fillScheduleAdherence()">Schedule Adherence</button>
                     <button type="button" class="btn btn-default" ng-click="fillAttendance()">Attendance</button>
-                    
+
                 </div>
                 <div class="row"> 
                     <div id="productionChart_div"></div>

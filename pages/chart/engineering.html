@@ -9,11 +9,9 @@
             </div>
             <div class="modal-body">
 
-                <div class="row">
-                    <div class='col-xs-2'>
+                <div class="row form-inline">
+                    <div class='form-group-sm'>
                         <label>Duration:</label>
-                    </div>
-                    <div class='col-xs-2'>
                         <div class='input-group date' id='engineeringChartStartDateTimepicker' ng-controller="engineeringChartController">
                             <input type='text' class="form-control form-control-sm" id="engineeringChartStartDate" name="engineeringChartStartDate" ng-model="engineeringChartStartDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -26,8 +24,6 @@
                                     });
                             });
                         </script>
-                    </div>
-                    <div class='col-xs-2'>
                         <div class='input-group date' id='engineeringChartEndDateTimepicker' ng-controller="engineeringChartController">
                             <input type='text' class="form-control form-control-sm" id="engineeringChartEndDate" name="engineeringChartEndDate" ng-model="engineeringChartEndDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
