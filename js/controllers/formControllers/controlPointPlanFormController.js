@@ -87,7 +87,7 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
     };
     $scope.save = function () {
 
-        $scope.controlPointPlan.runDate = $('#runDate').val();
+        $scope.controlPointPlan.planDate = $('#planDate').val();
         controlPointPlanService.save($scope.controlPointPlan).then(
                 function (response) {
                     if (response.data) {
