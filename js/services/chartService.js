@@ -37,7 +37,7 @@ app.service('chartService', function ($http, appService) {
             hAxis: {title: data.htitle},
             vAxis: {title: data.vtitle},
             //title: 'How Much Pizza I Ate Last Night',
-            width: window.innerWidth - (window.innerWidth / 5),
+            width: window.innerWidth - (window.innerWidth / 10),
             height: window.innerHeight - (window.innerHeight / 3)
         };
 
@@ -49,7 +49,7 @@ app.service('chartService', function ($http, appService) {
     this.drawPieChart = function (data, elementId) {
 
         var options = {
-            width: window.innerWidth - (window.innerWidth / 5),
+            width: window.innerWidth - (window.innerWidth / 10),
             height: window.innerHeight - (window.innerHeight / 3),
             is3D: true
                     //pieHole: 0.2
@@ -67,7 +67,7 @@ app.service('chartService', function ($http, appService) {
     this.getMttr = function (duration) {
         return $http.post(apiURL + "mttr", duration, appService.getJsonHeaders());
     };
-    
+
     this.getMdt = function (duration) {
         return $http.post(apiURL + "mdt", duration, appService.getJsonHeaders());
     };
