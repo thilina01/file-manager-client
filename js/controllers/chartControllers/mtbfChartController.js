@@ -1,41 +1,23 @@
-app.controller('mtbfChartController', function ($scope, $timeout, $cookies, accountService, appService, lossReasonService) {
+app.controller('mtbfChartController', function ($scope, chartService) {
 
-   function drawMtbChart() {
+    function drawMtbfChart() {
 
-      
-        var data = google.visualization.arrayToDataTable([
-          ['Control Point', 'MTBF'],
-          ['CP-32', 1000],
-          ['CP-33', 1170],
-          ['CP-34', 660],
-          
-        ]);
-        
-      var options = {animation:{
-        duration: 1000,
-        easing: 'out',"startup": true
-      },
-        title: 'MTBF',
-        hAxis: {
-          title: 'Control Point',
-          format: '',
-          viewWindow: {
-            min: [7, 30, 0],
-            max: [17, 30, 0]
-          }
-        },
-        vAxis: {
-          title: 'MTBF'
-        }
-      };
+        var startDate = $('#startMtbfDate').val();
+        var endDate = $('#endMtbfDate').val();
+        var duration = {startDate: startDate, endDate: endDate};
 
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('mtbfChart_div'));
-
-      chart.draw(data, options);
+        chartService.getMtbf(duration).then(function (response) {
+            chartService.drawColumnChart(response.data, 'mtbfChart_div');
+        });
     }
- $('#mtbfChartModal').on('show.bs.modal', function () {
-        drawMtbChart();
+
+    $scope.fill = function () {
+
+        drawMtbfChart();
+    }
+
+    $('#mtbfChartModal').on('show.bs.modal', function () {
+        drawMtbfChart();
     });
 
 });
