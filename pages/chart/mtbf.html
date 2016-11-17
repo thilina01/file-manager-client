@@ -5,13 +5,47 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"> MTBF </h4>
+                <h4 class="modal-title">Date wise control point run durations</h4>
             </div>
             <div class="modal-body">
-               <div id="mtbfChart_div"></div>
+
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <div class='input-group date' id='startMtbfDateTimepicker1' ng-controller="mtbfChartController">
+                            <input type='text' class="form-control form-control-sm" id="startMtbfDate" name="startMtbfDate" ng-model="startMtbfDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                            $('#startMtbfDateTimepicker1')
+                                    .datetimepicker({
+                                    format : 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-4'>
+                        <div class='input-group date' id='endMtbfDateTimepicker1' ng-controller="mtbfChartController">
+                            <input type='text' class="form-control form-control-sm" id="endMtbfDate" name="endMtbfDate" ng-model="endMtbfDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                            $('#endMtbfDateTimepicker1')
+                                    .datetimepicker({
+                                    format : 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-4'>                            
+                        <button type="button" class="btn btn-default" ng-click="fill()">Fill</button>
+                    </div>
+                </div>
+                <div id="mtbfChart_div" class="row"></div>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

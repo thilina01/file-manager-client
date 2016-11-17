@@ -1,17 +1,51 @@
 <div class="modal fade" id="defectTypeChartModal" role="dialog" ng-controller="defectTypeChartController">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-full">
 
         <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"> DefectType </h4>
+                <h4 class="modal-title"> Item wise Top 10 job quantities </h4>
             </div>
             <div class="modal-body">
-               <div id="defectTypeChart_div"></div>
+
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <div class='input-group date' id='startDateTimepicker1' ng-controller="mtbfChartController">
+                            <input type='text' class="form-control form-control-sm" id="startDate1" name="startDate" ng-model="startDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                            $('#startDateTimepicker1')
+                                    .datetimepicker({
+                                    format : 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-4'>
+                        <div class='input-group date' id='endDateTimepicker1' ng-controller="mtbfChartController">
+                            <input type='text' class="form-control form-control-sm" id="endDate1" name="endDate" ng-model="endDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                            $('#endDateTimepicker1')
+                                    .datetimepicker({
+                                    format : 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-4'>                            
+                        <button type="button" class="btn btn-default" ng-click="fill()">Fill</button>
+                    </div>
+                </div>
+                <div id="defectTypeChart_div" class="modal-dialog-full"></div>
             </div>
             <div class="modal-footer">
-                 <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

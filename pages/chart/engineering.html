@@ -1,0 +1,60 @@
+<div class="modal fade" id="engineeringChartModal" role="dialog" ng-controller="engineeringChartController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Engineering KPI Charts</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class='col-xs-2'>
+                        <label>Duration:</label>
+                    </div>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='engineeringChartStartDateTimepicker' ng-controller="engineeringChartController">
+                            <input type='text' class="form-control form-control-sm" id="engineeringChartStartDate" name="engineeringChartStartDate" ng-model="engineeringChartStartDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                            $('#engineeringChartStartDateTimepicker')
+                                    .datetimepicker({
+                                    format: 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='engineeringChartEndDateTimepicker' ng-controller="engineeringChartController">
+                            <input type='text' class="form-control form-control-sm" id="engineeringChartEndDate" name="engineeringChartEndDate" ng-model="engineeringChartEndDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                            $('#engineeringChartEndDateTimepicker')
+                                    .datetimepicker({
+                                    format: 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">                          
+                    <button type="button" class="btn btn-default" ng-click="fillMdt()">MDT</button>
+                    <button type="button" class="btn btn-default" ng-click="fillMttr()">MTTR</button>
+                    <button type="button" class="btn btn-default" ng-click="fillMtbf()">MTBF</button>
+                </div>
+                <div class="row"> 
+                    <div id="engineeringChart_div"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

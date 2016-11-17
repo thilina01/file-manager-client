@@ -1,0 +1,64 @@
+<div class="modal fade" id="productionChartModal" role="dialog" ng-controller="productionChartController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Production KPI Charts</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class='col-xs-2'>
+                        <label>Duration:</label>
+                    </div>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='productionChartStartDateTimepicker' ng-controller="productionChartController">
+                            <input type='text' class="form-control form-control-sm" id="productionChartStartDate" name="productionChartStartDate" ng-model="productionChartStartDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                            $('#productionChartStartDateTimepicker')
+                                    .datetimepicker({
+                                    format: 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='productionChartEndDateTimepicker' ng-controller="productionChartController">
+                            <input type='text' class="form-control form-control-sm" id="productionChartEndDate" name="productionChartEndDate" ng-model="productionChartEndDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                            $('#productionChartEndDateTimepicker')
+                                    .datetimepicker({
+                                    format: 'YYYY-MM-DD'
+                                    });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">                          
+                    <button type="button" class="btn btn-default" ng-click="test()">Test</button>
+                    <button type="button" class="btn btn-default" ng-click="fillLossReason()">Loss Reason</button>
+                    <button type="button" class="btn btn-default" ng-click="defectType()">Defect Type</button>
+                    <button type="button" class="btn btn-default" ng-click="defectType()">Defect and Scrap</button>
+                    <button type="button" class="btn btn-default" ng-click="fillScheduleAdherence()">Schedule Adherence</button>
+                    <button type="button" class="btn btn-default" ng-click="fillAttendance()">Attendance</button>
+                    
+                </div>
+                <div class="row"> 
+                    <div id="productionChart_div"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
