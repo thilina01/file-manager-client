@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal fade" id="dispatchModal" role="dialog" ng-controller="dispatchFormController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">dispatch</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group row">
+                    <label class="col-xs-1 col-form-label col-form-label-sm" for="Date">Date:</label>
+                    <div class='col-xs-2'>
+                        <div class='input-group date' id='dispatchDatetimepicker'>
+                            <input type='text' class="form-control form-control-sm" id="planDate"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+
+                        </div>
+                        <script type="text/javascript">
+                                    $(function () {
+                                        $('#dispatchDatetimepicker').datetimepicker({
+                                            format: 'YYYY-MM-DD'
+                                        });
+                                    });
+                        </script>
+                    </div>
+                    <label class="col-xs-2 col-form-label col-form-label-sm" for="code">Customer Code:</label>
+                    <div class="col-xs-3">
+                        <select class="form-control input-sm" ng-model="dispatch.customer.code" ng-options="customer.code for customer in customers track by customer.code"></select>
+                    </div>
+
+                    <label class="col-xs-2 col-form-label col-form-label-sm" >{{dispatch.customer.name}}</label>
+                </div>
+
+
+                
+                 <div class="form">
+                        <div class="form-group row">
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="dispatchJobNo">job No:</label>
+                            <div class="col-xs-2">
+                                <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
+                            </div>
+                            
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="dispatchQuantity"> Dispatch Qty:</label>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control input-sm" id="dispatchQuantity" placeholder="" name="dispatchQuantity" ng-model="dispatchQuantity">
+                            </div>
+                            
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="balanceQuantity">Balance Qty:</label>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control input-sm" id="balanceQuantity" placeholder="" name="balanceQuantity" ng-model="balanceQuantity">
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click="addjobDispatch()">Add</button>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Job No</th>
+                                <th>Customer Part No</th>
+                                <th>Dispatch Qty</th>
+                                <th>Balance Qty </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">  
+                                <td>{{jobDispatch.job.item.code}}</td>  
+                                <td>{{jobDispatch.job.id}}</td>   
+                                <td>{{jobDispatch.quantity}}</td> 
+                                <td>{{jobDispatch.job.quantity}}</td> 
+                            </tr>
+                        </tbody>
+                    </table>
+             
+            </div>
+
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
