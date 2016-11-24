@@ -45,15 +45,14 @@
                                 <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
                             </div>
                             
+                            <label for="code" class="col-xs-2 col-form-label col-form-label-sm">{{job.item.code}}</label>
+                       
+                            
                             <label class="col-xs-1 col-form-label col-form-label-sm" for="dispatchQuantity"> Dispatch Qty:</label>
                             <div class="col-xs-2">
                                 <input type="text" class="form-control input-sm" id="dispatchQuantity" placeholder="" name="dispatchQuantity" ng-model="dispatchQuantity">
                             </div>
                             
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="balanceQuantity">Balance Qty:</label>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="balanceQuantity" placeholder="" name="balanceQuantity" ng-model="balanceQuantity">
-                            </div>
                             <button type="button" class="btn btn-default" ng-click="addjobDispatch()">Add</button>
                         </div>
                     </div>
@@ -67,9 +66,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">  
-                                <td>{{jobDispatch.job.item.code}}</td>  
+                            <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">
+                                
                                 <td>{{jobDispatch.job.id}}</td>   
+                                <td>{{jobDispatch.job.item.code}}</td>  
                                 <td>{{jobDispatch.quantity}}</td> 
                                 <td>{{jobDispatch.job.quantity}}</td> 
                             </tr>
