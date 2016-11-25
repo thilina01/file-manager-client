@@ -164,6 +164,8 @@
                         <li><a data-toggle="modal" data-target="#controlPointRunManpowerGridModal">Control point Run Manpower</a></li>
                         <li><a data-toggle="modal" data-target="#controlPointPlanManpowerGridModal">Control point Plan Manpower</a></li>
                         <li><a data-toggle="modal" data-target="#controlPointPlanJobGridModal">Control point Plan Job</a></li>
+                        <li><a data-toggle="modal" data-target="#customerJobGridModal">Customer Job</a></li>
+                        <li><a data-toggle="modal" data-target="#controlPointRunBreakdownGridModal">Control Point Run Breakdown</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -202,6 +204,7 @@
                         <li><a data-toggle="modal" data-target="#importControlPointRunModal">Control Point Run</a></li>
                         <li><a data-toggle="modal" data-target="#importLossReasonModal">Loss Reason</a></li>
                         <li><a data-toggle="modal" data-target="#importCustomerItemModal">Customer Item</a></li>
+                        <li><a data-toggle="modal" data-target="#importCustomerJobModal">Customer Job</a></li>
                     </ul>
                 </li>
                 <li ng-repeat="menu in menus">
@@ -282,6 +285,8 @@
 <div ng-include="'pages/grids/controlpointRunManpower.html'"></div>
 <div ng-include="'pages/grids/controlpointPlanManpower.html'"></div>
 <div ng-include="'pages/grids/controlpointPlanJob.html'"></div>
+<div ng-include="'pages/grids/customerJob.html'"></div>
+<div ng-include="'pages/grids/controlPointRunBreakdown.html'"></div>
 
 <div ng-include="'pages/chart/loss-reason.html'"></div>
 <div ng-include="'pages/chart/defect-type.html'"></div>
@@ -309,3 +314,4 @@
 <div ng-include="'pages/import/controlPointRun.html'"></div>
 <div ng-include="'pages/import/lossReason.html'"></div>
 <div ng-include="'pages/import/customerItem.html'"></div>
+<div ng-include="'pages/import/customerJob.html'"></div>
