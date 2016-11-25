@@ -64,6 +64,7 @@
                 <li class="active"><a data-toggle="tab" data-target="#production">Production</a></li>
                 <li><a data-toggle="tab" data-target="#quality">Quality</a></li>
                 <li><a data-toggle="tab" data-target="#runHr">HR</a></li>
+                <li><a data-toggle="tab" data-target="#breakdown">Breakdown</a></li>
             </ul>
 
             <div class="tab-content">
@@ -165,6 +166,51 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <div id="breakdown" class="tab-pane fade">
+                    <div class="form">
+                        <div class="form-group row">
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="breakdownNo">Breakdown No :</label>
+                            <div class="col-xs-1">
+                                <input type="text" class="form-control input-sm" id="breakdown" placeholder="" name="breakdownNo" ng-model="breakdownNo">
+                            </div>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="machineNo">Machine  No:</label>
+                            <div class="col-xs-2">
+                                <select class="form-control input-sm" ng-model="machine" ng-options="machine.code for machine in machines track by machine.id"></select>
+                            </div>
+                            
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="breakdown">Breakdown Duration :</label>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control input-sm" id="breakdown" placeholder="" name="breakdown" ng-model="breakdown">
+                            </div>
+                            
+                            
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="reason">Reason :</label>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control input-sm" id="reason" placeholder="" name="reason" ng-model="reason">
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click="addControlPointRunBreakdown()">Add</button>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Breakdown No </th>
+                                <th>Machine No</th>
+                                <th>Breakdown Duration</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList">  
+                                <td>{{controlPointRunBreakdown.machine.code}}</td>  
+                                <td>{{controlPointRunBreakdown.breakdown}}</td>   
+                                <td>{{controlPointRunBreakdown.reason}}</td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 
             </div>
             <div class="modal-footer">

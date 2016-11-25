@@ -83,6 +83,11 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.help = '';
         $scope.other = '';
     }
+    $scope.brakdownClear = function () {
+        $scope.machineNo = '';
+        $scope.brakdown = '';
+        $scope.reason = '';
+    }
     $scope.clear = function () {
         $scope.controlPointRun = {};
     }
@@ -114,7 +119,18 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.controlPointRun.controlPointRunJobList.push(controlPointRunJob);
         $scope.job = {};
         $scope.jobQuantity = '';
+    }; 
+    $scope.addControlPointRunBreakdown = function () {
+        if ($scope.controlPointRun.controlPointRunBreakdownList == undefined) {
+            $scope.controlPointRun.controlPointRunBreakdownList = [];
+        }
+        var controlPointRunBreakdown = {machine: $scope.machine, breakdown: $scope.breakdown , reason: $scope.reason};
+        $scope.controlPointRun.controlPointRunBreakdownList.push(controlPointRunBreakdown);
+        $scope.machine = {};
+        $scope.breakdown = '';
+        $scope.reason = '';
     };
+    
     $scope.save = function () {
 
         $scope.controlPointRun.runDate = $('#runDate').val();
