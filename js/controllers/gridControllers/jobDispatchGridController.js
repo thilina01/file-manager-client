@@ -1,13 +1,6 @@
-app.controller('jobDispatchGridController', function ($http, $scope, $cookies, jobDispatchService, dataTableService, appService) {
+app.controller('jobDispatchGridController', function ($http, $scope, $cookies, jobDispatchService, dispatchService, dataTableService, appService) {
 
-    $scope.edit = function () {
-        if ($scope.dataTable.row('.selected').data() != undefined) {
-            jobDispatchService.toEdit = $scope.dataTable.row('.selected').data();
-            $('#jobDispatchGridModal').modal('hide');
-            $('#jobDispatchModal').modal('show');
 
-        }
-    }
     $scope.delete = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
             jobDispatchService.delete($scope.dataTable.row('.selected').data().id).then(
@@ -18,9 +11,9 @@ app.controller('jobDispatchGridController', function ($http, $scope, $cookies, j
     }
     $scope.edit = function () {
         if ($scope.dataTable.row('.selected').data() != undefined) {
-            jobDispatchService.toEdit = $scope.dataTable.row('.selected').data();
+            dispatchService.toEdit = $scope.dataTable.row('.selected').data().dispatch;
             $('#jobDispatchGridModal').modal('hide');
-            $('#jobDispatchModal').modal('show');
+            $('#dispatchModal').modal('show');
         }
     }
 

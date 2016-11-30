@@ -5,7 +5,7 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
     $scope.customers = [];
     $scope.jobs = [];
 
-   
+
 
     $scope.saveButtonText = 'Save';
 
@@ -16,15 +16,15 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
             $scope.customers = response.data;
         });
     }
-    
+
 
     $scope.loadJobs = function () {
         jobService.getAll().then(function (response) {
             $scope.jobs = response.data;
         });
     }
-    
-    
+
+
     $scope.addjobDispatch = function () {
         if ($scope.dispatch.jobDispatchList == undefined) {
             $scope.dispatch.jobDispatchList = [];
@@ -62,17 +62,22 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
         dispatchService.toEdit = {};
         $scope.saveButtonText = 'Save';
     }
-    
+
     $('#dispatchModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadJobs();
         $scope.saveButtonText = 'Save';
-        if (dispatchService.toEdit.id != undefined) {
+        var dispatchId = dispatchService.toEdit.id;
+        if (dispatchId != undefined) {
+            dispatchService.getToEdit().then(function (response) {
+                $scope.dispatch = response.data;
+                //console.log($scope.dispatch);
+            });
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
-                $scope.dispatch = dispatchService.toEdit;
-                $('#dispatchDatetimepicker').setDate($scope.dispatch.runDate);
-            }, 500);
+                $('#dispatchDate').val($scope.dispatch.dispatchDate);
+                //$('#dispatchDatetimepicker').setDate($scope.dispatch.dispatchDate);
+            }, 1000);
 
         }
     })
