@@ -28,7 +28,8 @@ app.controller('controlPointRunBreakdownGridController', function ($http, $scope
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
-    $scope.loadControlPointRunJobs = function () {
+    $scope.loadControlPointRunBreakdowns = function () {
+        alert('ddddd');
         $scope.dataTable.clear();
         controlPointRunBreakdownService.getAll().then(function (response) {
             $scope.controlPointRunBreakdowns = response.data;
@@ -39,7 +40,7 @@ app.controller('controlPointRunBreakdownGridController', function ($http, $scope
     $scope.table.on('click', 'tr', dataTableService.getRowSelector($scope.dataTable));
 
     $('#controlPointRunBreakdownGridModal').on('show.bs.modal', function () {
-        $scope.loadControlPointRunJobs();
+        $scope.loadControlPointRunBreakdowns();
     })
     $('#controlPointRunBreakdownGridModal').on('hidden.bs.modal', function () {
 
