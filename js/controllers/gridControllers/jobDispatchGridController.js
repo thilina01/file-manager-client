@@ -21,7 +21,7 @@ app.controller('jobDispatchGridController', function ($http, $scope, $cookies, j
     $scope.table = $('#jobDispatchTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'dispatch.date'},
+            {data: 'dispatch.dispatchDate'},
             {data: 'job.jobNo'},
             {data: 'quantity'},
             {data: 'job.item.code'},
