@@ -26,7 +26,7 @@ app.controller('jobDispatchGridController', function ($http, $scope, $cookies, j
             {data: 'quantity'},
             {data: 'job.item.code'},
             {data: 'job.item.code'},
-            {data: 'job.salesOrderItem.salesOrder.customer'}
+            {data: 'dispatch.customer.name'}
             
         ],
         dom: 'Bfrtip',
