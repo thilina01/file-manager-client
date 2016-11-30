@@ -202,7 +202,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList">  
+                            <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList"> 
+                                <td>{{controlPointRunBreakdown.breakdownNo}}</td> 
                                 <td>{{controlPointRunBreakdown.machine.code}}</td>  
                                 <td>{{controlPointRunBreakdown.breakdown}}</td>   
                                 <td>{{controlPointRunBreakdown.reason}}</td> 
