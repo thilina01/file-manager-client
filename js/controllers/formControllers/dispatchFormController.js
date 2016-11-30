@@ -1,5 +1,5 @@
 
-app.controller('dispatchFormController', function ($scope, $timeout, dispatchService, appService, customerService, shiftService, jobService) {
+app.controller('dispatchFormController', function ($scope, $timeout, dispatchService, appService, customerService, customerItemService, shiftService, jobService) {
     //main
     $scope.dispatch = {};
     $scope.customers = [];
@@ -29,10 +29,14 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
         if ($scope.dispatch.jobDispatchList == undefined) {
             $scope.dispatch.jobDispatchList = [];
         }
-        var jobDispatch = {job: $scope.job, quantity: $scope.dispatchQuantity};
-        $scope.dispatch.jobDispatchList.push(jobDispatch);
-        $scope.job = {};
-        $scope.dispatchQuantity = '';
+
+        customerItemService.getByCustomerIdAndItemId($scope.dispatch.customer.id, $scope.job.item.id).then(function (response) {
+            var customerItem = response.data;
+            var jobDispatch = {job: $scope.job, quantity: $scope.dispatchQuantity, customerItem: customerItem};
+            $scope.dispatch.jobDispatchList.push(jobDispatch);
+            $scope.job = {};
+            $scope.dispatchQuantity = '';
+        });
     };
     $scope.save = function () {
 

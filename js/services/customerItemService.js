@@ -11,6 +11,9 @@ app.service('customerItemService', function ($http, appService) {
     this.getAll = function () {
         return $http.get(apiURL, appService.getJsonHeaders());
     };
+    this.getByCustomerIdAndItemId = function (customerId, itemId) {
+        return $http.get(apiURL+'byCustomerIdAndItemId/'+customerId+'/'+itemId, appService.getJsonHeaders());
+    };
     this.delete = function (id) {
         return  $http.delete(apiURL + id, appService.getJsonHeaders());
     };
