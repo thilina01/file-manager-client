@@ -62,6 +62,7 @@
                     <thead>
                         <tr>
                             <th>Job No</th>
+                            <th> Item Code </th>
                             <th>Customer Part No</th>
                             <th>Previous Qty</th>
                             <th>Dispatch Qty</th>
@@ -72,6 +73,7 @@
                         <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">
 
                             <td>{{jobDispatch.job.id}}</td>   
+                            <td>{{jobDispatch.job.item.code}}</td>   
                             <td>{{jobDispatch.job.item.code}}</td> 
                             <td>{{jobDispatch.job.remainingQuantity}}</td>  
                             <td>{{jobDispatch.quantity}}</td> 
