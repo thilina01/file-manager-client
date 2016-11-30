@@ -166,7 +166,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
             $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.controlPointRun = controlPointRunService.toEdit;
-                $('#runDatetimepicker').setDate($scope.controlPointRun.runDate);
+                $('#runDatetimepicker').val($scope.controlPointRun.runDate);
             }, 500);
             
         }
