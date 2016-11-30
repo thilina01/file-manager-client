@@ -1,6 +1,6 @@
 
 app.service('dispatchService', function ($http, appService) {
-    var apiURL = appService.baseURL + 'dispatchs/';
+    var apiURL = appService.baseURL + 'dispatches/';
     this.toEdit = {};
     
     this.save = function (dispatch) {
