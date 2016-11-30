@@ -26,7 +26,6 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
     
     
     $scope.addjobDispatch = function () {
-        alert("ffff")
         if ($scope.dispatch.jobDispatchList == undefined) {
             $scope.dispatch.jobDispatchList = [];
         }
