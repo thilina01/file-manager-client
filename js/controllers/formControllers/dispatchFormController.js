@@ -56,6 +56,13 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
                 }
         );
     }
+    $scope.clear = function () {
+        // alert($scope.code + ' ' + $scope.name);
+        $scope.dispatch = {};
+        dispatchService.toEdit = {};
+        $scope.saveButtonText = 'Save';
+    }
+    
     $('#dispatchModal').on('show.bs.modal', function () {
         $scope.loadCustomers();
         $scope.loadJobs();
