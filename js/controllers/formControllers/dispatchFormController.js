@@ -57,7 +57,8 @@ app.controller('dispatchFormController', function ($scope, $timeout, dispatchSer
         );
     }
     $scope.clear = function () {
-        // alert($scope.code + ' ' + $scope.name);
+        $scope.loadCustomers();
+        $scope.loadJobs();
         $scope.dispatch = {};
         dispatchService.toEdit = {};
         $scope.saveButtonText = 'Save';
