@@ -124,7 +124,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunBreakdownList == undefined) {
             $scope.controlPointRun.controlPointRunBreakdownList = [];
         }
-        var controlPointRunBreakdown = {breakdownNo :$scope.breakdownNo, machine: $scope.machine, breakdown: $scope.breakdown , reason: $scope.reason};
+        var controlPointRunBreakdown = {breakdownNumber :$scope.breakdownNo, machine: $scope.machine, duration: $scope.duration , reason: $scope.reason};
         $scope.controlPointRun.controlPointRunBreakdownList.push(controlPointRunBreakdown);
         $scope.machine = {};
         $scope.breakdown = '';

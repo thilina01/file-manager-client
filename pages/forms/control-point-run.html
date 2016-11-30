@@ -179,9 +179,9 @@
                                 <select class="form-control input-sm" ng-model="machine" ng-options="machine.code for machine in machines track by machine.id"></select>
                             </div>
                             
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="breakdown">Breakdown Duration :</label>
+                            <label class="col-xs-1 col-form-label col-form-label-sm" for="duration">Breakdown Duration :</label>
                             <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="breakdown" placeholder="" name="breakdown" ng-model="breakdown">
+                                <input type="text" class="form-control input-sm" id="duration" placeholder="" name="duration" ng-model="duration">
                             </div>
                             
                             
@@ -203,9 +203,9 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList"> 
-                                <td>{{controlPointRunBreakdown.breakdownNo}}</td> 
+                                <td>{{controlPointRunBreakdown.breakdownNumber}}</td> 
                                 <td>{{controlPointRunBreakdown.machine.code}}</td>  
-                                <td>{{controlPointRunBreakdown.breakdown}}</td>   
+                                <td>{{controlPointRunBreakdown.duration}}</td>   
                                 <td>{{controlPointRunBreakdown.reason}}</td> 
                             </tr>
                         </tbody>
