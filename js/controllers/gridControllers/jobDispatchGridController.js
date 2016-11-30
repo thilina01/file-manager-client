@@ -16,6 +16,13 @@ app.controller('jobDispatchGridController', function ($http, $scope, $cookies, j
                     });
         }
     }
+    $scope.edit = function () {
+        if ($scope.dataTable.row('.selected').data() != undefined) {
+            jobDispatchService.toEdit = $scope.dataTable.row('.selected').data();
+            $('#jobDispatchGridModal').modal('hide');
+            $('#jobDispatchModal').modal('show');
+        }
+    }
 
     $scope.jobDispatchs = '';
     $scope.table = $('#jobDispatchTable');
