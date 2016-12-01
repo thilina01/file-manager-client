@@ -7,6 +7,8 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
     $scope.salesOrderType = {};
     $scope.customerItem = {};
 
+    $scope.totalValue = 0;
+    $scope.totalQuantity = 0;
     $scope.salesOrders = [];
     $scope.items = [];
     $scope.salesOrderItemRows = [];
@@ -30,16 +32,26 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
         }
         var salesOrderItem = {customerItem: $scope.customerItem, item: $scope.customerItem.item, quantity: $scope.rowQuantity, price: $scope.rowPrice};
         $scope.salesOrder.salesOrderItemList.push(salesOrderItem);
+        $scope.totalValue += (salesOrderItem.quantity * salesOrderItem.price);
+        $scope.totalQuantity += (salesOrderItem.quantity * 1);
         $scope.rowQuantity = '';
         $scope.rowPrice = '';
         $scope.customerItem = {};
+        document.getElementById("customerItem").focus();
     };
 
+    $scope.remove = function (index) {
+        $scope.totalValue -= ($scope.salesOrder.salesOrderItemList[index].quantity * $scope.salesOrder.salesOrderItemList[index].price);
+        $scope.totalQuantity -= ($scope.salesOrder.salesOrderItemList[index].quantity * 1);
+        $scope.salesOrder.salesOrderItemList.splice(index, 1);
+    }
     $scope.clear = function () {
         $scope.item = {};
+        $scope.totalValue = 0;
+        $scope.totalQuantity = 0;
         $scope.salesOrderItemRows = [];
         salesOrderService.toEdit = {};
-        $scope.salesOrder={};
+        $scope.salesOrder = {};
         $scope.saveButtonText = 'Save';
     }
     $scope.isValid = function () {
@@ -50,7 +62,7 @@ app.controller('salesOrderItemFormController', function ($scope, $timeout, $cook
     }
     $scope.save = function () {
         $scope.salesOrder.orderReceivedDate = $('#orderReceivedDate1').val();
-        
+
         /*
          if (!$scope.isValid()) {
          $scope.showError("form not complete");
