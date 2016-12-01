@@ -1,6 +1,6 @@
 
 app.service('folderService', function ($http, appService) {
-    var apiURL = appService.baseURL + '/folders/';
+    var apiURL = appService.baseURL + 'folders/';
 
     var id = 0;
     this.setId = function (newObj) {

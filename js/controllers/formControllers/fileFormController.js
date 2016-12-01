@@ -27,7 +27,7 @@ app.controller('fileFormController', function ($scope, $location, folderService,
         data = {
             name: $scope.name,
             description: $scope.description,
-            folders: [{id: folderService.getId()}]
+            folderList: [{id: folderService.getId()}]
         }
         formdata.append("data", angular.toJson(data));
         formdata.append("file", $scope.aFile);

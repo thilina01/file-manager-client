@@ -27,7 +27,7 @@
             </div>
 
             <div class="row">
-                <div ng-repeat="x in folder.folders track by $index">
+                <div ng-repeat="x in folder.folderList track by $index">
                     <div class="row" ng-if="$index % 5 == 0">
                         <div class="col-sm-9">                            
                             <br/><br/>
@@ -65,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="file in folder.files track by $index">
+                            <tr ng-repeat="file in folder.fileList track by $index">
                                 <td>
                                     <a ng-click="getFile(file.id)">
                                         {{file.name}}
