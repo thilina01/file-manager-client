@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-xs-2 col-form-label col-form-label-sm" for="orderReceivedDate">Received Date:</label>
-                    <div class='col-xs-10'>
+                    <div class='col-xs-3'>
                         <div class='input-group date' id='orderReceivedDateTimepicker1' ng-controller="salesOrderFormController">
                             <input type='text' class="form-control form-control-sm" id="orderReceivedDate1" name="orderReceivedDate" ng-model="salesOrder.orderReceivedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -81,7 +81,7 @@
 
                                     <tr ng-repeat="salesOrderItem in salesOrder.salesOrderItemList">
                                         <td>{{salesOrderItem.customerItem.customerPartNo}}</td>    
-                                        <td>{{salesOrderItem.item.code}}</td>       
+                                        <td>{{salesOrderItem.customerItem.item.code}}</td>       
                                         <td>{{salesOrderItem.quantity}}</td>
                                         <td>{{salesOrderItem.price}}</td>
 
