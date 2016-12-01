@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-xs-2 col-form-label col-form-label-sm" >Received Date:</label>
-                    <div class='col-xs-3'>
+                    <div class='col-xs-4'>
                         <div class='input-group date' id='orderReceivedDateTimepicker1' ng-controller="salesOrderFormController">
                             <input type='text' class="form-control form-control-sm" id="orderReceivedDate1" name="orderReceivedDate" ng-model="salesOrder.orderReceivedDate" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -49,21 +49,21 @@
                     <div id="production" class="tab-pane fade in active">
                         <div class="form-group">
 
-                            <div class="form-group row">
-                                <label class="control-label col-xs-2" for="customerItem">Customer Item:</label>
-                                <div class="col-xs-2">
+                            <div class="form-inline">
+
+                                <div class="form-group">
+                                    <label class="control-label" for="customerItem">Customer Item:</label>
                                     <select id="customerItem" class="form-control input-sm" ng-model="customerItem" ng-options="customerItem.customerPartNo for customerItem in salesOrder.customer.customerItemList track by customerItem.id"></select>
                                 </div>
-                                <label class="control-label col-xs-2" for="quantity">Quantity:</label>
-                                <div class="col-xs-2">
+                                <div class="form-group">
+                                    <label class="control-label" for="quantity">Quantity:</label>
                                     <input type="text" class="form-control input-sm " id="quantity" placeholder="" name="quantity" ng-model="rowQuantity">
                                 </div>
-                                <label class="control-label col-xs-2" for="price">Price:</label>
-                                <div class="col-xs-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="price">Price:</label>
                                     <input type="text" class="form-control input-sm" id="price" placeholder="" name="price" ng-model="rowPrice">
-
                                 </div>
-                                <div class="col-xs-1">
+                                <div class="form-group">
                                     <button type="button" class="btn btn-default " ng-click="addSalesOrderItem()">Add</button>
                                 </div>
                             </div>
