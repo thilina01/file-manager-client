@@ -20,8 +20,8 @@ app.controller('controlPointRunBreakdownGridController', function ($http, $scope
     $scope.table = $('#controlPointRunBreakdownTable');
     $scope.dataTable = $scope.table.DataTable({
         columns: [
-            {data: 'controlPointRun.machine.code'},
-            {data: 'breakdown'},
+            {data: 'machine.code'},
+            {data: 'duration'},
             {data: 'reason'}
            
         ],
