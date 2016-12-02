@@ -21,11 +21,11 @@
 
                         </div>
                         <script type="text/javascript">
-                            $(function () {
-                            $('#runDatetimepicker').datetimepicker({
-                            format: 'YYYY-MM-DD'
-                            });
-                            });
+                                    $(function () {
+                                        $('#runDatetimepicker').datetimepicker({
+                                            format: 'YYYY-MM-DD'
+                                        });
+                                    });
                         </script>
                     </div>
                     <label class="col-xs-2 col-form-label col-form-label-sm" for="shift">Shift:</label>
@@ -70,149 +70,167 @@
             <div class="tab-content">
                 <div id="production" class="tab-pane fade in active">
                     <div class="form">
-                        <div class="form-group row">
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="productionJobNo">job No:</label>
-                            <div class="col-xs-3">
-                                <select class="form-control input-sm" ng-model="job" ng-options="job.id for job in jobs track by job.id"></select>
+                        <div class="form-group">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="productionJobNo">job No:</label>
+
+                                    <select class="form-control input-sm" ng-model="job" ng-options="job.id for job in jobs track by job.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="jobQuantity">Qty:</label>
+
+                                    <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
+                                </div>
+                                <button type="button" class="btn btn-default" ng-click="addControlPointRunJob()">Add</button>
+
                             </div>
-                            <div class="col-xs-1"></div>
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="jobQuantity">Qty:</label>
-                            <div class="col-xs-3">
-                                <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
-                            </div>
-                            <button type="button" class="btn btn-default" ng-click="addControlPointRunJob()">Add</button>
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Job</th>
+                                        <th>Quantity</th>
+                                        <th>Job Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
+                                        <td>{{controlPointRunJob.job.item.code}}</td>  
+                                        <td>{{controlPointRunJob.job.id}}</td>   
+                                        <td>{{controlPointRunJob.quantity}}</td> 
+                                        <td>{{controlPointRunJob.job.quantity}}</td> 
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <table class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Job</th>
-                                <th>Quantity</th>
-                                <th>Job Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
-                                <td>{{controlPointRunJob.job.item.code}}</td>  
-                                <td>{{controlPointRunJob.job.id}}</td>   
-                                <td>{{controlPointRunJob.quantity}}</td> 
-                                <td>{{controlPointRunJob.job.quantity}}</td> 
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-
                 <div id="quality" class="tab-pane fade">
                     <div class="form">
-                        <div class="form-group row">
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="lossType">Loss Type:</label>
-                            <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
+                        <div class="form-group">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="lossType">Loss Type:</label>
+
+                                    <select class="form-control input-sm" ng-model="lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="lossReason">Loss Reason:</label>
+
+                                    <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.reason for lossReason in lossType.lossReasonList track by lossReason.id"></select>
+                                </div>
+                                <button type="button" class="btn btn-default" ng-click='addControlPointRunLoss()'>Add</button>
                             </div>
-                            <label class="col-xs-2 col-form-label col-form-label-sm" for="lossReason">Loss Reason:</label>
-                            <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.reason for lossReason in lossType.lossReasonList track by lossReason.id"></select>
-                            </div>
-                            <button type="button" class="btn btn-default" ng-click='addControlPointRunLoss()'>Add</button>
+
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Loss Type</th>
+                                        <th>Loss Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat="controlPointRunLoss in controlPointRun.controlPointRunLossList">
+                                        <td>{{controlPointRunLoss.lossType.type}}</td>   
+                                        <td>{{controlPointRunLoss.lossReason.reason}}</td>  
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-                    <table class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>Loss Type</th>
-                                <th>Loss Reason</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr ng-repeat="controlPointRunLoss in controlPointRun.controlPointRunLossList">
-                                <td>{{controlPointRunLoss.lossType.type}}</td>   
-                                <td>{{controlPointRunLoss.lossReason.reason}}</td>  
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-
                 <div id="runHr" class="tab-pane fade">
 
-                    <div class="form-group">
-                        <div class="form">
-                            <label class="col-xs-2 col-form-label col-form-label-sm" for="manpowerType">Manpower Type:</label>
-                            <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
+
+                    <div class="form">
+                        <div class="form-group">
+
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="manpowerType">Manpower Type:</label>
+
+                                    <select class="form-control input-sm" ng-model="manpowerType" ng-options="manpowerType.type for manpowerType in manpowerTypes track by manpowerType.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="quantity">Count:</label>
+
+                                    <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="manpowerQuantity">
+                                </div>
+                                <button type="button" class="btn btn-default" ng-click="addControlPointRunManpower()">Add</button>
+
+
                             </div>
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="quantity">Count:</label>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="quantity" placeholder="" name="quantity" ng-model="manpowerQuantity">
-                            </div>
-                            <button type="button" class="btn btn-default" ng-click="addControlPointRunManpower()">Add</button>
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="controlPointRunManpower in controlPointRun.controlPointRunManpowerList">
+                                        <td>{{controlPointRunManpower.manpowerType.type}}</td>    
+                                        <td>{{controlPointRunManpower.count}}</td>  
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-                    <table class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Count</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="controlPointRunManpower in controlPointRun.controlPointRunManpowerList">
-                                <td>{{controlPointRunManpower.manpowerType.type}}</td>    
-                                <td>{{controlPointRunManpower.count}}</td>  
-
-                        </tbody>
-                    </table>
                 </div>
-                
                 <div id="breakdown" class="tab-pane fade">
                     <div class="form">
-                        <div class="form-group row">
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="breakdownNo">Breakdown No :</label>
-                            <div class="col-xs-1">
-                                <input type="text" class="form-control input-sm" id="breakdown" placeholder="" name="breakdownNo" ng-model="breakdownNo">
+                        <div class="form-group">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="breakdownNo">Breakdown No :</label>
+
+                                    <input type="text" class="form-control input-sm" id="breakdown" placeholder="" name="breakdownNo" ng-model="breakdownNo" size="4">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="machineNo">Machine  No:</label>
+
+                                    <select class="form-control input-sm" ng-model="machine" ng-options="machine.code for machine in machines track by machine.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="duration">Breakdown Duration :</label>
+
+                                    <input type="text" class="form-control input-sm" id="duration" placeholder="" name="duration" ng-model="duration" size="4">
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="control-label" for="reason">Reason :</label>
+
+                                    <input type="text" class="form-control input-sm" id="reason" placeholder="" name="reason" ng-model="reason">
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-default" ng-click="addControlPointRunBreakdown()">Add</button>
+                                </div>
                             </div>
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="machineNo">Machine  No:</label>
-                            <div class="col-xs-2">
-                                <select class="form-control input-sm" ng-model="machine" ng-options="machine.code for machine in machines track by machine.id"></select>
-                            </div>
-                            
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="duration">Breakdown Duration :</label>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="duration" placeholder="" name="duration" ng-model="duration">
-                            </div>
-                            
-                            
-                            <label class="col-xs-1 col-form-label col-form-label-sm" for="reason">Reason :</label>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control input-sm" id="reason" placeholder="" name="reason" ng-model="reason">
-                            </div>
-                            <button type="button" class="btn btn-default" ng-click="addControlPointRunBreakdown()">Add</button>
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Breakdown No </th>
+                                        <th>Machine No</th>
+                                        <th>Breakdown Duration</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList"> 
+                                        <td>{{controlPointRunBreakdown.breakdownNumber}}</td> 
+                                        <td>{{controlPointRunBreakdown.machine.code}}</td>  
+                                        <td>{{controlPointRunBreakdown.duration}}</td>   
+                                        <td>{{controlPointRunBreakdown.reason}}</td> 
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <table class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>Breakdown No </th>
-                                <th>Machine No</th>
-                                <th>Breakdown Duration</th>
-                                <th>Reason</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="controlPointRunBreakdown in controlPointRun.controlPointRunBreakdownList"> 
-                                <td>{{controlPointRunBreakdown.breakdownNumber}}</td> 
-                                <td>{{controlPointRunBreakdown.machine.code}}</td>  
-                                <td>{{controlPointRunBreakdown.duration}}</td>   
-                                <td>{{controlPointRunBreakdown.reason}}</td> 
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

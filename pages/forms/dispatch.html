@@ -39,52 +39,55 @@
 
 
                 <div class="form">
-                    <div class="form-group row">
-                        <label class="col-xs-1 col-form-label col-form-label-sm" for="dispatchJobNo">job No:</label>
-                        <div class="col-xs-1">
-                            <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
+                    <div class="form-group">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label class="control-label" for="dispatchJobNo">job No:</label>
+
+                                <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="code" class="control-label">{{job.item.code}} </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="remaningQuantity"> Remaining Qty: {{job.remainingQuantity}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="dispatchQuantity"> Dispatch Qty:</label>
+
+                                <input type="text" class="form-control input-sm" id="dispatchQuantity" placeholder="" name="dispatchQuantity" ng-model="dispatchQuantity">
+                            </div>
+
+                            <button type="button" class="btn btn-default" ng-click="addjobDispatch()">Add</button>
+
                         </div>
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Job No</th>
+                                    <th> Item Code </th>
+                                    <th>Customer Part No</th>
+                                    <th>Previous Qty</th>
+                                    <th>Dispatch Qty</th>
+                                    <th>Balance Qty </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">
 
-                        <label for="code" class="col-xs-2 col-form-label col-form-label-sm">{{job.item.code}} </label>
-
-                        <label class="col-xs-2 col-form-label col-form-label-sm" for="remaningQuantity"> Remaining Qty: {{job.remainingQuantity}}</label>
-
-
-                        <label class="col-xs-2 col-form-label col-form-label-sm" for="dispatchQuantity"> Dispatch Qty:</label>
-                        <div class="col-xs-2">
-                            <input type="text" class="form-control input-sm" id="dispatchQuantity" placeholder="" name="dispatchQuantity" ng-model="dispatchQuantity">
-                        </div>
-
-                        <button type="button" class="btn btn-default" ng-click="addjobDispatch()">Add</button>
+                                    <td>{{jobDispatch.job.id}}</td>   
+                                    <td>{{jobDispatch.job.item.code}}</td>   
+                                    <td>{{jobDispatch.customerItem.customerPartNo}}</td> 
+                                    <td>{{jobDispatch.job.remainingQuantity}}</td>  
+                                    <td>{{jobDispatch.quantity}}</td> 
+                                    <td>{{jobDispatch.job.remainingQuantity - jobDispatch.quantity}}</td> 
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <table class="table table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th>Job No</th>
-                            <th> Item Code </th>
-                            <th>Customer Part No</th>
-                            <th>Previous Qty</th>
-                            <th>Dispatch Qty</th>
-                            <th>Balance Qty </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="jobDispatch in dispatch.jobDispatchList">
-
-                            <td>{{jobDispatch.job.id}}</td>   
-                            <td>{{jobDispatch.job.item.code}}</td>   
-                            <td>{{jobDispatch.customerItem.customerPartNo}}</td> 
-                            <td>{{jobDispatch.job.remainingQuantity}}</td>  
-                            <td>{{jobDispatch.quantity}}</td> 
-                            <td>{{jobDispatch.job.remainingQuantity - jobDispatch.quantity}}</td> 
-                        </tr>
-                    </tbody>
-                </table>
 
             </div>
-
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
