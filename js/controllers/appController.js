@@ -30,11 +30,15 @@ app.controller('appController', function ($scope, $timeout, $rootScope, $locatio
         $location.path("/");
     }
     $scope.reloadApp = function () {
-        menuService.getMenus().then(function (response) {
+        menuService.getTopMenus().then(function (response) {
             $scope.menus = response.data;
         }, function (response) {
             $scope.menus = [];
         });
+    }
+    window.onload = function () {
+        $('#loadingDiv').hide();
+        //alert('Boooo');
     }
 
 }

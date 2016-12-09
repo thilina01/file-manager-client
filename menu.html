@@ -18,10 +18,10 @@
             <ul class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right" >
-                <li>
+                <!--  <li>
                     <a data-toggle="modal" href="#/dms" >DMS</a>
                 </li>
-                <!-- 
+               
                 <li>
                     <a data-toggle="modal" href="#/kpi" >KPI</a>
                 </li>
@@ -31,39 +31,34 @@
                         Forms
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu">                        
-
+                    <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer</a>
                             <ul class="dropdown-menu">
-
-                                <li><a data-toggle="modal" data-target="#saleTypeModal">SaleType</a></li>
+                                <li><a data-toggle="modal" data-target="#saleTypeModal">Sale Type</a></li>
                                 <li><a data-toggle="modal" data-target="#countryModal">country</a></li>
                                 <li><a data-toggle="modal" data-target="#incotermModal">Incoterm</a></li>
                                 <li><a data-toggle="modal" data-target="#currencyModal">Currency</a></li>
                                 <li><a data-toggle="modal" data-target="#customerModal">Customer</a></li>
-
                             </ul>
-
-
-
+                        </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Item</a>
                             <ul class="dropdown-menu">
                                 <li><a data-toggle="modal" data-target="#itemTypeModal">Item Type</a></li>
                                 <li><a data-toggle="modal" data-target="#paintModal">Paint</a></li>
-
                                 <li><a data-toggle="modal" data-target="#itemModal">Item</a></li>
                             </ul>
+                        </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Control Point</a>
                             <ul class="dropdown-menu">
-
                                 <li><a data-toggle="modal" data-target="#sectionModal">Section</a></li>
                                 <li><a data-toggle="modal" data-target="#costCenterModal">CostCenter</a></li>
                                 <li><a data-toggle="modal" data-target="#workCenterModal">Work Center</a></li>
                                 <li><a data-toggle="modal" data-target="#controlPointModal">Control Point</a></li>
                             </ul>
+                        </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reason</a>
                             <ul class="dropdown-menu">
@@ -71,61 +66,67 @@
                                 <li><a data-toggle="modal" data-target="#manpowerTypeModal">Manpower Type</a></li>
                                 <li><a data-toggle="modal" data-target="#lossTypeModal">LossType</a></li>
                             </ul>
+                        </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sales Order</a>
                             <ul class="dropdown-menu">
                                 <li><a data-toggle="modal" data-target="#salesOrderModal">Sales Order</a></li>
                                 <li><a data-toggle="modal" data-target="#salesOrderTypeModal">Sales Order Type</a></li>
                                 <li><a data-toggle="modal" data-target="#salesOrderItemModal">Sales Order Item</a></li>
-
                             </ul>
+                        </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job</a>
                             <ul class="dropdown-menu">
                                 <li><a data-toggle="modal" data-target="#jobTypeModal">Job Type</a></li>
                                 <li><a data-toggle="modal" data-target="#jobModal">Job</a></li>  
-
-
                             </ul>
-
-                        <li><a data-toggle="modal" data-target="#customerItemModal">Customer Item</a></li>
-                        
-                        <li><a data-toggle="modal" data-target="#dispatchModal">Dispatch</a></li>
-
-
-
-                        <li><a data-toggle="modal" data-target="#machineModal">Machine</a></li>
-                        
-                        <li><a data-toggle="modal" data-target="#itemMachineModal">Item Machine</a></li>
-                        <li><a data-toggle="modal" data-target="#shiftModal">Shift</a></li>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#customerItemModal">Customer Item</a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#dispatchModal">Dispatch</a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#machineModal">Machine</a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#itemMachineModal">Item Machine</a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#shiftModal">Shift</a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#materialRequisitionModal">MRF</a>
+                        </li>
                     </ul>
                 </li>
-
+                <!--
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
+                                        Planning
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">                       
+                                        <li>
+                                            <a data-toggle="modal" data-target="#controlPointPlanModal">Planning</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
-                        Planning
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">                       
-                        <li><a data-toggle="modal" data-target="#controlPointPlanModal">Planning</a></li>
-
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
-
                         Production
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-
-
                         <li><a data-toggle="modal" data-target="#controlPointRunModal">Production</a></li>
                         <li><a data-toggle="modal" data-target="#energyModal">Energy</a></li>
                         <li><a data-toggle="modal" data-target="#deliveryModal">Delivery</a></li>
-
-
                     </ul>
+                </li>
+                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" >
                         Grids
@@ -134,7 +135,7 @@
                     <ul class="dropdown-menu">
                         <li><a data-toggle="modal" data-target="#controlPointGridModal">Control Point</a></li>
                         <li><a data-toggle="modal" data-target="#customerGridModal">Customer</a></li>
-                        <li><a data-toggle="modal" data-target="#lossTypeGridModal">LossType</a></li>
+                        <li><a data-toggle="modal" data-target="#lossTypeGridModal">Loss Type</a></li>
                         <li><a data-toggle="modal" data-target="#lossReasonGridModal">Loss Reason</a></li>
                         <li><a data-toggle="modal" data-target="#machineGridModal">Machine</a></li>
                         <li><a data-toggle="modal" data-target="#itemGridModal">Item</a></li>
@@ -147,7 +148,7 @@
                         <li><a data-toggle="modal" data-target="#incotermGridModal">Incoterm</a></li>
                         <li><a data-toggle="modal" data-target="#countryGridModal">Country</a></li>
                         <li><a data-toggle="modal" data-target="#costCenterGridModal">Cost Center</a></li>
-                        <li><a data-toggle="modal" data-target="#saleTypeGridModal">SaleType</a></li>
+                        <li><a data-toggle="modal" data-target="#saleTypeGridModal">Sale Type</a></li>
                         <li><a data-toggle="modal" data-target="#paintGridModal">Paint</a></li>
                         <li><a data-toggle="modal" data-target="#jobGridModal">Job</a></li>
                         <li><a data-toggle="modal" data-target="#salesOrderGridModal">Sales Order</a></li>
@@ -169,6 +170,7 @@
                         <li><a data-toggle="modal" data-target="#jobDispatchGridModal">Job Dispatch</a></li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
                         Chart
@@ -185,7 +187,8 @@
                         <li><a data-toggle="modal" data-target="#mtbfChartModal">MTBF</a></li>
 
                     </ul>
-                </li><li class="dropdown">
+                </li>
+                <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#/kpi">
                         Import
                         <span class="caret"></span>
@@ -207,9 +210,18 @@
                         <li><a data-toggle="modal" data-target="#importCustomerItemModal">Customer Item</a></li>
                         <li><a data-toggle="modal" data-target="#importCustomerJobModal">Customer Job</a></li>
                     </ul>
-                </li>
-                <li ng-repeat="menu in menus">
-                    <a data-toggle="modal" href="" data-target="{{menu.target}}" >{{menu.name}}</a>
+                </li>                
+                -->
+                <li ng-repeat="menu in menus" ng-class="{dropdown:menu.menus.length > 0}">
+                    <a ng-class="{'dropdown-toggle':menu.menuList.length > 0}" data-toggle="{{menu.menuList.length > 0?'dropdown':'modal'}}" href="{{menu.href}}" data-target="{{menu.target}}" >
+                        {{menu.name}}
+                        <span ng-if="menu.menuList.length > 0" class="caret"></span>
+                    </a>
+                    <ul ng-if="menu.menuList.length > 0" class="dropdown-menu">
+                        <li ng-repeat="subMenu in menu.menuList">
+                            <a data-toggle="modal" href="{{subMenu.href}}" data-target="{{subMenu.target}}" >{{subMenu.name}}</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -253,6 +265,7 @@
 <div ng-include="'pages/forms/job-type.html'"></div>
 <div ng-include="'pages/forms/item-machine.html'"></div>
 <div ng-include="'pages/forms/dispatch.html'"></div>
+<div ng-include="'pages/forms/material-requisition.html'"></div>
 
 <div ng-include="'pages/grids/controlPoint.html'"></div>
 <div ng-include="'pages/grids/customer.html'"></div>
