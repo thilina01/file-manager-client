@@ -237,7 +237,6 @@
         <script type="text/javascript" src="js/controllers/importControllers/importCustomerItemController.js"></script> 
         <script type="text/javascript" src="js/controllers/importControllers/importCustomerJobController.js"></script> 
 
-
         <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->        
         <!-- Latest compiled and minified Bootstrap CSS  -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
@@ -269,6 +268,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <div class="loading" id="loadingDiv">Loading&#8230;</div>
         <div ng-include="'menu.html'"></div>
         <div class="container">
             <div class="alert alert-warning alert-dismissable" role="alert" ng-show="errorMessage != ''">{{errorMessage}}</div>
