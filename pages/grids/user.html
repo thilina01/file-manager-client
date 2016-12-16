@@ -1,0 +1,26 @@
+<div class="modal fade" id="userGridModal" role="dialog" ng-controller="userGridController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">User Grid</h4>
+            </div>
+            <div class="modal-body">
+                <table id="userTable" class="display table-condensed" cellspacing="0" width="100%" ng-click="">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Team</th>
+                        </tr>
+                    </thead>                   
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
