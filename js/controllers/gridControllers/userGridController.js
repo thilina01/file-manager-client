@@ -21,7 +21,7 @@ app.controller('userGridController', function ($http, $scope, $cookies, userServ
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'email'},
-            {data: 'status'},
+            {data: 'status.name'},
             {data: 'team.name'}
         ],
         dom: 'Bfrtip',
