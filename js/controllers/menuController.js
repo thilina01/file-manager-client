@@ -65,7 +65,10 @@ app.controller('menuController', function ($scope, menuService) {
                 {name: 'Customer Job', target: '#importCustomerJobModal', href: ''}
             ]},
         {name: 'Admin', target: '', href: '#/kpi', menuList: [
-                {name: 'user', target: '#userGridModal', href: ''}
+                {name: 'user', target: '#userGridModal', href: ''},
+                {name: 'Team Menu', target: '#teamMenuModal', href: ''},
+                {name: 'Team Form', target: '#teamModal', href: ''},
+                {name: 'Team Grid', target: '#teamGridModal', href: ''}
             ]}
     ];
     menuService.saveMany($scope.menusToAdd).then(

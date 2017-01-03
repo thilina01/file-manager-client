@@ -1,0 +1,27 @@
+<div class="modal fade" id="teamModal" role="dialog" ng-controller="teamFormController">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Team</h4>
+            </div> 
+            <div class="modal-body">
+                <div class="form">              
+                    <div class="form-group row">
+                        <label for="name" class="col-xs-2 col-form-label col-form-label-sm">Name:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control form-control-sm" id="name" placeholder="" name="name" ng-model="team.name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> {{saveButtonText}}</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
