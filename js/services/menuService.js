@@ -6,6 +6,9 @@ app.service('menuService', function (appService, $http, $cookies) {
     this.getMenus = function () {
         return  $http.get(apiURL, appService.getJsonHeaders());
     }
+    this.getMenusWithParent = function () {
+        return  $http.get(apiURL+"withParent", appService.getJsonHeaders());
+    }
 
     this.getTopMenus = function () {
         return  $http.get(apiURL + 'top', appService.getJsonHeaders());
