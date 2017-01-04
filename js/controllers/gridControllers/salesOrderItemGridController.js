@@ -24,7 +24,8 @@ app.controller('salesOrderItemGridController', function ($http, $scope, $cookies
             {data: 'salesOrder.poNumber'},
             {data: 'item.code'},
             {data: 'quantity'},
-            {data: 'price'}
+            {data: 'price'},
+            {data: 'job.jobNo'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)

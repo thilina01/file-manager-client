@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label class="control-label" for="productionJobNo">job No:</label>
 
-                                    <select class="form-control input-sm" ng-model="job" ng-options="job.id for job in jobs track by job.id"></select>
+                                    <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="jobQuantity">Qty:</label>
@@ -97,7 +97,7 @@
                                 <tbody>
                                     <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
                                         <td>{{controlPointRunJob.job.item.code}}</td>  
-                                        <td>{{controlPointRunJob.job.id}}</td>   
+                                        <td>{{controlPointRunJob.job.jobNo}}</td>   
                                         <td>{{controlPointRunJob.quantity}}</td> 
                                         <td>{{controlPointRunJob.job.quantity}}</td> 
                                     </tr>
