@@ -1,0 +1,1 @@
+mklink /J C:\Server\xampp\htdocs\file-manager-client D:\Documents\GitHub\file-manager-client
