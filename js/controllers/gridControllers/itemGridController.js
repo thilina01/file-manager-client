@@ -23,7 +23,7 @@ app.controller('itemGridController', function ($http, $scope, $cookies, itemServ
         columns: [
             {data: 'code'},
             {data: 'description'},
-            {data: 'itemType.code'}
+            {data: 'itemType.type'}
         ],
         dom: 'Bfrtip',
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
