@@ -23,7 +23,8 @@ app.controller('controlPointRunJobGridController', function ($http, $scope, $coo
             {data: 'controlPointRun.runDate'},
             {data: 'controlPointRun.controlPoint.code'},
             {data: 'controlPointRun.shift.code'},
-            {data: 'job.id'},
+            {data: 'job.jobNo'},
+            {data: 'jobType.type'},
             {data: 'quantity'}
            
         ],

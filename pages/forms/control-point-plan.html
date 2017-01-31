@@ -6,7 +6,7 @@
         <div class="modal-content modal-content-full">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ControlPointPlan</h4>
+                <h4 class="modal-title">Control Point Plan</h4>
             </div>
             <div class="modal-body">
 
@@ -33,7 +33,7 @@
                         <select class="form-control input-sm" ng-model="controlPointPlan.shift" ng-options="shift.code for shift in shifts track by shift.id"></select>
                     </div>
 
-                    <label class="col-xs-1 col-form-label col-form-label-sm" for="controlPointCode">CP Code:</label>
+                    <label class="col-xs-1 col-form-label col-form-label-sm" for="controlPointCode">Control Point Code:</label>
                     <div class="col-xs-1">
                         <select class="form-control input-sm" ng-model="controlPointPlan.controlPoint" ng-options="controlPoint.code for controlPoint in controlPoints track by controlPoint.id"></select>
                     </div>
@@ -45,7 +45,7 @@
             </div>
 
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" data-target="#controlPointPlan">controlPointPlan</a></li>
+                <li class="active"><a data-toggle="tab" data-target="#controlPointPlan">Control Point Plan</a></li>
                 <li><a data-toggle="tab" data-target="#hr">HR</a></li>
             </ul>
 
@@ -55,12 +55,15 @@
                         <div class="form-group ">
                             <div class="form-inline">
                                 <div class="form-group ">
-                                    <label class="control-label" for="controlPointPlanJobNo">job No:</label>
-
+                                    <label class="control-label" for="controlPointPlanJobNo">Job Number:</label>
                                     <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
                                 </div>
                                 <div class="form-group ">
-                                    <label class="control-label" for="jobQuantity">Qty:</label>
+                                    <label class="control-label" for="controlPointPlanJobType">Job Type:</label>
+                                    <select class="form-control input-sm" ng-model="jobType" ng-options="jobType.type for jobType in jobTypes track by jobTypes.id"></select>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label" for="jobQuantity">Quantity:</label>
 
                                     <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
                                 </div>
@@ -72,6 +75,7 @@
                                     <tr>
                                         <th>Item</th>
                                         <th>Job</th>
+                                        <th>Job Type</th>
                                         <th>Quantity</th>
                                         <th>Job Quantity</th>
                                     </tr>
@@ -79,7 +83,8 @@
                                 <tbody>
                                     <tr ng-repeat="controlPointPlanJob in controlPointPlan.controlPointPlanJobList">  
                                         <td>{{controlPointPlanJob.job.item.code}}</td>  
-                                        <td>{{controlPointPlanJob.job.id}}</td>   
+                                        <td>{{controlPointPlanJob.job.jobNo}}</td>  
+                                        <td>{{controlPointPlanJob.jobType.type}}</td>   
                                         <td>{{controlPointPlanJob.quantity}}</td> 
                                         <td>{{controlPointPlanJob.job.quantity}}</td> 
                                     </tr>

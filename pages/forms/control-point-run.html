@@ -73,13 +73,17 @@
                         <div class="form-group">
                             <div class="form-inline">
                                 <div class="form-group">
-                                    <label class="control-label" for="productionJobNo">job No:</label>
+                                    <label class="control-label" for="productionJobNo">job Number:</label>
 
                                     <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="jobQuantity">Qty:</label>
+                                    <label class="control-label" for="productionJobType">job Type:</label>
 
+                                    <select class="form-control input-sm" ng-model="jobType" ng-options="jobType.type for jobType in jobTypes track by jobType.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="jobQuantity">Qty:</label>
                                     <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
                                 </div>
                                 <button type="button" class="btn btn-default" ng-click="addControlPointRunJob()">Add</button>
@@ -90,6 +94,7 @@
                                     <tr>
                                         <th>Item</th>
                                         <th>Job</th>
+                                        <th>Job Type</th>
                                         <th>Quantity</th>
                                         <th>Job Quantity</th>
                                     </tr>
@@ -98,6 +103,7 @@
                                     <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
                                         <td>{{controlPointRunJob.job.item.code}}</td>  
                                         <td>{{controlPointRunJob.job.jobNo}}</td>   
+                                        <td>{{controlPointRunJob.jobType.type}}</td>   
                                         <td>{{controlPointRunJob.quantity}}</td> 
                                         <td>{{controlPointRunJob.job.quantity}}</td> 
                                     </tr>
@@ -112,13 +118,15 @@
                             <div class="form-inline">
                                 <div class="form-group">
                                     <label class="control-label" for="lossType">Loss Type:</label>
-
                                     <select class="form-control input-sm" ng-model="lossType" ng-options="lossType.code for lossType in lossTypes track by lossType.id"></select>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="lossReason">Loss Reason:</label>
-
                                     <select class="form-control input-sm" ng-model="lossReason" ng-options="lossReason.reason for lossReason in lossType.lossReasonList track by lossReason.id"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="lossQuantity">Quantity:</label>
+                                    <input type="text" class="form-control input-sm" id="lossQuantity" placeholder="" name="lossQuantity" ng-model="lossQuantity">
                                 </div>
                                 <button type="button" class="btn btn-default" ng-click='addControlPointRunLoss()'>Add</button>
                             </div>
@@ -129,6 +137,7 @@
                                     <tr>
                                         <th>Loss Type</th>
                                         <th>Loss Reason</th>
+                                        <th>Quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -136,6 +145,7 @@
                                     <tr ng-repeat="controlPointRunLoss in controlPointRun.controlPointRunLossList">
                                         <td>{{controlPointRunLoss.lossType.type}}</td>   
                                         <td>{{controlPointRunLoss.lossReason.reason}}</td>  
+                                        <td>{{controlPointRunLoss.quantity}}</td>  
                                     </tr>
                                 </tbody>
                             </table>

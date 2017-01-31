@@ -1,10 +1,11 @@
 
-app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
+app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, jobTypeService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
     //main
     $scope.controlPointRun = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
+    $scope.jobTypes = [];
     $scope.lossTypes = [];
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
@@ -33,6 +34,13 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
             $scope.jobs = response.data;
         });
     }
+
+    $scope.loadJobTypes = function () {
+        jobTypeService.getAll().then(function (response) {
+            $scope.jobTypes = response.data;
+        });
+    }
+
     $scope.loadMachines = function () {
         machineService.getAll().then(function (response) {
             $scope.machines = response.data;
@@ -107,7 +115,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
             $scope.controlPointRun.controlPointRunLossList = [];
         }
 
-        var controlPointRunLoss = {lossType: $scope.lossType, lossReason: $scope.lossReason};
+        var controlPointRunLoss = {lossType: $scope.lossType, lossReason: $scope.lossReason, quantity: $scope.lossQuantity};
         $scope.controlPointRun.controlPointRunLossList.push(controlPointRunLoss);
         $scope.lossReason = {};
     };
@@ -115,23 +123,24 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunJobList == undefined) {
             $scope.controlPointRun.controlPointRunJobList = [];
         }
-        var controlPointRunJob = {job: $scope.job, quantity: $scope.jobQuantity};
+        var controlPointRunJob = {job: $scope.job, jobType: $scope.jobType, quantity: $scope.jobQuantity};
         $scope.controlPointRun.controlPointRunJobList.push(controlPointRunJob);
         $scope.job = {};
+        $scope.jobType = {};
         $scope.jobQuantity = '';
-    }; 
+    };
     $scope.addControlPointRunBreakdown = function () {
         if ($scope.controlPointRun.controlPointRunBreakdownList == undefined) {
             $scope.controlPointRun.controlPointRunBreakdownList = [];
         }
-        var controlPointRunBreakdown = {breakdownNumber :$scope.breakdownNo, machine: $scope.machine, duration: $scope.duration , reason: $scope.reason};
+        var controlPointRunBreakdown = {breakdownNumber: $scope.breakdownNo, machine: $scope.machine, duration: $scope.duration, reason: $scope.reason};
         $scope.controlPointRun.controlPointRunBreakdownList.push(controlPointRunBreakdown);
         $scope.machine = {};
         $scope.breakdown = '';
         $scope.reason = '';
         $scope.breakdownNo = '';
     };
-    
+
     $scope.save = function () {
 
         $scope.controlPointRun.runDate = $('#runDate').val();
@@ -157,6 +166,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
     $('#controlPointRunModal').on('show.bs.modal', function () {
         $scope.loadShifts();
         $scope.loadJobs();
+        $scope.loadJobTypes();
         $scope.loadControlPoints();
         $scope.loadMachines();
         $scope.loadLossTypes();
@@ -169,7 +179,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
                 $scope.controlPointRun = controlPointRunService.toEdit;
                 $('#runDatetimepicker').val($scope.controlPointRun.runDate);
             }, 500);
-            
+
         }
     })
 });
