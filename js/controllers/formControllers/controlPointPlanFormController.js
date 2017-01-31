@@ -1,16 +1,15 @@
 
-app.controller('controlPointPlanFormController', function ($scope, $timeout, controlPointPlanService, appService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
+app.controller('controlPointPlanFormController', function ($scope, $timeout, controlPointPlanService, jobTypeService, controlPointService, shiftService, jobService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
     //main
     $scope.controlPointPlan = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
+    $scope.jobTypes = [];
     $scope.lossTypes = [];
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
-
    
-
     $scope.saveButtonText = 'Save';
 
     $scope.jobQuantity = '';
@@ -32,17 +31,17 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         });
     }
     
+    $scope.loadJobTypes = function () {
+        jobTypeService.getAll().then(function (response) {
+            $scope.jobTypes = response.data;
+        });
+    }    
     
     $scope.loadManpowerTypes = function () {
-
-
         manpowerTypeService.getAll().then(function (response) {
             $scope.manpowerTypes = response.data;
         });
     }
-
-
-
 
     $scope.productionClear = function () {
         $scope.productionJobNo = '';
@@ -55,6 +54,7 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         $scope.noOfBreakdown = '';
         $scope.machinerunningTime = '';
     }
+    
     $scope.hrClear = function () {
         $scope.hrJobNo = '';
         $scope.company = '';
@@ -62,6 +62,7 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         $scope.help = '';
         $scope.other = '';
     }
+    
     $scope.clear = function () {
         $scope.controlPointPlan = {};
     }
@@ -80,13 +81,14 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         if ($scope.controlPointPlan.controlPointPlanJobList == undefined) {
             $scope.controlPointPlan.controlPointPlanJobList = [];
         }
-        var controlPointPlanJob = {job: $scope.job, quantity: $scope.jobQuantity};
+        var controlPointPlanJob = {job: $scope.job, jobType: $scope.jobType, quantity: $scope.jobQuantity};
         $scope.controlPointPlan.controlPointPlanJobList.push(controlPointPlanJob);
         $scope.job = {};
+        $scope.jobType = {};
         $scope.jobQuantity = '';
     };
+    
     $scope.save = function () {
-
         $scope.controlPointPlan.planDate = $('#planDate').val();
         controlPointPlanService.save($scope.controlPointPlan).then(
                 function (response) {
@@ -107,9 +109,11 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
                 }
         );
     }
+    
     $('#controlPointPlanModal').on('show.bs.modal', function () {
         $scope.loadShifts();
         $scope.loadJobs();
+        $scope.loadJobTypes();
         $scope.loadControlPoints();
         $scope.loadManpowerTypes();
         $scope.saveButtonText = 'Save';
@@ -119,7 +123,6 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
                 $scope.controlPointPlan = controlPointPlanService.toEdit;
                 $('#runDatetimepicker').val($scope.controlPointPlan.runDate);
             }, 500);
-
         }
     })
 });
