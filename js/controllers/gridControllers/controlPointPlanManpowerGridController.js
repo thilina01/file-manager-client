@@ -22,7 +22,7 @@ app.controller('controlPointPlanManpowerGridController', function ($http, $scope
     $scope.dataTable = $scope.table.DataTable({
         columns: [
             {data: 'controlPointPlan.controlPoint.code'},
-            {data: 'controlPointPlan.runDate'},
+            {data: 'controlPointPlan.planDate'},
             {data: 'controlPointPlan.shift.code'},
             {data: 'manpowerType.type'},
             {data: 'count'}
