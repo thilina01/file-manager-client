@@ -33,7 +33,7 @@ app.controller('importCustomerController', function ($scope, $timeout, $cookies,
 
         // Get The File From The Input
         //var oFile = $file;
-        var sFilename = $file.name;
+        //var sFilename = $file.name;
         // Create A File Reader HTML5
         var reader = new FileReader();
         // Ready The Event For When A File Gets Selected
