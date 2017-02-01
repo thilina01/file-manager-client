@@ -43,7 +43,7 @@ app.controller('itemFormController', function ($scope,$timeout, $cookies, accoun
                     $scope.reloadApp();
                     return response;
                 },
-                function (response) {
+                function (response) {                    
                     if (response.data) {
                         $scope.showError(response.data.message);
                         return response;

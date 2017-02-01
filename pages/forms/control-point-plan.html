@@ -45,8 +45,8 @@
             </div>
 
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" data-target="#controlPointPlan">Control Point Plan</a></li>
-                <li><a data-toggle="tab" data-target="#hr">HR</a></li>
+                <li class="active"><a data-toggle="tab" data-target="#controlPointPlan">Job Plan</a></li>
+                <li><a data-toggle="tab" data-target="#hr">HR Plan</a></li>
             </ul>
 
             <div class="tab-content">
@@ -59,8 +59,8 @@
                                     <select class="form-control input-sm" ng-model="job" ng-options="job.jobNo for job in jobs track by job.id"></select>
                                 </div>
                                 <div class="form-group ">
-                                    <label class="control-label" for="controlPointPlanJobType">Job Type:</label>
-                                    <select class="form-control input-sm" ng-model="jobType" ng-options="jobType.type for jobType in jobTypes track by jobTypes.id"></select>
+                                    <label class="control-label" for="controlPointPlanJobType">Job Type</label>
+                                    <select class="form-control input-sm" ng-model="jobType" ng-options="a.type for a in jobTypes"></select>
                                 </div>
                                 <div class="form-group ">
                                     <label class="control-label" for="jobQuantity">Quantity:</label>
