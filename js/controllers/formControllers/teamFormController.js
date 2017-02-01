@@ -30,7 +30,7 @@ app.controller('teamFormController', function ($scope, $timeout, $cookies, accou
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

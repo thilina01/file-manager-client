@@ -86,8 +86,8 @@ app.controller('customerFormController', function ($scope,$timeout, $cookies, ac
            $timeout(function () {
                 $scope.saveButtonText = 'Update';
                 $scope.customer = customerService.toEdit;
-                alert('$scope.customer.id');
-                alert($scope.customer.id);
+                //alert('$scope.customer.id');
+                //alert($scope.customer.id);
             }, 500);
         }
     })

@@ -29,7 +29,7 @@ app.controller('controlPointRunBreakdownGridController', function ($http, $scope
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
     $scope.loadControlPointRunBreakdowns = function () {
-        alert('ddddd');
+        //alert('ddddd');
         $scope.dataTable.clear();
         controlPointRunBreakdownService.getAll().then(function (response) {
             $scope.controlPointRunBreakdowns = response.data;

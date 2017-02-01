@@ -17,7 +17,7 @@ app.controller('importControlPointController', function ($scope, $timeout, $cook
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

@@ -17,7 +17,7 @@ app.controller('importCustomerJobController', function ($scope, $timeout, $cooki
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

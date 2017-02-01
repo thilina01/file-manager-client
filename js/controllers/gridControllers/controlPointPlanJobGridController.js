@@ -32,7 +32,7 @@ app.controller('controlPointPlanJobGridController', function ($http, $scope, $co
         buttons: dataTableService.getButtons($scope.edit, $scope.delete)
     });
     $scope.loadControlPointPlanJobs = function () {
-        alert("ffff");
+        //alert("ffff");
         $scope.dataTable.clear();
         controlPointPlanJobService.getAll().then(function (response) {
             $scope.controlPointPlanJobs = response.data;

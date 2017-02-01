@@ -17,7 +17,7 @@ app.controller('importItemController', function ($scope, $timeout, $cookies, dat
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

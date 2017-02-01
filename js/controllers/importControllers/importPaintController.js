@@ -17,7 +17,7 @@ app.controller('importPaintController', function ($scope, $timeout, $cookies, da
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

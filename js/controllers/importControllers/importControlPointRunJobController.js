@@ -17,7 +17,7 @@ app.controller('importControlPointRunJobController', function ($scope, $timeout,
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                        //alert(response.data);
                     }
 
                     $scope.showError("Unable to save");

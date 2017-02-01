@@ -17,7 +17,7 @@ app.controller('importWorkCenterController', function ($scope, $timeout, $cookie
                 },
                 function (response) {
                     if (response.data) {
-                        alert(response.data);
+                       // alert(response.data);
                     }
 
                     $scope.showError("Unable to save");
