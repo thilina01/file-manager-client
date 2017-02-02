@@ -23,7 +23,7 @@ app.controller('controlPointPlanJobGridController', function ($http, $scope, $co
             {data: 'controlPointPlan.planDate'},
             {data: 'controlPointPlan.controlPoint.code'},
             {data: 'controlPointPlan.shift.code'},
-            {data: 'job.id'},
+            {data: 'job.jobNo'},
             {data: 'jobType.type'},
             {data: 'quantity'}
            
