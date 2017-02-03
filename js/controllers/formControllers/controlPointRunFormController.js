@@ -1,11 +1,12 @@
 
-app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, jobTypeService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
+app.controller('controlPointRunFormController', function ($scope, $timeout, controlPointRunService, appService, controlPointService, shiftService, jobService, jobTypeService, operationService, machineService, lossTypeService, lossReasonService, manpowerTypeService) {
     //main
     $scope.controlPointRun = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
     $scope.jobTypes = [];
+    $scope.operations = [];
     $scope.lossTypes = [];
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
@@ -38,6 +39,12 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
     $scope.loadJobTypes = function () {
         jobTypeService.getAll().then(function (response) {
             $scope.jobTypes = response.data;
+        });
+    }
+
+    $scope.loadOperations = function () {
+        operationService.getAll().then(function (response) {
+            $scope.operations = response.data;
         });
     }
 
@@ -123,10 +130,11 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         if ($scope.controlPointRun.controlPointRunJobList == undefined) {
             $scope.controlPointRun.controlPointRunJobList = [];
         }
-        var controlPointRunJob = {job: $scope.job, jobType: $scope.jobType, quantity: $scope.jobQuantity};
+        var controlPointRunJob = {job: $scope.job, jobType: $scope.jobType, operation: $scope.operation, quantity: $scope.jobQuantity};
         $scope.controlPointRun.controlPointRunJobList.push(controlPointRunJob);
         $scope.job = {};
         $scope.jobType = {};
+        $scope.operation = {};
         $scope.jobQuantity = '';
     };
     $scope.addControlPointRunBreakdown = function () {
@@ -167,6 +175,7 @@ app.controller('controlPointRunFormController', function ($scope, $timeout, cont
         $scope.loadShifts();
         $scope.loadJobs();
         $scope.loadJobTypes();
+        $scope.loadOperations();
         $scope.loadControlPoints();
         $scope.loadMachines();
         $scope.loadLossTypes();

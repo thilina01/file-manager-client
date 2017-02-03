@@ -63,6 +63,10 @@
                                     <select class="form-control input-sm" ng-model="jobType" ng-options="a.type for a in jobTypes"></select>
                                 </div>
                                 <div class="form-group ">
+                                    <label class="control-label" for="controlPointPlanJobOperation">Operation</label>
+                                    <select class="form-control input-sm" ng-model="operation" ng-options="a.description for a in operations"></select>
+                                </div>
+                                <div class="form-group ">
                                     <label class="control-label" for="jobQuantity">Quantity:</label>
 
                                     <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
@@ -76,6 +80,7 @@
                                         <th>Item</th>
                                         <th>Job</th>
                                         <th>Job Type</th>
+                                        <th>Operation</th>
                                         <th>Quantity</th>
                                         <th>Job Quantity</th>
                                     </tr>
@@ -84,7 +89,8 @@
                                     <tr ng-repeat="controlPointPlanJob in controlPointPlan.controlPointPlanJobList">  
                                         <td>{{controlPointPlanJob.job.item.code}}</td>  
                                         <td>{{controlPointPlanJob.job.jobNo}}</td>  
-                                        <td>{{controlPointPlanJob.jobType.type}}</td>   
+                                        <td>{{controlPointPlanJob.jobType.type}}</td>  
+                                        <td>{{controlPointPlanJob.operation.description}}</td>   
                                         <td>{{controlPointPlanJob.quantity}}</td> 
                                         <td>{{controlPointPlanJob.job.quantity}}</td> 
                                     </tr>

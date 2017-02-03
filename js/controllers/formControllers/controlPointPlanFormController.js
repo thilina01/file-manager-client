@@ -1,11 +1,12 @@
 
-app.controller('controlPointPlanFormController', function ($scope, $timeout, controlPointPlanService, jobTypeService, controlPointService, shiftService, jobService, manpowerTypeService) {
+app.controller('controlPointPlanFormController', function ($scope, $timeout, controlPointPlanService, jobTypeService, operationService, controlPointService, shiftService, jobService, manpowerTypeService) {
     //main
     $scope.controlPointPlan = {};
     $scope.controlPoints = [];
     $scope.shifts = [];
     $scope.jobs = [];
     $scope.jobTypes = [];
+    $scope.opertions = [];
     $scope.lossTypes = [];
     $scope.lossReasons = [];
     $scope.manpowerTypes = [];
@@ -34,6 +35,12 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
     $scope.loadJobTypes = function () {
         jobTypeService.getAll().then(function (response) {
             $scope.jobTypes = response.data;
+        });
+    }
+    
+    $scope.loadOperations = function () {
+        operationService.getAll().then(function (response) {
+            $scope.operations = response.data;
         });
     }
 
@@ -81,10 +88,11 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         if ($scope.controlPointPlan.controlPointPlanJobList == undefined) {
             $scope.controlPointPlan.controlPointPlanJobList = [];
         }
-        var controlPointPlanJob = {job: $scope.job, jobType: $scope.jobType, quantity: $scope.jobQuantity};
+        var controlPointPlanJob = {job: $scope.job, jobType: $scope.jobType,operation: $scope.operation, quantity: $scope.jobQuantity};
         $scope.controlPointPlan.controlPointPlanJobList.push(controlPointPlanJob);
         $scope.job = {};
         $scope.jobType = {};
+        $scope.operation = {};
         $scope.jobQuantity = '';
     };
 
@@ -114,6 +122,7 @@ app.controller('controlPointPlanFormController', function ($scope, $timeout, con
         $scope.loadShifts();
         $scope.loadJobs();
         $scope.loadJobTypes();
+        $scope.loadOperations();
         $scope.loadControlPoints();
         $scope.loadManpowerTypes();
         $scope.saveButtonText = 'Save';

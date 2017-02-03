@@ -82,6 +82,10 @@
 
                                     <select class="form-control input-sm" ng-model="jobType" ng-options="jobType.type for jobType in jobTypes track by jobType.id"></select>
                                 </div>
+                                <div class="form-group ">
+                                    <label class="control-label" for="controlPointPlanJobOperation">Operation</label>
+                                    <select class="form-control input-sm" ng-model="operation" ng-options="a.description for a in operations"></select>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label" for="jobQuantity">Qty:</label>
                                     <input type="text" class="form-control input-sm" id="jobQuantity" placeholder="" name="jobQuantity" ng-model="jobQuantity">
@@ -95,6 +99,7 @@
                                         <th>Item</th>
                                         <th>Job</th>
                                         <th>Job Type</th>
+                                        <th>Operation</th>
                                         <th>Quantity</th>
                                         <th>Job Quantity</th>
                                     </tr>
@@ -103,7 +108,8 @@
                                     <tr ng-repeat="controlPointRunJob in controlPointRun.controlPointRunJobList">  
                                         <td>{{controlPointRunJob.job.item.code}}</td>  
                                         <td>{{controlPointRunJob.job.jobNo}}</td>   
-                                        <td>{{controlPointRunJob.jobType.type}}</td>   
+                                        <td>{{controlPointRunJob.jobType.type}}</td>  
+                                        <td>{{controlPointRunJob.operation.description}}</td>   
                                         <td>{{controlPointRunJob.quantity}}</td> 
                                         <td>{{controlPointRunJob.job.quantity}}</td> 
                                     </tr>
