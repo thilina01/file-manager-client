@@ -1,0 +1,31 @@
+<div class="modal fade" id="importOperationModal" role="dialog" ng-controller="importOperationController">
+    <div class="modal-dialog modal-dialog-full">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-content-full">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Operation</h4>
+            </div> 
+            <div class="modal-body">           
+            <label class="btn btn-default btn-file" for="file">
+                Browse 
+                <input type="file" name="file" id="file" ng-model="file" onchange="angular.element(this).scope().setFile(this.files[0])" >
+            </label>
+                <table id="importOperationTable" class="display table table-hover table-striped table-condensed" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()"><i class="icon-save"></i> Save</button>
+                <button type="button" class="btn btn-info" ng-click="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
